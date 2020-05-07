@@ -14,12 +14,12 @@
                     No agencies have been submitted
               </div>
             @else
-                <table class="table table-dark text-center">
+                <table class="table table-bordered text-center">
                     <thead>
                         <tr>
-                            <th scope="col">Name</th>
+                            <th class ="col-md-10"scope="col">Name</th>
                             {{-- <th scope="col">Edit</th> --}}
-                            <th scope="col">Delete</th>
+                            <th class ="col-md-2" scope="col">Delete</th>
                         </tr>
                     </thead>
                     <tbody>

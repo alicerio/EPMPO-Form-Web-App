@@ -10,19 +10,23 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-Route::get('/', function () {
-    return view('welcome');
-});
-
-
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/', 'HomeController@index')->name('home');
 
-Route::resource('users', 'UserController');
+Route::resource('/users', 'UserController');
+
+Route::resource('/projects', 'ProjectController');
+// Route::apiResource('api/projects', 'API\ProjectController');
+
+Route::resource('agencies', 'AgencyController');
+
+Route::patch('projects/updateMPO', 'ProjectController@updateMPO')->name('projects.updateMPO');
 
 Route::resource('projects', 'ProjectController');
 // Route::apiResource('api/projects', 'API\ProjectController');
 
 Route::resource('agencies', 'AgencyController');
+
+Route::get('project-pdf','ProjectController@exportPDF')->name('project.pdf'); 
+Route::get('project-excel','ProjectController@exportExcel')->name('project.excel'); 

@@ -14,13 +14,16 @@
                     No projects have been submitted
               </div>
             @else
-                <table class="table table-dark">
+                <table class="table table-bordered">
                     <thead>
                         <tr>
                         <th scope="col">Project</th>
                         <th scope="col">Agency</th>
                         <th scope="col">Name</th>
                         <th scope="col">Status</th>
+                        <th scope="col">MPO ID</th>
+                        <th scope="col">CSJ</th>
+                        <th scope="col">MPO/CSJ</th>
                         <th scope="col">Edit</th>
                         <th scope="col">Delete</th>
                         </tr>
@@ -37,6 +40,24 @@
                             <td>{{ auth()->user()->agency->name }}</td>
                             <td>{{ auth()->user()->name }}</td>
                             <td>{{ $statuses[0] }}</td>
+                            <form action="{{ route('projects.updateMPO', $project->id) }}" method="POST">
+                                @csrf
+                                @method('PATCH')
+                                <input type="text" name="name" hidden value="{{ $project->name }}">
+                                <input type="text" name="agency_id" hidden value="{{ $project->agency_id }}">
+                                <input type="text" name="parent_id" hidden value="{{ $project->parent_id }}">
+                                <td>
+                                    <input type="text" class="form-control" name="mpo_id" value="{{ $project->mpo_id }}">
+                                </td>
+                                <td>
+                                    <input type="text" class="form-control" name="csj_cn" value="{{ $project->csj_cn }}">
+                                </td>
+                                <td>
+                                    <button class="btn btn-light btn-block" type="submit">
+                                            Update MPO ID
+                                    </button>
+                                </td>
+                            </form>
                             <td>
                                 <a href="{{ route('projects.edit', $project->id) }}" class="btn btn-primary btn-block">
                                     Edit

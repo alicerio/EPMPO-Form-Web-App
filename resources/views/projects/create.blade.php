@@ -975,6 +975,8 @@
 
                             </div>
                         </div>
+                        <a class="btn btn-primary" href="{{route('project.excel')}}" role="button">Export to Excel</a>
+                        <a class="btn btn-primary" href="{{route('project.pdf')}}" role="button">Export to PDF</a>
 
                         <button class="btn btn-primary mt-1 float-right" type="submit">
                             Save
