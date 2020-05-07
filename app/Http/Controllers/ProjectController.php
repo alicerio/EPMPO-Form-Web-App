@@ -60,7 +60,7 @@ class ProjectController extends Controller
         $project->on_state = request('on_state') == 'on' ? true : false;
         $project->off_state = request('off_state') == 'on' ? true : false;
         $project->capacity_project = request('capacity_project') == 'on' ? true : false;
-        $project->classification = request('classification');
+        $project->classification = request('classification') == '----' ? null : request('classification');
         $project->district = request('district') == '----' ? null : request('district');
         $project->county = request('county') == '----' ? null : request('county');
         $project->incorporated_city = request('incorporated_city') == '----' ? null : request('incorporated_city');
@@ -243,7 +243,7 @@ class ProjectController extends Controller
         $project->on_state = request('on_state') == 'on' ? true : false;
         $project->off_state = request('off_state') == 'on' ? true : false;
         $project->capacity_project = request('capacity_project') == 'on' ? true : false;
-        $project->classification = request('classification');
+        $project->classification = request('classification') == '----' ? null : request('classification');
         $project->district = request('district') == '----' ? null : request('district');
         $project->county = request('county') == '----' ? null : request('county');
         $project->incorporated_city = request('incorporated_city') == '----' ? null : request('incorporated_city');
