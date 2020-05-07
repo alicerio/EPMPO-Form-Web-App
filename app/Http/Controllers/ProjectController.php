@@ -380,4 +380,26 @@ class ProjectController extends Controller
         $project->delete();
         return redirect(route('projects.index'));
     }
+
+
+     /**
+     * Update the specified resource MPO ID in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\Project  $project
+     * @return \Illuminate\Http\Response
+     */
+    public function updateMPO(Request $request, Project $project)
+    {
+
+        request()->validate([
+            'name' => 'required',
+        ]);
+        $project->mpo_id = request('mpo_id');
+        $project->csj_cn = request('csj_cn');
+        $project->save();
+
+        return redirect(route('projects.index'));
+    }
+
 }
