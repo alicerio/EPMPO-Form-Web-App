@@ -411,6 +411,7 @@ class ProjectController extends Controller
         ]);
         $project->mpo_id = request('mpo_id');
         $project->csj_cn = request('csj_cn');
+        $project->name = request('name');
         $project->save();
 
         return redirect(route('projects.index'));
