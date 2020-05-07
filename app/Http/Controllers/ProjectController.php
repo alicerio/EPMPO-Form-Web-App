@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Project;
 use Illuminate\Http\Request;
+use Barryvdh\DomPDF\Facade as PDF;
+use Maatwebsite\Excel\Facades\Excel;
+use App\Exports\ProjectsExport;
 
 class ProjectController extends Controller
 {
@@ -373,11 +376,23 @@ class ProjectController extends Controller
      * Remove the specified resource from storage.
      *
      * @param  \App\Project  $project
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\Responses
      */
     public function destroy(Project $project)
     {
         $project->delete();
         return redirect(route('projects.index'));
+    }
+
+    public function exportPDF()
+    {
+        $data = Project::get();
+        $pdf = PDF::loadView('pdf.project',compact('data'));
+        return $pdf->download('project-list.pdf');
+    }
+
+    public function exportExcel()
+    {
+        return Excel::download(new ProjectsExport,'projects.xlsx');
     }
 }

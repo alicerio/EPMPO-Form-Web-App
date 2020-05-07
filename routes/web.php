@@ -19,4 +19,7 @@ Route::resource('/users', 'UserController');
 Route::resource('/projects', 'ProjectController');
 // Route::apiResource('api/projects', 'API\ProjectController');
 
-Route::resource('/agencies', 'AgencyController');
+Route::resource('agencies', 'AgencyController');
+
+Route::get('project-pdf','ProjectController@exportPDF')->name('project.pdf'); 
+Route::get('project-excel','ProjectController@exportExcel')->name('project.excel'); 
