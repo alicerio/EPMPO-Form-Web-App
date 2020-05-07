@@ -56,7 +56,7 @@ class ProjectController extends Controller
         $project->fiscal_year = request('fiscal_year');
         $project->hwrw_name = request('hwrw_name');
         $project->network_year = request('network_year') == '----' ? null : request('network_year');
-        $project->type = request('type');
+        $project->type = request('type') == '----' ? null : request('type');
         $project->on_state = request('on_state') == 'on' ? true : false;
         $project->off_state = request('off_state') == 'on' ? true : false;
         $project->capacity_project = request('capacity_project') == 'on' ? true : false;
@@ -239,7 +239,7 @@ class ProjectController extends Controller
         $project->fiscal_year = request('fiscal_year');
         $project->hwrw_name = request('hwrw_name');
         $project->network_year = request('network_year') == '----' ? null : request('network_year');
-        $project->type = request('type');
+        $project->type = request('type') == '----' ? null : request('type');
         $project->on_state = request('on_state') == 'on' ? true : false;
         $project->off_state = request('off_state') == 'on' ? true : false;
         $project->capacity_project = request('capacity_project') == 'on' ? true : false;
