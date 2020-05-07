@@ -14,7 +14,7 @@
                     No projects have been submitted
               </div>
             @else
-                <table class="table table-dark">
+                <table class="table table-bordered">
                     <thead>
                         <tr>
                         <th scope="col">Project</th>
