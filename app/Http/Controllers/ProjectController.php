@@ -6,7 +6,7 @@ use App\Project;
 use Illuminate\Http\Request;
 use Barryvdh\DomPDF\Facade as PDF;
 use Maatwebsite\Excel\Facades\Excel;
-use App\Exports;
+use App\Exports\ProjectsExport;
 
 class ProjectController extends Controller
 {
