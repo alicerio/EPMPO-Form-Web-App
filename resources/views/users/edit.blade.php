@@ -36,6 +36,11 @@
                             <option value="2"  {{ $user->type == 2 ? 'selected' : '' }}>Admin</option>
                         </select>
 
+                        <label>
+                            Password
+                        </label>
+                        <input type="password" name="password" class="form-control">
+
                         <button class="btn btn-primary mt-1 float-right">Update</button>
                     </form>
                 </div>

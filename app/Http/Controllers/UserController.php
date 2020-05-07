@@ -66,6 +66,7 @@ class UserController extends Controller
         $user->name = request('name');
         $user->type = request('type');
         $user->agency_id = request('agency_id');
+        $user->password = \Hash::make(request('password'));
 
         $user->save();
         return redirect(route('users.index'));

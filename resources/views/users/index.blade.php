@@ -4,7 +4,7 @@
 <div class="container">
     <div class="row">
         <div class="col-md-8">
-            <table class="table table-dark">
+            <table class="table table-bordered">
                 <thead>
                   <tr>
                     <th scope="col">Name</th>
