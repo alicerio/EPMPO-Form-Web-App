@@ -45,6 +45,7 @@
                             @if(auth()->user()->type!=2)
                                 <td>{{ $project->mpo_id }}</td>
                                 <td>{{ $project->csj_cn }}</td>
+                                <td></td>
                             @else
                                 <form action="{{ route('projects.updateMPO', $project->id) }}" method="POST">
                                     @csrf
