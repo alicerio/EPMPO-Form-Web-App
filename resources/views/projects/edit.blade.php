@@ -15,12 +15,12 @@
                         <label>
                             MPO ID
                         </label>
-                        <input type="text" class="form-control" name="mpo_id" value="{{ $project->mpo_id }}">
+                        <input type="text" class="form-control" name="mpo_id" value="{{ $project->mpo_id }}" readonly>
                         
                         <label>
                             CSJ or CN
                         </label>
-                        <input type="text" class="form-control" name="csj_cn" value="{{ $project->csj_cn }}">
+                        <input type="text" class="form-control" name="csj_cn" value="{{ $project->csj_cn }}" readonly>
 
                         <label>
                             Name

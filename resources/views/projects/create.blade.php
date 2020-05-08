@@ -15,12 +15,12 @@
                         <label>
                             MPO ID
                         </label>
-                        <input type="text" class="form-control" name="mpo_id" autocomplete="off">
+                        <input type="text" class="form-control" name="mpo_id" autocomplete="off" readonly>
                         
                         <label>
                             CSJ or CN
                         </label>
-                        <input type="text" class="form-control" name="csj_cn" autocomplete="off">
+                        <input type="text" class="form-control" name="csj_cn" autocomplete="off" readonly>
 
                         <label>
                             Name
