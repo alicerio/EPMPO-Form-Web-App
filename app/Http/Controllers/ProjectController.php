@@ -4,9 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Project;
 use Illuminate\Http\Request;
+use Illuminate\Support\Collection;
 use Barryvdh\DomPDF\Facade as PDF;
-use Maatwebsite\Excel\Facades\Excel;
-use App\Exports\ProjectsExport;
+use Exporter;
 
 class ProjectController extends Controller
 {
@@ -27,6 +27,30 @@ class ProjectController extends Controller
     public function create()
     {
         return view('projects.create');
+    }
+
+    public function exportPDF()
+    {
+        $data = Project::get();
+        $pdf = PDF::loadView('pdf.project',compact('data'));
+        return $pdf->download('project-list.pdf');
+    }
+
+    public function exportExcel()
+    {
+        $project = new Project();
+        $columns = $project->getTableColumns();
+        $projects = $project->getAll();
+        $data = new collection();
+        foreach($columns as $column){
+            $data[0] = (object) $column;
+        }
+        $data = $data->merge($projects);
+        
+        $fileName = "Projects.xlsx";
+        $excel = Exporter::make('Excel');
+        $excel->load($data);
+        return $excel->stream($fileName);
     }
 
     public function store(Request $request)
@@ -382,17 +406,5 @@ class ProjectController extends Controller
     {
         $project->delete();
         return redirect(route('projects.index'));
-    }
-
-    public function exportPDF()
-    {
-        $data = Project::get();
-        $pdf = PDF::loadView('pdf.project',compact('data'));
-        return $pdf->download('project-list.pdf');
-    }
-
-    public function exportExcel()
-    {
-        return Excel::download(new ProjectsExport,'projects.xlsx');
     }
 }
