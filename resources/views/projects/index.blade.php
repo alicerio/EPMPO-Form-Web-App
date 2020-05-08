@@ -43,9 +43,6 @@
                             <form action="{{ route('projects.updateMPO', $project->id) }}" method="POST">
                                 @csrf
                                 @method('PATCH')
-                                <input type="text" name="name" hidden value="{{ $project->name }}">
-                                <input type="text" name="agency_id" hidden value="{{ $project->agency_id }}">
-                                <input type="text" name="parent_id" hidden value="{{ $project->parent_id }}">
                                 <td>
                                     <input type="text" class="form-control" name="mpo_id" value="{{ $project->mpo_id }}">
                                 </td>
