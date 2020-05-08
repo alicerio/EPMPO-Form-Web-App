@@ -39,9 +39,17 @@
                                 </a>
                             </td>
                             {{-- TODO: FIX AGENCY NAME --}}
-                            <td>{{ auth()->user()->agency->name }}</td>
+                            @foreach ($agencies as $agency)
+                                @if($agency->id == $project->agency_id)
+                                    <td>{{ $agency->name }}</td>
+                                @endif
+                            @endforeach
                             <td>{{ auth()->user()->name }}</td>
-                            <td>{{ $statuses[0] }}</td>
+                            @if($project->agency_id<=6)
+                                <td>{{ $statuses[$project->agency_id] }}</td>
+                            @else
+                                <td>{{ $statuses[random_int(0,6)] }}</td>
+                            @endif
                             @if(auth()->user()->type!=2)
                                 <td>{{ $project->mpo_id }}</td>
                                 <td>{{ $project->csj_cn }}</td>

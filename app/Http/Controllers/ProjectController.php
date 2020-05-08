@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Project;
+use App\Agency;
 use Illuminate\Http\Request;
 use Illuminate\Support\Collection;
 use Barryvdh\DomPDF\Facade as PDF;
@@ -19,8 +20,9 @@ class ProjectController extends Controller
     public function index()
     {
         $projects = Project::all();
+        $agencies = Agency::all();
         $statuses = ['In Progress','PM Pending Review','PM Signed', 'Submitted V1','MPO Returned','MPO Accepted', 'MPO Post-Acceptance Revision'];
-        return view('projects.index', compact('projects', 'statuses'));
+        return view('projects.index', compact('projects', 'statuses','agencies'));
     }
 
 
