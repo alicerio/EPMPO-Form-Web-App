@@ -24,7 +24,7 @@ class UserController extends Controller
     {
         if(auth()->user()->type == 2){
             $users = User::all();
-            $types = ['Regular', 'Staff', 'Admin'];
+            $types = ['Creator', 'Submitter', 'Admin'];
             $agencies = Agency::all();
             return view('users.index', compact('users', 'types', 'agencies'));
         }else{

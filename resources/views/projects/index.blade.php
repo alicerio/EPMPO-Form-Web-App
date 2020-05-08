@@ -30,6 +30,8 @@
                     </thead>
                     <tbody>
                         @foreach ($projects as $project)
+                        @if($project->agency_id != auth()->user()->agency->id && auth()->user()->type!=2)
+                        @else
                         <tr>
                             <td>
                                 <a href="{{ route('projects.show', $project->id) }}">
@@ -40,23 +42,29 @@
                             <td>{{ auth()->user()->agency->name }}</td>
                             <td>{{ auth()->user()->name }}</td>
                             <td>{{ $statuses[0] }}</td>
-                            <form action="{{ route('projects.updateMPO', $project->id) }}" method="POST">
-                                @csrf
-                                @method('PATCH')
-                                <input type="text" name="name" hidden value="{{ $project->name }}">
-                                <input type="text" name="agency_id" hidden value="{{ $project->agency_id }}">
-                                <td>
-                                    <input type="text" class="form-control" name="mpo_id" value="{{ $project->mpo_id }}">
-                                </td>
-                                <td>
-                                    <input type="text" class="form-control" name="csj_cn" value="{{ $project->csj_cn }}">
-                                </td>
-                                <td>
-                                    <button class="btn btn-light btn-block" type="submit">
-                                            Update MPO ID
-                                    </button>
-                                </td>
-                            </form>
+                            @if(auth()->user()->type!=2)
+                                <td>{{ $project->mpo_id }}</td>
+                                <td>{{ $project->csj_cn }}</td>
+                                <td></td>
+                            @else
+                                <form action="{{ route('projects.updateMPO', $project->id) }}" method="POST">
+                                    @csrf
+                                    @method('PATCH')
+                                    <input type="text" name="name" hidden value="{{ $project->name }}">
+                                    <input type="text" name="agency_id" hidden value="{{ $project->agency_id }}">
+                                    <td>
+                                        <input type="text" class="form-control" name="mpo_id" value="{{ $project->mpo_id }}">
+                                    </td>
+                                    <td>
+                                        <input type="text" class="form-control" name="csj_cn" value="{{ $project->csj_cn }}">
+                                    </td>
+                                    <td>
+                                        <button class="btn btn-light btn-block" type="submit">
+                                                Update MPO ID
+                                        </button>
+                                    </td>
+                                </form>
+                            @endif
                             <td>
                                 <a href="{{ route('projects.edit', $project->id) }}" class="btn btn-primary btn-block">
                                     Edit
@@ -72,6 +80,7 @@
                                 </form>
                             </td>
                         </tr>
+                        @endif
                         @endforeach
                     </tbody>
                 </table>

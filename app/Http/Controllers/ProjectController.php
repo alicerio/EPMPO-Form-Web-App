@@ -19,7 +19,7 @@ class ProjectController extends Controller
     public function index()
     {
         $projects = Project::all();
-        $statuses = ['In Progress', 'Submitted', 'Completed'];
+        $statuses = ['In Progress','PM Pending Review','PM Signed', 'Submitted V1','MPO Returned','MPO Accepted', 'MPO Post-Acceptance Revision'];
         return view('projects.index', compact('projects', 'statuses'));
     }
 
