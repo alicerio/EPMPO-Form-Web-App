@@ -101,8 +101,8 @@
 
                   <div class="col-md-6">
                       <select name="type" class="form-control @error('type') is-invalid @enderror" required>
-                        <option value="0">Regular</option>
-                        <option value="1">Staff</option>
+                        <option value="0">Creator</option>
+                        <option value="1">Submitter</option>
                         <option value="2">Admin</option>
                       </select>
 

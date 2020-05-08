@@ -30,6 +30,8 @@
                     </thead>
                     <tbody>
                         @foreach ($projects as $project)
+                        @if($project->agency_id != auth()->user()->agency->id && auth()->user()->type!=2)
+                        @else
                         <tr>
                             <td>
                                 <a href="{{ route('projects.show', $project->id) }}">
@@ -72,6 +74,7 @@
                                 </form>
                             </td>
                         </tr>
+                        @endif
                         @endforeach
                     </tbody>
                 </table>

@@ -31,8 +31,8 @@
                             Type:
                         </label>
                         <select name="type" class="form-control @error('type') is-invalid @enderror" required autocomplete="off">
-                            <option value="0"  {{ $user->type == 0 ? 'selected' : '' }}>Regular</option>
-                            <option value="1"  {{ $user->type == 1 ? 'selected' : '' }}>Staff</option>
+                            <option value="0"  {{ $user->type == 0 ? 'selected' : '' }}>Creator</option>
+                            <option value="1"  {{ $user->type == 1 ? 'selected' : '' }}>Submitter</option>
                             <option value="2"  {{ $user->type == 2 ? 'selected' : '' }}>Admin</option>
                         </select>
 
