@@ -16,11 +16,8 @@ Route::get('/', 'HomeController@index')->name('home');
 
 Route::resource('/users', 'UserController');
 
-Route::resource('agencies', 'AgencyController');
-
-Route::patch('projects/updateMPO', 'ProjectController@updateMPO')->name('projects.updateMPO');
-
-Route::resource('projects', 'ProjectController');
+Route::patch('projects/updateMPO/{project}', 'ProjectController@updateMPO')->name('projects.updateMPO');
+Route::resource('/projects', 'ProjectController');
 // Route::apiResource('api/projects', 'API\ProjectController');
 
 Route::resource('agencies', 'AgencyController');

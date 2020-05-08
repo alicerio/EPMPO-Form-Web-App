@@ -418,10 +418,6 @@ class ProjectController extends Controller
      */
     public function updateMPO(Request $request, Project $project)
     {
-
-        request()->validate([
-            'name' => 'required',
-        ]);
         $project->mpo_id = request('mpo_id');
         $project->csj_cn = request('csj_cn');
         $project->name = request('name');
