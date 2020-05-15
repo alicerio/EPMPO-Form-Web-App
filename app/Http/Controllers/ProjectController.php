@@ -419,7 +419,7 @@ class ProjectController extends Controller
 
     /**Function that shows log of changes  */
     public function logChanges(Project $project){
-        $projects = Project::where('id', $project->id)->get();
+        $projects = Project::where('mpo_id', $project->mpo_id)->get();
         $attributesOfProjects = [];
         $logOfChanges = [];
         foreach($projects as $project){
