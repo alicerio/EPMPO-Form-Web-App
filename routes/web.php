@@ -18,7 +18,7 @@ Route::resource('/users', 'UserController');
 
 Route::resource('agencies', 'AgencyController');
 
-Route::patch('projects/updateMPO', 'ProjectController@updateMPO')->name('projects.updateMPO');
+Route::patch('projects/updateMPO/{project}', 'ProjectController@updateMPO')->name('projects.updateMPO');
 Route::get('projects/logChanges', 'ProjectController@logChanges')->name('projects.logChanges');
 
 
