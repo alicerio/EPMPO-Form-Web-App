@@ -419,15 +419,18 @@ class ProjectController extends Controller
 
     /**Function that shows log of changes  */
     public function logChanges(Project $project){
-        $projects = Project::where('mpo_id', $project->mpo_id)->get();
+        //FIXME: Get only certain projects to compare
+        $projects = Project::all();//Project::where('mpo_id', $project->mpo_id)->get();
+        error_log(count($projects));
         $attributesOfProjects = [];
         $logOfChanges = [];
         foreach($projects as $project){
-            $attributesOfProjects.push($project->attributesToArray());
+            array_push($attributesOfProjects,$project->attributesToArray());
         }
+        error_log(count($attributesOfProjects));
         foreach($attributesOfProjects[0] as $key => $value){
             if($attributesOfProjects[0][$key] != $attributesOfProjects[1][$key]){
-                $logOfChanges.push("Difference in: " + $key + " New Value is: " + $attributesOfProjects[1][$key]);
+                array_push($logOfChanges,("Difference in: ".$key." New Value is: ".$attributesOfProjects[1][$key]));
             }
         }
         return view('projects.logOfChanges', compact('logOfChanges'));
