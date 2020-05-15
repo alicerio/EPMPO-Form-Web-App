@@ -23,6 +23,7 @@
                         <th scope="col">Status</th>
                         <th scope="col">MPO ID</th>
                         <th scope="col">CSJ</th>
+                        <th scope="col">Log Changes</th>
                         <th scope="col">MPO/CSJ</th>
                         <th scope="col">Edit</th>
                         <th scope="col">Delete</th>
@@ -57,6 +58,11 @@
                                     </td>
                                     <td>
                                         <input type="text" class="form-control" name="csj_cn" value="{{ $project->csj_cn }}">
+                                    </td>
+                                    <td>
+                                        <a href="{{ route('projects.logChanges', $project->id) }}" class="btn btn-light btn-block mb-1 float-right">
+                                            See log of Changes
+                                        </a>
                                     </td>
                                     <td>
                                         <button class="btn btn-light btn-block" type="submit">

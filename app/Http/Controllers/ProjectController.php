@@ -417,4 +417,21 @@ class ProjectController extends Controller
         return redirect(route('projects.index'));
     }
 
+    /**Function that shows log of changes  */
+    public function logChanges(Project $project){
+        $projects = Project::where('id', $project->id)->get();
+        $attributesOfProjects = [];
+        $logOfChanges = [];
+        foreach($projects as $project){
+            $attributesOfProjects.push($project->attributesToArray());
+        }
+        foreach($attributesOfProjects[0] as $key => $value){
+            if($attributesOfProjects[0][$key] != $attributesOfProjects[1][$key]){
+                $logOfChanges.push("Difference in: " + $key + " New Value is: " + $attributesOfProjects[1][$key]);
+            }
+        }
+        return view('projects.logOfChanges', compact('logOfChanges'));
+    }
+
+
 }
