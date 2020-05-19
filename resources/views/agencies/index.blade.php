@@ -8,6 +8,7 @@
                 New Agency
             </a>
         </div>
+        <div style="padding-top: 5%;"></div>
         <div class="col-md-12">
             @if(count($agencies) == 0)
                 <div class="alert alert-secondary text-center" role="alert">
@@ -36,10 +37,10 @@
                                 </a>
                             </td> --}}
                             <td>
-                                <form action="{{ route('agencies.destroy', $agency->id) }}" method="POST">
+                                <form action="{{ route('agencies.destroy', $agency->id) }}" method="POST" href="edit.php?id=1" onclick="return  confirm('Delete Agency?')"> 
                                     @csrf
                                     @method('delete')
-                                    <button class="btn btn-danger btn-block" type="submit">
+                                    <button id = "deleteAgency"  class="btn btn-danger btn-block" type="submit">
                                         Delete
                                     </button>
                                 </form>

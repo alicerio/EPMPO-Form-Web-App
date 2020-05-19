@@ -11,8 +11,9 @@
                     <th scope="col">Email</th>
                     <th scope="col">Agency</th>
                     <th scope="col">Type</th>
-                    <th scope="col">Edit</th>
-                    <th scope="col">Delete</th>
+                    <!-- <th scope="col">Edit</th> 
+                    <th scope="col">Delete</th>     previous version -->
+                    <th scope="col">Edit options</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -22,6 +23,7 @@
                         <td>{{ $user->email }}</td>
                         <td>{{ $user->agency->name  }}</td>
                         <td>{{ $types[$user->type] }}</td>
+                        <!-- Previous version
                         <td>
                           <a href="{{ route('users.edit', $user->id) }}" class="btn btn-primary">Edit</a>
                         </td>
@@ -33,6 +35,19 @@
                                   Delete
                               </button>
                           </form>
+                        </td> -->
+
+                           <!-- TO DO:  Add delete Logic  -->
+                        <td>
+                            <div class="dropdown">
+                                <button class="btn btn-secondary dropdown-toggle" type="button" id="user_edit_options" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    Options
+                                </button>
+                                <div class="dropdown-menu" aria-labelledby="user_edit_options">
+                                    <a class="dropdown-item" href="{{ route('users.edit', $user->id) }}" >Edit</a>
+                                    <a class="dropdown-item" href="#">Delete</a>
+                                </div>
+                            </div>
                         </td>
                     </tr>
                   @endforeach

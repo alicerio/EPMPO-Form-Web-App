@@ -18,9 +18,34 @@ Route::resource('/users', 'UserController');
 
 Route::patch('projects/updateMPO/{project}', 'ProjectController@updateMPO')->name('projects.updateMPO');
 Route::resource('/projects', 'ProjectController');
+
 // Route::apiResource('api/projects', 'API\ProjectController');
 
 Route::resource('agencies', 'AgencyController');
 
 Route::get('project-pdf','ProjectController@exportPDF')->name('project.pdf'); 
 Route::get('project-excel','ProjectController@exportExcel')->name('project.excel'); 
+
+// For demo purposes
+Route::get('/records', function(){
+    return view('projects.records', compact('project'));
+
+});
+Route::get('/recordsAdmin', function(){
+    return view('projects.recordsAdmin', compact('project'));
+  
+});
+
+Route::get('/commentsAdmin', function(){
+    return view('comments.admin', compact('project'));
+  
+});
+Route::get('/commentsAgency', function(){
+    return view('comments.agency', compact('project'));
+  
+});
+
+Route::get('/test', function(){
+    return view('projects.nonAdminView', compact('project'));
+  
+});

@@ -4,10 +4,19 @@
 <div class="container">
     <div class="row">
         <div class="col-md-12">
-            <a href="{{ route('projects.create') }}" class="btn btn-primary mb-1 float-right">
-                New Project
-            </a>
+     
+                <div class="dropdown">
+                    <button class="btn btn-primary dropdown-toggle float-right" type="button" id="user_edit_options" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        New Project
+                    </button>
+                    <div class="dropdown-menu" aria-labelledby="user_edit_options">
+                        <a class="dropdown-item" href="{{ route('projects.create') }}">Project A</a>
+                        <a class="dropdown-item" href="#">Project B</a>
+                    </div>
+                </div>
+     
         </div>
+        <div style="padding-top: 5%;"></div>
         <div class="col-md-12">
             @if(count($projects) == 0)
                 <div class="alert alert-secondary text-center" role="alert">
@@ -23,9 +32,10 @@
                         <th scope="col">Status</th>
                         <th scope="col">MPO ID</th>
                         <th scope="col">CSJ</th>
-                        <th scope="col">MPO/CSJ</th>
+                  <!--  <th scope="col">MPO/CSJ</th>
                         <th scope="col">Edit</th>
-                        <th scope="col">Delete</th>
+                        <th scope="col">Delete</th> -->
+                        <th scole="col">editor</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -66,13 +76,16 @@
                                     <td>
                                         <input type="text" class="form-control" name="csj_cn" value="{{ $project->csj_cn }}">
                                     </td>
+                                    <!--
                                     <td>
                                         <button class="btn btn-light btn-block" type="submit">
                                                 Update MPO ID
                                         </button>
                                     </td>
+                                -->
                                 </form>
                             @endif
+                            <!--
                             <td>
                                 <a href="{{ route('projects.edit', $project->id) }}" class="btn btn-primary btn-block">
                                     Edit
@@ -86,6 +99,18 @@
                                         Delete
                                     </button>
                                 </form>
+                            </td> -->
+                            <td>
+                                <div class="dropdown">
+                                    <button class="btn btn-secondary dropdown-toggle" type="button" id="user_edit_options" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        Options
+                                    </button>
+                                    <div class="dropdown-menu" aria-labelledby="user_edit_options">
+                                        <a class="dropdown-item" href="{{ route('projects.edit', $project->id) }}">Edit</a>
+                                        <a class="dropdown-item" href="#">Update MPO ID</a>
+                                        <a class="dropdown-item" href="#">Delete</a>
+                                    </div>
+                                </div>
                             </td>
                         </tr>
                         @endif
