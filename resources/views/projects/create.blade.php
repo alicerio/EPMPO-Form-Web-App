@@ -11,7 +11,6 @@
                 <div class="card-body">
                     <form action="{{ route('projects.store') }}" method="POST">
                         @csrf
-
                         <label>
                             MPO ID
                         </label>
@@ -23,12 +22,12 @@
                         <input type="text" class="form-control" name="csj_cn" autocomplete="off" readonly>
 
                         <label>
-                            Name
+                            Project Name
                         </label>
                         <input type="text" class="form-control" name="name" autocomplete="off">
 
                         <label>
-                            Description
+                            Project Description
                         </label>
                         <input type="text" class="form-control" name="description" autocomplete="off">
 
@@ -404,7 +403,7 @@
                                 <textarea name="description_strategy_3" class="form-control" style="width: 22rem; display: none;" placeholder="How does this project meet this strategy?"></textarea>
                                 <label>
                                     <input type="checkbox" name="strategy_4" onclick="toggleTA(this.name);" autocomplete="off">
-                                    System Reliabilit
+                                    System Reliability
                                 </label><br>
                                 <textarea name="description_strategy_4" class="form-control" style="width: 22rem; display: none;" placeholder="How does this project meet this strategy?"></textarea>
                                 <label>
@@ -452,8 +451,6 @@
                                             <input type="checkbox" name="type_administration" autocomplete="off">
                                             Administration
                                         </label><br>
-
-
                                     </div>
                                 </div>
                             </div>
@@ -538,7 +535,7 @@
                                         <input type="date" name="envdoctype_start_date" class="form-control" autocomplete="off">
                                     </div>
                                     <div class="col-sm-2">
-                                        <input type="date" name="envdoctype_end_date" class="form-control" autocomplete="off">
+                                        <input type="date" name="envdoctype_end_date" class="form-control" autocomplete="off" readonly>
                                     </div>
                                     <div class="col-sm-1">
                                         <select name="envdoctype_progress" class="form-control" autocomplete="off">
@@ -878,7 +875,7 @@
                                         <input type="date" name="letdate_start_date" class="form-control" autocomplete="off">
                                     </div>
                                     <div class="col-sm-2">
-                                        <input type="date" name="letdate_end_date" class="form-control" autocomplete="off">
+                                        <input type="date" name="letdate_end_date" class="form-control" autocomplete="off" readonly>
                                     </div>
                                     <div class="col-sm-1">
                                         <select name="letdate_progress" class="form-control" autocomplete="off">
@@ -909,7 +906,7 @@
                                         Construction Performance End Date
                                     </div>
                                     <div class="col-sm-2">
-                                        <input type="date" name="consper_end_date_start_date" class="form-control" autocomplete="off">
+                                        <input type="date" name="consper_end_date_start_date" class="form-control" autocomplete="off" readonly>
                                     </div>
                                     <div class="col-sm-2">
                                         <input type="date" name="consper_end_date_end_date" class="form-control" autocomplete="off">
@@ -934,16 +931,16 @@
                                         </select>
                                     </div>
                                     <div class="col-sm-2">
-                                        <input type="text" name="consper_end_date_comments" class="form-control" autocomplete="off">
+                                        <input type="text" name="consper_end_date_comments" class="form-control" autocomplete="off" readonly>
                                     </div>
                                 </div>
                                 {{-- PE Performance --}}
-                                <div class="form-row">
+                                <div class="form-row mb-1">
                                     <div class="col-sm-3">
                                         PE Performance End Date
                                     </div>
                                     <div class="col-sm-2">
-                                        <input type="date" name="peperf_start_date" class="form-control" autocomplete="off">
+                                        <input type="date" name="peperf_start_date" class="form-control" autocomplete="off" readonly>
                                     </div>
                                     <div class="col-sm-2">
                                         <input type="date" name="peperf_end_date" class="form-control" autocomplete="off">
@@ -968,20 +965,685 @@
                                         </select>
                                     </div>
                                     <div class="col-sm-2">
-                                        <input type="text" name="peperf_comments" class="form-control" autocomplete="off">
+                                        <input type="text" name="peperf_comments" class="form-control" autocomplete="off" readonly>
                                     </div>
                                 </div>
-
-
+                                <div class="form-row mb-1">
+                                    <div class="col-sm-3">
+                                        Transit Only
+                                        "Anticipated Dates"
+                                    </div>
+                                </div>
+                                {{-- FTA Transfer--}}
+                                <div class="form-row mb-1">
+                                    <div class="col-sm-3">
+                                        FTA Transfer Process (If applicable)
+                                    </div>
+                                    <div class="col-sm-2">
+                                        <input type="date" name="fta_trans_start_date" class="form-control" autocomplete="off">
+                                    </div>
+                                    <div class="col-sm-2">
+                                        <input type="date" name="fta_trans_end_date" class="form-control" autocomplete="off">
+                                    </div>
+                                    <div class="col-sm-1">
+                                        <select name="fta_trans_progress" class="form-control" autocomplete="off">
+                                            <option>----</option>
+                                            <option value="1">0%</option>
+                                            <option value="2">30%</option>
+                                            <option value="3">60%</option>
+                                            <option value="4">90%</option>
+                                            <option value="5">100%</option>
+                                            <option value="6">N/A</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-sm-2">
+                                        <select name="fta_trans_agency" class="form-control" autocomplete="off">
+                                            <option>----</option>
+                                            <option value="1">TxDOT</option>
+                                            <option value="2">Local</option>
+                                            <option value="3">Other</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-sm-2">
+                                        <input type="text" name="fta_trans_comments" class="form-control" autocomplete="off">
+                                    </div>
+                                </div>
+                                {{--Active FTA--}}
+                                <div class="form-row mb-1">
+                                    <div class="col-sm-3">
+                                        Active in FTA System
+                                    </div>
+                                    <div class="col-sm-2">
+                                        <input type="date" name="active_fta_start_date" class="form-control" autocomplete="off">
+                                    </div>
+                                    <div class="col-sm-2">
+                                        <input type="date" name="active_fta_end_date" class="form-control" autocomplete="off">
+                                    </div>
+                                    <div class="col-sm-1">
+                                        <select name="active_fta_progress" class="form-control" autocomplete="off">
+                                            <option>----</option>
+                                            <option value="1">0%</option>
+                                            <option value="2">30%</option>
+                                            <option value="3">60%</option>
+                                            <option value="4">90%</option>
+                                            <option value="5">100%</option>
+                                            <option value="6">N/A</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-sm-2">
+                                        <select name="active_fta_agenct" class="form-control" autocomplete="off">
+                                            <option>----</option>
+                                            <option value="1">TxDOT</option>
+                                            <option value="2">Local</option>
+                                            <option value="3">Other</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-sm-2">
+                                        <input type="text" name="active_fta_comments" class="form-control" autocomplete="off">
+                                    </div>
+                                </div>
+                                {{--Bus Purchase--}}
+                                <div class="form-row mb-1">
+                                    <div class="col-sm-3">
+                                        Contract Excluded for Bus Purchase
+                                    </div>
+                                    <div class="col-sm-2">
+                                        <input type="date" name="bus_start_date" class="form-control" autocomplete="off">
+                                    </div>
+                                    <div class="col-sm-2">
+                                        <input type="date" name="bus_end_date" class="form-control" autocomplete="off">
+                                    </div>
+                                    <div class="col-sm-1">
+                                        <select name="bus_progress" class="form-control" autocomplete="off">
+                                            <option>----</option>
+                                            <option value="1">0%</option>
+                                            <option value="2">30%</option>
+                                            <option value="3">60%</option>
+                                            <option value="4">90%</option>
+                                            <option value="5">100%</option>
+                                            <option value="6">N/A</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-sm-2">
+                                        <select name="bus_agenct" class="form-control" autocomplete="off">
+                                            <option>----</option>
+                                            <option value="1">TxDOT</option>
+                                            <option value="2">Local</option>
+                                            <option value="3">Other</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-sm-2">
+                                        <input type="text" name="bus_comments" class="form-control" autocomplete="off">
+                                    </div>
+                                </div>
+                                {{--Bus Delivery--}}
+                                <div class="form-row mb-1">
+                                    <div class="col-sm-3">
+                                        Bus Delivery Date
+                                    </div>
+                                    <div class="col-sm-2">
+                                        <input type="date" name="delivery_start_date" class="form-control" autocomplete="off">
+                                    </div>
+                                    <div class="col-sm-2">
+                                        <input type="date" name="delivery_end_date" class="form-control" autocomplete="off">
+                                    </div>
+                                    <div class="col-sm-1">
+                                        <select name="delivery_progress" class="form-control" autocomplete="off">
+                                            <option>----</option>
+                                            <option value="1">0%</option>
+                                            <option value="2">30%</option>
+                                            <option value="3">60%</option>
+                                            <option value="4">90%</option>
+                                            <option value="5">100%</option>
+                                            <option value="6">N/A</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-sm-2">
+                                        <select name="delivery_agenct" class="form-control" autocomplete="off">
+                                            <option>----</option>
+                                            <option value="1">TxDOT</option>
+                                            <option value="2">Local</option>
+                                            <option value="3">Other</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-sm-2">
+                                        <input type="text" name="delivery_comments" class="form-control" autocomplete="off">
+                                    </div>
+                                </div>
+                                {{--Other--}}
+                                <div class="form-row mb-1">
+                                    <div class="col-sm-3">
+                                        Other
+                                    </div>
+                                    <div class="col-sm-2">
+                                        <input type="date" name="other_date" class="form-control" autocomplete="off">
+                                    </div>
+                                    <div class="col-sm-2">
+                                        <input type="date" name="other_date" class="form-control" autocomplete="off">
+                                    </div>
+                                    <div class="col-sm-1">
+                                        <select name="other" class="form-control" autocomplete="off">
+                                            <option>----</option>
+                                            <option value="1">0%</option>
+                                            <option value="2">30%</option>
+                                            <option value="3">60%</option>
+                                            <option value="4">90%</option>
+                                            <option value="5">100%</option>
+                                            <option value="6">N/A</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-sm-2">
+                                        <select name="other" class="form-control" autocomplete="off">
+                                            <option>----</option>
+                                            <option value="1">TxDOT</option>
+                                            <option value="2">Local</option>
+                                            <option value="3">Other</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-sm-2">
+                                        <input type="text" name="other_comments" class="form-control" autocomplete="off">
+                                    </div>
+                                </div>
+                                {{--Reviewed Dates--}}
+                                <div class="form-row mb-1">
+                                    <div class="col-sm-3">
+                                        Have the above dates been reviewed by TXDOT or NMDOT
+                                    </div>
+                                    <div class="col-sm-2">
+                                        <label>
+                                            <input type="checkbox" name="reviewed_yes" autocomplete="off">
+                                                Yes
+                                        </label><br>
+                                    </div>
+                                    <div class="col-sm-2">
+                                        <label>
+                                            <input type="checkbox" name="reviewed_no" autocomplete="off">
+                                                No
+                                        </label><br>
+                                    </div>
+                                    <div class="col-sm-2">
+                                        <label>
+                                            <input type="checkbox" name="reviewed_n/a" autocomplete="off">
+                                                N/A
+                                        </label><br>
+                                    </div>
+                                    <div class="col-sm-2">
+                                        <label for="date_reviewed">Date Reviewed</label>
+                                        <input type="date" name="date_reviewed" autocomplete="off">
+                                    </div>
+                                </div>
                             </div>
                         </div>
+                        <br>
+                        {{--Project Phases and Cost--}}
+                        <div class="form-row mb-1">
+                            <div class="col">
+                                <h3>Project Phase(s)</h3>
+                                <p>**Only checked phase(s) will be consider for funding (Year of Expenditure (YOE)
+                                    Cost). If a phase has been or will be completed with local funds or resources,
+                                    please do not check. Please enter cost information for each Phase checked.</p>
+                                <label>
+                                    <input type="checkbox" name="fta_transfer" autocomplete="off">
+                                    FTA Transfer Requested
+                                </label><br>
+                                <label>
+                                    <input type="checkbox" name="c" autocomplete="off">
+                                    C
+                                </label><br>
+                                <label>
+                                    <input type="checkbox" name="non-c" autocomplete="off">
+                                    Non-C
+                                </label><br>
+                                <label>
+                                    <input type="checkbox" name="pe" autocomplete="off">
+                                    PE
+                                </label><br>
+                                <label>
+                                    <input type="checkbox" name="env" autocomplete="off">
+                                    E:Env
+                                </label><br>
+                                <label>
+                                    <input type="checkbox" name="eng" autocomplete="off">
+                                    E:Eng
+                                </label><br>
+                                <label>
+                                    <input type="checkbox" name="r" autocomplete="off">
+                                    R
+                                </label><br>
+                                <label>
+                                    <input type="checkbox" name="acq" autocomplete="off">
+                                    R:Acq
+                                </label><br>
+                                <label>
+                                    <input type="checkbox" name="utl" autocomplete="off">
+                                    R:Utl
+                                </label><br>
+                            </div>
+                            <div class="col">
+                                <h3>YOE and Total Project Cost Information</h3>
+                                <p>**All Costs should account for inflation within TIP years.
+                                    Beyond TIP years inflation will be applied.
+                                    <br>
+                                    **For Total Project Cost include all cost, whether it is a phase of the project or not.
+                                </p>
+                                <div class="card">
+                                    <div class="card-header">
+                                        <div class="form-row">
+                                            <div class="col-sm-6">
+                                                Category
+                                            </div>
+                                            <div class="col-sm-6">
+                                                Amount
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="card-body">
+                                        {{--Construction Subtotal--}}
+                                        <div class="form-row mb-1">
+                                            <div class="col-sm-6">
+                                                Construction Subtotal
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <input type="number" name="subtotal_amount" class="form-control" readonly>
+                                            </div>
+                                        </div>
+                                        {{--Non-Construction--}}
+                                        <div class="form-row mb-1">
+                                            <div class="col-sm-6">
+                                                Non-Construction Project
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <input type="number" name="non_construction_amount" class="form-control">
+                                            </div>
+                                        </div>
+                                        {{--Construction--}}
+                                        <div class="form-row mb-1">
+                                            <div class="col-sm-6">
+                                                Construction
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <input type="number" name="construction_amount" class="form-control">
+                                            </div>
+                                        </div>
+                                        {{--CE--}}
+                                        <div class="form-row mb-1">
+                                            <div class="col-sm-6">
+                                                Construction Engineering (CE)
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <input type="number" name="ce_amount" class="form-control">
+                                            </div>
+                                        </div>
+                                        {{--Contingencies--}}
+                                        <div class="form-row mb-1">
+                                            <div class="col-sm-6">
+                                                Contingencies
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <input type="number" name="contingencies_amount" class="form-control">
+                                            </div>
+                                        </div>
+                                        {{--Change Order--}}
+                                        <div class="form-row mb-1">
+                                            <div class="col-sm-6">
+                                                Potential Change Order
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <input type="number" name="change_order_amount" class="form-control">
+                                            </div>
+                                        </div>
+                                        {{--PE--}}
+                                        <div class="form-row mb-1">
+                                            <div class="col-sm-6">
+                                                Preliminary Engineering
+                                                <br>
+                                                (Check mark PE phase to enable, if applicable)
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <input type="number" name="PE_amount" class="form-control">
+                                            </div>
+                                        </div>
+                                        {{--Indirects--}}
+                                        <div class="form-row mb-1">
+                                            <div class="col-sm-6">
+                                                Indirects
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <input type="number" name="indirects_amount" class="form-control">
+                                            </div>
+                                        </div>
+                                        {{--ROW--}}
+                                        <div class="form-row mb-1">
+                                            <div class="col-sm-6">
+                                                Right-Of-Way
+                                                <br>
+                                                (Acq+Utl; Check mark R phase to enable, if applicable)
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <input type="number" name="ROW_amount" class="form-control">
+                                            </div>
+                                        </div>
+                                        {{--Transfer--}}
+                                        <div class="form-row mb-1">
+                                            <div class="col-sm-6">
+                                                FTA Transfer
+                                                <br>
+                                                (Check mark T to enable, if applicable)
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <input type="number" name="transfer_amount" class="form-control">
+                                            </div>
+                                        </div>
+                                        {{--Total Cost--}}
+                                        <div class="form-row mb-1">
+                                            <div class="col-sm-6">
+                                                Total Project Cost
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <input type="number" name="total_amount" class="form-control" readonly>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        {{--Cost Selections--}}
+                        <div class="form-row mb-1">
+                            <div class="col-sm-1">
+                                <select name="costs_1" class="form-control">
+                                    <option selected>----</option>
+                                    <option value="1">Yes</option>
+                                    <option value="2">No</option>
+                                </select>
+                            </div>
+                            <div class="col">
+                                Is the sponsor paying for 100% of PE?
+                            </div>
+                        </div>
+
+                        <div class="form-row mb-1">
+                            <div class="col-sm-1">
+                                <select name="costs_2" class="form-control">
+                                    <option selected>----</option>
+                                    <option value="1">Yes</option>
+                                    <option value="2">No</option>
+                                </select>
+                            </div>
+                            <div class="col">
+                                Is this sponsor paying for 100% of the ROW and utility relocation?
+                            </div>
+                        </div>
+
+                        <div class="form-row mb-1">
+                            <div class="col-sm-1">
+                                <select name="costs_3" class="form-control">
+                                    <option selected>----</option>
+                                    <option value="1">Yes</option>
+                                    <option value="2">No</option>
+                                </select>
+                            </div>
+                            <div class="col">
+                                Is this decision making/governing body committed to the local/state share (match)?
+                                <br>
+                                Attach documentation. Eg. Resolution, Financial Plan, etc.
+                            </div>
+                        </div>
+
+                        <div class="form-row mb-1">
+                            <div class="col-sm-1">
+                                <select name="costs_4" class="form-control">
+                                    <option selected>----</option>
+                                    <option value="1">Yes</option>
+                                    <option value="2">No</option>
+                                </select>
+                            </div>
+                            <div class="col">
+                                Sponsor's investment to construction cost. (Excluding required local/state share)
+                            </div>
+                        </div>
+                        {{--Project Funding--}}
+                        <h3>Project Funding</h3>
+                        <label>
+                            <input type="checkbox" name="mpo_funds" autocomplete="off">
+                            Requesting MPO Funds (For long range planning, beyond TIP years, funding category may not be identified, MPO will make final recommendation)
+                        </label><br>
+                        <label>
+                            <input type="number" name="yoe_cost" autocomplete="off" readonly>
+                            YOE Cost
+                        </label><br>
+                        <div class="card">
+                            <div class="card-header">
+                                <div class="form-row">
+                                    <div class="col-sm-2">
+                                        Funding Category
+                                    </div>
+                                    <div class="col-sm-2">
+                                        Federal Share Usually 80%
+                                    </div>
+                                    <div class="col-sm-2">
+                                        State Share
+                                    </div>
+                                    <div class="col-sm-2">
+                                        Local Share Usually 20%
+                                    </div>
+                                    <div class="col-sm-2">
+                                        Local Contribution
+                                        Beyond Local Share
+                                    </div>
+                                    <div class="col-sm-2">
+                                        Total Share
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <div class="form-row mb-1">
+                                    <div class="col-sm-2">
+                                        <input type="text" name="funding_category" class="form-control">
+                                    </div>
+                                    <div class="col-sm-2">
+                                        <input type="number" name="funding_federal" class="form-control">
+                                    </div>
+                                    <div class="col-sm-2">
+                                        <input type="number" name="funding_state" class="form-control">
+                                    </div>
+                                    <div class="col-sm-2">
+                                        <input type="number" name="funding_local" class="form-control">
+                                    </div>
+                                    <div class="col-sm-2">
+                                        <input type="number" name="funding_local_beyond" class="form-control">
+                                    </div>
+                                    <div class="col-sm-2">
+                                        <input type="number" name="funding_total" class="form-control" readonly>
+                                    </div>
+                                </div>
+                                <div class="form-row mb-1">
+                                    <div class="col-sm-2">
+                                        <input type="text" name="funding_category" class="form-control">
+                                    </div>
+                                    <div class="col-sm-2">
+                                        <input type="number" name="funding_federal" class="form-control">
+                                    </div>
+                                    <div class="col-sm-2">
+                                        <input type="number" name="funding_state" class="form-control">
+                                    </div>
+                                    <div class="col-sm-2">
+                                        <input type="number" name="funding_local" class="form-control">
+                                    </div>
+                                    <div class="col-sm-2">
+                                        <input type="number" name="funding_local_beyond" class="form-control">
+                                    </div>
+                                    <div class="col-sm-2">
+                                        <input type="number" name="funding_total" class="form-control" readonly>
+                                    </div>
+                                </div>
+                                <div class="form-row mb-1">
+                                    <div class="col-sm-2">
+                                        Total Funding By Share
+                                    </div>
+                                    <div class="col-sm-2">
+                                        <input type="number" name="funding_federal" class="form-control" readonly>
+                                    </div>
+                                    <div class="col-sm-2">
+                                        <input type="number" name="funding_state" class="form-control" readonly>
+                                    </div>
+                                    <div class="col-sm-2">
+                                        <input type="number" name="funding_local" class="form-control" readonly>
+                                    </div>
+                                    <div class="col-sm-2">
+                                        <input type="number" name="funding_local_beyond" class="form-control" readonly>
+                                    </div>
+                                    <div class="col-sm-2">
+                                        <input type="number" name="funding_total" class="form-control" readonly>
+                                    </div>
+                                </div>
+                                <a class="btn btn-primary" role="button">Add Funding</a>
+                                <a class="btn btn-primary" role="button">Remove Funding</a>
+                            </div>
+                        </div>
+                        <br>
+                        {{--Contact Information--}}
+                        <h3>Contact Information</h3>
+                        <div class="card">
+                            <div class="card-header">
+                                <div class="form-row">
+                                    <div class="col-sm-2">
+                                    </div>
+                                    <div class="col-sm-2">
+                                        Name
+                                    </div>
+                                    <div class="col-sm-2">
+                                        Phone No.
+                                    </div>
+                                    <div class="col-sm-2">
+                                        eMail
+                                    </div>
+                                    <div class="col-sm-2">
+                                        Agency
+                                    </div>
+                                    <div class="col-sm-2">
+                                        Title
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <div class="form-row mb-1">
+                                    <div class="col-sm-2">
+                                        Local PM
+                                    </div>
+                                    <div class="col-sm-2">
+                                        <input type="text" name="local_pm_name" class="form-control">
+                                    </div>
+                                    <div class="col-sm-2">
+                                        <input type="tel" name="local_pm_phone" class="form-control">
+                                    </div>
+                                    <div class="col-sm-2">
+                                        <input type="email" name="local_pm_email" class="form-control">
+                                    </div>
+                                    <div class="col-sm-2">
+                                        <input type="text" name="local_pm_agency" class="form-control">
+                                    </div>
+                                    <div class="col-sm-2">
+                                        <input type="text" name="local_pm_title" class="form-control">
+                                    </div>
+                                </div>
+                                <div class="form-row mb-1">
+                                    <div class="col-sm-2">
+                                        State PM
+                                    </div>
+                                    <div class="col-sm-2">
+                                        <input type="text" name="state_pm_name" class="form-control">
+                                    </div>
+                                    <div class="col-sm-2">
+                                        <input type="tel" name="state_pm_phone" class="form-control">
+                                    </div>
+                                    <div class="col-sm-2">
+                                        <input type="email" name="state_pm_email" class="form-control">
+                                    </div>
+                                    <div class="col-sm-2">
+                                        <input type="text" name="state_pm_agency" class="form-control">
+                                    </div>
+                                    <div class="col-sm-2">
+                                        <input type="text" name="state_pm_title" class="form-control">
+                                    </div>
+                                </div>
+                                <div class="form-row mb-1">
+                                    <div class="col-sm-2">
+                                        Sponsor
+                                    </div>
+                                    <div class="col-sm-2">
+                                        <input type="text" name="sponsor_name" class="form-control">
+                                    </div>
+                                    <div class="col-sm-2">
+                                        <input type="tel" name="sponsor_phone" class="form-control">
+                                    </div>
+                                    <div class="col-sm-2">
+                                        <input type="email" name="sponsor_email" class="form-control">
+                                    </div>
+                                    <div class="col-sm-2">
+                                        <input type="text" name="sponsor_agency" class="form-control">
+                                    </div>
+                                    <div class="col-sm-2">
+                                        <input type="text" name="sponsor_title" class="form-control">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <br>
+                        <h3>Attachments (CMAQ Analysis, Cost Estimate, Schematic/Design Concept, etc. ).</h3>
+                        <div class="form-group">
+                            <textarea class="form-control" id="attachments_textarea" rows="5"></textarea>
+                        </div>
+                        <div class="form-row">
+                            <p>Files Attached&nbsp;</p>
+                            <button class="btn btn-primary mt-1 float-right">
+                                Add File
+                            </button>
+                            <button class="btn btn-primary mt-1 float-right">
+                                Open File
+                            </button>
+                            <button class="btn btn-primary mt-1 float-right">
+                                Remove File
+                            </button>
+                            <button class="btn btn-primary mt-1 float-right">
+                                Show Attachment Name and Size
+                            </button>
+                        </div>
+                        <p>*Please attach any supporting documents to this form, if possible (CMAQ Analysis, Cost Estimate, Environmental Document, or other).
+                            <br>
+                            *Only Adobe Acrobat users may be able to attach files to this form. If you are not able to attach files, please send them via e-mail.
+                            <br>
+                            *This form does not guarantee the funds requested nor the approval of the project in the MTP/TIP.
+                            <br>
+                            *By signing this Project Request Form you certify that the project Description and limits are within the scope of work of the project
+                        </p>
+                        <p>*Please fill out this form entirely, and sign (digital signature). If "Signed By" field is blank, the form will not be accepted.</p>
+                        <h4>Signed By</h4>
+                        @auth
+                            @if(auth()->user()->type == 1)
+                                <div class="form-group">
+                                    <textarea class="form-control" id="signed_textarea" rows="2"></textarea>
+                                </div>
+                            @else
+                                <div class="form-group">
+                                    <textarea class="form-control" id="signed_textarea" rows="2" readonly></textarea>
+                                </div>
+                            @endif                            
+                        @endauth
+                        <p>Save your form before signing, all fields will be locked after signature is provided.</p>
+                        <br>
                         <a class="btn btn-primary" href="{{route('project.excel')}}" role="button">Export to Excel</a>
                         <a class="btn btn-primary" href="{{route('project.pdf')}}" role="button">Export to PDF</a>
-
-                        <button class="btn btn-primary mt-1 float-right" type="submit">
-                            Save
-                        </button>
-
+                        @auth
+                            @if (auth()->user()->type == 1)
+                            <button class="btn btn-primary mt-1 float-right" type="submit">
+                                Submit
+                            </button>
+                            @else
+                                <button class="btn btn-primary mt-1 float-right" type="submit">
+                                    Save
+                                </button>
+                            @endif
+                        @endauth
                     </form>
                 </div>
             </div>

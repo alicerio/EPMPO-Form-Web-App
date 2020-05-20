@@ -938,7 +938,7 @@
                                     </div>
                                 </div>
                                 {{-- PE Performance --}}
-                                <div class="form-row">
+                                <div class="form-row mb-1">
                                     <div class="col-sm-3">
                                         PE Performance End Date
                                     </div>
@@ -969,6 +969,46 @@
                                     </div>
                                     <div class="col-sm-2">
                                         <input type="text" name="peperf_comments" class="form-control" autocomplete="off" value="{{ $project->peperf_comments }}">
+                                    </div>
+                                </div>
+                                <div class="form-row mb-1">
+                                    <div class="col-sm-3">
+                                        Transit Only
+                                        "Anticipated Dates"
+                                    </div>
+                                </div>
+                                {{-- FTA Transfer--}}
+                                <div class="form-row mb-1">
+                                    <div class="col-sm-3">
+                                        FTA Transfer Process (If applicable)
+                                    </div>
+                                    <div class="col-sm-2">
+                                        <input type="date" name="fta_trans_start_date" class="form-control" autocomplete="off" value="{{ $project->fta_trans_start_date }}">
+                                    </div>
+                                    <div class="col-sm-2">
+                                        <input type="date" name="fta_trans_end_date" class="form-control" autocomplete="off" value="{{ $project->fta_trans_end_date }}">
+                                    </div>
+                                    <div class="col-sm-1">
+                                        <select name="fta_trans_progress" class="form-control" autocomplete="off">
+                                            <option>----</option>
+                                            <option value="1" {{ $project->fta_trans_progress == 1 ? 'selected' : ''  }}>0%</option>
+                                            <option value="2" {{ $project->fta_trans_progress == 2 ? 'selected' : ''  }}>30%</option>
+                                            <option value="3" {{ $project->fta_trans_progress == 3 ? 'selected' : ''  }}>60%</option>
+                                            <option value="4" {{ $project->fta_trans_progress == 4 ? 'selected' : ''  }}>90%</option>
+                                            <option value="5" {{ $project->fta_trans_progress == 5 ? 'selected' : ''  }}>100%</option>
+                                            <option value="6" {{ $project->fta_trans_progress == 6 ? 'selected' : ''  }}>N/A</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-sm-2">
+                                        <select name="fta_trans_agency" class="form-control" autocomplete="off">
+                                            <option>----</option>
+                                            <option value="1" {{ $project->fta_trans_agency == 1 ? 'selected' : '' }}>TxDOT</option>
+                                            <option value="2" {{ $project->fta_trans_agency == 2 ? 'selected' : '' }}>Local</option>
+                                            <option value="3" {{ $project->fta_trans_agency == 3 ? 'selected' : '' }}>Other</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-sm-2">
+                                        <input type="text" name="fta_trans_comments" class="form-control" autocomplete="off" value="{{ $project->fta_trans_comments }}">
                                     </div>
                                 </div>
 
