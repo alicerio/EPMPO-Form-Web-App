@@ -1618,17 +1618,32 @@
                         </p>
                         <p>*Please fill out this form entirely, and sign (digital signature). If "Signed By" field is blank, the form will not be accepted.</p>
                         <h4>Signed By</h4>
-                        <div class="form-group">
-                            <textarea class="form-control" id="signed_textarea" rows="2" readonly></textarea>
-                        </div>
+                        @auth
+                            @if(auth()->user()->type == 1)
+                                <div class="form-group">
+                                    <textarea class="form-control" id="signed_textarea" rows="2"></textarea>
+                                </div>
+                            @else
+                                <div class="form-group">
+                                    <textarea class="form-control" id="signed_textarea" rows="2" readonly></textarea>
+                                </div>
+                            @endif                            
+                        @endauth
                         <p>Save your form before signing, all fields will be locked after signature is provided.</p>
-
                         <br>
                         <a class="btn btn-primary" href="{{route('project.excel')}}" role="button">Export to Excel</a>
                         <a class="btn btn-primary" href="{{route('project.pdf')}}" role="button">Export to PDF</a>
-                        <button class="btn btn-primary mt-1 float-right" type="submit">
-                            Save
-                        </button>
+                        @auth
+                            @if (auth()->user()->type == 1)
+                            <button class="btn btn-primary mt-1 float-right" type="submit">
+                                Submit
+                            </button>
+                            @else
+                                <button class="btn btn-primary mt-1 float-right" type="submit">
+                                    Save
+                                </button>
+                            @endif
+                        @endauth
                     </form>
                 </div>
             </div>
