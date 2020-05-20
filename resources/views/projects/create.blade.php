@@ -22,12 +22,12 @@
                         <input type="text" class="form-control" name="csj_cn" autocomplete="off" readonly>
 
                         <label>
-                            Name
+                            Project Name
                         </label>
                         <input type="text" class="form-control" name="name" autocomplete="off">
 
                         <label>
-                            Description
+                            Project Description
                         </label>
                         <input type="text" class="form-control" name="description" autocomplete="off">
 
@@ -403,7 +403,7 @@
                                 <textarea name="description_strategy_3" class="form-control" style="width: 22rem; display: none;" placeholder="How does this project meet this strategy?"></textarea>
                                 <label>
                                     <input type="checkbox" name="strategy_4" onclick="toggleTA(this.name);" autocomplete="off">
-                                    System Reliabilit
+                                    System Reliability
                                 </label><br>
                                 <textarea name="description_strategy_4" class="form-control" style="width: 22rem; display: none;" placeholder="How does this project meet this strategy?"></textarea>
                                 <label>
@@ -451,8 +451,6 @@
                                             <input type="checkbox" name="type_administration" autocomplete="off">
                                             Administration
                                         </label><br>
-
-
                                     </div>
                                 </div>
                             </div>
