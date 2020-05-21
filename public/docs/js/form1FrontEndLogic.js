@@ -81,7 +81,4 @@ function project_funding_table() {
     document.getElementById("total").value = total_sum;
     document.getElementById("total_total").value = total_sum;
     document.getElementById("yoe_check").value = total_sum;
-
-    
-
 }
