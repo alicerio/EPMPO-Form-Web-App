@@ -307,7 +307,7 @@
                             Requesting MPO Funds
                         </label><br>
                         <label>
-                            <input type="number" name="yoe_cost_vehicles" autocomplete="off" readonly>
+                            <input type="number" name="yoe_cost_vehicles" id = "yoe_check_vehicles" sautocomplete="off" readonly>
                             YOE Cost
                         </label><br>
                         <div class="card">
@@ -335,24 +335,26 @@
                                 </div>
                             </div>
                             <div class="card-body">
-                                <div class="form-row mb-1">
-                                    <div class="col-sm-2">
-                                        <input type="text" name="funding_category_vehicles" class="form-control">
-                                    </div>
-                                    <div class="col-sm-2">
-                                        <input type="number" name="funding_federal_vehicles" class="form-control">
-                                    </div>
-                                    <div class="col-sm-2">
-                                        <input type="number" name="funding_local_vehicles" class="form-control">
-                                    </div>
-                                    <div class="col-sm-2">
-                                        <input type="number" name="funding_local_beyond_vehicles" class="form-control">
-                                    </div>
-                                    <div class="col-sm-2">
-                                        <input type="number" name="funding_total_vehicles" class="form-control" readonly>
-                                    </div>
-                                    <div class="col-sm-2">
-                                        <input type="number" name="funding_tdc_vehicles" class="form-control">
+                                <div id = "funding_vehicles">
+                                    <div class="form-row mb-1">
+                                        <div class="col-sm-2">
+                                            <input type="text" name="funding_category_vehicles" class="form-control">
+                                        </div>
+                                        <div class="col-sm-2">
+                                            <input onchange="funding_vehicles_table()" id="federal_vehicles" type="number" name="funding_federal_vehicles" class="form-control">
+                                        </div>
+                                        <div class="col-sm-2">
+                                            <input onchange="funding_vehicles_table()" id = "local_vehicles" type="number" name="funding_local_vehicles" class="form-control">
+                                        </div>
+                                        <div class="col-sm-2">
+                                            <input onchange="funding_vehicles_table()" id = "local_beyond_vehicles" type="number" name="funding_local_beyond_vehicles" class="form-control">
+                                        </div>
+                                        <div class="col-sm-2">
+                                            <input id = "total_vehicles" type="number" name="funding_total_vehicles" class="form-control" readonly>
+                                        </div>
+                                        <div class="col-sm-2">
+                                            <input onchange="funding_vehicles_table()" id = "tdc_vehicles" type="number" name="funding_tdc_vehicles" class="form-control">
+                                        </div>
                                     </div>
                                 </div>
                                 <div class="form-row mb-1">
@@ -360,19 +362,19 @@
                                         Total Funding By Share
                                     </div>
                                     <div class="col-sm-2">
-                                        <input type="number" name="funding_federal_vehicles" class="form-control" readonly>
+                                        <input type="number" name="funding_federal_vehicles" id = "federal_vehicles_total" class="form-control" readonly>
                                     </div>
                                     <div class="col-sm-2">
-                                        <input type="number" name="funding_local_vehicles" class="form-control" readonly>
+                                        <input type="number" name="funding_local_vehicles" id = "local_vehicles_total" class="form-control" readonly>
                                     </div>
                                     <div class="col-sm-2">
-                                        <input type="number" name="funding_local_beyond_vehicles" class="form-control" readonly>
+                                        <input type="number" name="funding_local_beyond_vehicles" id = "local_beyond_vehicles_total" class="form-control" readonly>
                                     </div>
                                     <div class="col-sm-2">
-                                        <input type="number" name="funding_total_vehicles" class="form-control" readonly>
+                                        <input type="number" name="funding_total_vehicles" id = "total_vehicles_total" class="form-control" readonly>
                                     </div>
                                     <div class="col-sm-2">
-                                        <input type="number" name="funding_tdc_vehicles" class="form-control" readonly>
+                                        <input type="number" name="funding_tdc_vehicles" id = "tdc_vehicles_total" class="form-control" readonly>
                                     </div>
                                 </div>
                                 <a class="btn btn-primary" role="button">Add Funding</a>
@@ -381,7 +383,7 @@
                         </div>
                         <br>
                         <label>
-                            <input type="number" name="yoe_cost_bus" autocomplete="off" readonly>
+                            <input type="number" id="yoe_check_bus" name="yoe_cost_bus" autocomplete="off" readonly>
                             YOE Cost
                         </label><br>
                         <div class="card">
@@ -409,24 +411,26 @@
                                 </div>
                             </div>
                             <div class="card-body">
-                                <div class="form-row mb-1">
-                                    <div class="col-sm-2">
-                                        <input type="text" name="funding_category_bus" class="form-control">
-                                    </div>
-                                    <div class="col-sm-2">
-                                        <input type="number" name="funding_federal_bus" class="form-control">
-                                    </div>
-                                    <div class="col-sm-2">
-                                        <input type="number" name="funding_local_bus" class="form-control">
-                                    </div>
-                                    <div class="col-sm-2">
-                                        <input type="number" name="funding_local_beyond_bus" class="form-control">
-                                    </div>
-                                    <div class="col-sm-2">
-                                        <input type="number" name="funding_total_bus" class="form-control" readonly>
-                                    </div>
-                                    <div class="col-sm-2">
-                                        <input type="number" name="funding_tdc_bus" class="form-control">
+                                <div id = "funding_bus">
+                                    <div class="form-row mb-1">
+                                        <div class="col-sm-2">
+                                            <input type="text" name="funding_category_bus" class="form-control">
+                                        </div>
+                                        <div class="col-sm-2">
+                                            <input onchange="funding_bus_table()" id = "federal_bus" type="number" name="funding_federal_bus" class="form-control">
+                                        </div>
+                                        <div class="col-sm-2">
+                                            <input onchange="funding_bus_table()" id = "local_bus" type="number" name="funding_local_bus" class="form-control">
+                                        </div>
+                                        <div class="col-sm-2">
+                                            <input onchange="funding_bus_table()" id = "local_beyond_bus" type="number" name="funding_local_beyond_bus" class="form-control">
+                                        </div>
+                                        <div class="col-sm-2">
+                                            <input type="number" id="total_bus" name="funding_total_bus" class="form-control" readonly>
+                                        </div>
+                                        <div class="col-sm-2">
+                                            <input onchange="funding_bus_table()" id = "tdc_bus" type="number" name="funding_tdc_bus" class="form-control">
+                                        </div>
                                     </div>
                                 </div>
                                 <div class="form-row mb-1">
@@ -434,19 +438,19 @@
                                         Total Funding By Share
                                     </div>
                                     <div class="col-sm-2">
-                                        <input type="number" name="funding_federal_bus" class="form-control" readonly>
+                                        <input type="number" id = "federal_bus_total" name="funding_federal_bus" class="form-control" readonly>
                                     </div>
                                     <div class="col-sm-2">
-                                        <input type="number" name="funding_local_bus" class="form-control" readonly>
+                                        <input type="number" id="local_bus_total" name="funding_local_bus" class="form-control" readonly>
                                     </div>
                                     <div class="col-sm-2">
-                                        <input type="number" name="funding_local_beyond_bus" class="form-control" readonly>
+                                        <input type="number" id="local_beyond_bus_total" name="funding_local_beyond_bus" class="form-control" readonly>
                                     </div>
                                     <div class="col-sm-2">
-                                        <input type="number" name="funding_total_bus" class="form-control" readonly>
+                                        <input type="number" id="total_bus_total" name="funding_total_bus" class="form-control" readonly>
                                     </div>
                                     <div class="col-sm-2">
-                                        <input type="number" name="funding_tdc_bus" class="form-control" readonly>
+                                        <input type="number" id="tdc_bus_total" name="funding_tdc_bus" class="form-control" readonly>
                                     </div>
                                 </div>
                                 <a class="btn btn-primary" role="button">Add Funding</a>
@@ -456,7 +460,7 @@
                         <br>
 
                         <label>
-                            <input type="number" name="yoe_cost_operations" autocomplete="off" readonly>
+                            <input type="number" id="yoe_check_operations" name="yoe_cost_operations" autocomplete="off" readonly>
                             YOE Cost
                         </label><br>
                         <div class="card">
@@ -481,38 +485,40 @@
                                 </div>
                             </div>
                             <div class="card-body">
-                                <div class="form-row mb-1">
-                                    <div class="col-sm-2">
-                                        <input type="text" name="funding_category_operations" class="form-control">
-                                    </div>
-                                    <div class="col-sm-3">
-                                        <input type="number" name="funding_federal_operations" class="form-control">
-                                    </div>
-                                    <div class="col-sm-3">
-                                        <input type="number" name="funding_local_operations" class="form-control">
-                                    </div>
-                                    <div class="col-sm-2">
-                                        <input type="number" name="funding_local_beyond_operations" class="form-control">
-                                    </div>
-                                    <div class="col-sm-2">
-                                        <input type="number" name="funding_total_operations" class="form-control" readonly>
+                                <div id="funding_operations">
+                                    <div class="form-row mb-1">
+                                        <div class="col-sm-2">
+                                            <input type="text" name="funding_category_operations" class="form-control">
+                                        </div>
+                                        <div class="col-sm-3">
+                                            <input onchange="funding_operations_table()" id = "federal_operations" type="number" name="funding_federal_operations" class="form-control">
+                                        </div>
+                                        <div class="col-sm-3">
+                                            <input onchange="funding_operations_table()" id = "local_operations" type="number" name="funding_local_operations" class="form-control">
+                                        </div>
+                                        <div class="col-sm-2">
+                                            <input onchange="funding_operations_table()" id = "local_beyond_operations" type="number" name="funding_local_beyond_operations" class="form-control">
+                                        </div>
+                                        <div class="col-sm-2">
+                                            <input type="number" id="total_operations" name="funding_total_operations" class="form-control" readonly>
+                                        </div>
                                     </div>
                                 </div>
                                 <div class="form-row mb-1">
                                     <div class="col-sm-2">
                                         Total Funding By Share
                                     </div>
-                                    <div class="col-sm-2">
-                                        <input type="number" name="funding_federal_operations" class="form-control" readonly>
+                                    <div class="col-sm-3">
+                                        <input type="number" id="federal_operations_total" name="funding_federal_operations" class="form-control" readonly>
                                     </div>
                                     <div class="col-sm-3">
-                                        <input type="number" name="funding_local_operations" class="form-control" readonly>
-                                    </div>
-                                    <div class="col-sm-3">
-                                        <input type="number" name="funding_local_beyond_operations" class="form-control" readonly>
+                                        <input type="number" id="local_operations_total" name="funding_local_operations" class="form-control" readonly>
                                     </div>
                                     <div class="col-sm-2">
-                                        <input type="number" name="funding_total_operations" class="form-control" readonly>
+                                        <input type="number" id="local_beyond_operations_total" name="funding_local_beyond_operations" class="form-control" readonly>
+                                    </div>
+                                    <div class="col-sm-2">
+                                        <input type="number" id="total_operations_total" name="funding_total_operations" class="form-control" readonly>
                                     </div>
                                 </div>
                                 <a class="btn btn-primary" role="button">Add Funding</a>
@@ -623,5 +629,7 @@
         }
     };
 </script>
-    
+
+<script src="{{ asset('docs/js/form2FrontEndLogic.js')}}"></script>
+
 @endsection
