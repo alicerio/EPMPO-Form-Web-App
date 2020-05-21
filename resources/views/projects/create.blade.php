@@ -1238,111 +1238,116 @@
                                         </div>
                                     </div>
                                     <div class="card-body">
-                                        {{--Construction Subtotal--}}
-                                        <div class="form-row mb-1">
-                                            <div class="col-sm-6">
-                                                Construction Subtotal
+                                            {{--Construction Subtotal--}}
+                                            <div class="form-row mb-1">
+                                                <div class="col-sm-6">
+                                                    Construction Subtotal
+                                                </div>
+                                                <div class="col-sm-6">
+                                                    <input id = "yoe_cs_tot" type="number" name="subtotal_amount" class="form-control" readonly>
+                                                </div>
                                             </div>
-                                            <div class="col-sm-6">
-                                                <input type="number" name="subtotal_amount" class="form-control" readonly>
+                                        <div id = "tester">
+                                            {{--Non-Construction--}}
+                                            <div class="form-row mb-1">
+                                                <div class="col-sm-6">
+                                                    Non-Construction Project
+                                                </div>
+                                                <div class="col-sm-6">
+                                                    <input onchange="yoe_table()" id = "yoe_cs_1" type="number" name="non_construction_amount" class="form-control">
+                                                </div>
+                                            </div>
+                                            {{--Construction--}}
+                                            <div class="form-row mb-1">
+                                                <div class="col-sm-6">
+                                                    Construction
+                                                </div>
+                                                <div class="col-sm-6">
+                                                    <input onchange="yoe_table()" id = "yoe_cs_2" type="number" name="construction_amount" class="form-control">
+                                                </div>
+                                            </div>
+                                            {{--CE--}}
+                                            <div class="form-row mb-1">
+                                                <div class="col-sm-6">
+                                                    Construction Engineering (CE)
+                                                </div>
+                                                <div class="col-sm-6">
+                                                    <input onchange="yoe_table()" id = "yoe_cs_3" type="number" name="ce_amount" class="form-control">
+                                                </div>
+                                            </div>
+                                            {{--Contingencies--}}
+                                            <div class="form-row mb-1">
+                                                <div class="col-sm-6">
+                                                    Contingencies
+                                                </div>
+                                                <div class="col-sm-6">
+                                                    <input onchange="yoe_table()" id = "yoe_cs_4" type="number" name="contingencies_amount" class="form-control">
+                                                </div>
+                                            </div>
+                                            {{--Change Order--}}
+                                            <div class="form-row mb-1">
+                                                <div class="col-sm-6">
+                                                    Potential Change Order
+                                                </div>
+                                                <div class="col-sm-6">
+                                                    <input onchange="yoe_table()" id = "yoe_cs_5" type="number" name="change_order_amount" class="form-control">
+                                                </div>
+                                            </div>
+                                            {{--PE--}}
+                                            <div class="form-row mb-1">
+                                                <div class="col-sm-6">
+                                                    Preliminary Engineering
+                                                    <br>
+                                                    (Check mark PE phase to enable, if applicable)
+                                                </div>
+                                                <div class="col-sm-6">
+                                                    <input onchange="yoe_table()" type="number" name="PE_amount" class="form-control">
+                                                </div>
+                                            </div>
+                                            {{--Indirects--}}
+                                            <div class="form-row mb-1">
+                                                <div class="col-sm-6">
+                                                    Indirects
+                                                </div>
+                                                <div class="col-sm-6">
+                                                    <input onchange="yoe_table()" type="number" name="indirects_amount" class="form-control">
+                                                </div>
+                                            </div>
+                                            {{--ROW--}}
+                                            <div class="form-row mb-1">
+                                                <div class="col-sm-6">
+                                                    Right-Of-Way
+                                                    <br>
+                                                    (Acq+Utl; Check mark R phase to enable, if applicable)
+                                                </div>
+                                                <div class="col-sm-6">
+                                                    <input onchange="yoe_table()"  type="number" name="ROW_amount" class="form-control">
+                                                </div>
+                                            </div>
+                                            {{--Transfer--}}
+                                            <div class="form-row mb-1">
+                                                <div class="col-sm-6">
+                                                    FTA Transfer
+                                                    <br>
+                                                    (Check mark T to enable, if applicable)
+                                                </div>
+                                                <div class="col-sm-6">
+                                                    <input onchange="yoe_table()" type="number" name="transfer_amount" class="form-control">
+                                                </div>
                                             </div>
                                         </div>
-                                        {{--Non-Construction--}}
-                                        <div class="form-row mb-1">
-                                            <div class="col-sm-6">
-                                                Non-Construction Project
-                                            </div>
-                                            <div class="col-sm-6">
-                                                <input type="number" name="non_construction_amount" class="form-control">
-                                            </div>
-                                        </div>
-                                        {{--Construction--}}
-                                        <div class="form-row mb-1">
-                                            <div class="col-sm-6">
-                                                Construction
-                                            </div>
-                                            <div class="col-sm-6">
-                                                <input type="number" name="construction_amount" class="form-control">
-                                            </div>
-                                        </div>
-                                        {{--CE--}}
-                                        <div class="form-row mb-1">
-                                            <div class="col-sm-6">
-                                                Construction Engineering (CE)
-                                            </div>
-                                            <div class="col-sm-6">
-                                                <input type="number" name="ce_amount" class="form-control">
-                                            </div>
-                                        </div>
-                                        {{--Contingencies--}}
-                                        <div class="form-row mb-1">
-                                            <div class="col-sm-6">
-                                                Contingencies
-                                            </div>
-                                            <div class="col-sm-6">
-                                                <input type="number" name="contingencies_amount" class="form-control">
-                                            </div>
-                                        </div>
-                                        {{--Change Order--}}
-                                        <div class="form-row mb-1">
-                                            <div class="col-sm-6">
-                                                Potential Change Order
-                                            </div>
-                                            <div class="col-sm-6">
-                                                <input type="number" name="change_order_amount" class="form-control">
-                                            </div>
-                                        </div>
-                                        {{--PE--}}
-                                        <div class="form-row mb-1">
-                                            <div class="col-sm-6">
-                                                Preliminary Engineering
-                                                <br>
-                                                (Check mark PE phase to enable, if applicable)
-                                            </div>
-                                            <div class="col-sm-6">
-                                                <input type="number" name="PE_amount" class="form-control">
-                                            </div>
-                                        </div>
-                                        {{--Indirects--}}
-                                        <div class="form-row mb-1">
-                                            <div class="col-sm-6">
-                                                Indirects
-                                            </div>
-                                            <div class="col-sm-6">
-                                                <input type="number" name="indirects_amount" class="form-control">
-                                            </div>
-                                        </div>
-                                        {{--ROW--}}
-                                        <div class="form-row mb-1">
-                                            <div class="col-sm-6">
-                                                Right-Of-Way
-                                                <br>
-                                                (Acq+Utl; Check mark R phase to enable, if applicable)
-                                            </div>
-                                            <div class="col-sm-6">
-                                                <input type="number" name="ROW_amount" class="form-control">
-                                            </div>
-                                        </div>
-                                        {{--Transfer--}}
-                                        <div class="form-row mb-1">
-                                            <div class="col-sm-6">
-                                                FTA Transfer
-                                                <br>
-                                                (Check mark T to enable, if applicable)
-                                            </div>
-                                            <div class="col-sm-6">
-                                                <input type="number" name="transfer_amount" class="form-control">
-                                            </div>
-                                        </div>
+
+                                        {{-------------------------------------------------------------------------------}
                                         {{--Total Cost--}}
                                         <div class="form-row mb-1">
                                             <div class="col-sm-6">
                                                 Total Project Cost
                                             </div>
                                             <div class="col-sm-6">
-                                                <input type="number" name="total_amount" class="form-control" readonly>
+                                                <input id= "tot_yoe" type="number" name="total_amount" class="form-control" readonly>
                                             </div>
                                         </div>
+
                                     </div>
                                 </div>
                             </div>
@@ -1662,4 +1667,6 @@
         }
     };
 </script>
+<script src="{{ asset('docs/js/form1FrontEndLogic.js')}}"></script>
+
 @endsection
