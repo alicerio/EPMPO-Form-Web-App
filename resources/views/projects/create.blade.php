@@ -14,12 +14,12 @@
                         <label>
                             MPO ID
                         </label>
-                        <input type="text" class="form-control" name="mpo_id" autocomplete="off" readonly>
+                        <input type="text" class="form-control" name="mpo_id" title="Only MPO staff can fill this field." autocomplete="off" readonly>
                         
                         <label>
                             CSJ or CN
                         </label>
-                        <input type="text" class="form-control" name="csj_cn" autocomplete="off" readonly>
+                        <input type="text" class="form-control" name="csj_cn" title = "Only MPO staff can fill this field." autocomplete="off" readonly>
 
                         <label>
                             Project Name
@@ -149,7 +149,7 @@
                             </div>
                             <div class="col">
                                 <label>
-                                    Fedearl Functional Classificaiton (<a href="https://www.txdot.gov/apps/statewide_mapping/StatewidePlanningMap.html" target="_blank">Texas</a>, <a href="http://www.elpasompo.org/civicax/filebank/blobdload.aspx?BlobID=23410" target="_blank">New Mexico</a>):
+                                    Federal Functional Classificaiton (<a href="https://www.txdot.gov/apps/statewide_mapping/StatewidePlanningMap.html" target="_blank">Texas</a>, <a href="http://www.elpasompo.org/civicax/filebank/blobdload.aspx?BlobID=23410" target="_blank">New Mexico</a>):
                                 </label>
                                 <select name="classification" class="form-control">
                                     <option>----</option>
@@ -160,7 +160,7 @@
                                     <option value="5">Major Collector</option>
                                     <option value="6">Minor Collector</option>
                                     <option value="7">Local</option>
-                                    <option value="8">Other, specift</option>
+                                    <option value="8">Other, specify</option>
                                     <option value="9">Not Federally Functional Classified</option>
                                 </select>
                             </div>
@@ -245,7 +245,7 @@
                             </div>
                         </div>
 
-                        <a href="http://www.elpasompo.org/civicax/filebank/blobdload.aspx?BlobID=23410"> Click here for Project Selection Process diagram and presentation (PDF) </a>
+                        <a href="http://www.elpasompo.org/civicax/filebank/blobdload.aspx?BlobID=23410" target="_blank"> Click here for Project Selection Process diagram and presentation (PDF) </a>
 
                         <hr>
 
@@ -1244,7 +1244,8 @@
                                                     Construction Subtotal
                                                 </div>
                                                 <div class="col-sm-6">
-                                                    <input id = "yoe_cs_tot" type="number" name="subtotal_amount" class="form-control" readonly>
+                                                    <input id = "yoe_cs_tot" type="number" name="subtotal_amount" title = "Sumation of first five(5) categories."
+                                                    class="form-control" readonly>
                                                 </div>
                                             </div>
                                         <div id = "Yoe_cost">
@@ -1344,7 +1345,7 @@
                                                 Total Project Cost
                                             </div>
                                             <div class="col-sm-6">
-                                                <input id= "tot_yoe" type="number" name="total_amount" class="form-control" readonly>
+                                                <input id= "tot_yoe" type="number" name="total_amount" title = "Sumation of all fields." class="form-control" readonly>
                                             </div>
                                         </div>
 
@@ -1483,8 +1484,8 @@
                                         <input type="number" name="funding_total_result" id ="total_total" class="form-control" readonly>
                                     </div>
                                 </div>
-                                <a class="btn btn-primary" role="button">Add Funding</a>
-                                <a class="btn btn-primary" role="button">Remove Funding</a>
+                                <a class="btn btn-primary" title="Add a new row." role="button">Add Funding</a>
+                                <a class="btn btn-primary" title="Delete the last row." role="button">Remove Funding</a>
                             </div>
                         </div>
                         <br>
@@ -1612,7 +1613,7 @@
                                 </div>
                             @else
                                 <div class="form-group">
-                                    <textarea class="form-control" id="signed_textarea" rows="2" readonly></textarea>
+                                    <textarea class="form-control" id="signed_textarea" title="Only a submitter can sign this form." rows="2" readonly></textarea>
                                 </div>
                             @endif                            
                         @endauth
