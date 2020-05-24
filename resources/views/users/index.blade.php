@@ -23,21 +23,6 @@
                         <td>{{ $user->email }}</td>
                         <td>{{ $user->agency->name  }}</td>
                         <td>{{ $types[$user->type] }}</td>
-                        <!-- Previous version
-                        <td>
-                          <a href="{{ route('users.edit', $user->id) }}" class="btn btn-primary">Edit</a>
-                        </td>
-                        <td>
-                          <form action="{{ route('users.destroy', $user->id) }}" method="POST">
-                              @csrf
-                              @method('delete')
-                              <button class="btn btn-danger btn-block" type="submit">
-                                  Delete
-                              </button>
-                          </form>
-                        </td> -->
-
-                           <!-- TO DO:  Add delete Logic  -->
                         <td>
                             <div class="dropdown">
                                 <button class="btn btn-secondary dropdown-toggle" type="button" id="user_edit_options" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -45,7 +30,13 @@
                                 </button>
                                 <div class="dropdown-menu" aria-labelledby="user_edit_options">
                                     <a class="dropdown-item" href="{{ route('users.edit', $user->id) }}" >Edit</a>
-                                    <a class="dropdown-item" href="#">Delete</a>
+                                    <form action="{{ route('users.destroy', $user->id) }}" method="POST">
+                                        @csrf
+                                        @method('delete')
+                                        <button class="dropdown-item" type="submit">
+                                            Delete
+                                        </button>
+                                    </form>
                                 </div>
                             </div>
                         </td>

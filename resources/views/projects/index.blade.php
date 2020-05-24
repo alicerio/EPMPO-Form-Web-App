@@ -32,9 +32,6 @@
                         <th scope="col">Status</th>
                         <th scope="col">MPO ID</th>
                         <th scope="col">CSJ</th>
-                  <!--  <th scope="col">MPO/CSJ</th>
-                        <th scope="col">Edit</th>
-                        <th scope="col">Delete</th> -->
                         <th scole="col">editor</th>
                         </tr>
                     </thead>
@@ -48,7 +45,6 @@
                                     {{ $project->name }}
                                 </a>
                             </td>
-                            {{-- TODO: FIX AGENCY NAME --}}
                             @foreach ($agencies as $agency)
                                 @if($agency->id == $project->agency_id)
                                     <td>{{ $agency->name }}</td>
@@ -65,7 +61,7 @@
                                 <td>{{ $project->csj_cn }}</td>
                                 <td></td>
                             @else
-                                <form action="{{ route('projects.updateMPO', $project->id) }}" method="POST">
+                                <form action="{{ route('projects.updateMPO', $project->id) }}" method="POST" name="inline_form">
                                     @csrf
                                     @method('PATCH')
                                     <input type="text" name="name" hidden value="{{ $project->name }}">
@@ -85,21 +81,6 @@
                                 -->
                                 </form>
                             @endif
-                            <!--
-                            <td>
-                                <a href="{{ route('projects.edit', $project->id) }}" class="btn btn-primary btn-block">
-                                    Edit
-                                </a>
-                            </td>
-                            <td>
-                                <form action="{{ route('projects.destroy', $project->id) }}" method="POST">
-                                    @csrf
-                                    @method('delete')
-                                    <button class="btn btn-danger btn-block" type="submit">
-                                        Delete
-                                    </button>
-                                </form>
-                            </td> -->
                             <td>
                                 <div class="dropdown">
                                     <button class="btn btn-secondary dropdown-toggle" type="button" id="user_edit_options" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -107,8 +88,14 @@
                                     </button>
                                     <div class="dropdown-menu" aria-labelledby="user_edit_options">
                                         <a class="dropdown-item" href="{{ route('projects.edit', $project->id) }}">Edit</a>
-                                        <a class="dropdown-item" href="#">Update MPO ID</a>
-                                        <a class="dropdown-item" href="#">Delete</a>
+                                        <a class="dropdown-item" onclick="document.inline_form.submit();">Update MPO ID</a>
+                                        <form action="{{ route('projects.destroy', $project->id) }}" method="POST">
+                                            @csrf
+                                            @method('delete')
+                                            <button class="dropdown-item" type="submit">
+                                                Delete
+                                            </button>
+                                        </form>
                                     </div>
                                 </div>
                             </td>
