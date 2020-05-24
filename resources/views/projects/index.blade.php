@@ -41,7 +41,7 @@
                         @else
                         <tr>
                             <td>
-                                <a href="{{ route('projects.show', $project->id) }}">
+                                <a href="{{ route('projects.revisions', $project->id) }}">
                                     {{ $project->name }}
                                 </a>
                             </td>

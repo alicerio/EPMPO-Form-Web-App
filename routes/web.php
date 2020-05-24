@@ -16,6 +16,7 @@ Route::get('/', 'HomeController@index')->name('home');
 
 Route::resource('/users', 'UserController');
 
+Route::get('projects/revisions/{project}', 'ProjectController@revisions')->name('projects.revisions');
 Route::patch('projects/updateMPO/{project}', 'ProjectController@updateMPO')->name('projects.updateMPO');
 Route::resource('/projects', 'ProjectController');
 

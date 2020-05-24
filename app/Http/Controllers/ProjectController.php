@@ -19,10 +19,19 @@ class ProjectController extends Controller
 
     public function index()
     {
-        $projects = Project::all();
+        $projects = Project::all()->where('parent_id', null);
         $agencies = Agency::all();
         $statuses = ['In Progress','PM Pending Review','PM Signed', 'Submitted V1','MPO Returned','MPO Accepted', 'MPO Post-Acceptance Revision'];
         return view('projects.index', compact('projects', 'statuses','agencies'));
+    }
+
+    public function revisions($id)
+    {
+        $projects = Project::all()->where('parent_id', $id);
+        $projects->push(Project::find($id));
+        $agencies = Agency::all();
+        $statuses = ['In Progress','PM Pending Review','PM Signed', 'Submitted V1','MPO Returned','MPO Accepted', 'MPO Post-Acceptance Revision'];
+        return view('projects.revisions', compact('projects', 'statuses','agencies'));
     }
 
 
