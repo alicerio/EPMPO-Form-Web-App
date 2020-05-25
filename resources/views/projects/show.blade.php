@@ -971,11 +971,16 @@
                                         <input type="text" name="peperf_comments" class="form-control" autocomplete="off" value="{{ $project->peperf_comments }}" disabled>
                                     </div>
                                 </div>
-
+                                
 
                             </div>
                         </div>
-
+                        <div>
+                        <script> 
+                            var obj = <?php echo json_encode($logOfChanges); ?>; 
+                        </script>
+                        <button onmouseover="displayChanges(obj)">Log of changes</button>
+                        </div>
                         <button class="btn btn-primary mt-1 float-right">Update</button>
                     </form>
                 </div>
@@ -983,4 +988,5 @@
         </div>
     </div>
 </div>
+<script src="{{ asset('docs/js/logOfChangesLogic.js')}}"></script>
 @endsection

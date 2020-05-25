@@ -197,7 +197,23 @@ class ProjectController extends Controller
      */
     public function show(Project $project)
     {
-        return view('projects.show', compact('project'));
+        // 5/25/2020 Testing, needs fix
+         //FIXME: Get only certain projects to compare
+         $projects = Project::all();//Project::where('mpo_id', $project->mpo_id)->get();
+         error_log(count($projects));
+         $attributesOfProjects = [];
+         $logOfChanges = [];
+         foreach($projects as $project){
+             array_push($attributesOfProjects,$project->attributesToArray());
+         }
+         error_log(count($attributesOfProjects));
+         foreach($attributesOfProjects[0] as $key => $value){
+             if($attributesOfProjects[0][$key] != $attributesOfProjects[1][$key]){
+               //  array_push($logOfChanges,("Difference in: ".$key." New Value is: ".$attributesOfProjects[1][$key]));
+                $logOfChanges[$key] = ("Difference in: ".$key." New Value is: ".$attributesOfProjects[1][$key]);
+             }
+         }
+        return view('projects.show', compact('project', 'logOfChanges'));
     }
 
     /**
@@ -430,10 +446,14 @@ class ProjectController extends Controller
         error_log(count($attributesOfProjects));
         foreach($attributesOfProjects[0] as $key => $value){
             if($attributesOfProjects[0][$key] != $attributesOfProjects[1][$key]){
-                array_push($logOfChanges,("Difference in: ".$key." New Value is: ".$attributesOfProjects[1][$key]));
+              //  array_push($logOfChanges,("Difference in: ".$key." New Value is: ".$attributesOfProjects[1][$key]));
+               $logOfChanges[$key] = ("Difference in: ".$key." New Value is: ".$attributesOfProjects[1][$key]);
             }
         }
-        return view('projects.logOfChanges', compact('logOfChanges'));
+       // print_r($logOfChanges); //B
+        return view('projects.show', compact('logOfChanges'));
+      //  return view('projects.edit')->with('logOfChanges', $logOfChanges);
+       //   return view('projects.show', compact('logOfChanges'));
     }
 
 
