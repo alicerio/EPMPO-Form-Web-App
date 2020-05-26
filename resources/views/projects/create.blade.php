@@ -1031,7 +1031,7 @@
                                         </select>
                                     </div>
                                     <div class="col-sm-2">
-                                        <select name="active_fta_agenct" class="form-control" autocomplete="off">
+                                        <select name="active_fta_agency" class="form-control" autocomplete="off">
                                             <option>----</option>
                                             <option value="1">TxDOT</option>
                                             <option value="2">Local</option>
@@ -1065,7 +1065,7 @@
                                         </select>
                                     </div>
                                     <div class="col-sm-2">
-                                        <select name="bus_agenct" class="form-control" autocomplete="off">
+                                        <select name="bus_agency" class="form-control" autocomplete="off">
                                             <option>----</option>
                                             <option value="1">TxDOT</option>
                                             <option value="2">Local</option>
@@ -1099,7 +1099,7 @@
                                         </select>
                                     </div>
                                     <div class="col-sm-2">
-                                        <select name="delivery_agenct" class="form-control" autocomplete="off">
+                                        <select name="delivery_agency" class="form-control" autocomplete="off">
                                             <option>----</option>
                                             <option value="1">TxDOT</option>
                                             <option value="2">Local</option>
@@ -1116,13 +1116,13 @@
                                         Other
                                     </div>
                                     <div class="col-sm-2">
-                                        <input type="date" name="other_date" class="form-control" autocomplete="off">
+                                        <input type="date" name="other_start_date" class="form-control" autocomplete="off">
                                     </div>
                                     <div class="col-sm-2">
-                                        <input type="date" name="other_date" class="form-control" autocomplete="off">
+                                        <input type="date" name="other_end_date" class="form-control" autocomplete="off">
                                     </div>
                                     <div class="col-sm-1">
-                                        <select name="other" class="form-control" autocomplete="off">
+                                        <select name="other_progress" class="form-control" autocomplete="off">
                                             <option>----</option>
                                             <option value="1">0%</option>
                                             <option value="2">30%</option>
@@ -1133,7 +1133,7 @@
                                         </select>
                                     </div>
                                     <div class="col-sm-2">
-                                        <select name="other" class="form-control" autocomplete="off">
+                                        <select name="other_agency" class="form-control" autocomplete="off">
                                             <option>----</option>
                                             <option value="1">TxDOT</option>
                                             <option value="2">Local</option>
@@ -1163,7 +1163,7 @@
                                     </div>
                                     <div class="col-sm-2">
                                         <label>
-                                            <input type="checkbox" name="reviewed_n/a" autocomplete="off">
+                                            <input type="checkbox" name="reviewed_na" autocomplete="off">
                                                 N/A
                                         </label><br>
                                     </div>
@@ -1191,7 +1191,7 @@
                                     C
                                 </label><br>
                                 <label>
-                                    <input type="checkbox" name="non-c" autocomplete="off">
+                                    <input type="checkbox" name="nonc" autocomplete="off">
                                     Non-C
                                 </label><br>
                                 <label>
@@ -1609,11 +1609,11 @@
                         @auth
                             @if(auth()->user()->type == 1)
                                 <div class="form-group">
-                                    <textarea class="form-control" id="signed_textarea" rows="2"></textarea>
+                                    <textarea class="form-control" id="signed_textarea" name = "signature" rows="2"></textarea>
                                 </div>
                             @else
                                 <div class="form-group">
-                                    <textarea class="form-control" id="signed_textarea" title="Only a submitter can sign this form." rows="2" readonly></textarea>
+                                    <textarea class="form-control" id="signed_textarea" name = "signature" title="Only a submitter can sign this form." rows="2" readonly></textarea>
                                 </div>
                             @endif                            
                         @endauth
