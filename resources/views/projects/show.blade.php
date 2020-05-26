@@ -1019,8 +1019,13 @@
                         </div>
                     </div>
                 </div>
-              
             </div>
+            <script> 
+               // var obj = <?php echo json_encode($logOfChanges); ?>; 
+               var obj = <?php echo json_encode($logOfChanges); ?>; 
+                console.log(obj);
+            </script>
+            <button  name="data" type="button" onclick="displayChanges(obj)">Log of changes</button>
             <button class="btn btn-primary mt-1 float-right">Update</button>
             <button class="btn btn-primary d-flex justify-content-center" type="button">print</button>
         </form>
@@ -1055,4 +1060,5 @@
         border: 1px solid #F2F2F2;
     }
 </style>
+<script src="{{ asset('docs/js/logOfChangesLogic.js')}}"></script>
 @endsection
