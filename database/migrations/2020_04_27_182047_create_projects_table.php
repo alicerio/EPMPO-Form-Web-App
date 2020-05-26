@@ -99,7 +99,7 @@ class CreateProjectsTable extends Migration
             $table->boolean('type_administration')->nullable();
             $table->tinyInteger('block_system')->nullable();
 
-            // Third Page
+            // Last Page
 
             $table->date('schematic_start_date')->nullable();
             $table->date('schematic_end_date')->nullable();
@@ -184,6 +184,107 @@ class CreateProjectsTable extends Migration
             $table->tinyInteger('peperf_progress')->nullable();
             $table->tinyInteger('peperf_agency')->nullable();
             $table->string('peperf_comments')->nullable();
+
+            $table->date('fta_trans_start_date')->nullable();
+            $table->date('fta_trans_end_date')->nullable();
+            $table->tinyInteger('fta_trans_progress')->nullable();
+            $table->tinyInteger('fta_trans_agency')->nullable();
+            $table->string('fta_trans_comments')->nullable();
+
+            $table->date('active_fta_start_date')->nullable();
+            $table->date('active_fta_end_date')->nullable();
+            $table->tinyInteger('active_fta_progress')->nullable();
+            $table->tinyInteger('active_fta_agency')->nullable();
+            $table->string('active_fta_comments')->nullable();
+
+            $table->date('bus_start_date')->nullable();
+            $table->date('bus_end_date')->nullable();
+            $table->tinyInteger('bus_progress')->nullable();
+            $table->tinyInteger('bus_agency')->nullable();
+            $table->string('bus_comments')->nullable();
+
+            $table->date('delivery_start_date')->nullable();
+            $table->date('delivery_end_date')->nullable();
+            $table->tinyInteger('delivery_progress')->nullable();
+            $table->tinyInteger('delivery_agency')->nullable();
+            $table->string('delivery_comments')->nullable();
+
+            $table->date('other_start_date')->nullable();
+            $table->date('other_end_date')->nullable();
+            $table->tinyInteger('other_progress')->nullable();
+            $table->tinyInteger('other_agency')->nullable();
+            $table->string('other_comments')->nullable();
+
+            $table->boolean('reviewed_yes')->nullable();
+            $table->boolean('reviewed_no')->nullable();
+            $table->boolean('reviewed_na')->nullable();
+            $table->date('date_reviewed')->nullable();
+
+            // Project Phases
+
+            $table->boolean('fta_transfer')->nullable();
+            $table->boolean('c')->nullable();
+            $table->boolean('nonc')->nullable();
+            $table->boolean('pe')->nullable();
+            $table->boolean('env')->nullable();
+            $table->boolean('eng')->nullable();
+            $table->boolean('r')->nullable();
+            $table->boolean('acq')->nullable();
+            $table->boolean('utl')->nullable();
+
+            $table->Integer('subtotal_amount')->nullable();
+            $table->Integer('non_construction_amount')->nullable();
+            $table->Integer('construction_amount')->nullable();
+            $table->Integer('ce_amount')->nullable();
+            $table->Integer('contingencies_amount')->nullable();
+            $table->Integer('change_order_amount')->nullable();
+            $table->Integer('PE_amount')->nullable();
+            $table->Integer('indirects_amount')->nullable();
+            $table->Integer('ROW_amount')->nullable();
+            $table->Integer('transfer_amount')->nullable();
+            $table->Integer('total_amount')->nullable();
+
+            // Page 4
+
+            $table->tinyInteger('costs_1')->nullable();
+            $table->tinyInteger('costs_2')->nullable();
+            $table->tinyInteger('costs_3')->nullable();
+            $table->tinyInteger('costs_4')->nullable();
+
+            $table->boolean('mpo_funds')->nullable();
+            $table->Integer('yoe_cost')->nullable();
+
+            $table->string('funding_category')->nullable();
+            $table->Integer('funding_federal')->nullable();
+            $table->Integer('funding_state')->nullable();
+            $table->Integer('funding_local')->nullable();
+            $table->Integer('funding_local_beyond')->nullable();
+            $table->Integer('funding_total')->nullable();
+
+            $table->Integer('funding_federal_result')->nullable();
+            $table->Integer('funding_state_result')->nullable();
+            $table->Integer('funding_local_result')->nullable();
+            $table->Integer('funding_local_beyond_result')->nullable();
+            $table->Integer('funding_total_result')->nullable();
+
+            $table->string('local_pm_name')->nullable();
+            $table->string('local_pm_phone')->nullable();
+            $table->string('local_pm_email')->nullable();
+            $table->string('local_pm_agency')->nullable();
+            $table->string('local_pm_title')->nullable();
+
+            $table->string('state_pm_name')->nullable();
+            $table->string('state_pm_phone')->nullable();
+            $table->string('state_pm_email')->nullable();
+            $table->string('state_pm_agency')->nullable();
+            $table->string('state_pm_title')->nullable();
+
+            $table->string('sponsor_name')->nullable();
+            $table->string('sponsor_phone')->nullable();
+            $table->string('sponsor_email')->nullable();
+            $table->string('sponsor_agency')->nullable();
+            $table->string('sponsor_title')->nullable();
+            $table->string('signature')->nullable();
 
             $table->timestamps();
         });
