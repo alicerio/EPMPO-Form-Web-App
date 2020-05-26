@@ -3,7 +3,7 @@
 @section('content')
 <div class="container">
     <div class="row">
-        <div class="col-md-12">
+        <div class="col-md-9">
             <div class="card">
                 <div class="card-header">
                     Electornic Project Request Form (ePRF)
@@ -41,8 +41,26 @@
                             Limit To
                         </label>
                         <input type="text" class="form-control" name="limit_to" value="{{ $project->limit_to }}" disabled>
-
-                        <h4 class="mt-3">Definition of Regionally Significant Roadway: 23 CFR § 450.104</h4>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="card card-info">    
+                        <textarea placeholder="Write your comment here!" class="pb-cmnt-textarea"></textarea>
+                        <button class="btn btn-primary d-flex justify-content-center" type="button">Add Comment</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="space"></div>
+    <!------------------------------------------------------>
+    <div class="row">
+        <div class="col-md-9">
+            <div class="card">
+                <h4 class="mt-3">Definition of Regionally Significant Roadway: 23 CFR § 450.104</h4>
                         <p>Regionally significant project means a transportation project (other than projects that may be grouped in the TIP and/or STIP or exempt projects as defined in EPA's transportation conformity regulation (40 CFR part 93)) that is on a facility which serves regional transportation needs (such as access to and from the area outside the region; major activity centers in the region; major planned developments such as new retail malls, sports complexes, or employment centers; or transportation terminals) and would normally be included in the modeling of the metropolitan area's transportation network. At a minimum, this includes all principal arterial highways and all fixed guideway transit facilities that offer a significant alternative to regional highway travel. </p>
 
                         <label>
@@ -59,8 +77,6 @@
                             Agency Comments:
                         </label>
                         <textarea disabled name="agency_comments" class="form-control">{{ $project->agency_comments }}</textarea value="{{ $project->form }}">
-
-                        <hr>
 
                         <label>
                             <input type="checkbox" name="hwrw_funds_request" autocomplete="off" {{ $project->hwrw_funds_request == true ? 'checked' : '' }} disabled>
@@ -247,11 +263,25 @@
                         </div>
 
                         <a href="http://www.elpasompo.org/civicax/filebank/blobdload.aspx?BlobID=23410"> Click here for Project Selection Process diagram and presentation (PDF) </a>
-
-                        <hr>
-
-                        <h3>Project Selection Process</h3>
-
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="card card-info">    
+                        <textarea placeholder="Write your comment here!" class="pb-cmnt-textarea"></textarea>
+                        <button class="btn btn-primary d-flex justify-content-center" type="button">Add Comment</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="space"></div>
+    <!------------------------------------------------------>
+    <div class="row">
+        <div class="col-md-9">
+            <div class="card">
+                <h3>Project Selection Process</h3>
                         <div class="form-row mb-1">
                             <div class="col-sm-1">
                                 <select disabled name="psp_1" class="form-control">
@@ -465,522 +495,564 @@
                         <label><input type="radio" name="block_system" value="2" {{ $project->block_system == 2 ? 'checked' : '' }} disabled> Community to community</label autocomplete="off">
                         <label><input type="radio" name="block_system" value="3" {{ $project->block_system == 3 ? 'checked' : '' }} disabled> Community to region</label autocomplete="off">
                         <label><input type="radio" name="block_system" value="4" {{ $project->block_system == 4 ? 'checked' : '' }} disabled> Region to region</label autocomplete="off">
+          
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="card card-info">    
+                        <textarea placeholder="Write your comment here!" class="pb-cmnt-textarea"></textarea>
+                        <button class="btn btn-primary d-flex justify-content-center" type="button">Add Comment</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="space"></div>
+    <!------------------------------------------------------>
+    <div class="row">
+        <div class="col-md-9">
+            <div class="card">
+                <h4>Project Readiness Elements:</h4>
+                <p>"Overall" Estimate of Preliminary Engineering (PE) Examples include: Project Initiation/Planning, Initial Design, Environmental Document, PS&E, etc.</p>
 
-                        <hr>
-
-                        <h4>Project Readiness Elements:</h4>
-                        <p>"Overall" Estimate of Preliminary Engineering (PE) Examples include: Project Initiation/Planning, Initial Design, Environmental Document, PS&E, etc.</p>
-
-                        <div class="card">
-                            <div class="card-header">
-                                <div class="form-row">
-                                    <div class="col-sm-3">
-                                        Element
-                                    </div>
-                                    <div class="col-sm-2">
-                                        Est. Start Date
-                                    </div>
-                                    <div class="col-sm-2">
-                                        Est. End Date
-                                    </div>
-                                    <div class="col-sm-1">
-                                        Progress
-                                    </div>
-                                    <div class="col-sm-2">
-                                        Resp. Agency
-                                    </div>
-                                    <div class="col-sm-2">
-                                        Comments
-                                    </div>
-                                </div>
+                <div class="card">
+                    <div class="card-header">
+                        <div class="form-row">
+                            <div class="col-sm-3">
+                                Element
                             </div>
-                            <div class="card-body">
-                                {{-- Schematic --}}
-                                <div class="form-row mb-1">
-                                    <div class="col-sm-3">
-                                        Schematic
-                                    </div>
-                                    <div class="col-sm-2">
-                                        <input type="date" name="schematic_start_date" class="form-control" autocomplete="off" value="{{ $project->schematic_start_date }}" disabled>
-                                    </div>
-                                    <div class="col-sm-2">
-                                        <input type="date" name="schematic_end_date" class="form-control" autocomplete="off" value="{{ $project->schematic_end_date }}" disabled>
-                                    </div>
-                                    <div class="col-sm-1">
-                                        <select disabled name="schematic_progress" class="form-control" autocomplete="off">
-                                            <option>----</option>
-                                            <option value="1" {{ $project->schematic_progress == 1 ? 'selected' : ''  }}>0%</option>
-                                            <option value="2" {{ $project->schematic_progress == 2 ? 'selected' : ''  }}>30%</option>
-                                            <option value="3" {{ $project->schematic_progress == 3 ? 'selected' : ''  }}>60%</option>
-                                            <option value="4" {{ $project->schematic_progress == 4 ? 'selected' : ''  }}>90%</option>
-                                            <option value="5" {{ $project->schematic_progress == 5 ? 'selected' : ''  }}>100%</option>
-                                            <option value="6" {{ $project->schematic_progress == 6 ? 'selected' : ''  }}>N/A</option>
-                                        </select>
-                                    </div>
-                                    <div class="col-sm-2">
-                                        <select disabled name="schematic_agency" class="form-control" autocomplete="off">
-                                            <option>----</option>
-                                            <option value="1" {{ $project->schematic_agency == 1 ? 'selected' : '' }}>TxDOT</option>
-                                            <option value="2" {{ $project->schematic_agency == 2 ? 'selected' : '' }}>Local</option>
-                                            <option value="3" {{ $project->schematic_agency == 3 ? 'selected' : '' }}>Other</option>
-                                        </select>
-                                    </div>
-                                    <div class="col-sm-2">
-                                        <input type="text" name="schematic_comments" class="form-control" autocomplete="off" value="{{ $project->schematic_comments }}" disabled>
-                                    </div>
-                                </div>
-                                {{-- Env. Doc. Type --}}
-                                <div class="form-row mb-1">
-                                    <div class="col-sm-3">
-                                        Env. Doc. Type
-                                    </div>
-                                    <div class="col-sm-2">
-                                        <input type="date" name="envdoctype_start_date" class="form-control" autocomplete="off" value="{{ $project->envdoctype_start_date }}" disabled>
-                                    </div>
-                                    <div class="col-sm-2">
-                                        <input type="date" name="envdoctype_end_date" class="form-control" autocomplete="off" value="{{ $project->envdoctype_end_date }}" disabled>
-                                    </div>
-                                    <div class="col-sm-1">
-                                        <select disabled name="envdoctype_progress" class="form-control" autocomplete="off">
-                                            <option>----</option>
-                                            <option value="1" {{ $project->envdoctype_progress == 1 ? 'selected' : ''  }}>0%</option>
-                                            <option value="2" {{ $project->envdoctype_progress == 2 ? 'selected' : ''  }}>30%</option>
-                                            <option value="3" {{ $project->envdoctype_progress == 3 ? 'selected' : ''  }}>60%</option>
-                                            <option value="4" {{ $project->envdoctype_progress == 4 ? 'selected' : ''  }}>90%</option>
-                                            <option value="5" {{ $project->envdoctype_progress == 5 ? 'selected' : ''  }}>100%</option>
-                                            <option value="6" {{ $project->envdoctype_progress == 6 ? 'selected' : ''  }}>N/A</option>
-                                        </select>
-                                    </div>
-                                    <div class="col-sm-2">
-                                        <select disabled name="envdoctype_agency" class="form-control" autocomplete="off">
-                                            <option>----</option>
-                                            <option value="1" {{ $project->envdoctype_agency == 1 ? 'selected' : '' }}>TxDOT</option>
-                                            <option value="2" {{ $project->envdoctype_agency == 2 ? 'selected' : '' }}>Local</option>
-                                            <option value="3" {{ $project->envdoctype_agency == 3 ? 'selected' : '' }}>Other</option>
-                                        </select>
-                                    </div>
-                                    <div class="col-sm-2">
-                                        <input type="text" name="envdoctype_comments" class="form-control" autocomplete="off" value="{{ $project->envdoctype_comments }}" disabled>
-                                    </div>
-                                </div>
-                                {{-- Environmental Doc --}}
-                                <div class="form-row mb-1">
-                                    <div class="col-sm-3">
-                                        Environmental Doc
-                                    </div>
-                                    <div class="col-sm-2">
-                                        <input type="date" name="envdoc_start_date" class="form-control" autocomplete="off" value="{{ $project->envdoc_start_date }}" disabled>
-                                    </div>
-                                    <div class="col-sm-2">
-                                        <input type="date" name="envdoc_end_date" class="form-control" autocomplete="off" value="{{ $project->envdoc_end_date }}" disabled>
-                                    </div>
-                                    <div class="col-sm-1">
-                                        <select disabled name="envdoc_progress" class="form-control" autocomplete="off">
-                                            <option>----</option>
-                                            <option value="1" {{ $project->envdoc_progress == 1 ? 'selected' : ''  }}>0%</option>
-                                            <option value="2" {{ $project->envdoc_progress == 2 ? 'selected' : ''  }}>30%</option>
-                                            <option value="3" {{ $project->envdoc_progress == 3 ? 'selected' : ''  }}>60%</option>
-                                            <option value="4" {{ $project->envdoc_progress == 4 ? 'selected' : ''  }}>90%</option>
-                                            <option value="5" {{ $project->envdoc_progress == 5 ? 'selected' : ''  }}>100%</option>
-                                            <option value="6" {{ $project->envdoc_progress == 6 ? 'selected' : ''  }}>N/A</option>
-                                        </select>
-                                    </div>
-                                    <div class="col-sm-2">
-                                        <select disabled name="envdoc_agency" class="form-control" autocomplete="off">
-                                            <option>----</option>
-                                            <option value="1" {{ $project->envdoc_agency == 1 ? 'selected' : '' }}>TxDOT</option>
-                                            <option value="2" {{ $project->envdoc_agency == 2 ? 'selected' : '' }}>Local</option>
-                                            <option value="3" {{ $project->envdoc_agency == 3 ? 'selected' : '' }}>Other</option>
-                                        </select>
-                                    </div>
-                                    <div class="col-sm-2">
-                                        <input type="text" name="envdoc_comments" class="form-control" autocomplete="off" value="{{ $project->envdoc_comments }}" disabled>
-                                    </div>
-                                </div>
-                                {{-- PS&E --}}
-                                <div class="form-row mb-1">
-                                    <div class="col-sm-3">
-                                        PS&E
-                                    </div>
-                                    <div class="col-sm-2">
-                                        <input type="date" name="pse_start_date" class="form-control" autocomplete="off" value="{{ $project->pse_start_date }}" disabled>
-                                    </div>
-                                    <div class="col-sm-2">
-                                        <input type="date" name="pse_end_date" class="form-control" autocomplete="off" value="{{ $project->pse_end_date }}" disabled>
-                                    </div>
-                                    <div class="col-sm-1">
-                                        <select disabled name="pse_progress" class="form-control" autocomplete="off">
-                                            <option>----</option>
-                                            <option value="1" {{ $project->pse_progress == 1 ? 'selected' : ''  }}>0%</option>
-                                            <option value="2" {{ $project->pse_progress == 2 ? 'selected' : ''  }}>30%</option>
-                                            <option value="3" {{ $project->pse_progress == 3 ? 'selected' : ''  }}>60%</option>
-                                            <option value="4" {{ $project->pse_progress == 4 ? 'selected' : ''  }}>90%</option>
-                                            <option value="5" {{ $project->pse_progress == 5 ? 'selected' : ''  }}>100%</option>
-                                            <option value="6" {{ $project->pse_progress == 6 ? 'selected' : ''  }}>N/A</option>
-                                        </select>
-                                    </div>
-                                    <div class="col-sm-2">
-                                        <select disabled name="pse_agency" class="form-control" autocomplete="off">
-                                            <option>----</option>
-                                            <option value="1" {{ $project->pse_agency == 1 ? 'selected' : '' }}>TxDOT</option>
-                                            <option value="2" {{ $project->pse_agency == 2 ? 'selected' : '' }}>Local</option>
-                                            <option value="3" {{ $project->pse_agency == 3 ? 'selected' : '' }}>Other</option>
-                                        </select>
-                                    </div>
-                                    <div class="col-sm-2">
-                                        <input type="text" name="pse_comments" class="form-control" autocomplete="off" value="{{ $project->pse_comments }}" disabled>
-                                    </div>
-                                </div>
-                                {{-- ROW Map --}}
-                                <div class="form-row mb-1">
-                                    <div class="col-sm-3">
-                                        ROW Map(s)
-                                    </div>
-                                    <div class="col-sm-2">
-                                        <input type="date" name="rowmap_start_date" class="form-control" autocomplete="off" value="{{ $project->rowmap_start_date }}" disabled>
-                                    </div>
-                                    <div class="col-sm-2">
-                                        <input type="date" name="rowmap_end_date" class="form-control" autocomplete="off" value="{{ $project->rowmap_end_date }}" disabled>
-                                    </div>
-                                    <div class="col-sm-1">
-                                        <select disabled name="rowmap_progress" class="form-control" autocomplete="off">
-                                            <option>----</option>
-                                            <option value="1" {{ $project->rowmap_progress == 1 ? 'selected' : ''  }}>0%</option>
-                                            <option value="2" {{ $project->rowmap_progress == 2 ? 'selected' : ''  }}>30%</option>
-                                            <option value="3" {{ $project->rowmap_progress == 3 ? 'selected' : ''  }}>60%</option>
-                                            <option value="4" {{ $project->rowmap_progress == 4 ? 'selected' : ''  }}>90%</option>
-                                            <option value="5" {{ $project->rowmap_progress == 5 ? 'selected' : ''  }}>100%</option>
-                                            <option value="6" {{ $project->rowmap_progress == 6 ? 'selected' : ''  }}>N/A</option>
-                                        </select>
-                                    </div>
-                                    <div class="col-sm-2">
-                                        <select disabled name="rowmap_agency" class="form-control" autocomplete="off">
-                                            <option>----</option>
-                                            <option value="1" {{ $project->rowmap_agency == 1 ? 'selected' : '' }}>TxDOT</option>
-                                            <option value="2" {{ $project->rowmap_agency == 2 ? 'selected' : '' }}>Local</option>
-                                            <option value="3" {{ $project->rowmap_agency == 3 ? 'selected' : '' }}>Other</option>
-                                        </select>
-                                    </div>
-                                    <div class="col-sm-2">
-                                        <input type="text" name="rowmap_comments" class="form-control" autocomplete="off" value="{{ $project->rowmap_comments }}" disabled>
-                                    </div>
-                                </div>
-                                {{-- ROW Acquired --}}
-                                <div class="form-row mb-1">
-                                    <div class="col-sm-3">
-                                        ROW Acquired
-                                    </div>
-                                    <div class="col-sm-2">
-                                        <input type="date" name="rowacq_start_date" class="form-control" autocomplete="off" value="{{ $project->rowacq_start_date }}" disabled>
-                                    </div>
-                                    <div class="col-sm-2">
-                                        <input type="date" name="rowacq_end_date" class="form-control" autocomplete="off" value="{{ $project->rowacq_end_date }}" disabled>
-                                    </div>
-                                    <div class="col-sm-1">
-                                        <select disabled name="rowacq_progress" class="form-control" autocomplete="off">
-                                            <option>----</option>
-                                            <option value="1" {{ $project->rowacq_progress == 1 ? 'selected' : ''  }}>0%</option>
-                                            <option value="2" {{ $project->rowacq_progress == 2 ? 'selected' : ''  }}>30%</option>
-                                            <option value="3" {{ $project->rowacq_progress == 3 ? 'selected' : ''  }}>60%</option>
-                                            <option value="4" {{ $project->rowacq_progress == 4 ? 'selected' : ''  }}>90%</option>
-                                            <option value="5" {{ $project->rowacq_progress == 5 ? 'selected' : ''  }}>100%</option>
-                                            <option value="6" {{ $project->rowacq_progress == 6 ? 'selected' : ''  }}>N/A</option>
-                                        </select>
-                                    </div>
-                                    <div class="col-sm-2">
-                                        <select disabled name="rowacq_agency" class="form-control" autocomplete="off">
-                                            <option>----</option>
-                                            <option value="1" {{ $project->rowacq_agency == 1 ? 'selected' : '' }}>TxDOT</option>
-                                            <option value="2" {{ $project->rowacq_agency == 2 ? 'selected' : '' }}>Local</option>
-                                            <option value="3" {{ $project->rowacq_agency == 3 ? 'selected' : '' }}>Other</option>
-                                        </select>
-                                    </div>
-                                    <div class="col-sm-2">
-                                        <input type="text" name="rowacq_comments" class="form-control" autocomplete="off" value="{{ $project->rowacq_comments }}" disabled>
-                                    </div>
-                                </div>
-                                {{-- Utilities --}}
-                                <div class="form-row mb-1">
-                                    <div class="col-sm-3">
-                                        Utilities
-                                    </div>
-                                    <div class="col-sm-2">
-                                        <input type="date" name="utilities_start_date" class="form-control" autocomplete="off" value="{{ $project->utilities_start_date }}" disabled>
-                                    </div>
-                                    <div class="col-sm-2">
-                                        <input type="date" name="utilities_end_date" class="form-control" autocomplete="off" value="{{ $project->utilities_end_date }}" disabled>
-                                    </div>
-                                    <div class="col-sm-1">
-                                        <select disabled name="utilities_progress" class="form-control" autocomplete="off">
-                                            <option>----</option>
-                                            <option value="1" {{ $project->utilities_progress == 1 ? 'selected' : ''  }}>0%</option>
-                                            <option value="2" {{ $project->utilities_progress == 2 ? 'selected' : ''  }}>30%</option>
-                                            <option value="3" {{ $project->utilities_progress == 3 ? 'selected' : ''  }}>60%</option>
-                                            <option value="4" {{ $project->utilities_progress == 4 ? 'selected' : ''  }}>90%</option>
-                                            <option value="5" {{ $project->utilities_progress == 5 ? 'selected' : ''  }}>100%</option>
-                                            <option value="6" {{ $project->utilities_progress == 6 ? 'selected' : ''  }}>N/A</option>
-                                        </select>
-                                    </div>
-                                    <div class="col-sm-2">
-                                        <select disabled name="utilities_agency" class="form-control" autocomplete="off">
-                                            <option>----</option>
-                                            <option value="1" {{ $project->utilities_agency == 1 ? 'selected' : '' }}>TxDOT</option>
-                                            <option value="2" {{ $project->utilities_agency == 2 ? 'selected' : '' }}>Local</option>
-                                            <option value="3" {{ $project->utilities_agency == 3 ? 'selected' : '' }}>Other</option>
-                                        </select>
-                                    </div>
-                                    <div class="col-sm-2">
-                                        <input type="text" name="utilities_comments" class="form-control" autocomplete="off" value="{{ $project->utilities_comments }}" disabled>
-                                    </div>
-                                </div>
-                                {{-- Public Involvement --}}
-                                <div class="form-row mb-1">
-                                    <div class="col-sm-3">
-                                        Public Involvement
-                                    </div>
-                                    <div class="col-sm-2">
-                                        <input type="date" name="pubinv_start_date" class="form-control" autocomplete="off" value="{{ $project->pubinv_start_date }}" disabled>
-                                    </div>
-                                    <div class="col-sm-2">
-                                        <input type="date" name="pubinv_end_date" class="form-control" autocomplete="off" value="{{ $project->pubinv_end_date }}" disabled>
-                                    </div>
-                                    <div class="col-sm-1">
-                                        <select disabled name="pubinv_progress" class="form-control" autocomplete="off">
-                                            <option>----</option>
-                                            <option value="1" {{ $project->pubinv_progress == 1 ? 'selected' : ''  }}>0%</option>
-                                            <option value="2" {{ $project->pubinv_progress == 2 ? 'selected' : ''  }}>30%</option>
-                                            <option value="3" {{ $project->pubinv_progress == 3 ? 'selected' : ''  }}>60%</option>
-                                            <option value="4" {{ $project->pubinv_progress == 4 ? 'selected' : ''  }}>90%</option>
-                                            <option value="5" {{ $project->pubinv_progress == 5 ? 'selected' : ''  }}>100%</option>
-                                            <option value="6" {{ $project->pubinv_progress == 6 ? 'selected' : ''  }}>N/A</option>
-                                        </select>
-                                    </div>
-                                    <div class="col-sm-2">
-                                        <select disabled name="pubinv_agency" class="form-control" autocomplete="off">
-                                            <option>----</option>
-                                            <option value="1" {{ $project->pubinv_agency == 1 ? 'selected' : '' }}>TxDOT</option>
-                                            <option value="2" {{ $project->pubinv_agency == 2 ? 'selected' : '' }}>Local</option>
-                                            <option value="3" {{ $project->pubinv_agency == 3 ? 'selected' : '' }}>Other</option>
-                                        </select>
-                                    </div>
-                                    <div class="col-sm-2">
-                                        <input type="text" name="pubinv_comments" class="form-control" autocomplete="off" value="{{ $project->pubinv_comments }}" disabled>
-                                    </div>
-                                </div>
-                                {{-- District Review --}}
-                                <div class="form-row mb-1">
-                                    <div class="col-sm-3">
-                                        District Review
-                                    </div>
-                                    <div class="col-sm-2">
-                                        <input type="date" name="distrev_start_date" class="form-control" autocomplete="off" value="{{ $project->distrev_start_date }}" disabled>
-                                    </div>
-                                    <div class="col-sm-2">
-                                        <input type="date" name="distrev_end_date" class="form-control" autocomplete="off" value="{{ $project->distrev_end_date }}" disabled>
-                                    </div>
-                                    <div class="col-sm-1">
-                                        <select disabled name="distrev_progress" class="form-control" autocomplete="off">
-                                            <option>----</option>
-                                            <option value="1" {{ $project->distrev_progress == 1 ? 'selected' : ''  }}>0%</option>
-                                            <option value="2" {{ $project->distrev_progress == 2 ? 'selected' : ''  }}>30%</option>
-                                            <option value="3" {{ $project->distrev_progress == 3 ? 'selected' : ''  }}>60%</option>
-                                            <option value="4" {{ $project->distrev_progress == 4 ? 'selected' : ''  }}>90%</option>
-                                            <option value="5" {{ $project->distrev_progress == 5 ? 'selected' : ''  }}>100%</option>
-                                            <option value="6" {{ $project->distrev_progress == 6 ? 'selected' : ''  }}>N/A</option>
-                                        </select>
-                                    </div>
-                                    <div class="col-sm-2">
-                                        <select disabled name="distrev_agency" class="form-control" autocomplete="off">
-                                            <option>----</option>
-                                            <option value="1" {{ $project->distrev_agency == 1 ? 'selected' : '' }}>TxDOT</option>
-                                            <option value="2" {{ $project->distrev_agency == 2 ? 'selected' : '' }}>Local</option>
-                                            <option value="3" {{ $project->distrev_agency == 3 ? 'selected' : '' }}>Other</option>
-                                        </select>
-                                    </div>
-                                    <div class="col-sm-2">
-                                        <input type="text" name="distrev_comments" class="form-control" autocomplete="off" value="{{ $project->distrev_comments }}" disabled>
-                                    </div>
-                                </div>
-                                {{-- Agreement --}}
-                                <div class="form-row mb-1">
-                                    <div class="col-sm-3">
-                                        Agreement (LPFA)
-                                    </div>
-                                    <div class="col-sm-2">
-                                        <input type="date" name="agree_start_date" class="form-control" autocomplete="off" value="{{ $project->agree_start_date }}" disabled>
-                                    </div>
-                                    <div class="col-sm-2">
-                                        <input type="date" name="agree_end_date" class="form-control" autocomplete="off" value="{{ $project->agree_end_date }}" disabled>
-                                    </div>
-                                    <div class="col-sm-1">
-                                        <select disabled name="agree_progress" class="form-control" autocomplete="off">
-                                            <option>----</option>
-                                            <option value="1" {{ $project->agree_progress == 1 ? 'selected' : ''  }}>0%</option>
-                                            <option value="2" {{ $project->agree_progress == 2 ? 'selected' : ''  }}>30%</option>
-                                            <option value="3" {{ $project->agree_progress == 3 ? 'selected' : ''  }}>60%</option>
-                                            <option value="4" {{ $project->agree_progress == 4 ? 'selected' : ''  }}>90%</option>
-                                            <option value="5" {{ $project->agree_progress == 5 ? 'selected' : ''  }}>100%</option>
-                                            <option value="6" {{ $project->agree_progress == 6 ? 'selected' : ''  }}>N/A</option>
-                                        </select>
-                                    </div>
-                                    <div class="col-sm-2">
-                                        <select disabled name="agree_agency" class="form-control" autocomplete="off">
-                                            <option>----</option>
-                                            <option value="1" {{ $project->agree_agency == 1 ? 'selected' : '' }}>TxDOT</option>
-                                            <option value="2" {{ $project->agree_agency == 2 ? 'selected' : '' }}>Local</option>
-                                            <option value="3" {{ $project->agree_agency == 3 ? 'selected' : '' }}>Other</option>
-                                        </select>
-                                    </div>
-                                    <div class="col-sm-2">
-                                        <input type="text" name="agree_comments" class="form-control" autocomplete="off" value="{{ $project->agree_comments }}" disabled>
-                                    </div>
-                                </div>
-                                {{-- Procurement Process --}}
-                                <div class="form-row mb-1">
-                                    <div class="col-sm-3">
-                                        Procurement Process
-                                    </div>
-                                    <div class="col-sm-2">
-                                        <input type="date" name="procpro_start_date" class="form-control" autocomplete="off" value="{{ $project->procpro_start_date }}" disabled>
-                                    </div>
-                                    <div class="col-sm-2">
-                                        <input type="date" name="procpro_end_date" class="form-control" autocomplete="off" value="{{ $project->procpro_end_date }}" disabled>
-                                    </div>
-                                    <div class="col-sm-1">
-                                        <select disabled name="procpro_progress" class="form-control" autocomplete="off">
-                                            <option>----</option>
-                                            <option value="1" {{ $project->procpro_progress == 1 ? 'selected' : ''  }}>0%</option>
-                                            <option value="2" {{ $project->procpro_progress == 2 ? 'selected' : ''  }}>30%</option>
-                                            <option value="3" {{ $project->procpro_progress == 3 ? 'selected' : ''  }}>60%</option>
-                                            <option value="4" {{ $project->procpro_progress == 4 ? 'selected' : ''  }}>90%</option>
-                                            <option value="5" {{ $project->procpro_progress == 5 ? 'selected' : ''  }}>100%</option>
-                                            <option value="6" {{ $project->procpro_progress == 6 ? 'selected' : ''  }}>N/A</option>
-                                        </select>
-                                    </div>
-                                    <div class="col-sm-2">
-                                        <select disabled name="procpro_agency" class="form-control" autocomplete="off">
-                                            <option>----</option>
-                                            <option value="1" {{ $project->procpro_agency == 1 ? 'selected' : '' }}>TxDOT</option>
-                                            <option value="2" {{ $project->procpro_agency == 2 ? 'selected' : '' }}>Local</option>
-                                            <option value="3" {{ $project->procpro_agency == 3 ? 'selected' : '' }}>Other</option>
-                                        </select>
-                                    </div>
-                                    <div class="col-sm-2">
-                                        <input type="text" name="procpro_comments" class="form-control" autocomplete="off" value="{{ $project->procpro_comments }}" disabled>
-                                    </div>
-                                </div>
-                                {{-- Let Date --}}
-                                <div class="form-row mb-1">
-                                    <div class="col-sm-3">
-                                        Let Date
-                                    </div>
-                                    <div class="col-sm-2">
-                                        <input type="date" name="letdate_start_date" class="form-control" autocomplete="off" value="{{ $project->letdate_start_date }}" disabled>
-                                    </div>
-                                    <div class="col-sm-2">
-                                        <input type="date" name="letdate_end_date" class="form-control" autocomplete="off" value="{{ $project->letdate_end_date }}" disabled>
-                                    </div>
-                                    <div class="col-sm-1">
-                                        <select disabled name="letdate_progress" class="form-control" autocomplete="off">
-                                            <option>----</option>
-                                            <option value="1" {{ $project->letdate_progress == 1 ? 'selected' : ''  }}>0%</option>
-                                            <option value="2" {{ $project->letdate_progress == 2 ? 'selected' : ''  }}>30%</option>
-                                            <option value="3" {{ $project->letdate_progress == 3 ? 'selected' : ''  }}>60%</option>
-                                            <option value="4" {{ $project->letdate_progress == 4 ? 'selected' : ''  }}>90%</option>
-                                            <option value="5" {{ $project->letdate_progress == 5 ? 'selected' : ''  }}>100%</option>
-                                            <option value="6" {{ $project->letdate_progress == 6 ? 'selected' : ''  }}>N/A</option>
-                                        </select>
-                                    </div>
-                                    <div class="col-sm-2">
-                                        <select disabled name="letdate_agency" class="form-control" autocomplete="off">
-                                            <option>----</option>
-                                            <option value="1" {{ $project->letdate_agency == 1 ? 'selected' : '' }}>TxDOT</option>
-                                            <option value="2" {{ $project->letdate_agency == 2 ? 'selected' : '' }}>Local</option>
-                                            <option value="3" {{ $project->letdate_agency == 3 ? 'selected' : '' }}>Other</option>
-                                        </select>
-                                    </div>
-                                    <div class="col-sm-2">
-                                        <input type="text" name="letdate_comments" class="form-control" autocomplete="off" value="{{ $project->letdate_comments }}" disabled>
-                                    </div>
-                                </div>
-                                {{-- Construction Performance End Date --}}
-                                <div class="form-row mb-1">
-                                    <div class="col-sm-3">
-                                        Construction Performance End Date
-                                    </div>
-                                    <div class="col-sm-2">
-                                        <input type="date" name="consper_end_date_start_date" class="form-control" autocomplete="off" value="{{ $project->consper_end_date_start_date }}" disabled>
-                                    </div>
-                                    <div class="col-sm-2">
-                                        <input type="date" name="consper_end_date_end_date" class="form-control" autocomplete="off" value="{{ $project->consper_end_date_end_date }}" disabled>
-                                    </div>
-                                    <div class="col-sm-1">
-                                        <select disabled name="consper_end_date_progress" class="form-control" autocomplete="off">
-                                            <option>----</option>
-                                            <option value="1" {{ $project->consper_end_date_progress == 1 ? 'selected' : ''  }}>0%</option>
-                                            <option value="2" {{ $project->consper_end_date_progress == 2 ? 'selected' : ''  }}>30%</option>
-                                            <option value="3" {{ $project->consper_end_date_progress == 3 ? 'selected' : ''  }}>60%</option>
-                                            <option value="4" {{ $project->consper_end_date_progress == 4 ? 'selected' : ''  }}>90%</option>
-                                            <option value="5" {{ $project->consper_end_date_progress == 5 ? 'selected' : ''  }}>100%</option>
-                                            <option value="6" {{ $project->consper_end_date_progress == 6 ? 'selected' : ''  }}>N/A</option>
-                                        </select>
-                                    </div>
-                                    <div class="col-sm-2">
-                                        <select disabled name="consper_end_date_agency" class="form-control" autocomplete="off">
-                                            <option>----</option>
-                                            <option value="1" {{ $project->consper_end_date_agency == 1 ? 'selected' : '' }}>TxDOT</option>
-                                            <option value="2" {{ $project->consper_end_date_agency == 2 ? 'selected' : '' }}>Local</option>
-                                            <option value="3" {{ $project->consper_end_date_agency == 3 ? 'selected' : '' }}>Other</option>
-                                        </select>
-                                    </div>
-                                    <div class="col-sm-2">
-                                        <input type="text" name="consper_end_date_comments" class="form-control" autocomplete="off" value="{{ $project->consper_end_date_comments }}" disabled>
-                                    </div>
-                                </div>
-                                {{-- PE Performance --}}
-                                <div class="form-row">
-                                    <div class="col-sm-3">
-                                        PE Performance End Date
-                                    </div>
-                                    <div class="col-sm-2">
-                                        <input type="date" name="peperf_start_date" class="form-control" autocomplete="off" value="{{ $project->peperf_start_date }}" disabled>
-                                    </div>
-                                    <div class="col-sm-2">
-                                        <input type="date" name="peperf_end_date" class="form-control" autocomplete="off" value="{{ $project->peperf_end_date }}" disabled>
-                                    </div>
-                                    <div class="col-sm-1">
-                                        <select disabled name="peperf_progress" class="form-control" autocomplete="off">
-                                            <option>----</option>
-                                            <option value="1" {{ $project->peperf_progress == 1 ? 'selected' : ''  }}>0%</option>
-                                            <option value="2" {{ $project->peperf_progress == 2 ? 'selected' : ''  }}>30%</option>
-                                            <option value="3" {{ $project->peperf_progress == 3 ? 'selected' : ''  }}>60%</option>
-                                            <option value="4" {{ $project->peperf_progress == 4 ? 'selected' : ''  }}>90%</option>
-                                            <option value="5" {{ $project->peperf_progress == 5 ? 'selected' : ''  }}>100%</option>
-                                            <option value="6" {{ $project->peperf_progress == 6 ? 'selected' : ''  }}>N/A</option>
-                                        </select>
-                                    </div>
-                                    <div class="col-sm-2">
-                                        <select disabled name="peperf_agency" class="form-control" autocomplete="off">
-                                            <option>----</option>
-                                            <option value="1" {{ $project->peperf_agency == 1 ? 'selected' : '' }}>TxDOT</option>
-                                            <option value="2" {{ $project->peperf_agency == 2 ? 'selected' : '' }}>Local</option>
-                                            <option value="3" {{ $project->peperf_agency == 3 ? 'selected' : '' }}>Other</option>
-                                        </select>
-                                    </div>
-                                    <div class="col-sm-2">
-                                        <input type="text" name="peperf_comments" class="form-control" autocomplete="off" value="{{ $project->peperf_comments }}" disabled>
-                                    </div>
-                                </div>
-
-
+                            <div class="col-sm-2">
+                                Est. Start Date
+                            </div>
+                            <div class="col-sm-2">
+                                Est. End Date
+                            </div>
+                            <div class="col-sm-1">
+                                Progress
+                            </div>
+                            <div class="col-sm-2">
+                                Resp. Agency
+                            </div>
+                            <div class="col-sm-2">
+                                Comments
                             </div>
                         </div>
-
-                        <button class="btn btn-primary mt-1 float-right">Update</button>
-                    </form>
+                    </div>
+                    <div class="card-body">
+                        {{-- Schematic --}}
+                        <div class="form-row mb-1">
+                            <div class="col-sm-3">
+                                Schematic
+                            </div>
+                            <div class="col-sm-2">
+                                <input type="date" name="schematic_start_date" class="form-control" autocomplete="off" value="{{ $project->schematic_start_date }}" disabled>
+                            </div>
+                            <div class="col-sm-2">
+                                <input type="date" name="schematic_end_date" class="form-control" autocomplete="off" value="{{ $project->schematic_end_date }}" disabled>
+                            </div>
+                            <div class="col-sm-1">
+                                <select disabled name="schematic_progress" class="form-control" autocomplete="off">
+                                    <option>----</option>
+                                    <option value="1" {{ $project->schematic_progress == 1 ? 'selected' : ''  }}>0%</option>
+                                    <option value="2" {{ $project->schematic_progress == 2 ? 'selected' : ''  }}>30%</option>
+                                    <option value="3" {{ $project->schematic_progress == 3 ? 'selected' : ''  }}>60%</option>
+                                    <option value="4" {{ $project->schematic_progress == 4 ? 'selected' : ''  }}>90%</option>
+                                    <option value="5" {{ $project->schematic_progress == 5 ? 'selected' : ''  }}>100%</option>
+                                    <option value="6" {{ $project->schematic_progress == 6 ? 'selected' : ''  }}>N/A</option>
+                                </select>
+                            </div>
+                            <div class="col-sm-2">
+                                <select disabled name="schematic_agency" class="form-control" autocomplete="off">
+                                    <option>----</option>
+                                    <option value="1" {{ $project->schematic_agency == 1 ? 'selected' : '' }}>TxDOT</option>
+                                    <option value="2" {{ $project->schematic_agency == 2 ? 'selected' : '' }}>Local</option>
+                                    <option value="3" {{ $project->schematic_agency == 3 ? 'selected' : '' }}>Other</option>
+                                </select>
+                            </div>
+                            <div class="col-sm-2">
+                                <input type="text" name="schematic_comments" class="form-control" autocomplete="off" value="{{ $project->schematic_comments }}" disabled>
+                            </div>
+                        </div>
+                        {{-- Env. Doc. Type --}}
+                        <div class="form-row mb-1">
+                            <div class="col-sm-3">
+                                Env. Doc. Type
+                            </div>
+                            <div class="col-sm-2">
+                                <input type="date" name="envdoctype_start_date" class="form-control" autocomplete="off" value="{{ $project->envdoctype_start_date }}" disabled>
+                            </div>
+                            <div class="col-sm-2">
+                                <input type="date" name="envdoctype_end_date" class="form-control" autocomplete="off" value="{{ $project->envdoctype_end_date }}" disabled>
+                            </div>
+                            <div class="col-sm-1">
+                                <select disabled name="envdoctype_progress" class="form-control" autocomplete="off">
+                                    <option>----</option>
+                                    <option value="1" {{ $project->envdoctype_progress == 1 ? 'selected' : ''  }}>0%</option>
+                                    <option value="2" {{ $project->envdoctype_progress == 2 ? 'selected' : ''  }}>30%</option>
+                                    <option value="3" {{ $project->envdoctype_progress == 3 ? 'selected' : ''  }}>60%</option>
+                                    <option value="4" {{ $project->envdoctype_progress == 4 ? 'selected' : ''  }}>90%</option>
+                                    <option value="5" {{ $project->envdoctype_progress == 5 ? 'selected' : ''  }}>100%</option>
+                                    <option value="6" {{ $project->envdoctype_progress == 6 ? 'selected' : ''  }}>N/A</option>
+                                </select>
+                            </div>
+                            <div class="col-sm-2">
+                                <select disabled name="envdoctype_agency" class="form-control" autocomplete="off">
+                                    <option>----</option>
+                                    <option value="1" {{ $project->envdoctype_agency == 1 ? 'selected' : '' }}>TxDOT</option>
+                                    <option value="2" {{ $project->envdoctype_agency == 2 ? 'selected' : '' }}>Local</option>
+                                    <option value="3" {{ $project->envdoctype_agency == 3 ? 'selected' : '' }}>Other</option>
+                                </select>
+                            </div>
+                            <div class="col-sm-2">
+                                <input type="text" name="envdoctype_comments" class="form-control" autocomplete="off" value="{{ $project->envdoctype_comments }}" disabled>
+                            </div>
+                        </div>
+                        {{-- Environmental Doc --}}
+                        <div class="form-row mb-1">
+                            <div class="col-sm-3">
+                                Environmental Doc
+                            </div>
+                            <div class="col-sm-2">
+                                <input type="date" name="envdoc_start_date" class="form-control" autocomplete="off" value="{{ $project->envdoc_start_date }}" disabled>
+                            </div>
+                            <div class="col-sm-2">
+                                <input type="date" name="envdoc_end_date" class="form-control" autocomplete="off" value="{{ $project->envdoc_end_date }}" disabled>
+                            </div>
+                            <div class="col-sm-1">
+                                <select disabled name="envdoc_progress" class="form-control" autocomplete="off">
+                                    <option>----</option>
+                                    <option value="1" {{ $project->envdoc_progress == 1 ? 'selected' : ''  }}>0%</option>
+                                    <option value="2" {{ $project->envdoc_progress == 2 ? 'selected' : ''  }}>30%</option>
+                                    <option value="3" {{ $project->envdoc_progress == 3 ? 'selected' : ''  }}>60%</option>
+                                    <option value="4" {{ $project->envdoc_progress == 4 ? 'selected' : ''  }}>90%</option>
+                                    <option value="5" {{ $project->envdoc_progress == 5 ? 'selected' : ''  }}>100%</option>
+                                    <option value="6" {{ $project->envdoc_progress == 6 ? 'selected' : ''  }}>N/A</option>
+                                </select>
+                            </div>
+                            <div class="col-sm-2">
+                                <select disabled name="envdoc_agency" class="form-control" autocomplete="off">
+                                    <option>----</option>
+                                    <option value="1" {{ $project->envdoc_agency == 1 ? 'selected' : '' }}>TxDOT</option>
+                                    <option value="2" {{ $project->envdoc_agency == 2 ? 'selected' : '' }}>Local</option>
+                                    <option value="3" {{ $project->envdoc_agency == 3 ? 'selected' : '' }}>Other</option>
+                                </select>
+                            </div>
+                            <div class="col-sm-2">
+                                <input type="text" name="envdoc_comments" class="form-control" autocomplete="off" value="{{ $project->envdoc_comments }}" disabled>
+                            </div>
+                        </div>
+                        {{-- PS&E --}}
+                        <div class="form-row mb-1">
+                            <div class="col-sm-3">
+                                PS&E
+                            </div>
+                            <div class="col-sm-2">
+                                <input type="date" name="pse_start_date" class="form-control" autocomplete="off" value="{{ $project->pse_start_date }}" disabled>
+                            </div>
+                            <div class="col-sm-2">
+                                <input type="date" name="pse_end_date" class="form-control" autocomplete="off" value="{{ $project->pse_end_date }}" disabled>
+                            </div>
+                            <div class="col-sm-1">
+                                <select disabled name="pse_progress" class="form-control" autocomplete="off">
+                                    <option>----</option>
+                                    <option value="1" {{ $project->pse_progress == 1 ? 'selected' : ''  }}>0%</option>
+                                    <option value="2" {{ $project->pse_progress == 2 ? 'selected' : ''  }}>30%</option>
+                                    <option value="3" {{ $project->pse_progress == 3 ? 'selected' : ''  }}>60%</option>
+                                    <option value="4" {{ $project->pse_progress == 4 ? 'selected' : ''  }}>90%</option>
+                                    <option value="5" {{ $project->pse_progress == 5 ? 'selected' : ''  }}>100%</option>
+                                    <option value="6" {{ $project->pse_progress == 6 ? 'selected' : ''  }}>N/A</option>
+                                </select>
+                            </div>
+                            <div class="col-sm-2">
+                                <select disabled name="pse_agency" class="form-control" autocomplete="off">
+                                    <option>----</option>
+                                    <option value="1" {{ $project->pse_agency == 1 ? 'selected' : '' }}>TxDOT</option>
+                                    <option value="2" {{ $project->pse_agency == 2 ? 'selected' : '' }}>Local</option>
+                                    <option value="3" {{ $project->pse_agency == 3 ? 'selected' : '' }}>Other</option>
+                                </select>
+                            </div>
+                            <div class="col-sm-2">
+                                <input type="text" name="pse_comments" class="form-control" autocomplete="off" value="{{ $project->pse_comments }}" disabled>
+                            </div>
+                        </div>
+                        {{-- ROW Map --}}
+                        <div class="form-row mb-1">
+                            <div class="col-sm-3">
+                                ROW Map(s)
+                            </div>
+                            <div class="col-sm-2">
+                                <input type="date" name="rowmap_start_date" class="form-control" autocomplete="off" value="{{ $project->rowmap_start_date }}" disabled>
+                            </div>
+                            <div class="col-sm-2">
+                                <input type="date" name="rowmap_end_date" class="form-control" autocomplete="off" value="{{ $project->rowmap_end_date }}" disabled>
+                            </div>
+                            <div class="col-sm-1">
+                                <select disabled name="rowmap_progress" class="form-control" autocomplete="off">
+                                    <option>----</option>
+                                    <option value="1" {{ $project->rowmap_progress == 1 ? 'selected' : ''  }}>0%</option>
+                                    <option value="2" {{ $project->rowmap_progress == 2 ? 'selected' : ''  }}>30%</option>
+                                    <option value="3" {{ $project->rowmap_progress == 3 ? 'selected' : ''  }}>60%</option>
+                                    <option value="4" {{ $project->rowmap_progress == 4 ? 'selected' : ''  }}>90%</option>
+                                    <option value="5" {{ $project->rowmap_progress == 5 ? 'selected' : ''  }}>100%</option>
+                                    <option value="6" {{ $project->rowmap_progress == 6 ? 'selected' : ''  }}>N/A</option>
+                                </select>
+                            </div>
+                            <div class="col-sm-2">
+                                <select disabled name="rowmap_agency" class="form-control" autocomplete="off">
+                                    <option>----</option>
+                                    <option value="1" {{ $project->rowmap_agency == 1 ? 'selected' : '' }}>TxDOT</option>
+                                    <option value="2" {{ $project->rowmap_agency == 2 ? 'selected' : '' }}>Local</option>
+                                    <option value="3" {{ $project->rowmap_agency == 3 ? 'selected' : '' }}>Other</option>
+                                </select>
+                            </div>
+                            <div class="col-sm-2">
+                                <input type="text" name="rowmap_comments" class="form-control" autocomplete="off" value="{{ $project->rowmap_comments }}" disabled>
+                            </div>
+                        </div>
+                        {{-- ROW Acquired --}}
+                        <div class="form-row mb-1">
+                            <div class="col-sm-3">
+                                ROW Acquired
+                            </div>
+                            <div class="col-sm-2">
+                                <input type="date" name="rowacq_start_date" class="form-control" autocomplete="off" value="{{ $project->rowacq_start_date }}" disabled>
+                            </div>
+                            <div class="col-sm-2">
+                                <input type="date" name="rowacq_end_date" class="form-control" autocomplete="off" value="{{ $project->rowacq_end_date }}" disabled>
+                            </div>
+                            <div class="col-sm-1">
+                                <select disabled name="rowacq_progress" class="form-control" autocomplete="off">
+                                    <option>----</option>
+                                    <option value="1" {{ $project->rowacq_progress == 1 ? 'selected' : ''  }}>0%</option>
+                                    <option value="2" {{ $project->rowacq_progress == 2 ? 'selected' : ''  }}>30%</option>
+                                    <option value="3" {{ $project->rowacq_progress == 3 ? 'selected' : ''  }}>60%</option>
+                                    <option value="4" {{ $project->rowacq_progress == 4 ? 'selected' : ''  }}>90%</option>
+                                    <option value="5" {{ $project->rowacq_progress == 5 ? 'selected' : ''  }}>100%</option>
+                                    <option value="6" {{ $project->rowacq_progress == 6 ? 'selected' : ''  }}>N/A</option>
+                                </select>
+                            </div>
+                            <div class="col-sm-2">
+                                <select disabled name="rowacq_agency" class="form-control" autocomplete="off">
+                                    <option>----</option>
+                                    <option value="1" {{ $project->rowacq_agency == 1 ? 'selected' : '' }}>TxDOT</option>
+                                    <option value="2" {{ $project->rowacq_agency == 2 ? 'selected' : '' }}>Local</option>
+                                    <option value="3" {{ $project->rowacq_agency == 3 ? 'selected' : '' }}>Other</option>
+                                </select>
+                            </div>
+                            <div class="col-sm-2">
+                                <input type="text" name="rowacq_comments" class="form-control" autocomplete="off" value="{{ $project->rowacq_comments }}" disabled>
+                            </div>
+                        </div>
+                        {{-- Utilities --}}
+                        <div class="form-row mb-1">
+                            <div class="col-sm-3">
+                                Utilities
+                            </div>
+                            <div class="col-sm-2">
+                                <input type="date" name="utilities_start_date" class="form-control" autocomplete="off" value="{{ $project->utilities_start_date }}" disabled>
+                            </div>
+                            <div class="col-sm-2">
+                                <input type="date" name="utilities_end_date" class="form-control" autocomplete="off" value="{{ $project->utilities_end_date }}" disabled>
+                            </div>
+                            <div class="col-sm-1">
+                                <select disabled name="utilities_progress" class="form-control" autocomplete="off">
+                                    <option>----</option>
+                                    <option value="1" {{ $project->utilities_progress == 1 ? 'selected' : ''  }}>0%</option>
+                                    <option value="2" {{ $project->utilities_progress == 2 ? 'selected' : ''  }}>30%</option>
+                                    <option value="3" {{ $project->utilities_progress == 3 ? 'selected' : ''  }}>60%</option>
+                                    <option value="4" {{ $project->utilities_progress == 4 ? 'selected' : ''  }}>90%</option>
+                                    <option value="5" {{ $project->utilities_progress == 5 ? 'selected' : ''  }}>100%</option>
+                                    <option value="6" {{ $project->utilities_progress == 6 ? 'selected' : ''  }}>N/A</option>
+                                </select>
+                            </div>
+                            <div class="col-sm-2">
+                                <select disabled name="utilities_agency" class="form-control" autocomplete="off">
+                                    <option>----</option>
+                                    <option value="1" {{ $project->utilities_agency == 1 ? 'selected' : '' }}>TxDOT</option>
+                                    <option value="2" {{ $project->utilities_agency == 2 ? 'selected' : '' }}>Local</option>
+                                    <option value="3" {{ $project->utilities_agency == 3 ? 'selected' : '' }}>Other</option>
+                                </select>
+                            </div>
+                            <div class="col-sm-2">
+                                <input type="text" name="utilities_comments" class="form-control" autocomplete="off" value="{{ $project->utilities_comments }}" disabled>
+                            </div>
+                        </div>
+                        {{-- Public Involvement --}}
+                        <div class="form-row mb-1">
+                            <div class="col-sm-3">
+                                Public Involvement
+                            </div>
+                            <div class="col-sm-2">
+                                <input type="date" name="pubinv_start_date" class="form-control" autocomplete="off" value="{{ $project->pubinv_start_date }}" disabled>
+                            </div>
+                            <div class="col-sm-2">
+                                <input type="date" name="pubinv_end_date" class="form-control" autocomplete="off" value="{{ $project->pubinv_end_date }}" disabled>
+                            </div>
+                            <div class="col-sm-1">
+                                <select disabled name="pubinv_progress" class="form-control" autocomplete="off">
+                                    <option>----</option>
+                                    <option value="1" {{ $project->pubinv_progress == 1 ? 'selected' : ''  }}>0%</option>
+                                    <option value="2" {{ $project->pubinv_progress == 2 ? 'selected' : ''  }}>30%</option>
+                                    <option value="3" {{ $project->pubinv_progress == 3 ? 'selected' : ''  }}>60%</option>
+                                    <option value="4" {{ $project->pubinv_progress == 4 ? 'selected' : ''  }}>90%</option>
+                                    <option value="5" {{ $project->pubinv_progress == 5 ? 'selected' : ''  }}>100%</option>
+                                    <option value="6" {{ $project->pubinv_progress == 6 ? 'selected' : ''  }}>N/A</option>
+                                </select>
+                            </div>
+                            <div class="col-sm-2">
+                                <select disabled name="pubinv_agency" class="form-control" autocomplete="off">
+                                    <option>----</option>
+                                    <option value="1" {{ $project->pubinv_agency == 1 ? 'selected' : '' }}>TxDOT</option>
+                                    <option value="2" {{ $project->pubinv_agency == 2 ? 'selected' : '' }}>Local</option>
+                                    <option value="3" {{ $project->pubinv_agency == 3 ? 'selected' : '' }}>Other</option>
+                                </select>
+                            </div>
+                            <div class="col-sm-2">
+                                <input type="text" name="pubinv_comments" class="form-control" autocomplete="off" value="{{ $project->pubinv_comments }}" disabled>
+                            </div>
+                        </div>
+                        {{-- District Review --}}
+                        <div class="form-row mb-1">
+                            <div class="col-sm-3">
+                                District Review
+                            </div>
+                            <div class="col-sm-2">
+                                <input type="date" name="distrev_start_date" class="form-control" autocomplete="off" value="{{ $project->distrev_start_date }}" disabled>
+                            </div>
+                            <div class="col-sm-2">
+                                <input type="date" name="distrev_end_date" class="form-control" autocomplete="off" value="{{ $project->distrev_end_date }}" disabled>
+                            </div>
+                            <div class="col-sm-1">
+                                <select disabled name="distrev_progress" class="form-control" autocomplete="off">
+                                    <option>----</option>
+                                    <option value="1" {{ $project->distrev_progress == 1 ? 'selected' : ''  }}>0%</option>
+                                    <option value="2" {{ $project->distrev_progress == 2 ? 'selected' : ''  }}>30%</option>
+                                    <option value="3" {{ $project->distrev_progress == 3 ? 'selected' : ''  }}>60%</option>
+                                    <option value="4" {{ $project->distrev_progress == 4 ? 'selected' : ''  }}>90%</option>
+                                    <option value="5" {{ $project->distrev_progress == 5 ? 'selected' : ''  }}>100%</option>
+                                    <option value="6" {{ $project->distrev_progress == 6 ? 'selected' : ''  }}>N/A</option>
+                                </select>
+                            </div>
+                            <div class="col-sm-2">
+                                <select disabled name="distrev_agency" class="form-control" autocomplete="off">
+                                    <option>----</option>
+                                    <option value="1" {{ $project->distrev_agency == 1 ? 'selected' : '' }}>TxDOT</option>
+                                    <option value="2" {{ $project->distrev_agency == 2 ? 'selected' : '' }}>Local</option>
+                                    <option value="3" {{ $project->distrev_agency == 3 ? 'selected' : '' }}>Other</option>
+                                </select>
+                            </div>
+                            <div class="col-sm-2">
+                                <input type="text" name="distrev_comments" class="form-control" autocomplete="off" value="{{ $project->distrev_comments }}" disabled>
+                            </div>
+                        </div>
+                        {{-- Agreement --}}
+                        <div class="form-row mb-1">
+                            <div class="col-sm-3">
+                                Agreement (LPFA)
+                            </div>
+                            <div class="col-sm-2">
+                                <input type="date" name="agree_start_date" class="form-control" autocomplete="off" value="{{ $project->agree_start_date }}" disabled>
+                            </div>
+                            <div class="col-sm-2">
+                                <input type="date" name="agree_end_date" class="form-control" autocomplete="off" value="{{ $project->agree_end_date }}" disabled>
+                            </div>
+                            <div class="col-sm-1">
+                                <select disabled name="agree_progress" class="form-control" autocomplete="off">
+                                    <option>----</option>
+                                    <option value="1" {{ $project->agree_progress == 1 ? 'selected' : ''  }}>0%</option>
+                                    <option value="2" {{ $project->agree_progress == 2 ? 'selected' : ''  }}>30%</option>
+                                    <option value="3" {{ $project->agree_progress == 3 ? 'selected' : ''  }}>60%</option>
+                                    <option value="4" {{ $project->agree_progress == 4 ? 'selected' : ''  }}>90%</option>
+                                    <option value="5" {{ $project->agree_progress == 5 ? 'selected' : ''  }}>100%</option>
+                                    <option value="6" {{ $project->agree_progress == 6 ? 'selected' : ''  }}>N/A</option>
+                                </select>
+                            </div>
+                            <div class="col-sm-2">
+                                <select disabled name="agree_agency" class="form-control" autocomplete="off">
+                                    <option>----</option>
+                                    <option value="1" {{ $project->agree_agency == 1 ? 'selected' : '' }}>TxDOT</option>
+                                    <option value="2" {{ $project->agree_agency == 2 ? 'selected' : '' }}>Local</option>
+                                    <option value="3" {{ $project->agree_agency == 3 ? 'selected' : '' }}>Other</option>
+                                </select>
+                            </div>
+                            <div class="col-sm-2">
+                                <input type="text" name="agree_comments" class="form-control" autocomplete="off" value="{{ $project->agree_comments }}" disabled>
+                            </div>
+                        </div>
+                        {{-- Procurement Process --}}
+                        <div class="form-row mb-1">
+                            <div class="col-sm-3">
+                                Procurement Process
+                            </div>
+                            <div class="col-sm-2">
+                                <input type="date" name="procpro_start_date" class="form-control" autocomplete="off" value="{{ $project->procpro_start_date }}" disabled>
+                            </div>
+                            <div class="col-sm-2">
+                                <input type="date" name="procpro_end_date" class="form-control" autocomplete="off" value="{{ $project->procpro_end_date }}" disabled>
+                            </div>
+                            <div class="col-sm-1">
+                                <select disabled name="procpro_progress" class="form-control" autocomplete="off">
+                                    <option>----</option>
+                                    <option value="1" {{ $project->procpro_progress == 1 ? 'selected' : ''  }}>0%</option>
+                                    <option value="2" {{ $project->procpro_progress == 2 ? 'selected' : ''  }}>30%</option>
+                                    <option value="3" {{ $project->procpro_progress == 3 ? 'selected' : ''  }}>60%</option>
+                                    <option value="4" {{ $project->procpro_progress == 4 ? 'selected' : ''  }}>90%</option>
+                                    <option value="5" {{ $project->procpro_progress == 5 ? 'selected' : ''  }}>100%</option>
+                                    <option value="6" {{ $project->procpro_progress == 6 ? 'selected' : ''  }}>N/A</option>
+                                </select>
+                            </div>
+                            <div class="col-sm-2">
+                                <select disabled name="procpro_agency" class="form-control" autocomplete="off">
+                                    <option>----</option>
+                                    <option value="1" {{ $project->procpro_agency == 1 ? 'selected' : '' }}>TxDOT</option>
+                                    <option value="2" {{ $project->procpro_agency == 2 ? 'selected' : '' }}>Local</option>
+                                    <option value="3" {{ $project->procpro_agency == 3 ? 'selected' : '' }}>Other</option>
+                                </select>
+                            </div>
+                            <div class="col-sm-2">
+                                <input type="text" name="procpro_comments" class="form-control" autocomplete="off" value="{{ $project->procpro_comments }}" disabled>
+                            </div>
+                        </div>
+                        {{-- Let Date --}}
+                        <div class="form-row mb-1">
+                            <div class="col-sm-3">
+                                Let Date
+                            </div>
+                            <div class="col-sm-2">
+                                <input type="date" name="letdate_start_date" class="form-control" autocomplete="off" value="{{ $project->letdate_start_date }}" disabled>
+                            </div>
+                            <div class="col-sm-2">
+                                <input type="date" name="letdate_end_date" class="form-control" autocomplete="off" value="{{ $project->letdate_end_date }}" disabled>
+                            </div>
+                            <div class="col-sm-1">
+                                <select disabled name="letdate_progress" class="form-control" autocomplete="off">
+                                    <option>----</option>
+                                    <option value="1" {{ $project->letdate_progress == 1 ? 'selected' : ''  }}>0%</option>
+                                    <option value="2" {{ $project->letdate_progress == 2 ? 'selected' : ''  }}>30%</option>
+                                    <option value="3" {{ $project->letdate_progress == 3 ? 'selected' : ''  }}>60%</option>
+                                    <option value="4" {{ $project->letdate_progress == 4 ? 'selected' : ''  }}>90%</option>
+                                    <option value="5" {{ $project->letdate_progress == 5 ? 'selected' : ''  }}>100%</option>
+                                    <option value="6" {{ $project->letdate_progress == 6 ? 'selected' : ''  }}>N/A</option>
+                                </select>
+                            </div>
+                            <div class="col-sm-2">
+                                <select disabled name="letdate_agency" class="form-control" autocomplete="off">
+                                    <option>----</option>
+                                    <option value="1" {{ $project->letdate_agency == 1 ? 'selected' : '' }}>TxDOT</option>
+                                    <option value="2" {{ $project->letdate_agency == 2 ? 'selected' : '' }}>Local</option>
+                                    <option value="3" {{ $project->letdate_agency == 3 ? 'selected' : '' }}>Other</option>
+                                </select>
+                            </div>
+                            <div class="col-sm-2">
+                                <input type="text" name="letdate_comments" class="form-control" autocomplete="off" value="{{ $project->letdate_comments }}" disabled>
+                            </div>
+                        </div>
+                        {{-- Construction Performance End Date --}}
+                        <div class="form-row mb-1">
+                            <div class="col-sm-3">
+                                Construction Performance End Date
+                            </div>
+                            <div class="col-sm-2">
+                                <input type="date" name="consper_end_date_start_date" class="form-control" autocomplete="off" value="{{ $project->consper_end_date_start_date }}" disabled>
+                            </div>
+                            <div class="col-sm-2">
+                                <input type="date" name="consper_end_date_end_date" class="form-control" autocomplete="off" value="{{ $project->consper_end_date_end_date }}" disabled>
+                            </div>
+                            <div class="col-sm-1">
+                                <select disabled name="consper_end_date_progress" class="form-control" autocomplete="off">
+                                    <option>----</option>
+                                    <option value="1" {{ $project->consper_end_date_progress == 1 ? 'selected' : ''  }}>0%</option>
+                                    <option value="2" {{ $project->consper_end_date_progress == 2 ? 'selected' : ''  }}>30%</option>
+                                    <option value="3" {{ $project->consper_end_date_progress == 3 ? 'selected' : ''  }}>60%</option>
+                                    <option value="4" {{ $project->consper_end_date_progress == 4 ? 'selected' : ''  }}>90%</option>
+                                    <option value="5" {{ $project->consper_end_date_progress == 5 ? 'selected' : ''  }}>100%</option>
+                                    <option value="6" {{ $project->consper_end_date_progress == 6 ? 'selected' : ''  }}>N/A</option>
+                                </select>
+                            </div>
+                            <div class="col-sm-2">
+                                <select disabled name="consper_end_date_agency" class="form-control" autocomplete="off">
+                                    <option>----</option>
+                                    <option value="1" {{ $project->consper_end_date_agency == 1 ? 'selected' : '' }}>TxDOT</option>
+                                    <option value="2" {{ $project->consper_end_date_agency == 2 ? 'selected' : '' }}>Local</option>
+                                    <option value="3" {{ $project->consper_end_date_agency == 3 ? 'selected' : '' }}>Other</option>
+                                </select>
+                            </div>
+                            <div class="col-sm-2">
+                                <input type="text" name="consper_end_date_comments" class="form-control" autocomplete="off" value="{{ $project->consper_end_date_comments }}" disabled>
+                            </div>
+                        </div>
+                        {{-- PE Performance --}}
+                        <div class="form-row">
+                            <div class="col-sm-3">
+                                PE Performance End Date
+                            </div>
+                            <div class="col-sm-2">
+                                <input type="date" name="peperf_start_date" class="form-control" autocomplete="off" value="{{ $project->peperf_start_date }}" disabled>
+                            </div>
+                            <div class="col-sm-2">
+                                <input type="date" name="peperf_end_date" class="form-control" autocomplete="off" value="{{ $project->peperf_end_date }}" disabled>
+                            </div>
+                            <div class="col-sm-1">
+                                <select disabled name="peperf_progress" class="form-control" autocomplete="off">
+                                    <option>----</option>
+                                    <option value="1" {{ $project->peperf_progress == 1 ? 'selected' : ''  }}>0%</option>
+                                    <option value="2" {{ $project->peperf_progress == 2 ? 'selected' : ''  }}>30%</option>
+                                    <option value="3" {{ $project->peperf_progress == 3 ? 'selected' : ''  }}>60%</option>
+                                    <option value="4" {{ $project->peperf_progress == 4 ? 'selected' : ''  }}>90%</option>
+                                    <option value="5" {{ $project->peperf_progress == 5 ? 'selected' : ''  }}>100%</option>
+                                    <option value="6" {{ $project->peperf_progress == 6 ? 'selected' : ''  }}>N/A</option>
+                                </select>
+                            </div>
+                            <div class="col-sm-2">
+                                <select disabled name="peperf_agency" class="form-control" autocomplete="off">
+                                    <option>----</option>
+                                    <option value="1" {{ $project->peperf_agency == 1 ? 'selected' : '' }}>TxDOT</option>
+                                    <option value="2" {{ $project->peperf_agency == 2 ? 'selected' : '' }}>Local</option>
+                                    <option value="3" {{ $project->peperf_agency == 3 ? 'selected' : '' }}>Other</option>
+                                </select>
+                            </div>
+                            <div class="col-sm-2">
+                                <input type="text" name="peperf_comments" class="form-control" autocomplete="off" value="{{ $project->peperf_comments }}" disabled>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+              
+            </div>
+            <button class="btn btn-primary mt-1 float-right">Update</button>
+            <button class="btn btn-primary d-flex justify-content-center" type="button">print</button>
+        </form>
+        </div>
+        <div class="col-md-3">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="card card-info">    
+                        <textarea placeholder="Write your comment here!" class="pb-cmnt-textarea"></textarea>
+                        <button class="btn btn-primary d-flex justify-content-center" type="button">Add Comment</button>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
+
+<style>
+    #space{
+        margin:5%;
+    }
+    .pb-cmnt-container {
+        font-family: Lato;
+        margin-top: 100px;
+    }
+
+    .pb-cmnt-textarea {
+        resize: none;
+        padding: 20px;
+        height: 15%;
+        width: 100%;
+        border: 1px solid #F2F2F2;
+    }
+</style>
 @endsection
