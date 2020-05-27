@@ -402,7 +402,14 @@ class ProjectController extends Controller
         $project->peperf_agency = request('peperf_agency') == '----' ? null : request('peperf_agency');
         $project->peperf_comments = request('peperf_comments');
 
-        $project->save();
+        if($project->status != request('status')){
+            $newProject = $project->replicate();
+            $newProject->status = request('status');
+            $newProject->parent_id = ($project->parent_id != null) ? $project->parent_id : $project->id;
+            $newProject->save();
+        }else{            
+            $project->save();
+        }
 
         return redirect(route('projects.index'));
     }

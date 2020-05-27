@@ -1015,9 +1015,30 @@
 
                             </div>
                         </div>
-                        <a class="btn btn-primary" href="{{route('project.excel')}}" role="button">Export to Excel</a>
-                        <a class="btn btn-primary" href="{{route('project.pdf')}}" role="button">Export to PDF</a>
-                        <button class="btn btn-primary mt-1 float-right">Update</button>
+                        <div class="row mt-1">
+                            <div class="col">
+                                <a class="btn btn-primary btn-block" href="{{route('project.excel')}}" role="button">Export to Excel</a>
+                            </div>
+                            <div class="col">
+                                <a class="btn btn-primary btn-block" href="{{route('project.pdf')}}" role="button">Export to PDF</a>
+                            </div>
+                            <div class="col">
+                                <select name="status"  class="form-control" autocomplete="off">
+                                    @if(auth()->user()->type == 2 && $project->status == 2)
+                                        <option value="4" selected>Approve</option>
+                                        <option value="5">Decline</option>
+                                    @else
+                                        <option value="0" selected>Save Progress</option>
+                                        <option value="1">Request PM Review</option>
+                                        @if(auth()->user()->type == 1)
+                                        <option value="2">Sign Off</option>
+                                        @endif
+                                    @endif
+                                </select>
+                            </div>
+                            <div class="col">
+                                <button class="btn btn-primary btn-block mt-1 float-right">Submit</button>
+                            </div>
                     </form>
                 </div>
             </div>

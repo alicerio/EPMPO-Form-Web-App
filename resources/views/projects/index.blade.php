@@ -52,9 +52,9 @@
                             @endforeach
                             <td>{{ auth()->user()->name }}</td>
                             @if($project->agency_id<=6)
-                                <td>{{ $statuses[$project->agency_id] }}</td>
+                                <td>{{ $statuses[$project->status] }}</td>
                             @else
-                                <td>{{ $statuses[random_int(0,6)] }}</td>
+                                <td>{{ $statuses[$project->status] }}</td>
                             @endif
                             @if(auth()->user()->type!=2)
                                 <td>{{ $project->mpo_id }}</td>
@@ -72,13 +72,6 @@
                                     <td>
                                         <input type="text" class="form-control" name="csj_cn" value="{{ $project->csj_cn }}">
                                     </td>
-                                    <!--
-                                    <td>
-                                        <button class="btn btn-light btn-block" type="submit">
-                                                Update MPO ID
-                                        </button>
-                                    </td>
-                                -->
                                 </form>
                             @endif
                             <td>
@@ -88,7 +81,9 @@
                                     </button>
                                     <div class="dropdown-menu" aria-labelledby="user_edit_options">
                                         <a class="dropdown-item" href="{{ route('projects.edit', $project->id) }}">Edit</a>
-                                        <a class="dropdown-item" onclick="document.inline_form.submit();">Update MPO ID</a>
+                                        @if(auth()->user()->type == 2)
+                                            <a class="dropdown-item" onclick="document.inline_form.submit();">Update MPO ID</a>
+                                        @endif
                                         <form action="{{ route('projects.destroy', $project->id) }}" method="POST">
                                             @csrf
                                             @method('delete')

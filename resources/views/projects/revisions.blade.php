@@ -45,9 +45,9 @@
                                     <td>{{ auth()->user()->name }}</td>
 
                                     @if($project->agency_id<=6)
-                                        <td>{{ $statuses[$project->agency_id] }}</td>
+                                        <td>{{ $statuses[$project->status] }}</td>
                                     @else
-                                        <td>{{ $statuses[random_int(0,6)] }}</td>
+                                        <td>{{ $statuses[$project->status] }}</td>
                                     @endif
 
                                     @if(auth()->user()->type!=2)
