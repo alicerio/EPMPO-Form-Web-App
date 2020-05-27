@@ -888,7 +888,7 @@
                                         Construction Performance End Date
                                     </div>
                                     <div class="col-sm-2">
-                                        <input type="date" name="consper_end_date_start_date" class="form-control" autocomplete="off"disabled>
+                                        <input type="date" name="consper_end_date_start_date" class="form-control" autocomplete="off" disabled>
                                     </div>
                                     <div class="col-sm-2">
                                         <input type="date" name="consper_end_date_end_date" class="form-control" autocomplete="off">
@@ -1545,16 +1545,11 @@
                         <div class="form-group">
                             <textarea class="form-control" id="attachments_textarea" rows="5" readonly></textarea>
                         </div>
-                        <div class="form-group">
-                            <form class="md-form" action="#">
-                                <div class="file-field">
-                                <div class="btn btn-primary btn-sm float-left">
-                                    <input type="file" multiple>
-                                </div>
-                                </div>
-                            </form>
-                        </div>
                         <div class="form-row">
+                            <p>Files Attached&nbsp;</p>
+                            <button class="btn btn-primary mt-1 float-right">
+                                Add File
+                            </button>
                             <button class="btn btn-primary mt-1 float-right">
                                 Open File
                             </button>
