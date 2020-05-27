@@ -535,25 +535,16 @@
                                         <input type="date" name="envdoctype_start_date" class="form-control" autocomplete="off">
                                     </div>
                                     <div class="col-sm-2">
-                                        <input type="date" name="envdoctype_end_date" class="form-control" autocomplete="off" readonly>
+                                        <input type="date" name="envdoctype_end_date" class="form-control" autocomplete="off" disabled>
                                     </div>
                                     <div class="col-sm-1">
-                                        <select name="envdoctype_progress" class="form-control" autocomplete="off">
+                                        <select disabled name="envdoctype_progress" class="form-control" autocomplete="off">
                                             <option>----</option>
-                                            <option value="1">0%</option>
-                                            <option value="2">30%</option>
-                                            <option value="3">60%</option>
-                                            <option value="4">90%</option>
-                                            <option value="5">100%</option>
-                                            <option value="6">N/A</option>
                                         </select>
                                     </div>
                                     <div class="col-sm-2">
-                                        <select name="envdoctype_agency" class="form-control" autocomplete="off">
+                                        <select disabled name="envdoctype_agency" class="form-control" autocomplete="off">
                                             <option>----</option>
-                                            <option value="1">TxDOT</option>
-                                            <option value="2">Local</option>
-                                            <option value="3">Other</option>
                                         </select>
                                     </div>
                                     <div class="col-sm-2">
@@ -878,22 +869,13 @@
                                         <input type="date" name="letdate_end_date" class="form-control" autocomplete="off" readonly>
                                     </div>
                                     <div class="col-sm-1">
-                                        <select name="letdate_progress" class="form-control" autocomplete="off">
+                                        <select disabled name="letdate_progress" class="form-control" autocomplete="off">
                                             <option>----</option>
-                                            <option value="1">0%</option>
-                                            <option value="2">30%</option>
-                                            <option value="3">60%</option>
-                                            <option value="4">90%</option>
-                                            <option value="5">100%</option>
-                                            <option value="6">N/A</option>
                                         </select>
                                     </div>
                                     <div class="col-sm-2">
-                                        <select name="letdate_agency" class="form-control" autocomplete="off">
+                                        <select disabled name="letdate_agency" class="form-control" autocomplete="off">
                                             <option>----</option>
-                                            <option value="1">TxDOT</option>
-                                            <option value="2">Local</option>
-                                            <option value="3">Other</option>
                                         </select>
                                     </div>
                                     <div class="col-sm-2">
@@ -906,32 +888,23 @@
                                         Construction Performance End Date
                                     </div>
                                     <div class="col-sm-2">
-                                        <input type="date" name="consper_end_date_start_date" class="form-control" autocomplete="off" readonly>
+                                        <input type="date" name="consper_end_date_start_date" class="form-control" autocomplete="off"disabled>
                                     </div>
                                     <div class="col-sm-2">
                                         <input type="date" name="consper_end_date_end_date" class="form-control" autocomplete="off">
                                     </div>
                                     <div class="col-sm-1">
-                                        <select name="consper_end_date_progress" class="form-control" autocomplete="off">
+                                        <select disabled name="consper_end_date_progress" class="form-control" autocomplete="off">
                                             <option>----</option>
-                                            <option value="1">0%</option>
-                                            <option value="2">30%</option>
-                                            <option value="3">60%</option>
-                                            <option value="4">90%</option>
-                                            <option value="5">100%</option>
-                                            <option value="6">N/A</option>
                                         </select>
                                     </div>
                                     <div class="col-sm-2">
-                                        <select name="consper_end_date_agency" class="form-control" autocomplete="off">
+                                        <select disabled name="consper_end_date_agency" class="form-control" autocomplete="off">
                                             <option>----</option>
-                                            <option value="1">TxDOT</option>
-                                            <option value="2">Local</option>
-                                            <option value="3">Other</option>
                                         </select>
                                     </div>
                                     <div class="col-sm-2">
-                                        <input type="text" name="consper_end_date_comments" class="form-control" autocomplete="off" readonly>
+                                        <input type="text" name="consper_end_date_comments" class="form-control" autocomplete="off" disabled>
                                     </div>
                                 </div>
                                 {{-- PE Performance --}}
@@ -940,28 +913,19 @@
                                         PE Performance End Date
                                     </div>
                                     <div class="col-sm-2">
-                                        <input type="date" name="peperf_start_date" class="form-control" autocomplete="off" readonly>
+                                        <input type="date" name="peperf_start_date" class="form-control" autocomplete="off" disabled>
                                     </div>
                                     <div class="col-sm-2">
                                         <input type="date" name="peperf_end_date" class="form-control" autocomplete="off">
                                     </div>
                                     <div class="col-sm-1">
-                                        <select name="peperf_progress" class="form-control" autocomplete="off">
+                                        <select disabled name="peperf_progress" class="form-control" autocomplete="off">
                                             <option>----</option>
-                                            <option value="1">0%</option>
-                                            <option value="2">30%</option>
-                                            <option value="3">60%</option>
-                                            <option value="4">90%</option>
-                                            <option value="5">100%</option>
-                                            <option value="6">N/A</option>
                                         </select>
                                     </div>
                                     <div class="col-sm-2">
-                                        <select name="peperf_agency" class="form-control" autocomplete="off">
+                                        <select disabled name="peperf_agency" class="form-control" autocomplete="off">
                                             <option>----</option>
-                                            <option value="1">TxDOT</option>
-                                            <option value="2">Local</option>
-                                            <option value="3">Other</option>
                                         </select>
                                     </div>
                                     <div class="col-sm-2">
@@ -1579,13 +1543,18 @@
                         <br>
                         <h3>Attachments (CMAQ Analysis, Cost Estimate, Schematic/Design Concept, etc. ).</h3>
                         <div class="form-group">
-                            <textarea class="form-control" id="attachments_textarea" rows="5"></textarea>
+                            <textarea class="form-control" id="attachments_textarea" rows="5" readonly></textarea>
+                        </div>
+                        <div class="form-group">
+                            <form class="md-form" action="#">
+                                <div class="file-field">
+                                <div class="btn btn-primary btn-sm float-left">
+                                    <input type="file" multiple>
+                                </div>
+                                </div>
+                            </form>
                         </div>
                         <div class="form-row">
-                            <p>Files Attached&nbsp;</p>
-                            <button class="btn btn-primary mt-1 float-right">
-                                Add File
-                            </button>
                             <button class="btn btn-primary mt-1 float-right">
                                 Open File
                             </button>
