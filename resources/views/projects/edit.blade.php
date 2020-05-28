@@ -1388,7 +1388,7 @@
                                                 </tr>
                                             </table>
                                         </div>
-                                 </div>
+                                    </div>
                                 <div id = "" class="form-row mb-1">
                                     <div class="col-sm-2">
                                         Total Funding By Share
