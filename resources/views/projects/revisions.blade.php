@@ -78,6 +78,8 @@
                                                         </button>
                                                     </form>
                                                 @endif
+                                                {{-- Only mpo admins can delete projects --}}
+                                                @if(auth()->user()->type == 2)
                                                 <form action="{{ route('projects.destroy', $project->id) }}" method="POST">
                                                     @csrf
                                                     @method('delete')
@@ -85,6 +87,7 @@
                                                         Delete
                                                     </button>
                                                 </form>
+                                                @endif
                                             </div>
                                         </div>
                                     </td>

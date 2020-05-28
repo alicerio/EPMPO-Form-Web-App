@@ -20,7 +20,7 @@ Route::get('projects/revisions/{project}', 'ProjectController@revisions')->name(
 Route::patch('projects/updateMPO/{project}', 'ProjectController@updateMPO')->name('projects.updateMPO');
 Route::resource('/projects', 'ProjectController');
 
-// Route::apiResource('api/projects', 'API\ProjectController');
+Route::resource('/bprojects', 'BProjectController');
 
 Route::resource('agencies', 'AgencyController');
 
