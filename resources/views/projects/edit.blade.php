@@ -1550,8 +1550,7 @@
                                 <a class="btn btn-primary btn-block" href="{{route('project.excel')}}" role="button">Export to Excel</a>
                             </div>
                             <div class="col">
-                                <a class="btn btn-primary btn-block" href="{{route('project.pdf')}}" role="button">Export to PDF</a>
-                            </div>
+                                <a class="btn btn-primary btn-block" onclick="print()" role="button">Export to PDF</a>                            </div>
                             <div class="col">
                                 <select name="status"  class="form-control" autocomplete="off">
                                     <option value="0" selected>Save Progress</option>
