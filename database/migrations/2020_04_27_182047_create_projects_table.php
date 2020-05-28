@@ -20,6 +20,8 @@ class CreateProjectsTable extends Migration
             $table->string('mpo_id')->nullable();
             $table->string('csj_cn')->nullable();
 
+            $table->string('author')->nullable();
+
             $table->string('name');
             $table->string('description')->nullable();
             $table->string('limit_from')->nullable();

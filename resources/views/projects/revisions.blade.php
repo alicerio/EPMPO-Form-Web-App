@@ -13,16 +13,14 @@
                     No projects have been submitted
               </div>
             @else
+                <h3 class="float-left">Project: {{ $projects[0]->name }}</h3>
+                <h3 class="float-right">Status: {{ $statuses[$projects[count($projects) - 1]->status] }}</h3>
                 <table class="table table-bordered">
                     <thead>
                         <tr>
-                        <th scope="col">Project</th>
-                        <th scope="col">Agency</th>
-                        <th scope="col">Name</th>
-                        <th scope="col">Status</th>
-                        <th scope="col">MPO ID</th>
-                        <th scope="col">CSJ</th>
-                        <th scole="col">editor</th>
+                            <th scope="col">Title</th>
+                            <th scope="col">Submitted</th>
+                            <th scope="col">Options</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -33,49 +31,53 @@
                                 <tr class="{{ ($project->parent_id == null) ? 'table-info' : '' }}">
                                     <td>
                                         <a href="{{ route('projects.show', $project->id) }}">
-                                            {{ $project->name }}
+                                            {{ $statuses[$project->status] }}
+                                            {{ ($statuses[$project->status] == 'Submitted') ? 'v' . ++$counts[$project->status] : '' }}
                                         </a>
                                     </td>
-                                    {{-- TODO: Change for relational array / hashmap --}}
-                                    @foreach ($agencies as $agency)
-                                        @if($agency->id == $project->agency_id)
-                                            <td>{{ $agency->name }}</td>
-                                        @endif
-                                    @endforeach
-                                    <td>{{ auth()->user()->name }}</td>
-
-                                    @if($project->agency_id<=6)
-                                        <td>{{ $statuses[$project->status] }}</td>
-                                    @else
-                                        <td>{{ $statuses[$project->status] }}</td>
-                                    @endif
-
-                                    @if(auth()->user()->type!=2)
-                                        <td>{{ $project->mpo_id }}</td>
-                                        <td>{{ $project->csj_cn }}</td>
-                                        <td></td>
-                                    @else
-                                        <form action="{{ route('projects.updateMPO', $project->id) }}" method="POST" name="inline_form">
-                                            @csrf
-                                            @method('PATCH')
-                                            <input type="text" name="name" hidden value="{{ $project->name }}">
-                                            <input type="text" name="agency_id" hidden value="{{ $project->agency_id }}">
-                                            <td>
-                                                <input type="text" class="form-control" name="mpo_id" value="{{ $project->mpo_id }}">
-                                            </td>
-                                            <td>
-                                                <input type="text" class="form-control" name="csj_cn" value="{{ $project->csj_cn }}">
-                                            </td>
-                                        </form>
-                                    @endif
+                                    <td>
+                                        {{ $project->created_at }}
+                                    </td>
                                     <td>
                                         <div class="dropdown">
                                             <button class="btn btn-secondary dropdown-toggle" type="button" id="user_edit_options" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                                 Options
                                             </button>
                                             <div class="dropdown-menu" aria-labelledby="user_edit_options">
-                                                <a class="dropdown-item" href="{{ route('projects.edit', $project->id) }}">Edit</a>
-                                                <a class="dropdown-item" onclick="document.inline_form.submit();">Update MPO ID</a>
+                                                {{-- Project is in progress --}}
+                                                @if($project->status == 0 || $project->status == 4)
+                                                    <a class="dropdown-item" href="{{ route('projects.edit', $project->id) }}">Edit</a>
+                                                @endif
+                                                {{-- Project needs to be signed off by submitter --}}
+                                                @if($project->status == 1 && auth()->user()->type >= 1)
+                                                    <form action="{{ route('projects.update', $project->id) }}" method="POST">
+                                                        @csrf
+                                                        @method('PATCH')
+                                                        <input type="text" name="status" value="2" hidden>
+                                                        <button class="dropdown-item" type="submit">
+                                                            Sign Off
+                                                        </button>
+                                                    </form>
+                                                @endif
+                                                {{-- Project needs to be approved / declined by mpo --}}
+                                                @if($project->status == 2 && auth()->user()->type == 2)
+                                                    <form action="{{ route('projects.update', $project->id) }}" method="POST">
+                                                        @csrf
+                                                        @method('PATCH')
+                                                        <input type="text" name="status" value="3" hidden>
+                                                        <button class="dropdown-item" type="submit">
+                                                            Approve
+                                                        </button>
+                                                    </form>
+                                                    <form action="{{ route('projects.update', $project->id) }}" method="POST">
+                                                        @csrf
+                                                        @method('PATCH')
+                                                        <input type="text" name="status" value="4" hidden>
+                                                        <button class="dropdown-item" type="submit">
+                                                            Decline
+                                                        </button>
+                                                    </form>
+                                                @endif
                                                 <form action="{{ route('projects.destroy', $project->id) }}" method="POST">
                                                     @csrf
                                                     @method('delete')

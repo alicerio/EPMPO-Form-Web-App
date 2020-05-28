@@ -975,8 +975,6 @@
 
                             </div>
                         </div>
-
-                        <button class="btn btn-primary mt-1 float-right">Update</button>
                     </form>
                 </div>
             </div>

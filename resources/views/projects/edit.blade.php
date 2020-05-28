@@ -1024,16 +1024,8 @@
                             </div>
                             <div class="col">
                                 <select name="status"  class="form-control" autocomplete="off">
-                                    @if(auth()->user()->type == 2 && $project->status == 2)
-                                        <option value="4" selected>Approve</option>
-                                        <option value="5">Decline</option>
-                                    @else
-                                        <option value="0" selected>Save Progress</option>
-                                        <option value="1">Request PM Review</option>
-                                        @if(auth()->user()->type == 1)
-                                        <option value="2">Sign Off</option>
-                                        @endif
-                                    @endif
+                                    <option value="0" selected>Save Progress</option>
+                                    <option value="1">Request PM Review</option>
                                 </select>
                             </div>
                             <div class="col">

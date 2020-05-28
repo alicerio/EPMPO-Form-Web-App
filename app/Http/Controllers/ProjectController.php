@@ -21,17 +21,18 @@ class ProjectController extends Controller
     {
         $projects = Project::all()->where('parent_id', null);
         $agencies = Agency::all();
-        $statuses = ['In Progress','PM Pending Review','PM Signed', 'Submitted V1','MPO Returned','MPO Accepted', 'MPO Post-Acceptance Revision'];
+        $statuses = ['In Progress','PM Pending Review','Submitted', 'Approved','In Progress [Declined]'];
         return view('projects.index', compact('projects', 'statuses','agencies'));
     }
 
     public function revisions($id)
     {
-        $projects = Project::all()->where('parent_id', $id);
-        $projects->push(Project::find($id));
+        $projects = Project::orderBy('created_at', 'asc')->where('parent_id', $id)->get();
+        $projects->prepend(Project::find($id));
         $agencies = Agency::all();
-        $statuses = ['In Progress','PM Pending Review','PM Signed', 'Submitted V1','MPO Returned','MPO Accepted', 'MPO Post-Acceptance Revision'];
-        return view('projects.revisions', compact('projects', 'statuses','agencies'));
+        $counts = [0,0,0,0,0];
+        $statuses = ['In Progress','PM Pending Review','Submitted', 'Approved','In Progress [Declined]'];
+        return view('projects.revisions', compact('projects', 'statuses','agencies', 'counts'));
     }
 
 
@@ -79,6 +80,7 @@ class ProjectController extends Controller
         $project->parent_id = request('parent_id');
         $project->mpo_id = request('mpo_id');
         $project->csj_cn = request('csj_cn');
+        $project->author = auth()->user()->name;
         $project->name = request('name');
         $project->description = request('description');
         $project->limit_from = request('limit_from');
@@ -256,12 +258,23 @@ class ProjectController extends Controller
     public function update(Request $request, Project $project)
     {
 
+        if(request('status') != $project->status && $project->status > 0){
+            $newProject = $project->replicate();
+            $newProject->status = request('status');
+            $newProject->parent_id = ($project->parent_id != null) ? $project->parent_id : $project->id;
+            $newProject->author = auth()->user()->name;
+            $newProject->save();
+            return redirect(route('projects.index'));
+        }
+
+
         request()->validate([
             'name' => 'required',
         ]);
 
         $project->mpo_id = request('mpo_id');
         $project->csj_cn = request('csj_cn');
+        $project->author = auth()->user()->name;
         $project->name = request('name');
         $project->description = request('description');
         $project->limit_from = request('limit_from');
@@ -443,5 +456,4 @@ class ProjectController extends Controller
 
         return redirect(route('projects.index'));
     }
-
 }
