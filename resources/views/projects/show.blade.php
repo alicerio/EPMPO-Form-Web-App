@@ -47,9 +47,15 @@
         <div class="col-md-3">
             <div class="row">
                 <div class="col-md-12">
-                    <div class="card card-info">    
-                        <textarea placeholder="Write your comment here!" class="pb-cmnt-textarea"></textarea>
-                        <button class="btn btn-primary d-flex justify-content-center" type="button">Add Comment</button>
+                    <div class="card card-info">
+                        @auth
+                            @if(auth()->user()->type == 2)     
+                                <textarea placeholder="Comments" class="pb-cmnt-textarea"></textarea>
+                                <button class="btn btn-primary d-flex justify-content-center" type="button">Add Comment</button>
+                            @else
+                            <textarea placeholder="Comments" class="pb-cmnt-textarea" readonly></textarea>
+                            @endif
+                        @endauth
                     </div>
                 </div>
             </div>
@@ -269,8 +275,14 @@
             <div class="row">
                 <div class="col-md-12">
                     <div class="card card-info">    
-                        <textarea placeholder="Write your comment here!" class="pb-cmnt-textarea"></textarea>
-                        <button class="btn btn-primary d-flex justify-content-center" type="button">Add Comment</button>
+                        @auth
+                            @if(auth()->user()->type == 2)     
+                                <textarea placeholder="Comments" class="pb-cmnt-textarea"></textarea>
+                                <button class="btn btn-primary d-flex justify-content-center" type="button">Add Comment</button>
+                            @else
+                            <textarea placeholder="Comments" class="pb-cmnt-textarea" readonly></textarea>
+                            @endif
+                        @endauth
                     </div>
                 </div>
             </div>
@@ -482,8 +494,6 @@
                                             <input type="checkbox" name="type_administration" autocomplete="off" {{ $project->type_administration == true ? 'checked' : '' }} disabled>
                                             Administration
                                         </label><br>
-
-
                                     </div>
                                 </div>
                             </div>
@@ -495,15 +505,20 @@
                         <label><input type="radio" name="block_system" value="2" {{ $project->block_system == 2 ? 'checked' : '' }} disabled> Community to community</label autocomplete="off">
                         <label><input type="radio" name="block_system" value="3" {{ $project->block_system == 3 ? 'checked' : '' }} disabled> Community to region</label autocomplete="off">
                         <label><input type="radio" name="block_system" value="4" {{ $project->block_system == 4 ? 'checked' : '' }} disabled> Region to region</label autocomplete="off">
-          
-            </div>
-        </div>
-        <div class="col-md-3">
+                    </div>
+                </div>
+            <div class="col-md-3">
             <div class="row">
                 <div class="col-md-12">
                     <div class="card card-info">    
-                        <textarea placeholder="Write your comment here!" class="pb-cmnt-textarea"></textarea>
-                        <button class="btn btn-primary d-flex justify-content-center" type="button">Add Comment</button>
+                        @auth
+                            @if(auth()->user()->type == 2)     
+                                <textarea placeholder="Comments" class="pb-cmnt-textarea"></textarea>
+                                <button class="btn btn-primary d-flex justify-content-center" type="button">Add Comment</button>
+                            @else
+                            <textarea placeholder="Comments" class="pb-cmnt-textarea" readonly></textarea>
+                            @endif
+                        @endauth
                     </div>
                 </div>
             </div>
@@ -1172,6 +1187,23 @@
                                 </div>
                             </div>
                         </div>
+                        <!--Showing inside form. Need to fix-->
+                        <div class="col-md-3">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="card card-info">    
+                                        @auth
+                                            @if(auth()->user()->type == 2)     
+                                                <textarea placeholder="Comments" class="pb-cmnt-textarea"></textarea>
+                                                <button class="btn btn-primary d-flex justify-content-center" type="button">Add Comment</button>
+                                            @else
+                                            <textarea placeholder="Comments" class="pb-cmnt-textarea" readonly></textarea>
+                                            @endif
+                                        @endauth
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                         <br>
                         {{--Project Phases and Cost--}}
                         <div class="form-row mb-1">
@@ -1335,6 +1367,7 @@
                                                 </div>
                                             </div>
                                         </div>
+                                        
 
                                         {{-------------------------------------------------------------------------------}
                                         {{--Total Cost--}}
