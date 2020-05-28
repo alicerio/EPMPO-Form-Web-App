@@ -11,7 +11,8 @@
                     </button>
                     <div class="dropdown-menu" aria-labelledby="user_edit_options">
                         <a class="dropdown-item" href="{{ route('projects.create') }}">Project A</a>
-                        <a class="dropdown-item" href="#">Project B</a>
+                        <!--CHANGE THIS LINE-->
+                        <a class="dropdown-item" href="{{ route('projects.create') }}">Project B</a>
                     </div>
                 </div>
      
