@@ -3,7 +3,7 @@
 @section('content')
 <div class="container">
     <div class="row">
-        <div class="col-md-12">
+        <div class="col-md-9">
             <div class="card">
                 <div class="card-header">
                     Electornic Project Request Form (ePRF)
@@ -41,8 +41,26 @@
                             Limit To
                         </label>
                         <input type="text" class="form-control" name="limit_to" value="{{ $project->limit_to }}" disabled>
-
-                        <h4 class="mt-3">Definition of Regionally Significant Roadway: 23 CFR § 450.104</h4>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="card card-info">    
+                        <textarea placeholder="Write your comment here!" class="pb-cmnt-textarea"></textarea>
+                        <button class="btn btn-primary d-flex justify-content-center" type="button">Add Comment</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="space"></div>
+    <!------------------------------------------------------>
+    <div class="row">
+        <div class="col-md-9">
+            <div class="card">
+                <h4 class="mt-3">Definition of Regionally Significant Roadway: 23 CFR § 450.104</h4>
                         <p>Regionally significant project means a transportation project (other than projects that may be grouped in the TIP and/or STIP or exempt projects as defined in EPA's transportation conformity regulation (40 CFR part 93)) that is on a facility which serves regional transportation needs (such as access to and from the area outside the region; major activity centers in the region; major planned developments such as new retail malls, sports complexes, or employment centers; or transportation terminals) and would normally be included in the modeling of the metropolitan area's transportation network. At a minimum, this includes all principal arterial highways and all fixed guideway transit facilities that offer a significant alternative to regional highway travel. </p>
 
                         <label>
@@ -59,8 +77,6 @@
                             Agency Comments:
                         </label>
                         <textarea disabled name="agency_comments" class="form-control">{{ $project->agency_comments }}</textarea value="{{ $project->form }}">
-
-                        <hr>
 
                         <label>
                             <input type="checkbox" name="hwrw_funds_request" autocomplete="off" {{ $project->hwrw_funds_request == true ? 'checked' : '' }} disabled>
@@ -247,11 +263,25 @@
                         </div>
 
                         <a href="http://www.elpasompo.org/civicax/filebank/blobdload.aspx?BlobID=23410"> Click here for Project Selection Process diagram and presentation (PDF) </a>
-
-                        <hr>
-
-                        <h3>Project Selection Process</h3>
-
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="card card-info">    
+                        <textarea placeholder="Write your comment here!" class="pb-cmnt-textarea"></textarea>
+                        <button class="btn btn-primary d-flex justify-content-center" type="button">Add Comment</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="space"></div>
+    <!------------------------------------------------------>
+    <div class="row">
+        <div class="col-md-9">
+            <div class="card">
+                <h3>Project Selection Process</h3>
                         <div class="form-row mb-1">
                             <div class="col-sm-1">
                                 <select disabled name="psp_1" class="form-control">
@@ -465,34 +495,33 @@
                         <label><input type="radio" name="block_system" value="2" {{ $project->block_system == 2 ? 'checked' : '' }} disabled> Community to community</label autocomplete="off">
                         <label><input type="radio" name="block_system" value="3" {{ $project->block_system == 3 ? 'checked' : '' }} disabled> Community to region</label autocomplete="off">
                         <label><input type="radio" name="block_system" value="4" {{ $project->block_system == 4 ? 'checked' : '' }} disabled> Region to region</label autocomplete="off">
+          
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="card card-info">    
+                        <textarea placeholder="Write your comment here!" class="pb-cmnt-textarea"></textarea>
+                        <button class="btn btn-primary d-flex justify-content-center" type="button">Add Comment</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="space"></div>
+    <!------------------------------------------------------>
+    <div class="row">
+        <div class="col-md-9">
+            <div class="card">
+                <h4>Project Readiness Elements:</h4>
+                <p>"Overall" Estimate of Preliminary Engineering (PE) Examples include: Project Initiation/Planning, Initial Design, Environmental Document, PS&E, etc.</p>
 
-                        <hr>
-
-                        <h4>Project Readiness Elements:</h4>
-                        <p>"Overall" Estimate of Preliminary Engineering (PE) Examples include: Project Initiation/Planning, Initial Design, Environmental Document, PS&E, etc.</p>
-
-                        <div class="card">
-                            <div class="card-header">
-                                <div class="form-row">
-                                    <div class="col-sm-3">
-                                        Element
-                                    </div>
-                                    <div class="col-sm-2">
-                                        Est. Start Date
-                                    </div>
-                                    <div class="col-sm-2">
-                                        Est. End Date
-                                    </div>
-                                    <div class="col-sm-1">
-                                        Progress
-                                    </div>
-                                    <div class="col-sm-2">
-                                        Resp. Agency
-                                    </div>
-                                    <div class="col-sm-2">
-                                        Comments
-                                    </div>
-                                </div>
+                <div class="card">
+                    <div class="card-header">
+                        <div class="form-row">
+                            <div class="col-sm-3">
+                                Element
                             </div>
                             <div class="card-body">
                                 {{-- Schematic --}}
@@ -1607,4 +1636,22 @@
         </div>
     </div>
 </div>
-@endsection           
+<style>
+    #space{
+        margin:5%;
+    }
+    .pb-cmnt-container {
+        font-family: Lato;
+        margin-top: 100px;
+    }
+
+    .pb-cmnt-textarea {
+        resize: none;
+        padding: 20px;
+        height: 15%;
+        width: 100%;
+        border: 1px solid #F2F2F2;
+    }
+</style>
+<script src="{{ asset('docs/js/logOfChangesLogic.js')}}"></script>
+@endsection

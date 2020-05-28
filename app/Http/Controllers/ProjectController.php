@@ -19,10 +19,19 @@ class ProjectController extends Controller
 
     public function index()
     {
-        $projects = Project::all();
+        $projects = Project::all()->where('parent_id', null);
         $agencies = Agency::all();
         $statuses = ['In Progress','PM Pending Review','PM Signed', 'Submitted V1','MPO Returned','MPO Accepted', 'MPO Post-Acceptance Revision'];
         return view('projects.index', compact('projects', 'statuses','agencies'));
+    }
+
+    public function revisions($id)
+    {
+        $projects = Project::all()->where('parent_id', $id);
+        $projects->push(Project::find($id));
+        $agencies = Agency::all();
+        $statuses = ['In Progress','PM Pending Review','PM Signed', 'Submitted V1','MPO Returned','MPO Accepted', 'MPO Post-Acceptance Revision'];
+        return view('projects.revisions', compact('projects', 'statuses','agencies'));
     }
 
 
@@ -305,7 +314,47 @@ class ProjectController extends Controller
      */
     public function show(Project $project)
     {
-        return view('projects.show', compact('project'));
+        $projects = Project::all();//Project::where('mpo_id', $project->mpo_id)->get();
+        error_log(count($projects));
+        $attributesOfProjects = [];
+        $logOfChanges = [];
+        $currentProject = [];
+        $oldestProject = 0;
+        $hasMoreVersions = false;
+
+        // gets prev project
+        foreach($projects as $projectHolder){
+             //filters all projects with same parent ID and projects older than current project
+            if($project->id != $projectHolder->id){ //not same project
+                if($project->parent_id == null && $project->id  == $projectHolder->parent_id|| ($project->parent_id != null && $project->parent_id  == $projectHolder->parent_id) || ($project->parent_id != null && $project->parent_id  == $projectHolder->id)){
+                    if(strtotime($project->created_at) > strtotime($projectHolder->created_at) ){
+                        if($oldestProject < $projectHolder->id){
+                            $hasMoreVersions =true;
+                            unset($attributesOfProjects); //reset
+                            $attributesOfProjects = [];
+                            array_push($attributesOfProjects,$projectHolder->attributesToArray());
+                            $oldestProject = $projectHolder->id;  
+                          //  print_r($attributesOfProjects);
+                        }
+                     }
+                }
+            }
+         }
+
+        array_push($currentProject,$project->attributesToArray()); //convert format of current Project
+        error_log(count($attributesOfProjects));
+         //push
+        if($hasMoreVersions){
+            foreach($attributesOfProjects[0] as $key => $value){
+                if($attributesOfProjects[0][$key] != $currentProject[0][$key]){
+                    //$logOfChanges[$key] = ("Difference in: ".$key." old Value is: ".$attributesOfProjects[0][$key]);
+                    $logOfChanges[$key] = $attributesOfProjects[0][$key];
+                }
+            }
+        }
+     
+        return view('projects.show', compact('project', 'logOfChanges'));
+        //return view('projects.show', compact('project'));
     }
 
     /**
