@@ -1,3 +1,4 @@
+@extends('layouts.app')
 @section('content')
 <div class="container">
     <div class="row">
@@ -8,7 +9,7 @@
                 </div>
                 <div class="card-body">
                     {{--Add ROUTE HERE--}}
-                    <form action="{{route('addroutehere')}}" method="POST">
+                    <form action="{{ route('bprojects.store') }}" method="POST">
                         @csrf
                         <label>
                             MPO ID
