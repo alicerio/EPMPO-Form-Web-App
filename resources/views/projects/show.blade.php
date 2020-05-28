@@ -1642,6 +1642,12 @@
                         @endauth
                         <p>Save your form before signing, all fields will be locked after signature is provided.</p>
                         <br>
+                        <script> 
+                            // var obj = <?php echo json_encode($logOfChanges); ?>; 
+                            var obj = <?php echo json_encode($logOfChanges); ?>; 
+                             console.log(obj);
+                         </script>
+                         <button  name="data" type="button" onclick="displayChanges(obj)">Log of changes</button>
                         <a class="btn btn-primary" href="{{route('project.excel')}}" role="button">Export to Excel</a>
                         <a class="btn btn-primary" onclick="print()" role="button">Export to PDF</a>                        
                         @auth
