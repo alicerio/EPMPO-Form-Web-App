@@ -300,6 +300,7 @@ class ProjectController extends Controller
         $project->sponsor_agency = request('sponsor_agency');
         $project->sponsor_title = request('sponsor_title');
         $project->signature = request('signature');
+        $project->comments_1 = request('comments_1');
 
         $project->save();
 
@@ -605,6 +606,8 @@ class ProjectController extends Controller
         $project->sponsor_agency = request('sponsor_agency');
         $project->sponsor_title = request('sponsor_title');
         $project->signature = request('signature');
+        $project->comments_1 = request('comments_1');
+
 
         $project->save();
 

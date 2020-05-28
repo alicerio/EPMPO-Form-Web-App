@@ -1545,8 +1545,7 @@
                         <p>Save your form before signing, all fields will be locked after signature is provided.</p>
                         <br>
                         <a class="btn btn-primary" href="{{route('project.excel')}}" role="button">Export to Excel</a>
-                        <a class="btn btn-primary" href="{{route('project.pdf')}}" role="button">Export to PDF</a>
-                        @auth
+                        <a class="btn btn-primary" onclick="print()" role="button">Export to PDF</a>                        @auth
                             @if (auth()->user()->type == 1)
                             <button class="btn btn-primary mt-1 float-right" type="submit">
                                 Submit

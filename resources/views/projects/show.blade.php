@@ -50,7 +50,7 @@
                     <div class="card card-info">
                         @auth
                             @if(auth()->user()->type == 2)     
-                                <textarea placeholder="Comments" class="pb-cmnt-textarea"></textarea>
+                                <textarea placeholder="Comments" class="pb-cmnt-textarea" name="comments_1" value="{{$project->comments_1 }}"></textarea>
                                 <button class="btn btn-primary d-flex justify-content-center" type="button">Add Comment</button>
                             @else
                             <textarea placeholder="Comments" class="pb-cmnt-textarea" readonly></textarea>
@@ -1643,7 +1643,7 @@
                         <p>Save your form before signing, all fields will be locked after signature is provided.</p>
                         <br>
                         <a class="btn btn-primary" href="{{route('project.excel')}}" role="button">Export to Excel</a>
-                        <a class="btn btn-primary" href="{{route('project.pdf')}}" role="button">Export to PDF</a>
+                        <a class="btn btn-primary" onclick="print()" role="button">Export to PDF</a>                        
                         @auth
                             @if (auth()->user()->type == 1)
                             <button class="btn btn-primary mt-1 float-right" type="submit">
