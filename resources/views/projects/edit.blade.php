@@ -538,25 +538,16 @@
                                         <input type="date" name="envdoctype_start_date" class="form-control" autocomplete="off" value="{{ $project->envdoctype_start_date }}">
                                     </div>
                                     <div class="col-sm-2">
-                                        <input type="date" name="envdoctype_end_date" class="form-control" autocomplete="off" value="{{ $project->envdoctype_end_date }}">
+                                        <input type="date" name="envdoctype_end_date" class="form-control" autocomplete="off" value="{{ $project->envdoctype_end_date }}" disabled>
                                     </div>
                                     <div class="col-sm-1">
-                                        <select name="envdoctype_progress" class="form-control" autocomplete="off">
+                                        <select disabled name="envdoctype_progress" class="form-control" autocomplete="off">
                                             <option>----</option>
-                                            <option value="1" {{ $project->envdoctype_progress == 1 ? 'selected' : ''  }}>0%</option>
-                                            <option value="2" {{ $project->envdoctype_progress == 2 ? 'selected' : ''  }}>30%</option>
-                                            <option value="3" {{ $project->envdoctype_progress == 3 ? 'selected' : ''  }}>60%</option>
-                                            <option value="4" {{ $project->envdoctype_progress == 4 ? 'selected' : ''  }}>90%</option>
-                                            <option value="5" {{ $project->envdoctype_progress == 5 ? 'selected' : ''  }}>100%</option>
-                                            <option value="6" {{ $project->envdoctype_progress == 6 ? 'selected' : ''  }}>N/A</option>
                                         </select>
                                     </div>
                                     <div class="col-sm-2">
-                                        <select name="envdoctype_agency" class="form-control" autocomplete="off">
+                                        <select disabledmname="envdoctype_agency" class="form-control" autocomplete="off">
                                             <option>----</option>
-                                            <option value="1" {{ $project->envdoctype_agency == 1 ? 'selected' : '' }}>TxDOT</option>
-                                            <option value="2" {{ $project->envdoctype_agency == 2 ? 'selected' : '' }}>Local</option>
-                                            <option value="3" {{ $project->envdoctype_agency == 3 ? 'selected' : '' }}>Other</option>
                                         </select>
                                     </div>
                                     <div class="col-sm-2">
@@ -878,25 +869,16 @@
                                         <input type="date" name="letdate_start_date" class="form-control" autocomplete="off" value="{{ $project->letdate_start_date }}">
                                     </div>
                                     <div class="col-sm-2">
-                                        <input type="date" name="letdate_end_date" class="form-control" autocomplete="off" value="{{ $project->letdate_end_date }}">
+                                        <input type="date" name="letdate_end_date" class="form-control" autocomplete="off" value="{{ $project->letdate_end_date }}" disabled>
                                     </div>
                                     <div class="col-sm-1">
-                                        <select name="letdate_progress" class="form-control" autocomplete="off">
+                                        <select disabled name="letdate_progress" class="form-control" autocomplete="off">
                                             <option>----</option>
-                                            <option value="1" {{ $project->letdate_progress == 1 ? 'selected' : ''  }}>0%</option>
-                                            <option value="2" {{ $project->letdate_progress == 2 ? 'selected' : ''  }}>30%</option>
-                                            <option value="3" {{ $project->letdate_progress == 3 ? 'selected' : ''  }}>60%</option>
-                                            <option value="4" {{ $project->letdate_progress == 4 ? 'selected' : ''  }}>90%</option>
-                                            <option value="5" {{ $project->letdate_progress == 5 ? 'selected' : ''  }}>100%</option>
-                                            <option value="6" {{ $project->letdate_progress == 6 ? 'selected' : ''  }}>N/A</option>
                                         </select>
                                     </div>
                                     <div class="col-sm-2">
-                                        <select name="letdate_agency" class="form-control" autocomplete="off">
+                                        <select disabled name="letdate_agency" class="form-control" autocomplete="off">
                                             <option>----</option>
-                                            <option value="1" {{ $project->letdate_agency == 1 ? 'selected' : '' }}>TxDOT</option>
-                                            <option value="2" {{ $project->letdate_agency == 2 ? 'selected' : '' }}>Local</option>
-                                            <option value="3" {{ $project->letdate_agency == 3 ? 'selected' : '' }}>Other</option>
                                         </select>
                                     </div>
                                     <div class="col-sm-2">
@@ -909,32 +891,23 @@
                                         Construction Performance End Date
                                     </div>
                                     <div class="col-sm-2">
-                                        <input type="date" name="consper_end_date_start_date" class="form-control" autocomplete="off" value="{{ $project->consper_end_date_start_date }}">
+                                        <input type="date" name="consper_end_date_start_date" class="form-control" autocomplete="off" value="{{ $project->consper_end_date_start_date }}" disabled>
                                     </div>
                                     <div class="col-sm-2">
                                         <input type="date" name="consper_end_date_end_date" class="form-control" autocomplete="off" value="{{ $project->consper_end_date_end_date }}">
                                     </div>
                                     <div class="col-sm-1">
-                                        <select name="consper_end_date_progress" class="form-control" autocomplete="off">
+                                        <select disabled name="consper_end_date_progress" class="form-control" autocomplete="off">
                                             <option>----</option>
-                                            <option value="1" {{ $project->consper_end_date_progress == 1 ? 'selected' : ''  }}>0%</option>
-                                            <option value="2" {{ $project->consper_end_date_progress == 2 ? 'selected' : ''  }}>30%</option>
-                                            <option value="3" {{ $project->consper_end_date_progress == 3 ? 'selected' : ''  }}>60%</option>
-                                            <option value="4" {{ $project->consper_end_date_progress == 4 ? 'selected' : ''  }}>90%</option>
-                                            <option value="5" {{ $project->consper_end_date_progress == 5 ? 'selected' : ''  }}>100%</option>
-                                            <option value="6" {{ $project->consper_end_date_progress == 6 ? 'selected' : ''  }}>N/A</option>
                                         </select>
                                     </div>
                                     <div class="col-sm-2">
-                                        <select name="consper_end_date_agency" class="form-control" autocomplete="off">
+                                        <select disabled name="consper_end_date_agency" class="form-control" autocomplete="off">
                                             <option>----</option>
-                                            <option value="1" {{ $project->consper_end_date_agency == 1 ? 'selected' : '' }}>TxDOT</option>
-                                            <option value="2" {{ $project->consper_end_date_agency == 2 ? 'selected' : '' }}>Local</option>
-                                            <option value="3" {{ $project->consper_end_date_agency == 3 ? 'selected' : '' }}>Other</option>
                                         </select>
                                     </div>
                                     <div class="col-sm-2">
-                                        <input type="text" name="consper_end_date_comments" class="form-control" autocomplete="off" value="{{ $project->consper_end_date_comments }}">
+                                        <input type="text" name="consper_end_date_comments" class="form-control" autocomplete="off" value="{{ $project->consper_end_date_comments }}" disabled>
                                     </div>
                                 </div>
                                 {{-- PE Performance --}}
@@ -943,32 +916,23 @@
                                         PE Performance End Date
                                     </div>
                                     <div class="col-sm-2">
-                                        <input type="date" name="peperf_start_date" class="form-control" autocomplete="off" value="{{ $project->peperf_start_date }}">
+                                        <input type="date" name="peperf_start_date" class="form-control" autocomplete="off" value="{{ $project->peperf_start_date }}" disabled>
                                     </div>
                                     <div class="col-sm-2">
                                         <input type="date" name="peperf_end_date" class="form-control" autocomplete="off" value="{{ $project->peperf_end_date }}">
                                     </div>
                                     <div class="col-sm-1">
-                                        <select name="peperf_progress" class="form-control" autocomplete="off">
+                                        <select disabled name="peperf_progress" class="form-control" autocomplete="off">
                                             <option>----</option>
-                                            <option value="1" {{ $project->peperf_progress == 1 ? 'selected' : ''  }}>0%</option>
-                                            <option value="2" {{ $project->peperf_progress == 2 ? 'selected' : ''  }}>30%</option>
-                                            <option value="3" {{ $project->peperf_progress == 3 ? 'selected' : ''  }}>60%</option>
-                                            <option value="4" {{ $project->peperf_progress == 4 ? 'selected' : ''  }}>90%</option>
-                                            <option value="5" {{ $project->peperf_progress == 5 ? 'selected' : ''  }}>100%</option>
-                                            <option value="6" {{ $project->peperf_progress == 6 ? 'selected' : ''  }}>N/A</option>
                                         </select>
                                     </div>
                                     <div class="col-sm-2">
-                                        <select name="peperf_agency" class="form-control" autocomplete="off">
+                                        <select disabled name="peperf_agency" class="form-control" autocomplete="off">
                                             <option>----</option>
-                                            <option value="1" {{ $project->peperf_agency == 1 ? 'selected' : '' }}>TxDOT</option>
-                                            <option value="2" {{ $project->peperf_agency == 2 ? 'selected' : '' }}>Local</option>
-                                            <option value="3" {{ $project->peperf_agency == 3 ? 'selected' : '' }}>Other</option>
                                         </select>
                                     </div>
                                     <div class="col-sm-2">
-                                        <input type="text" name="peperf_comments" class="form-control" autocomplete="off" value="{{ $project->peperf_comments }}">
+                                        <input type="text" name="peperf_comments" class="form-control" autocomplete="off" value="{{ $project->peperf_comments }}" disabled>
                                     </div>
                                 </div>
                                 <div class="form-row mb-1">
@@ -1413,27 +1377,19 @@
                             <div class="card-body">
                                 <div id = "project_funding">
                                     <div class="form-row mb-1">
-                                        <div class="col-sm-2">
-                                            <input type="text" name="funding_category" class="form-control" value="{{ $project->funding_category }}">
-                                        </div>
-                                        <div class="col-sm-2">
-                                            <input onchange="project_funding_table()" id="federal" type="number" name="funding_federal" class="form-control" value="{{ $project->funding_federal }}">
-                                        </div>
-                                        <div class="col-sm-2">
-                                            <input onchange="project_funding_table()" id="state" type="number" name="funding_state" class="form-control" value="{{ $project->funding_state }}">
-                                        </div>
-                                        <div class="col-sm-2">
-                                            <input onchange="project_funding_table()" id="local" type="number" name="funding_local" class="form-control" value="{{ $project->funding_local }}">
-                                        </div>
-                                        <div class="col-sm-2">
-                                            <input onchange="project_funding_table()" id="local_cont" type="number" name="funding_local_beyond" class="form-control" value="{{ $project->funding_local_beyond }}">
-                                        </div>
-                                        <div class="col-sm-2">
-                                            <input type="number" name="funding_total" id="total" class="form-control" value="{{ $project->funding_total }}" readonly>
+                                            <table id = "projectFundingTablePg1">
+                                                <tr id='pfrow' class ="pftpg1">
+                                                    <td><input type="text" name="funding_category" class="form-control"></td>
+                                                    <td><input onchange="project_funding_table()" id="federal" type="number" name="funding_federal" class="form-control"></td>
+                                                    <td><input onchange="project_funding_table()" id="state" type="number" name="funding_state" class="form-control"></td>
+                                                    <td><input onchange="project_funding_table()" id="local" type="number" name="funding_local" class="form-control"></td>
+                                                    <td><input onchange="project_funding_table()" id="local_cont" type="number" name="funding_local_beyond" class="form-control"></td>
+                                                    <td><input type="number" name="funding_total" id="pftpg1_tot0" class="form-control" readonly></td>
+                                                </tr>
+                                            </table>
                                         </div>
                                     </div>
-                                </div>
-                                <div class="form-row mb-1">
+                                <div id = "" class="form-row mb-1">
                                     <div class="col-sm-2">
                                         Total Funding By Share
                                     </div>
@@ -1453,7 +1409,7 @@
                                         <input type="number" name="funding_total_result" id ="total_total" class="form-control" value="{{ $project->funding_total_result }}" readonly>
                                     </div>
                                 </div>
-                                <a class="btn btn-primary" title="Add a new row." role="button">Add Funding</a>
+                                <a onclick = "addRow()"class="btn btn-primary" title="Add a new row." role="button">Add Funding</a>
                                 <a class="btn btn-primary" title="Delete the last row." role="button">Remove Funding</a>
                             </div>
                         </div>

@@ -535,25 +535,16 @@
                                         <input type="date" name="envdoctype_start_date" class="form-control" autocomplete="off">
                                     </div>
                                     <div class="col-sm-2">
-                                        <input type="date" name="envdoctype_end_date" class="form-control" autocomplete="off" readonly>
+                                        <input type="date" name="envdoctype_end_date" class="form-control" autocomplete="off" disabled>
                                     </div>
                                     <div class="col-sm-1">
-                                        <select name="envdoctype_progress" class="form-control" autocomplete="off">
+                                        <select disabled name="envdoctype_progress" class="form-control" autocomplete="off">
                                             <option>----</option>
-                                            <option value="1">0%</option>
-                                            <option value="2">30%</option>
-                                            <option value="3">60%</option>
-                                            <option value="4">90%</option>
-                                            <option value="5">100%</option>
-                                            <option value="6">N/A</option>
                                         </select>
                                     </div>
                                     <div class="col-sm-2">
-                                        <select name="envdoctype_agency" class="form-control" autocomplete="off">
+                                        <select disabled name="envdoctype_agency" class="form-control" autocomplete="off">
                                             <option>----</option>
-                                            <option value="1">TxDOT</option>
-                                            <option value="2">Local</option>
-                                            <option value="3">Other</option>
                                         </select>
                                     </div>
                                     <div class="col-sm-2">
@@ -878,22 +869,13 @@
                                         <input type="date" name="letdate_end_date" class="form-control" autocomplete="off" readonly>
                                     </div>
                                     <div class="col-sm-1">
-                                        <select name="letdate_progress" class="form-control" autocomplete="off">
+                                        <select disabled name="letdate_progress" class="form-control" autocomplete="off">
                                             <option>----</option>
-                                            <option value="1">0%</option>
-                                            <option value="2">30%</option>
-                                            <option value="3">60%</option>
-                                            <option value="4">90%</option>
-                                            <option value="5">100%</option>
-                                            <option value="6">N/A</option>
                                         </select>
                                     </div>
                                     <div class="col-sm-2">
-                                        <select name="letdate_agency" class="form-control" autocomplete="off">
+                                        <select disabled name="letdate_agency" class="form-control" autocomplete="off">
                                             <option>----</option>
-                                            <option value="1">TxDOT</option>
-                                            <option value="2">Local</option>
-                                            <option value="3">Other</option>
                                         </select>
                                     </div>
                                     <div class="col-sm-2">
@@ -906,32 +888,23 @@
                                         Construction Performance End Date
                                     </div>
                                     <div class="col-sm-2">
-                                        <input type="date" name="consper_end_date_start_date" class="form-control" autocomplete="off" readonly>
+                                        <input type="date" name="consper_end_date_start_date" class="form-control" autocomplete="off" disabled>
                                     </div>
                                     <div class="col-sm-2">
                                         <input type="date" name="consper_end_date_end_date" class="form-control" autocomplete="off">
                                     </div>
                                     <div class="col-sm-1">
-                                        <select name="consper_end_date_progress" class="form-control" autocomplete="off">
+                                        <select disabled name="consper_end_date_progress" class="form-control" autocomplete="off">
                                             <option>----</option>
-                                            <option value="1">0%</option>
-                                            <option value="2">30%</option>
-                                            <option value="3">60%</option>
-                                            <option value="4">90%</option>
-                                            <option value="5">100%</option>
-                                            <option value="6">N/A</option>
                                         </select>
                                     </div>
                                     <div class="col-sm-2">
-                                        <select name="consper_end_date_agency" class="form-control" autocomplete="off">
+                                        <select disabled name="consper_end_date_agency" class="form-control" autocomplete="off">
                                             <option>----</option>
-                                            <option value="1">TxDOT</option>
-                                            <option value="2">Local</option>
-                                            <option value="3">Other</option>
                                         </select>
                                     </div>
                                     <div class="col-sm-2">
-                                        <input type="text" name="consper_end_date_comments" class="form-control" autocomplete="off" readonly>
+                                        <input type="text" name="consper_end_date_comments" class="form-control" autocomplete="off" disabled>
                                     </div>
                                 </div>
                                 {{-- PE Performance --}}
@@ -940,28 +913,19 @@
                                         PE Performance End Date
                                     </div>
                                     <div class="col-sm-2">
-                                        <input type="date" name="peperf_start_date" class="form-control" autocomplete="off" readonly>
+                                        <input type="date" name="peperf_start_date" class="form-control" autocomplete="off" disabled>
                                     </div>
                                     <div class="col-sm-2">
                                         <input type="date" name="peperf_end_date" class="form-control" autocomplete="off">
                                     </div>
                                     <div class="col-sm-1">
-                                        <select name="peperf_progress" class="form-control" autocomplete="off">
+                                        <select disabled name="peperf_progress" class="form-control" autocomplete="off">
                                             <option>----</option>
-                                            <option value="1">0%</option>
-                                            <option value="2">30%</option>
-                                            <option value="3">60%</option>
-                                            <option value="4">90%</option>
-                                            <option value="5">100%</option>
-                                            <option value="6">N/A</option>
                                         </select>
                                     </div>
                                     <div class="col-sm-2">
-                                        <select name="peperf_agency" class="form-control" autocomplete="off">
+                                        <select disabled name="peperf_agency" class="form-control" autocomplete="off">
                                             <option>----</option>
-                                            <option value="1">TxDOT</option>
-                                            <option value="2">Local</option>
-                                            <option value="3">Other</option>
                                         </select>
                                     </div>
                                     <div class="col-sm-2">
@@ -1444,27 +1408,20 @@
                             <div class="card-body">
                                 <div id = "project_funding">
                                     <div class="form-row mb-1">
-                                        <div class="col-sm-2">
-                                            <input type="text" name="funding_category" class="form-control">
-                                        </div>
-                                        <div class="col-sm-2">
-                                            <input onchange="project_funding_table()" id="federal" type="number" name="funding_federal" class="form-control">
-                                        </div>
-                                        <div class="col-sm-2">
-                                            <input onchange="project_funding_table()" id="state" type="number" name="funding_state" class="form-control">
-                                        </div>
-                                        <div class="col-sm-2">
-                                            <input onchange="project_funding_table()" id="local" type="number" name="funding_local" class="form-control">
-                                        </div>
-                                        <div class="col-sm-2">
-                                            <input onchange="project_funding_table()" id="local_cont" type="number" name="funding_local_beyond" class="form-control">
-                                        </div>
-                                        <div class="col-sm-2">
-                                            <input type="number" name="funding_total" id="total" class="form-control" readonly>
-                                        </div>
+                                            <table id = "projectFundingTablePg1">
+                                                <tr id='pfrow' class ="pftpg1">
+                                                    <td><input type="text" name="funding_category" class="form-control"></td>
+                                                    <td><input onchange="project_funding_table()" id="federal" type="number" name="funding_federal" class="form-control"></td>
+                                                    <td><input onchange="project_funding_table()" id="state" type="number" name="funding_state" class="form-control"></td>
+                                                    <td><input onchange="project_funding_table()" id="local" type="number" name="funding_local" class="form-control"></td>
+                                                    <td><input onchange="project_funding_table()" id="local_cont" type="number" name="funding_local_beyond" class="form-control"></td>
+                                                    <td><input type="number" name="funding_total" id="pftpg1_tot0" class="form-control" readonly></td>
+                                                </tr>
+                                            </table>
                                     </div>
                                 </div>
-                                <div class="form-row mb-1">
+                                
+                                <div id = "" class="form-row mb-1">
                                     <div class="col-sm-2">
                                         Total Funding By Share
                                     </div>
@@ -1484,7 +1441,7 @@
                                         <input type="number" name="funding_total_result" id ="total_total" class="form-control" readonly>
                                     </div>
                                 </div>
-                                <a class="btn btn-primary" title="Add a new row." role="button">Add Funding</a>
+                                <a onclick = "addRow()"class="btn btn-primary" title="Add a new row." role="button">Add Funding</a>
                                 <a class="btn btn-primary" title="Delete the last row." role="button">Remove Funding</a>
                             </div>
                         </div>
@@ -1579,7 +1536,7 @@
                         <br>
                         <h3>Attachments (CMAQ Analysis, Cost Estimate, Schematic/Design Concept, etc. ).</h3>
                         <div class="form-group">
-                            <textarea class="form-control" id="attachments_textarea" rows="5"></textarea>
+                            <textarea class="form-control" id="attachments_textarea" rows="5" readonly></textarea>
                         </div>
                         <div class="form-row">
                             <p>Files Attached&nbsp;</p>
@@ -1620,7 +1577,7 @@
                         <p>Save your form before signing, all fields will be locked after signature is provided.</p>
                         <br>
                         <a class="btn btn-primary" href="{{route('project.excel')}}" role="button">Export to Excel</a>
-                        <a class="btn btn-primary" href="{{route('project.pdf')}}" role="button">Export to PDF</a>
+                        <a class="btn btn-primary" onclick="print()" role="button">Export to PDF</a>
                         @auth
                             @if (auth()->user()->type == 1)
                             <button class="btn btn-primary mt-1 float-right" type="submit">

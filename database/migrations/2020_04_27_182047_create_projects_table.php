@@ -290,6 +290,8 @@ class CreateProjectsTable extends Migration
             $table->string('sponsor_title')->nullable();
             $table->string('signature')->nullable();
 
+            $table->string('comments_1')->nullable();
+
             $table->timestamps();
         });
     }
