@@ -2,6 +2,11 @@
 
 @section('content')
 <div class="container">
+    @if(auth()->user()->type==2)
+        <h2 class = "text-center"><b>Projects</b></h2>
+    @else
+<h2 class = "text-center"><b>{{auth()->user()->agency->name}} Projects</b></h2>
+    @endif
     <div class="row">
         <div class="col-md-12">
      
