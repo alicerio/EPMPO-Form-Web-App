@@ -1476,14 +1476,16 @@
                                 <div id = "project_funding">
                                     <div class="form-row mb-1">
                                             <table id = "projectFundingTablePg1">
-                                                <tr id='pfrow' class ="pftpg1">
-                                                    <td><input type="text" name="funding_category" class="form-control"></td>
-                                                    <td><input onchange="project_funding_table()" id="federal" type="number" name="funding_federal" class="form-control"></td>
-                                                    <td><input onchange="project_funding_table()" id="state" type="number" name="funding_state" class="form-control"></td>
-                                                    <td><input onchange="project_funding_table()" id="local" type="number" name="funding_local" class="form-control"></td>
-                                                    <td><input onchange="project_funding_table()" id="local_cont" type="number" name="funding_local_beyond" class="form-control"></td>
-                                                    <td><input type="number" name="funding_total" id="pftpg1_tot0" class="form-control" readonly></td>
-                                                </tr>
+                                                @foreach(explode(',', $project->funding_category) as $index => $categories)
+                                                    <tr id='pfrow' class ="pftpg1">
+                                                        <td><input type="text" name="funding_category[]" class="form-control" value="{{ explode(',', $project->funding_category)[$index] }}" disabled></td>
+                                                        <td><input onchange="project_funding_table()" id="federal" type="number" name="funding_federal[]" class="form-control" value="{{ explode(',', $project->funding_federal)[$index] }}" disabled></td>
+                                                        <td><input onchange="project_funding_table()" id="state" type="number" name="funding_state[]" class="form-control" value="{{ explode(',', $project->funding_state)[$index] }}" disabled></td>
+                                                        <td><input onchange="project_funding_table()" id="local" type="number" name="funding_local[]" class="form-control" value="{{ explode(',', $project->funding_local)[$index] }}" disabled></td>
+                                                        <td><input onchange="project_funding_table()" id="local_cont" type="number" name="funding_local_beyond[]" class="form-control" value="{{ explode(',', $project->funding_local_beyond)[$index] }}" disabled></td>
+                                                        <td><input type="number" name="funding_total" id="pftpg1_tot0" class="form-control" readonly></td>
+                                                    </tr>
+                                                @endforeach
                                             </table>
                                         </div>
                                     </div>
@@ -1644,17 +1646,6 @@
                         <br>
                         <a class="btn btn-primary" href="{{route('project.excel')}}" role="button">Export to Excel</a>
                         <a class="btn btn-primary" onclick="print()" role="button">Export to PDF</a>                        
-                        @auth
-                            @if (auth()->user()->type == 1)
-                            <button class="btn btn-primary mt-1 float-right" type="submit">
-                                Submit
-                            </button>
-                            @else
-                                <button class="btn btn-primary mt-1 float-right" type="submit">
-                                    Update
-                                </button>
-                            @endif
-                        @endauth
                     </form>
                 </div>
             </div>

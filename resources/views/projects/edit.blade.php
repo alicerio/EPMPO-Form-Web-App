@@ -1378,14 +1378,16 @@
                                 <div id = "project_funding">
                                     <div class="form-row mb-1">
                                             <table id = "projectFundingTablePg1">
-                                                <tr id='pfrow' class ="pftpg1">
-                                                    <td><input type="text" name="funding_category" class="form-control"></td>
-                                                    <td><input onchange="project_funding_table()" id="federal" type="number" name="funding_federal" class="form-control"></td>
-                                                    <td><input onchange="project_funding_table()" id="state" type="number" name="funding_state" class="form-control"></td>
-                                                    <td><input onchange="project_funding_table()" id="local" type="number" name="funding_local" class="form-control"></td>
-                                                    <td><input onchange="project_funding_table()" id="local_cont" type="number" name="funding_local_beyond" class="form-control"></td>
-                                                    <td><input type="number" name="funding_total" id="pftpg1_tot0" class="form-control" readonly></td>
-                                                </tr>
+                                                @foreach(explode(',', $project->funding_category) as $index => $categories)
+                                                    <tr id='pfrow' class ="pftpg1">
+                                                        <td><input type="text" name="funding_category[]" class="form-control" value="{{ explode(',', $project->funding_category)[$index] }}"></td>
+                                                        <td><input onchange="project_funding_table()" id="federal" type="number" name="funding_federal[]" class="form-control" value="{{ explode(',', $project->funding_federal)[$index] }}"></td>
+                                                        <td><input onchange="project_funding_table()" id="state" type="number" name="funding_state[]" class="form-control" value="{{ explode(',', $project->funding_state)[$index] }}"></td>
+                                                        <td><input onchange="project_funding_table()" id="local" type="number" name="funding_local[]" class="form-control" value="{{ explode(',', $project->funding_local)[$index] }}"></td>
+                                                        <td><input onchange="project_funding_table()" id="local_cont" type="number" name="funding_local_beyond[]" class="form-control" value="{{ explode(',', $project->funding_local_beyond)[$index] }}"></td>
+                                                        <td><input type="number" name="funding_total" id="pftpg1_tot0" class="form-control" readonly></td>
+                                                    </tr>
+                                                @endforeach
                                             </table>
                                         </div>
                                     </div>
@@ -1554,8 +1556,19 @@
                             </div>
                             <div class="col">
                                 <select name="status"  class="form-control" autocomplete="off">
-                                    <option value="0" selected>Save Progress</option>
-                                    <option value="1">Request PM Review</option>
+                                    <option value="{{ $project->status }}" selected>Save Progress</option>
+                                    {{-- Project is in progress --}}
+                                    @if($project->status == 0 || $project->status == 4)
+                                        <option value="1">Request PM Review</option>
+                                    @endif
+                                    {{-- Project needs to be signed off by submitter --}}
+                                    @if($project->status == 1 && auth()->user()->type >= 1)
+                                        <option value="2">Sign Off</option>
+                                    @endif
+                                    @if(($project->status == 2 || $project->status == 3) && auth()->user()->type == 2)
+                                        <option value="3">Approve</option>
+                                        <option value="4">Decline</option>
+                                    @endif
                                 </select>
                             </div>
                             <div class="col">
