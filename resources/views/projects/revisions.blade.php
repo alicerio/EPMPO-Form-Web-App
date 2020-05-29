@@ -18,13 +18,13 @@
                 <table class="table table-bordered">
                     <thead>
                         <tr>
-                            <th scope="col">Status</th>
+                            <th scope="col">Title</th>
                             <th scope="col">Submitted</th>
                         </tr>
                     </thead>
                     <tbody>
                         @foreach ($projects as $index => $project)
-                            @if($project->agency_id == auth()->user()->agency->id && auth()->user()->type == 2)
+                            @if($project->agency_id == auth()->user()->agency->id && auth()->user()->type >= 0)
                                 <tr class="{{ ($project->parent_id == null) ? 'table-info' : '' }}">
                                     <td>
                                         @if($index == count($projects) - 1)

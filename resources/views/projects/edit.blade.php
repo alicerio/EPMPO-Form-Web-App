@@ -1572,7 +1572,17 @@
                                 </select>
                             </div>
                             <div class="col">
-                                <button class="btn btn-primary btn-block mt-1 float-right">Submit</button>
+                                @auth
+                                    @if (auth()->user()->type == 1)
+                                <button class="btn btn-primary mt-1 btn-block" type="sumbit">
+                                    Submit
+                                </button>
+                                @else
+                                    <button class="btn btn-primary mt-1 btn-block" type="sumbit">
+                                        Save
+                                    </button>
+                                @endif
+                            @endauth                            
                             </div>
                         </div>
                     </form>

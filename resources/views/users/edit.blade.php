@@ -42,7 +42,7 @@
                         {{-- FIX: empty password overwrites current password --}}
                         <input type="password" name="password" class="form-control">
 
-                        <button class="btn btn-primary mt-1 float-right" disabled>Update</button>
+                        <button class="btn btn-primary mt-1 float-right">Update</button>
                     </form>
                 </div>
             </div>
