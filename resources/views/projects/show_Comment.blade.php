@@ -3,7 +3,7 @@
 @section('content')
 <div class="container">
     <div class="row">
-        <div class="col-md-12">
+        <div class="col-md-9">
             <div class="card">
                 <div class="card-header">
                     Electornic Project Request Form (ePRF)
@@ -47,10 +47,27 @@
                 </div>
             </div>
         </div>
+        <div class="col-md-3">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="card card-info">
+                        @auth
+                            @if(auth()->user()->type == 2)     
+                                <textarea placeholder="Comments" class="pb-cmnt-textarea" name="comments_1" value="{{$project->comments_1 }}"></textarea>
+                                <button class="btn btn-primary d-flex justify-content-center" type="button">Add Comment</button>
+                            @else
+                                <textarea placeholder="Comments" class="pb-cmnt-textarea" readonly></textarea>
+                            @endif
+                        @endauth
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
+    <div id="space"></div>
     <!------------------------------------------------------>
     <div class="row">
-        <div class="col-md-12">
+        <div class="col-md-9">
             <div class="card">
                 <h4 class="mt-3">Definition of Regionally Significant Roadway: 23 CFR § 450.104</h4>
                 <p>Regionally significant project means a transportation project (other than projects that may be
@@ -77,8 +94,7 @@
                 <label>
                     Agency Comments:
                 </label>
-                <textarea disabled name="agency_comments"
-                    class="form-control">{{ $project->agency_comments }}</textarea value="{{ $project->form }}">
+                <textarea disabled name="agency_comments" class="form-control">{{ $project->agency_comments }}</textarea value="{{ $project->form }}">
 
                         <label>
                             <input type="checkbox" name="hwrw_funds_request" autocomplete="off" {{ $project->hwrw_funds_request == true ? 'checked' : '' }} disabled>
@@ -267,10 +283,27 @@
                         <a href="http://www.elpasompo.org/civicax/filebank/blobdload.aspx?BlobID=23410"> Click here for Project Selection Process diagram and presentation (PDF) </a>
             </div>
         </div>
+        <div class="col-md-3">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="card card-info">    
+                        @auth
+                            @if(auth()->user()->type == 2)     
+                                <textarea placeholder="Comments" class="pb-cmnt-textarea"></textarea>
+                <button class="btn btn-primary d-flex justify-content-center" type="button">Add Comment</button>
+                @else
+                <textarea placeholder="Comments" class="pb-cmnt-textarea" readonly></textarea>
+                @endif
+                @endauth
+            </div>
+        </div>
     </div>
+</div>
+</div>
+<div id="space"></div>
 <!------------------------------------------------------>
 <div class="row">
-    <div class="col-md-12">
+    <div class="col-md-9">
         <div class="card">
             <h3>Project Selection Process</h3>
             <div class="form-row mb-1">
@@ -369,192 +402,209 @@
                     <textarea disabled name="description_goal_1" class="form-control"
                         style="width: 22rem; {{ $project->goal_1 == true ? '' : 'display: none;' }}"
                         placeholder="How does this project meet this goal?">{{ $project->description_goal_1 }}</textarea>
-                <label>
-                    <input type="checkbox" name="goal_2" onclick="toggleTA(this.name);" autocomplete="off"
-                        {{ $project->goal_2 == true ? 'checked' : '' }} disabled>
-                    Infrastructure Condition
-                </label><br>
-                <textarea disabled name="description_goal_2" class="form-control"
-                    style="width: 22rem; {{ $project->goal_2 == true ? '' : 'display: none;' }}"
-                    placeholder="How does this project meet this goal?">{{ $project->description_goal_2 }}</textarea>
-                <label>
-                    <input type="checkbox" name="goal_3" onclick="toggleTA(this.name);" autocomplete="off"
-                        {{ $project->goal_3 == true ? 'checked' : '' }} disabled>
-                    Congestion Reduction
-                </label><br>
-                <textarea disabled name="description_goal_3" class="form-control"
-                    style="width: 22rem; {{ $project->goal_3 == true ? '' : 'display: none;' }}"
-                    placeholder="How does this project meet this goal?">{{ $project->description_goal_3 }}</textarea>
-                <label>
-                    <input type="checkbox" name="goal_4" onclick="toggleTA(this.name);" autocomplete="off"
-                        {{ $project->goal_4 == true ? 'checked' : '' }} disabled>
-                    System Reliability
-                </label><br>
-                <textarea disabled name="description_goal_4" class="form-control"
-                    style="width: 22rem; {{ $project->goal_4 == true ? '' : 'display: none;' }}"
-                    placeholder="How does this project meet this goal?">{{ $project->description_goal_4 }}</textarea>
-                <label>
-                    <input type="checkbox" name="goal_5" onclick="toggleTA(this.name);" autocomplete="off"
-                        {{ $project->goal_5 == true ? 'checked' : '' }} disabled>
-                    Freight Movement and Economic Vitality
-                </label><br>
-                <textarea disabled name="description_goal_5" class="form-control"
-                    style="width: 22rem; {{ $project->goal_5 == true ? '' : 'display: none;' }}"
-                    placeholder="How does this project meet this goal?">{{ $project->description_goal_5 }}</textarea>
-                <label>
-                    <input type="checkbox" name="goal_6" onclick="toggleTA(this.name);" autocomplete="off"
-                        {{ $project->goal_6 == true ? 'checked' : '' }} disabled>
-                    Environmental Sustainability
-                </label><br>
-                <textarea disabled name="description_goal_6" class="form-control mb-1"
-                    style="width: 22rem; {{ $project->goal_6 == true ? '' : 'display: none;' }}"
-                    placeholder="How does this project meet this goal?">{{ $project->description_goal_6 }}</textarea>
+                    <label>
+                        <input type="checkbox" name="goal_2" onclick="toggleTA(this.name);" autocomplete="off"
+                            {{ $project->goal_2 == true ? 'checked' : '' }} disabled>
+                        Infrastructure Condition
+                    </label><br>
+                    <textarea disabled name="description_goal_2" class="form-control"
+                        style="width: 22rem; {{ $project->goal_2 == true ? '' : 'display: none;' }}"
+                        placeholder="How does this project meet this goal?">{{ $project->description_goal_2 }}</textarea>
+                    <label>
+                        <input type="checkbox" name="goal_3" onclick="toggleTA(this.name);" autocomplete="off"
+                            {{ $project->goal_3 == true ? 'checked' : '' }} disabled>
+                        Congestion Reduction
+                    </label><br>
+                    <textarea disabled name="description_goal_3" class="form-control"
+                        style="width: 22rem; {{ $project->goal_3 == true ? '' : 'display: none;' }}"
+                        placeholder="How does this project meet this goal?">{{ $project->description_goal_3 }}</textarea>
+                    <label>
+                        <input type="checkbox" name="goal_4" onclick="toggleTA(this.name);" autocomplete="off"
+                            {{ $project->goal_4 == true ? 'checked' : '' }} disabled>
+                        System Reliability
+                    </label><br>
+                    <textarea disabled name="description_goal_4" class="form-control"
+                        style="width: 22rem; {{ $project->goal_4 == true ? '' : 'display: none;' }}"
+                        placeholder="How does this project meet this goal?">{{ $project->description_goal_4 }}</textarea>
+                    <label>
+                        <input type="checkbox" name="goal_5" onclick="toggleTA(this.name);" autocomplete="off"
+                            {{ $project->goal_5 == true ? 'checked' : '' }} disabled>
+                        Freight Movement and Economic Vitality
+                    </label><br>
+                    <textarea disabled name="description_goal_5" class="form-control"
+                        style="width: 22rem; {{ $project->goal_5 == true ? '' : 'display: none;' }}"
+                        placeholder="How does this project meet this goal?">{{ $project->description_goal_5 }}</textarea>
+                    <label>
+                        <input type="checkbox" name="goal_6" onclick="toggleTA(this.name);" autocomplete="off"
+                            {{ $project->goal_6 == true ? 'checked' : '' }} disabled>
+                        Environmental Sustainability
+                    </label><br>
+                    <textarea disabled name="description_goal_6" class="form-control mb-1"
+                        style="width: 22rem; {{ $project->goal_6 == true ? '' : 'display: none;' }}"
+                        placeholder="How does this project meet this goal?">{{ $project->description_goal_6 }}</textarea>
 
-                <div class="card" style="width: 22rem;">
-                    <div class="card-body">
+                    <div class="card" style="width: 22rem;">
+                        <div class="card-body">
 
-                        <h5 class="card-title text-center">CMAQ Analysis</h5>
-                        <h6 class="card-subtitle mb-2 text-muted text-center">*Air Quality Analysis MUST accompany
-                            request for CMAQ Funds.</h6>
+                            <h5 class="card-title text-center">CMAQ Analysis</h5>
+                            <h6 class="card-subtitle mb-2 text-muted text-center">*Air Quality Analysis MUST accompany
+                                request for CMAQ Funds.</h6>
 
-                        <label>VOC (Kgs/day)</label>
-                        <input type="text" name="voc" class="form-control" autocomplete="off"
-                            value="{{ $project->voc }}" disabled>
-                        <label>C0 (Kgs/day)</label>
-                        <input type="text" name="c0" class="form-control" autocomplete="off" value="{{ $project->c0 }}"
-                            disabled>
-                        <label>NOX (Kgs/day)</label>
-                        <input type="text" name="nox" class="form-control" autocomplete="off"
-                            value="{{ $project->nox }}" disabled>
-                        <label>PM10 (Kgs/day)</label>
-                        <input type="text" name="pm10" class="form-control" autocomplete="off"
-                            value="{{ $project->pm10 }}" disabled>
-                        <label>Prepared By</label>
-                        <input type="text" name="prepared_by" class="form-control" autocomplete="off"
-                            value="{{ $project->prepared_by }}" disabled>
+                            <label>VOC (Kgs/day)</label>
+                            <input type="text" name="voc" class="form-control" autocomplete="off"
+                                value="{{ $project->voc }}" disabled>
+                            <label>C0 (Kgs/day)</label>
+                            <input type="text" name="c0" class="form-control" autocomplete="off"
+                                value="{{ $project->c0 }}" disabled>
+                            <label>NOX (Kgs/day)</label>
+                            <input type="text" name="nox" class="form-control" autocomplete="off"
+                                value="{{ $project->nox }}" disabled>
+                            <label>PM10 (Kgs/day)</label>
+                            <input type="text" name="pm10" class="form-control" autocomplete="off"
+                                value="{{ $project->pm10 }}" disabled>
+                            <label>Prepared By</label>
+                            <input type="text" name="prepared_by" class="form-control" autocomplete="off"
+                                value="{{ $project->prepared_by }}" disabled>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <h3><a href="http://www.elpasompo.org/civicax/filebank/blobdload.aspx?BlobID=23375"
+                            target="_blank">Congestion Management Process Strategies</a></h3>
+                    <label>
+                        <input type="checkbox" name="strategy_1" onclick="toggleTA(this.name);" autocomplete="off"
+                            {{ $project->strategy_1 == true ? 'checked' : '' }} disabled>
+                        Travel Demand Management Strategies
+                    </label><br>
+                    <textarea disabled name="description_strategy_1" class="form-control"
+                        style="width: 22rem; {{ $project->strategy_1 == true ? '' : 'display: none;' }}"
+                        placeholder="How does this project meet this strategy?">{{ $project->description_strategy_1 }}</textarea>
+                    <label>
+                        <input type="checkbox" name="strategy_2" onclick="toggleTA(this.name);" autocomplete="off"
+                            {{ $project->strategy_2 == true ? 'checked' : '' }} disabled>
+                        Traffic Operations Strategies
+                    </label><br>
+                    <textarea disabled name="description_strategy_2" class="form-control"
+                        style="width: 22rem; {{ $project->strategy_2 == true ? '' : 'display: none;' }}"
+                        placeholder="How does this project meet this strategy?">{{ $project->description_strategy_2 }}</textarea>
+                    <label>
+                        <input type="checkbox" name="strategy_3" onclick="toggleTA(this.name);" autocomplete="off"
+                            {{ $project->strategy_3 == true ? 'checked' : '' }} disabled>
+                        Public Transportation Strategies
+                    </label><br>
+                    <textarea disabled name="description_strategy_3" class="form-control"
+                        style="width: 22rem; {{ $project->strategy_3 == true ? '' : 'display: none;' }}"
+                        placeholder="How does this project meet this strategy?">{{ $project->description_strategy_3 }}</textarea>
+                    <label>
+                        <input type="checkbox" name="strategy_4" onclick="toggleTA(this.name);" autocomplete="off"
+                            {{ $project->strategy_4 == true ? 'checked' : '' }} disabled>
+                        System Reliabilit
+                    </label><br>
+                    <textarea disabled name="description_strategy_4" class="form-control"
+                        style="width: 22rem; {{ $project->strategy_4 == true ? '' : 'display: none;' }}"
+                        placeholder="How does this project meet this strategy?">{{ $project->description_strategy_4 }}</textarea>
+                    <label>
+                        <input type="checkbox" name="strategy_5" onclick="toggleTA(this.name);" autocomplete="off"
+                            {{ $project->strategy_5 == true ? 'checked' : '' }} disabled>
+                        Road Capacity Strategies
+                    </label><br>
+                    <textarea disabled name="description_strategy_5" class="form-control"
+                        style="width: 22rem; {{ $project->strategy_5 == true ? '' : 'display: none;' }}"
+                        placeholder="How does this project meet this strategy?">{{ $project->description_strategy_5 }}</textarea>
+                    <label>
+                        <input type="checkbox" name="strategy_6" onclick="toggleTA(this.name);" autocomplete="off"
+                            {{ $project->strategy_6 == true ? 'checked' : '' }} disabled>
+                        Non-CMP Strategies
+                    </label><br>
+                    <textarea disabled name="description_strategy_6" class="form-control mb-1"
+                        style="width: 22rem; {{ $project->strategy_6 == true ? '' : 'display: none;' }}"
+                        placeholder="How does this project meet this strategy?">{{ $project->description_strategy_6 }}</textarea>
+
+                    <div class="card" style="width: 22rem;">
+                        <div class="card-body">
+
+                            <h5 class="card-title text-center">**Transit Only</h5>
+
+                            <label>Section 5309 ID</label>
+                            <input type="text" name="section_5309" class="form-control" autocomplete="off"
+                                value="{{ $project->section_5309 }}" disabled>
+                            <label>Apportionment Year</label>
+                            <input type="text" name="appointment_year" class="form-control" autocomplete="off"
+                                value="{{ $project->appointment_year }}" disabled>
+                            <label>TDC Award Amount</label>
+                            <input type="text" name="tdc_award_amount" class="form-control" autocomplete="off"
+                                value="{{ $project->tdc_award_amount }}" disabled>
+                            <label>TDC Award Date</label>
+                            <input type="text" name="tdw_award_date" class="form-control" autocomplete="off"
+                                value="{{ $project->tdw_award_date }}" disabled>
+                            <label>TDC Amount Requested</label>
+                            <input type="text" name="tdc_amount_requested" class="form-control" autocomplete="off"
+                                value="{{ $project->tdc_amount_requested }}" disabled><br>
+
+                            <h4>Project Type:</h4>
+
+                            <label>
+                                <input type="checkbox" name="type_capital" autocomplete="off"
+                                    {{ $project->type_capital == true ? 'checked' : '' }} disabled>
+                                Capital
+                            </label><br>
+                            <label>
+                                <input type="checkbox" name="type_operating" autocomplete="off"
+                                    {{ $project->type_operating == true ? 'checked' : '' }} disabled>
+                                Operating
+                            </label><br>
+                            <label>
+                                <input type="checkbox" name="type_planning" autocomplete="off"
+                                    {{ $project->type_planning == true ? 'checked' : '' }} disabled>
+                                Planning
+                            </label><br>
+                            <label>
+                                <input type="checkbox" name="type_administration" autocomplete="off"
+                                    {{ $project->type_administration == true ? 'checked' : '' }} disabled>
+                                Administration
+                            </label><br>
+                        </div>
                     </div>
                 </div>
             </div>
-            <div class="col">
-                <h3><a href="http://www.elpasompo.org/civicax/filebank/blobdload.aspx?BlobID=23375"
-                        target="_blank">Congestion Management Process Strategies</a></h3>
-                <label>
-                    <input type="checkbox" name="strategy_1" onclick="toggleTA(this.name);" autocomplete="off"
-                        {{ $project->strategy_1 == true ? 'checked' : '' }} disabled>
-                    Travel Demand Management Strategies
-                </label><br>
-                <textarea disabled name="description_strategy_1" class="form-control"
-                    style="width: 22rem; {{ $project->strategy_1 == true ? '' : 'display: none;' }}"
-                    placeholder="How does this project meet this strategy?">{{ $project->description_strategy_1 }}</textarea>
-                <label>
-                    <input type="checkbox" name="strategy_2" onclick="toggleTA(this.name);" autocomplete="off"
-                        {{ $project->strategy_2 == true ? 'checked' : '' }} disabled>
-                    Traffic Operations Strategies
-                </label><br>
-                <textarea disabled name="description_strategy_2" class="form-control"
-                    style="width: 22rem; {{ $project->strategy_2 == true ? '' : 'display: none;' }}"
-                    placeholder="How does this project meet this strategy?">{{ $project->description_strategy_2 }}</textarea>
-                <label>
-                    <input type="checkbox" name="strategy_3" onclick="toggleTA(this.name);" autocomplete="off"
-                        {{ $project->strategy_3 == true ? 'checked' : '' }} disabled>
-                    Public Transportation Strategies
-                </label><br>
-                <textarea disabled name="description_strategy_3" class="form-control"
-                    style="width: 22rem; {{ $project->strategy_3 == true ? '' : 'display: none;' }}"
-                    placeholder="How does this project meet this strategy?">{{ $project->description_strategy_3 }}</textarea>
-                <label>
-                    <input type="checkbox" name="strategy_4" onclick="toggleTA(this.name);" autocomplete="off"
-                        {{ $project->strategy_4 == true ? 'checked' : '' }} disabled>
-                    System Reliabilit
-                </label><br>
-                <textarea disabled name="description_strategy_4" class="form-control"
-                    style="width: 22rem; {{ $project->strategy_4 == true ? '' : 'display: none;' }}"
-                    placeholder="How does this project meet this strategy?">{{ $project->description_strategy_4 }}</textarea>
-                <label>
-                    <input type="checkbox" name="strategy_5" onclick="toggleTA(this.name);" autocomplete="off"
-                        {{ $project->strategy_5 == true ? 'checked' : '' }} disabled>
-                    Road Capacity Strategies
-                </label><br>
-                <textarea disabled name="description_strategy_5" class="form-control"
-                    style="width: 22rem; {{ $project->strategy_5 == true ? '' : 'display: none;' }}"
-                    placeholder="How does this project meet this strategy?">{{ $project->description_strategy_5 }}</textarea>
-                <label>
-                    <input type="checkbox" name="strategy_6" onclick="toggleTA(this.name);" autocomplete="off"
-                        {{ $project->strategy_6 == true ? 'checked' : '' }} disabled>
-                    Non-CMP Strategies
-                </label><br>
-                <textarea disabled name="description_strategy_6" class="form-control mb-1"
-                    style="width: 22rem; {{ $project->strategy_6 == true ? '' : 'display: none;' }}"
-                    placeholder="How does this project meet this strategy?">{{ $project->description_strategy_6 }}</textarea>
 
-                <div class="card" style="width: 22rem;">
-                    <div class="card-body">
+            Projects will be examined at the corridor level to determine multimodal needs. Which best describes this
+            projects. <a href="http://www.elpasompo.org/civicax/filebank/blobdload.aspx?BlobID=23409"
+                target="_blank">Block System:</a><br>
 
-                        <h5 class="card-title text-center">**Transit Only</h5>
+            <label><input type="radio" name="block_system" value="1" {{ $project->block_system == 1 ? 'checked' : '' }}
+                    disabled> Within Community</label autocomplete="off">
+            <label><input type="radio" name="block_system" value="2" {{ $project->block_system == 2 ? 'checked' : '' }}
+                    disabled> Community to community</label autocomplete="off">
+            <label><input type="radio" name="block_system" value="3" {{ $project->block_system == 3 ? 'checked' : '' }}
+                    disabled> Community to region</label autocomplete="off">
+            <label><input type="radio" name="block_system" value="4" {{ $project->block_system == 4 ? 'checked' : '' }}
+                    disabled> Region to region</label autocomplete="off">
+        </div>
+    </div>
 
-                        <label>Section 5309 ID</label>
-                        <input type="text" name="section_5309" class="form-control" autocomplete="off"
-                            value="{{ $project->section_5309 }}" disabled>
-                        <label>Apportionment Year</label>
-                        <input type="text" name="appointment_year" class="form-control" autocomplete="off"
-                            value="{{ $project->appointment_year }}" disabled>
-                        <label>TDC Award Amount</label>
-                        <input type="text" name="tdc_award_amount" class="form-control" autocomplete="off"
-                            value="{{ $project->tdc_award_amount }}" disabled>
-                        <label>TDC Award Date</label>
-                        <input type="text" name="tdw_award_date" class="form-control" autocomplete="off"
-                            value="{{ $project->tdw_award_date }}" disabled>
-                        <label>TDC Amount Requested</label>
-                        <input type="text" name="tdc_amount_requested" class="form-control" autocomplete="off"
-                            value="{{ $project->tdc_amount_requested }}" disabled><br>
-
-                        <h4>Project Type:</h4>
-
-                        <label>
-                            <input type="checkbox" name="type_capital" autocomplete="off"
-                                {{ $project->type_capital == true ? 'checked' : '' }} disabled>
-                            Capital
-                        </label><br>
-                        <label>
-                            <input type="checkbox" name="type_operating" autocomplete="off"
-                                {{ $project->type_operating == true ? 'checked' : '' }} disabled>
-                            Operating
-                        </label><br>
-                        <label>
-                            <input type="checkbox" name="type_planning" autocomplete="off"
-                                {{ $project->type_planning == true ? 'checked' : '' }} disabled>
-                            Planning
-                        </label><br>
-                        <label>
-                            <input type="checkbox" name="type_administration" autocomplete="off"
-                                {{ $project->type_administration == true ? 'checked' : '' }} disabled>
-                            Administration
-                        </label><br>
-                    </div>
+    <div class="col-md-3">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card card-info">
+                    @auth
+                        @if(auth()->user()->type == 2)
+                            <textarea placeholder="Comments" class="pb-cmnt-textarea"></textarea>
+                            <button class="btn btn-primary d-flex justify-content-center" type="button">Add Comment</button>
+                        @else
+                            <textarea placeholder="Comments" class="pb-cmnt-textarea" readonly></textarea>
+                        @endif
+                    @endauth
                 </div>
             </div>
         </div>
-
-        Projects will be examined at the corridor level to determine multimodal needs. Which best describes this
-        projects. <a href="http://www.elpasompo.org/civicax/filebank/blobdload.aspx?BlobID=23409" target="_blank">Block
-            System:</a><br>
-
-        <label><input type="radio" name="block_system" value="1" {{ $project->block_system == 1 ? 'checked' : '' }}
-                disabled> Within Community</label autocomplete="off">
-        <label><input type="radio" name="block_system" value="2" {{ $project->block_system == 2 ? 'checked' : '' }}
-                disabled> Community to community</label autocomplete="off">
-        <label><input type="radio" name="block_system" value="3" {{ $project->block_system == 3 ? 'checked' : '' }}
-                disabled> Community to region</label autocomplete="off">
-        <label><input type="radio" name="block_system" value="4" {{ $project->block_system == 4 ? 'checked' : '' }}
-                disabled> Region to region</label autocomplete="off">
     </div>
-</div>
 </div>
 
 <div id="space"></div>
 <!------------------------------------------------------>
 <div class="row">
-    <div class="col-md-12">
+    <div class="col-md-9">
         <div class="card">
             <h4>Project Readiness Elements:</h4>
             <p>"Overall" Estimate of Preliminary Engineering (PE) Examples include: Project Initiation/Planning,
@@ -1452,10 +1502,28 @@
 
 
     </div>
+    <div class="col-md-3">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card card-info">
+                    @auth
+                        @if(auth()->user()->type == 2)
+                            <textarea placeholder="Comments" class="pb-cmnt-textarea"></textarea>
+                            <button class="btn btn-primary d-flex justify-content-center" type="button">Add
+                                Comment</button>
+                        @else
+                            <textarea placeholder="Comments" class="pb-cmnt-textarea" readonly></textarea>
+                        @endif
+                    @endauth
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
+<div id="space"></div>
 <!------------------------------------------>
 <div class="row">
-    <div class="col-md-12">
+    <div class="col-md-9">
         <div class="card">
             <div class="card-body">
                 {{--Project Phases and Cost--}}
@@ -1922,16 +1990,16 @@
                 </div>
                 <div class="form-row">
                     <p>Files Attached&nbsp;</p>
-                    <button class="btn btn-primary mt-1 float-right">
+                    <button class="btn btn-primary mt-1 float-right" >
                         Add File
                     </button>
-                    <button class="btn btn-primary mt-1 float-right">
+                    <button class="btn btn-primary mt-1 float-right" >
                         Open File
                     </button>
-                    <button class="btn btn-primary mt-1 float-right">
+                    <button class="btn btn-primary mt-1 float-right" >
                         Remove File
                     </button>
-                    <button class="btn btn-primary mt-1 float-right">
+                    <button class="btn btn-primary mt-1 float-right" >
                         Show Attachment Name and Size
                     </button>
                 </div>
@@ -1971,32 +2039,47 @@
                 <br>
                 @auth
                 @if (auth()->user()->type == 2)
-                <script>
-                    var obj = <?php echo json_encode($logOfChanges);?>; 
-                    console.log(obj);
-                </script>
-                <button name="data" type="button" onclick="displayChanges(obj)">Log of changes</button>
-                @else
+                    <script> 
+                        var obj = <?php echo json_encode($logOfChanges);?>; 
+                    </script>
+                    <button  name="data" type="button" onclick="displayChanges(obj)">Log of changes</button>
+                    @else
                 @endif
                 @endauth
-                <a class="btn btn-primary" href="{{route('projects.project_comments',$project->id)}}" role="button">Comments</a>
-                <a class="btn btn-primary" href="{{route('project.excel')}}" role="button">Export to
+                <a class="btn btn-primary" href="{{ url()->previous() }}" role="button">Comments</a>
+                <a class="btn btn-primary" href="{{route('project.excel')}}" role="button" >Export to
                     Excel</a>
-                <a class="btn btn-primary"
-                    onclick="print()"
-                    role="button">Export to PDF</a>
-                @auth
-                @if (auth()->user()->type == 1)
-                <button class="btn btn-primary mt-1 float-right" type="submit">
-                    Submit
-                </button>
-                @else
-                <button class="btn btn-primary mt-1 float-right" type="submit">
-                    Update
-                </button>
-                @endif
-                @endauth
+                    <a class="btn btn-primary" onclick="classNameChange('col-md-9','col-md-12'); print();classNameChange('col-md-12','col-md-9');" role="button">Export to PDF</a>                
+                    @auth
+                        @if (auth()->user()->type == 1)
+                            <button class="btn btn-primary mt-1 float-right" type="submit">
+                                Submit
+                            </button>
+                        @else
+                            <button class="btn btn-primary mt-1 float-right" type="submit">
+                            Update
+                            </button>
+                        @endif
+                    @endauth
                 </form>
+            </div>
+        </div>
+    </div>
+    
+    <div class="col-md-3">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card card-info">
+                    @auth
+                    @if(auth()->user()->type == 2)
+                    <textarea placeholder="Comments" class="pb-cmnt-textarea"></textarea>
+                    <button class="btn btn-primary d-flex justify-content-center" type="button">Add
+                        Comment</button>
+                    @else
+                    <textarea placeholder="Comments" class="pb-cmnt-textarea" readonly></textarea>
+                    @endif
+                    @endauth
+                </div>
             </div>
         </div>
     </div>
@@ -2004,8 +2087,8 @@
 
 </div>
 <style>
-    button {
-        margin: 1%;
+    button{
+        margin:1%;
     }
     #space {
         margin: 5%;
