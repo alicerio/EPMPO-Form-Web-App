@@ -18,13 +18,12 @@ Route::resource('/users', 'UserController');
 
 Route::get('projects/revisions/{project}', 'ProjectController@revisions')->name('projects.revisions');
 Route::patch('projects/updateMPO/{project}', 'ProjectController@updateMPO')->name('projects.updateMPO');
-Route::resource('/projects', 'ProjectController');
 
+Route::resource('/projects', 'ProjectController');
 Route::resource('/bprojects', 'BProjectController');
 
 Route::resource('agencies', 'AgencyController');
 
-Route::get('project-pdf','ProjectController@exportPDF')->name('project.pdf'); 
 Route::get('project-excel','ProjectController@exportExcel')->name('project.excel'); 
 
 // For demo purposes

@@ -7,12 +7,8 @@
 @else
 <div class="container">
     <h2 class="text-center"><b>Projects</b></h2>
-
-   
-   
     <div class="row">
         <div class="col-md-12">
-
             <div class="dropdown">
                 <button class="btn btn-primary dropdown-toggle float-right" type="button" id="user_edit_options"
                     data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -23,7 +19,6 @@
                     <a class="dropdown-item" href="{{ route('bprojects.create') }}">Project B</a>
                 </div>
             </div>
-
         </div>
         <div style="padding-top: 5%;"></div>
         <div class="col-md-12">
