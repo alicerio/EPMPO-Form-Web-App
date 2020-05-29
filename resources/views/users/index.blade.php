@@ -30,7 +30,7 @@
                                 </button>
                                 <div class="dropdown-menu" aria-labelledby="user_edit_options">
                                     <a class="dropdown-item" href="{{ route('users.edit', $user->id) }}" >Edit</a>
-                                    <form action="{{ route('users.destroy', $user->id) }}" method="POST">
+                                    <form onclick="return confirm('Delete user?')" action="{{ route('users.destroy', $user->id) }}" method="POST" >
                                         @csrf
                                         @method('delete')
                                         <button class="dropdown-item" type="submit">

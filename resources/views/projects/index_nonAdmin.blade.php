@@ -1,15 +1,10 @@
-@extends('layouts.app')
-
 @section('content')
-@if(auth()->user()->type!=2)
-@extends('projects.index_NonAdmin')
-
-@else
 <div class="container">
+    @if(auth()->user()->type==2)
     <h2 class="text-center"><b>Projects</b></h2>
-
-   
-   
+    @else
+    <h2 class="text-center"><b>{{auth()->user()->agency->name}} Projects</b></h2>
+    @endif
     <div class="row">
         <div class="col-md-12">
 
@@ -36,11 +31,8 @@
                 <thead>
                     <tr>
                         <th scope="col">Project</th>
-                        <th scope="col">Agency</th>
-                        <th scope="col">Name</th>
+                        <th scope="col">Creator</th>
                         <th scope="col">Status</th>
-                        <th scope="col">MPO ID</th>
-                        <th scope="col">CSJ</th>
                         <th scole="col">editor</th>
                     </tr>
                 </thead>
@@ -54,20 +46,14 @@
                                 {{ $project->name }}
                             </a>
                         </td>
-                        @foreach ($agencies as $agency)
-                        @if($agency->id == $project->agency_id)
-                        <td>{{ $agency->name }}</td>
-                        @endif
-                        @endforeach
+
                         <td>{{ $project->author }}</td>
                         @if($project->agency_id<=6) <td>{{ $statuses[$project->status] }}</td>
                             @else
                             <td>{{ $statuses[$project->status] }}</td>
                             @endif
                             @if(auth()->user()->type!=2)
-                            <td>{{ $project->mpo_id }}</td>
-                            <td>{{ $project->csj_cn }}</td>
-                            <td></td>
+
                             @else
                             <form action="{{ route('projects.updateMPO', $project->id) }}" method="POST"
                                 name="inline_form">
@@ -99,11 +85,10 @@
                                         <a class="dropdown-item" onclick="document.inline_form.submit();">Update MPO
                                             ID</a>
                                         @endif
-                                        <form action="{{ route('projects.destroy', $project->id) }}" method="POST"
-                                            onclick="return confirm('Delete Project?')">
+                                        <form action="{{ route('projects.destroy', $project->id) }}" method="POST">
                                             @csrf
                                             @method('delete')
-                                            <button class="dropdown-item" type="submit" )>
+                                            <button class="dropdown-item" type="submit">
                                                 Delete
                                             </button>
                                         </form>
@@ -120,4 +105,3 @@
     </div>
 </div>
 @endsection
-@endif
