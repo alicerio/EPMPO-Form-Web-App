@@ -53,8 +53,7 @@
                     <div class="card card-info">
                         @auth
                             @if(auth()->user()->type == 2)     
-                                <textarea placeholder="Comments" class="pb-cmnt-textarea" name="comments_1" value="{{$project->comments_1 }}"></textarea>
-                                <button class="btn btn-primary d-flex justify-content-center" type="button">Add Comment</button>
+                                <input type="text" class="form-control" name="comments_1" value="{{ $project->comments_1 }}" placeholder="Comments">
                             @else
                                 <textarea placeholder="Comments" class="pb-cmnt-textarea" readonly></textarea>
                             @endif
@@ -289,17 +288,16 @@
                     <div class="card card-info">    
                         @auth
                             @if(auth()->user()->type == 2)     
-                                <textarea placeholder="Comments" class="pb-cmnt-textarea"></textarea>
-                <button class="btn btn-primary d-flex justify-content-center" type="button">Add Comment</button>
-                @else
-                <textarea placeholder="Comments" class="pb-cmnt-textarea" readonly></textarea>
-                @endif
-                @endauth
+                                <input type="text" class="form-control" name="comments_2" value="{{ $project->comments_2 }}" placeholder="Comments">
+                            @else
+                                <textarea placeholder="Comments" class="pb-cmnt-textarea" readonly></textarea>
+                            @endif
+                        @endauth
+                    </div>
+                </div>
             </div>
         </div>
     </div>
-</div>
-</div>
 <div id="space"></div>
 <!------------------------------------------------------>
 <div class="row">
@@ -588,9 +586,8 @@
             <div class="col-md-12">
                 <div class="card card-info">
                     @auth
-                        @if(auth()->user()->type == 2)
-                            <textarea placeholder="Comments" class="pb-cmnt-textarea"></textarea>
-                            <button class="btn btn-primary d-flex justify-content-center" type="button">Add Comment</button>
+                        @if(auth()->user()->type == 2)     
+                            <input type="text" class="form-control" name="comments_3" value="{{ $project->comments_3 }}" placeholder="Comments">
                         @else
                             <textarea placeholder="Comments" class="pb-cmnt-textarea" readonly></textarea>
                         @endif
@@ -1499,18 +1496,14 @@
             </div>
 
         </div>
-
-
     </div>
     <div class="col-md-3">
         <div class="row">
             <div class="col-md-12">
                 <div class="card card-info">
                     @auth
-                        @if(auth()->user()->type == 2)
-                            <textarea placeholder="Comments" class="pb-cmnt-textarea"></textarea>
-                            <button class="btn btn-primary d-flex justify-content-center" type="button">Add
-                                Comment</button>
+                        @if(auth()->user()->type == 2)     
+                            <input type="text" class="form-control" name="comments_4" value="{{ $project->comments_4 }}" placeholder="Comments">
                         @else
                             <textarea placeholder="Comments" class="pb-cmnt-textarea" readonly></textarea>
                         @endif
@@ -2022,18 +2015,15 @@
                     blank, the form will not be accepted.</p>
                 <h4>Signed By</h4>
                 @auth
-                @if(auth()->user()->type == 1)
-                <div class="form-group">
-                    <textarea class="form-control" id="signed_textarea" name="signature" rows="2"
-                        value="{{ $project->sponsor_title }}" disabled></textarea>
-                </div>
-                @else
-                <div class="form-group">
-                    <textarea class="form-control" id="signed_textarea" name="signature"
-                        title="Only a submitter can sign this form." rows="2" value="{{ $project->sponsor_title }}"
-                        disabled></textarea>
-                </div>
-                @endif
+                    @if(auth()->user()->type < 3)
+                        <div class="form-group">
+                            <input type="text" name="signature" class="form-control" value="{{ $project->signature }}">
+                        </div>
+                    @else
+                        <div class="form-group">
+                            <input type="text" name="signature" class="form-control" value="{{ $project->signature }}" readonly>
+                        </div>
+                    @endif
                 @endauth
                 <p>Save your form before signing, all fields will be locked after signature is provided.</p>
                 <br>
@@ -2041,38 +2031,46 @@
                     var obj = <?php echo json_encode($logOfChanges);?>; 
                     console.log(obj);
                 </script>
-                <button  name="data" type="button" onclick="displayChanges(obj)">Log of changes</button>
-                <a class="btn btn-primary" href="{{route('project.excel')}}" role="button" >Export to
-                    Excel</a>
-                    <a class="btn btn-primary" onclick="print()" role="button">Export to PDF</a>                
-                    @auth
-                        @if (auth()->user()->type == 1)
-                            <button class="btn btn-primary mt-1 float-right" type="submit">
+                @auth
+                    @if (auth()->user()->type == 2)
+                        <button  name="data" type="button" onclick="displayChanges(obj)">Log of changes</button>
+                    @endif
+                @endauth
+                <div class="row mt-1">
+                    <div class="col">
+                        <a class="btn btn-primary btn-block" href="{{route('project.excel')}}" role="button">Export to Excel</a>
+                    </div>
+                    <div class="col">
+                        <a class="btn btn-primary btn-block" onclick="print()" role="button">Export to PDF</a> 
+                    </div>
+                    <div class="col">
+                        @auth
+                            @if (auth()->user()->type == 1)
+                            <button class="btn btn-primary btn-block" type="submit">
                                 Submit
                             </button>
-                        @else
-                            <button class="btn btn-primary mt-1 float-right" type="submit">
-                            Update
-                            </button>
-                        @endif
-                    @endauth
-                </form>
+                            @else
+                                <button class="btn btn-primary mt-1 btn-block" type="submit">
+                                    Save
+                                </button>
+                            @endif
+                        @endauth
+                    </div>
+                </div>
             </div>
         </div>
     </div>
-    
+
     <div class="col-md-3">
         <div class="row">
             <div class="col-md-12">
                 <div class="card card-info">
                     @auth
-                    @if(auth()->user()->type == 2)
-                    <textarea placeholder="Comments" class="pb-cmnt-textarea"></textarea>
-                    <button class="btn btn-primary d-flex justify-content-center" type="button">Add
-                        Comment</button>
-                    @else
-                    <textarea placeholder="Comments" class="pb-cmnt-textarea" readonly></textarea>
-                    @endif
+                        @if(auth()->user()->type == 2)     
+                            <input type="text" class="form-control" name="comments_5" value="{{ $project->comments_5 }}" placeholder="Comments">
+                        @else
+                            <textarea placeholder="Comments" class="pb-cmnt-textarea" readonly></textarea>
+                        @endif
                     @endauth
                 </div>
             </div>

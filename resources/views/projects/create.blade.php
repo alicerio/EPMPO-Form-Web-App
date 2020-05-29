@@ -1564,31 +1564,45 @@
                         <p>*Please fill out this form entirely, and sign (digital signature). If "Signed By" field is blank, the form will not be accepted.</p>
                         <h4>Signed By</h4>
                         @auth
-                            @if(auth()->user()->type == 1)
+                            @if(auth()->user()->type < 3)
                                 <div class="form-group">
-                                    <textarea class="form-control" id="signed_textarea" name = "signature" rows="2"></textarea>
+                                    <input type="text" name="signature" class="form-control" autocomplete="off">
                                 </div>
                             @else
                                 <div class="form-group">
-                                    <textarea class="form-control" id="signed_textarea" name = "signature" title="Only a submitter can sign this form." rows="2" readonly></textarea>
+                                    <input type="text" name="signature" class="form-control" autocomplete="off" title="Only a submitter can sign" readonly>
                                 </div>
                             @endif                            
                         @endauth
                         <p>Save your form before signing, all fields will be locked after signature is provided.</p>
                         <br>
-                        <a class="btn btn-primary" href="{{route('project.excel')}}" role="button">Export to Excel</a>
-                        <a class="btn btn-primary" onclick="print()" role="button">Export to PDF</a>
-                        @auth
-                            @if (auth()->user()->type == 1)
-                            <button class="btn btn-primary mt-1 float-right" type="submit">
-                                Submit
-                            </button>
-                            @else
-                                <button class="btn btn-primary mt-1 float-right" type="submit">
-                                    Save
-                                </button>
-                            @endif
-                        @endauth
+                        <div class="row mt-1">
+                            <div class="col">
+                                <a class="btn btn-primary btn-block" href="{{route('project.excel')}}" role="button">Export to Excel</a>
+                            </div>
+                            <div class="col">
+                                <a class="btn btn-primary btn-block" onclick="print()" role="button">Export to PDF</a> 
+                            </div>
+                            <div class="col">
+                                <select name="status"  class="form-control" autocomplete="off">
+                                    <option value="0" selected>Save Progress</option>
+                                    <option value="1">Request PM Review</option>
+                                </select>
+                            </div>
+                            <div class="col">
+                                @auth
+                                    @if (auth()->user()->type == 1)
+                                    <button class="btn btn-primary btn-block" type="submit">
+                                        Submit
+                                    </button>
+                                    @else
+                                        <button class="btn btn-primary mt-1 btn-block" type="submit">
+                                            Save
+                                        </button>
+                                    @endif
+                                @endauth
+                            </div>
+                        </div>
                     </form>
                 </div>
             </div>
@@ -1608,5 +1622,10 @@
     };
 </script>
 <script src="{{ asset('docs/js/form1FrontEndLogic.js')}}"></script>
+<style>
+    button{
+        margin:1%;
+    }
+</style>
 
 @endsection
