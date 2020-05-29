@@ -124,11 +124,11 @@ function addRow(){
     let newIdTotal ="pftpg1_tot"+table.rows.length;
     row.setAttribute('id',"pfrow"+table.rows.length);
 
-    cell1.innerHTML = '<input type="text" name="funding_category" class="form-control">';
-    cell2.innerHTML = '<input onchange="project_funding_table()" id="federal" type="number" name="funding_federal" class="form-control">';
-    cell3.innerHTML = '<input onchange="project_funding_table()" id="state" type="number" name="funding_state" class="form-control">';
-    cell4.innerHTML = '<input onchange="project_funding_table()" id="local" type="number" name="funding_local" class="form-control">';
-    cell5.innerHTML = '<input onchange="project_funding_table()" id="local_cont" type="number" name="funding_local_beyond" class="form-control">';
+    cell1.innerHTML = '<input type="text" name="funding_category[]" class="form-control">';
+    cell2.innerHTML = '<input onchange="project_funding_table()" id="federal" type="number" name="funding_federal[]" class="form-control">';
+    cell3.innerHTML = '<input onchange="project_funding_table()" id="state" type="number" name="funding_state[]" class="form-control">';
+    cell4.innerHTML = '<input onchange="project_funding_table()" id="local" type="number" name="funding_local[]" class="form-control">';
+    cell5.innerHTML = '<input onchange="project_funding_table()" id="local_cont" type="number" name="funding_local_beyond[]" class="form-control">';
     cell6.innerHTML = '<input type="number" name="funding_total" class="form-control" readonly>';
     
     let inputId=$(table.rows[table.rows.length-1].cells[5]).find("input")[0];

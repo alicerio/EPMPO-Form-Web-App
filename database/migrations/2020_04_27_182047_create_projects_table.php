@@ -259,11 +259,11 @@ class CreateProjectsTable extends Migration
             $table->Integer('yoe_cost')->nullable();
 
             $table->string('funding_category')->nullable();
-            $table->Integer('funding_federal')->nullable();
-            $table->Integer('funding_state')->nullable();
-            $table->Integer('funding_local')->nullable();
-            $table->Integer('funding_local_beyond')->nullable();
-            $table->Integer('funding_total')->nullable();
+            $table->string('funding_federal')->nullable();
+            $table->string('funding_state')->nullable();
+            $table->string('funding_local')->nullable();
+            $table->string('funding_local_beyond')->nullable();
+            $table->string('funding_total')->nullable();
 
             $table->Integer('funding_federal_result')->nullable();
             $table->Integer('funding_state_result')->nullable();

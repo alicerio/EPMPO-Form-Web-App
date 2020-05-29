@@ -59,8 +59,6 @@ class ProjectController extends Controller
     public function store(Request $request)
     {
 
-        // dd($request);
-
         request()->validate([
             'name' => 'required',
         ]);
@@ -266,11 +264,13 @@ class ProjectController extends Controller
         $project->costs_4 = request('costs_4') == '----' ? null : request('costs_4');
         $project->mpo_funds = request('mpo_funds') == 'on' ? 1 : null;
         $project->yoe_cost = request('yoe_cost') == '----' ? null : request('yoe_cost');
-        $project->funding_category = request('funding_category');
-        $project->funding_federal = request('funding_federal') == '----' ? null : request('funding_federal');
-        $project->funding_state = request('funding_state') == '----' ? null : request('funding_state');
-        $project->funding_local = request('funding_local') == '----' ? null : request('funding_local');
-        $project->funding_local_beyond = request('funding_local_beyond') == '----' ? null : request('funding_local_beyond');
+
+        $project->funding_category = implode(',', request('funding_category'));
+        $project->funding_federal = implode(',', request('funding_federal'));
+        $project->funding_state = implode(',', request('funding_state'));
+        $project->funding_local = implode(',', request('funding_local'));
+        $project->funding_local_beyond = implode(',', request('funding_local_beyond'));
+
         $project->funding_total = request('funding_total') == '----' ? null : request('funding_total');
         $project->funding_federal_result = request('funding_federal_result') == '----' ? null : request('funding_federal_result');
         $project->funding_state_result = request('funding_state_result') == '----' ? null : request('funding_state_result');
@@ -588,11 +588,13 @@ class ProjectController extends Controller
         $project->costs_4 = request('costs_4') == '----' ? null : request('costs_4');
         $project->mpo_funds = request('mpo_funds') == 'on' ? 1 : null;
         $project->yoe_cost = request('yoe_cost') == '----' ? null : request('yoe_cost');
-        $project->funding_category = request('funding_category');
-        $project->funding_federal = request('funding_federal') == '----' ? null : request('funding_federal');
-        $project->funding_state = request('funding_state') == '----' ? null : request('funding_state');
-        $project->funding_local = request('funding_local') == '----' ? null : request('funding_local');
-        $project->funding_local_beyond = request('funding_local_beyond') == '----' ? null : request('funding_local_beyond');
+
+        $project->funding_category = implode(',', request('funding_category'));
+        $project->funding_federal = implode(',', request('funding_federal'));
+        $project->funding_state = implode(',', request('funding_state'));
+        $project->funding_local = implode(',', request('funding_local'));
+        $project->funding_local_beyond = implode(',', request('funding_local_beyond'));
+
         $project->funding_total = request('funding_total') == '----' ? null : request('funding_total');
         $project->funding_federal_result = request('funding_federal_result') == '----' ? null : request('funding_federal_result');
         $project->funding_state_result = request('funding_state_result') == '----' ? null : request('funding_state_result');
