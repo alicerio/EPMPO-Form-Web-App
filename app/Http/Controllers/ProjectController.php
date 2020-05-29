@@ -6,7 +6,6 @@ use App\Project;
 use App\Agency;
 use Illuminate\Http\Request;
 use Illuminate\Support\Collection;
-use Barryvdh\DomPDF\Facade as PDF;
 use Exporter;
 
 class ProjectController extends Controller
@@ -41,13 +40,6 @@ class ProjectController extends Controller
         return view('projects.create');
     }
 
-    public function exportPDF()
-    {
-        $data = Project::get();
-        $pdf = PDF::loadView('pdf.project',compact('data'));
-        return $pdf->download('project-list.pdf');
-    }
-
     public function exportExcel()
     {
         $project = new Project();
@@ -58,7 +50,6 @@ class ProjectController extends Controller
             $data[0] = (object) $column;
         }
         $data = $data->merge($projects);
-        
         $fileName = "Projects.xlsx";
         $excel = Exporter::make('Excel');
         $excel->load($data);
@@ -303,6 +294,11 @@ class ProjectController extends Controller
         $project->sponsor_title = request('sponsor_title');
         $project->signature = request('signature');
         $project->comments_1 = request('comments_1');
+        $project->comments_2 = request('comments_2');
+        $project->comments_3 = request('comments_3');
+        $project->comments_4 = request('comments_4');
+        $project->comments_5 = request('comments_5');
+
 
         $project->save();
 
@@ -620,6 +616,10 @@ class ProjectController extends Controller
         $project->sponsor_title = request('sponsor_title');
         $project->signature = request('signature');
         $project->comments_1 = request('comments_1');
+        $project->comments_2 = request('comments_2');
+        $project->comments_3 = request('comments_3');
+        $project->comments_4 = request('comments_4');
+        $project->comments_5 = request('comments_5');
 
 
         if($project->status != request('status')){
