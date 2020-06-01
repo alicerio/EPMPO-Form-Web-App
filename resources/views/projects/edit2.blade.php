@@ -10,44 +10,44 @@
                 </div>
                 <div class="card-body">
                     <!--UPDATE ROUTE NAME-->
-                    <form action="{{route('projects.update',$project2->id)}}" method="POST">
+                    <form action="{{route('bprojects.update',$bproject->id)}}" method="POST">
                         @csrf
                         @method('PATCH')
                         <label>
                             MPO ID
                         </label>
-                        <input type="text" class="form-control" name="mpo_id" autocomplete="off" value="{{ $project2->mpo_id }}" readonly>
+                        <input type="text" class="form-control" name="mpo_id" autocomplete="off" value="{{ $bproject->mpo_id }}" readonly>
                         <label>
                             CSJ or CN
                         </label>
-                        <input type="text" class="form-control" name="csj_cn" autocomplete="off" value="{{ $project2->csj_cn }}" readonly>
+                        <input type="text" class="form-control" name="csj_cn" autocomplete="off" value="{{ $bproject->csj_cn }}" readonly>
                         <label>
                             Project Name
                         </label>
-                        <input type="text" class="form-control" name="name" autocomplete="off" value="{{ $project2->name }}">
+                        <input type="text" class="form-control" name="name" autocomplete="off" value="{{ $bproject->name }}">
                         <label>
                             Project Description
                         </label>
-                        <input type="text" class="form-control" name="description" autocomplete="off" value="{{ $project2->description }}">
+                        <input type="text" class="form-control" name="description" autocomplete="off" value="{{ $bproject->description }}">
                         <label>
                             Limit From
                         </label>
-                        <input type="text" class="form-control" name="limit_from" autocomplete="off" value="{{ $project2->limit_from }}">
+                        <input type="text" class="form-control" name="limit_from" autocomplete="off" value="{{ $bproject->limit_from }}">
                         <label>
                             Limit To
                         </label>
-                        <input type="text" class="form-control" name="limit_to" autocomplete="off" value="{{ $project2->limit_to }}">
+                        <input type="text" class="form-control" name="limit_to" autocomplete="off" value="{{ $bproject->limit_to }}">
                         <label>
                             Need and Purpose:
                         </label>
-                        <textarea name="need_purpose" class="form-control" {{ $project2->need_purpose }}></textarea>
+                        <textarea name="need_purpose" class="form-control" {{ $bproject->need_purpose }}></textarea>
                         <label>
                             Agency Comments:
                         </label>
-                        <textarea name="agency_comments" class="form-control" {{ $project2->agency_comments }}></textarea>
+                        <textarea name="agency_comments" class="form-control" {{ $bproject->agency_comments }}></textarea>
                         <hr>
                         <label>
-                            <input type="checkbox" name="transit_funds_request" autocomplete="off" {{ $project2->transit_funds_request == true ? 'checked' : '' }}>
+                            <input type="checkbox" name="transit_funds_request" autocomplete="off" {{ $bproject->transit_funds_request == true ? 'checked' : '' }}>
                             Requesting Transit funds for his project/program (FTA, State and/or Local Funds)
                         </label>
                         <br>
@@ -57,7 +57,7 @@
                                 <label class="font-weight-bold">
                                     Federal Fiscal Year(FY):
                                 </label>
-                                <input type="number" name="fiscal_year" class="form-control" autocomplete="off" value="{{ $project2->fiscal_year }}">
+                                <input type="number" name="fiscal_year" class="form-control" autocomplete="off" value="{{ $bproject->fiscal_year }}">
                             </div>
                             <div class="col">
                                 <label>
@@ -65,10 +65,10 @@
                                 </label>
                                 <select name="network_year" class="form-control">
                                     <option>----</option>
-                                    <option value="2020" {{ $project2->network_year == 2020 ? 'selected' : ''}}>2020</option>
-                                    <option value="2030" {{ $project2->network_year == 2030 ? 'selected' : ''}}>2030</option>
-                                    <option value="2040" {{ $project2->network_year == 2040 ? 'selected' : ''}}>2040</option>
-                                    <option value="2045" {{ $project2->network_year == 2045 ? 'selected' : ''}}>2045</option>
+                                    <option value="2020" {{ $bproject->network_year == 2020 ? 'selected' : ''}}>2020</option>
+                                    <option value="2030" {{ $bproject->network_year == 2030 ? 'selected' : ''}}>2030</option>
+                                    <option value="2040" {{ $bproject->network_year == 2040 ? 'selected' : ''}}>2040</option>
+                                    <option value="2045" {{ $bproject->network_year == 2045 ? 'selected' : ''}}>2045</option>
                                 </select>
                             </div>
                         </div>
@@ -80,8 +80,8 @@
                             <div class="col-sm-1">
                                 <select name="psp_1" class="form-control">
                                     <option selected>----</option>
-                                    <option value="1" {{ $project2->psp_1 == 1 ? 'selected' : '' }}>Yes</option>
-                                    <option value="2" {{ $project2->psp_1 == 2 ? 'selected' : '' }}>No</option>
+                                    <option value="1" {{ $bproject->psp_1 == 1 ? 'selected' : '' }}>Yes</option>
+                                    <option value="2" {{ $bproject->psp_1 == 2 ? 'selected' : '' }}>No</option>
                                 </select>
                             </div>
                             <div class="col">
@@ -94,8 +94,8 @@
                             <div class="col-sm-1">
                                 <select name="psp_2" class="form-control">
                                     <option selected>----</option>
-                                    <option value="1" {{ $project2->psp_2 == 1 ? 'selected' : '' }}>Yes</option>
-                                    <option value="2" {{ $project2->psp_2 == 2 ? 'selected' : '' }}>No</option>
+                                    <option value="1" {{ $bproject->psp_2 == 1 ? 'selected' : '' }}>Yes</option>
+                                    <option value="2" {{ $bproject->psp_2 == 2 ? 'selected' : '' }}>No</option>
                                 </select>
                             </div>
                             <div class="col">
@@ -108,8 +108,8 @@
                             <div class="col-sm-1">
                                 <select name="psp_3" class="form-control">
                                     <option selected>----</option>
-                                    <option value="1" {{ $project2->psp_3 == 1 ? 'selected' : '' }}>Yes</option>
-                                    <option value="2" {{ $project2->psp_3 == 2 ? 'selected' : '' }}>No</option>
+                                    <option value="1" {{ $bproject->psp_3 == 1 ? 'selected' : '' }}>Yes</option>
+                                    <option value="2" {{ $bproject->psp_3 == 2 ? 'selected' : '' }}>No</option>
                                 </select>
                             </div>
                             <div class="col">
@@ -121,8 +121,8 @@
                             <div class="col-sm-1">
                                 <select name="psp_4" class="form-control">
                                     <option selected>----</option>
-                                    <option value="1" {{ $project2->psp_4 == 1 ? 'selected' : '' }}>Yes</option>
-                                    <option value="2" {{ $project2->psp_4 == 2 ? 'selected' : '' }}>No</option>
+                                    <option value="1" {{ $bproject->psp_4 == 1 ? 'selected' : '' }}>Yes</option>
+                                    <option value="2" {{ $bproject->psp_4 == 2 ? 'selected' : '' }}>No</option>
                                 </select>
                             </div>
                             <div class="col">
@@ -135,8 +135,8 @@
                             <div class="col-sm-1">
                                 <select name="psp_5" class="form-control">
                                     <option selected>----</option>
-                                    <option value="1" {{ $project2->psp_5 == 1 ? 'selected' : '' }}>Yes</option>
-                                    <option value="2" {{ $project2->psp_5 == 2 ? 'selected' : '' }}>No</option>
+                                    <option value="1" {{ $bproject->psp_5 == 1 ? 'selected' : '' }}>Yes</option>
+                                    <option value="2" {{ $bproject->psp_5 == 2 ? 'selected' : '' }}>No</option>
                                 </select>
                             </div>
                             <div class="col">
@@ -151,77 +151,139 @@
                             <div class="col">
                                 <h3><a href="https://www.fhwa.dot.gov/tpm/about/goals.cfm" target="_blank">National Goals</a></h3>
                                 <label>
-                                    <input type="checkbox" name="goal_1" onclick="toggleTA(this.name);" autocomplete="off" {{ $project2->goal_1 == true ? 'checked' : '' }}>
+                                    <input type="checkbox" name="goal_1" onclick="toggleTA(this.name);" autocomplete="off" {{ $bproject->goal_1 == true ? 'checked' : '' }}>
                                     Safety
                                 </label><br>
-                                <textarea name="description_goal_1" class="form-control" style="width: 22rem; {{ $project2->goal_1 == true ? '' : 'display: none;' }}" placeholder="How does this project meet this goal?">{{ $project2->description_goal_1 }}</textarea>
+                                <textarea name="description_goal_1" class="form-control" style="width: 22rem; {{ $bproject->goal_1 == true ? '' : 'display: none;' }}" placeholder="How does this project meet this goal?">{{ $bproject->description_goal_1 }}</textarea>
                                 <label>
-                                    <input type="checkbox" name="goal_2" onclick="toggleTA(this.name);" autocomplete="off" {{ $project2->goal_2 == true ? 'checked' : '' }}>
+                                    <input type="checkbox" name="goal_2" onclick="toggleTA(this.name);" autocomplete="off" {{ $bproject->goal_2 == true ? 'checked' : '' }}>
                                     Infrastructure Condition 
                                 </label><br>
-                                <textarea name="description_goal_2" class="form-control" style="width: 22rem;{{ $project2->goal_2 == true ? '' : 'display: none;' }}" placeholder="How does this project meet this goal?">{{ $project2->description_goal_2 }}</textarea>
+                                <textarea name="description_goal_2" class="form-control" style="width: 22rem;{{ $bproject->goal_2 == true ? '' : 'display: none;' }}" placeholder="How does this project meet this goal?">{{ $bproject->description_goal_2 }}</textarea>
                                 <label>
-                                    <input type="checkbox" name="goal_3" onclick="toggleTA(this.name);" autocomplete="off" {{ $project2->goal_3 == true ? 'checked' : '' }}>
+                                    <input type="checkbox" name="goal_3" onclick="toggleTA(this.name);" autocomplete="off" {{ $bproject->goal_3 == true ? 'checked' : '' }}>
                                     Congestion Reduction
                                 </label><br>
-                                <textarea name="description_goal_3" class="form-control" style="width: 22rem;{{ $project2->goal_3 == true ? '' : 'display: none;' }}" placeholder="How does this project meet this goal?">{{ $project2->description_goal_3 }}</textarea>
+                                <textarea name="description_goal_3" class="form-control" style="width: 22rem;{{ $bproject->goal_3 == true ? '' : 'display: none;' }}" placeholder="How does this project meet this goal?">{{ $bproject->description_goal_3 }}</textarea>
                                 <label>
-                                    <input type="checkbox" name="goal_4" onclick="toggleTA(this.name);" autocomplete="off" {{ $project2->goal_4 == true ? 'checked' : '' }}>
+                                    <input type="checkbox" name="goal_4" onclick="toggleTA(this.name);" autocomplete="off" {{ $bproject->goal_4 == true ? 'checked' : '' }}>
                                     System Reliability
                                 </label><br>
-                                <textarea name="description_goal_4" class="form-control" style="width: 22rem;{{ $project2->goal_4 == true ? '' : 'display: none;' }}" placeholder="How does this project meet this goal?">{{ $project2->description_goal_4 }}</textarea>
+                                <textarea name="description_goal_4" class="form-control" style="width: 22rem;{{ $bproject->goal_4 == true ? '' : 'display: none;' }}" placeholder="How does this project meet this goal?">{{ $bproject->description_goal_4 }}</textarea>
                                 <label>
-                                    <input type="checkbox" name="goal_5" onclick="toggleTA(this.name);" autocomplete="off" {{ $project2->goal_5 == true ? 'checked' : '' }}>
+                                    <input type="checkbox" name="goal_5" onclick="toggleTA(this.name);" autocomplete="off" {{ $bproject->goal_5 == true ? 'checked' : '' }}>
                                     Freight Movement and Economic Vitality
                                 </label><br>
-                                <textarea name="description_goal_5" class="form-control" style="width: 22rem;{{ $project2->goal_5 == true ? '' : 'display: none;' }}" placeholder="How does this project meet this goal?">{{ $project2->description_goal_5 }}</textarea>
+                                <textarea name="description_goal_5" class="form-control" style="width: 22rem;{{ $bproject->goal_5 == true ? '' : 'display: none;' }}" placeholder="How does this project meet this goal?">{{ $bproject->description_goal_5 }}</textarea>
                                 <label>
-                                    <input type="checkbox" name="goal_6" onclick="toggleTA(this.name);" autocomplete="off" {{ $project2->goal_6 == true ? 'checked' : '' }}>
+                                    <input type="checkbox" name="goal_6" onclick="toggleTA(this.name);" autocomplete="off" {{ $bproject->goal_6 == true ? 'checked' : '' }}>
                                     Environmental Sustainability
                                 </label><br>
-                                <textarea name="description_goal_6" class="form-control" style="width: 22rem;{{ $project2->goal_6 == true ? '' : 'display: none;' }}" placeholder="How does this project meet this goal?">{{ $project2->description_goal_6 }}</textarea>
+                                <textarea name="description_goal_6" class="form-control" style="width: 22rem;{{ $bproject->goal_6 == true ? '' : 'display: none;' }}" placeholder="How does this project meet this goal?">{{ $bproject->description_goal_6 }}</textarea>
                             </div>
                             <div class="col">
                                 <h3><a href="http://www.elpasompo.org/civicax/filebank/blobdload.aspx?BlobID=23375" target="_blank">Congestion Management Project Strategies</a></h3>
-                                <label>
-                                    <input type="checkbox" name="strategy_1" onclick="toggleTA(this.name);" autocomplete="off" {{ $project2->strategy_1 == true ? 'checked' : '' }}>
-                                    Travel Demand Management Strategies
-                                </label><br>
-                                <textarea name="description_strategy_1" class="form-control" style="width: 22rem;{{ $project2->strategy_1 == true ? '' : 'display: none;' }}" placeholder="How does this project meet this strategy?">{{ $project2->description_strategy_1 }}</textarea>
-                                <label>
-                                    <input type="checkbox" name="strategy_2" onclick="toggleTA(this.name);" autocomplete="off" {{ $project2->strategy_2 == true ? 'checked' : '' }}>
-                                    Traffic Operations Strategies
-                                </label><br>
-                                <textarea name="description_strategy_2" class="form-control" style="width: 22rem;{{ $project2->strategy_2 == true ? '' : 'display: none;' }}" placeholder="How does this project meet this strategy?">{{ $project2->description_strategy_2 }}</textarea>
-                                <label>
-                                    <input type="checkbox" name="strategy_3" onclick="toggleTA(this.name);" autocomplete="off" {{ $project2->strategy_3 == true ? 'checked' : '' }}>
-                                    Public Transportation Strategies
-                                </label><br>
-                                <textarea name="description_strategy_3" class="form-control" style="width: 22rem;{{ $project2->strategy_3 == true ? '' : 'display: none;' }}" placeholder="How does this project meet this strategy?">{{ $project2->description_strategy_3 }}</textarea>
-                                <label>
-                                    <input type="checkbox" name="strategy_4" onclick="toggleTA(this.name);" autocomplete="off" {{ $project2->strategy_4 == true ? 'checked' : '' }}>
-                                    Road Capacity Strategies
-                                </label><br>
-                                <textarea name="description_strategy_4" class="form-control" style="width: 22rem;{{ $project2->strategy_4 == true ? '' : 'display: none;' }}" placeholder="How does this project meet this strategy?">{{ $project2->description_strategy_4 }}</textarea>
-                                <label>
-                                    <input type="checkbox" name="strategy_5" onclick="toggleTA(this.name);" autocomplete="off" {{ $project2->strategy_5 == true ? 'checked' : '' }}>
-                                    Non-CMP Strategies
-                                </label><br>
-                                <textarea name="description_strategy_5" class="form-control" style="width: 22rem;{{ $project2->strategy_5 == true ? '' : 'display: none;' }}" placeholder="How does this project meet this strategy?">{{ $project2->description_strategy_5 }}</textarea>
+                                <div class="form-row mb-1">
+                                    <div class="col-sm-2">
+                                        <select name="strategy_1" class="form-control" onclick="toggleTA(this.name);">
+                                            <option selected>----</option>
+                                            <option value="1" {{ $bproject->strategy_1 == 1 ? 'selected' : '' }}>Yes</option>
+                                            <option value="2" {{ $bproject->strategy_1 == 2 ? 'selected' : '' }}>No</option>
+                                        </select>
+                                        <textarea name="description_strategy_1" class="form-control" style="width: 22rem;{{ $bproject->strategy_1 == 1 ? '' : 'display: none;' }}" placeholder="Please explain based on 40CFR 93.126.">{{ $bproject->description_strategy_1 }}</textarea>
+                                    </div>
+                                    <div class="col">
+                                        1. Project exempt under 40CFR 93.126?
+                                    </div>            
+                                </div>
+                                <div class="form-row mb-1">
+                                    <div class="col-sm-2">
+                                        <select name="strategy_2" class="form-control" onclick="toggleTA(this.name);">
+                                            <option selected>----</option>
+                                            <option value="1" {{ $bproject->strategy_2 == 1 ? 'selected' : '' }}>Yes</option>
+                                            <option value="2" {{ $bproject->strategy_2 == 2 ? 'selected' : '' }}>No</option>
+                                        </select>
+                                        <textarea name="description_strategy_2" class="form-control" style="width: 22rem;{{ $bproject->strategy_2 == 1 ? '' : 'display: none;' }}" placeholder="Please provide analysis from corridor study or similar study that will show the project will address congestion.">{{ $bproject->description_strategy_2 }}</textarea>
+                                    </div>
+                                    <div class="col">
+                                        2. Project addressing congestion
+                                    </div>            
+                                </div>
+                                <div class="form-row mb-1">
+                                    <div class="col-sm-2">
+                                        <select name="strategy_3" class="form-control" onclick="toggleTA(this.name);">
+                                            <option selected>----</option>
+                                            <option value="1" {{ $bproject->strategy_3 == 1 ? 'selected' : '' }}>Yes</option>
+                                            <option value="2" {{ $bproject->strategy_3 == 2 ? 'selected' : '' }}>No</option>
+                                        </select>
+                                        <textarea name="description_strategy_3" class="form-control" style="width: 22rem;{{ $bproject->strategy_3 == 1 ? '' : 'display: none;' }}" placeholder="Please explain.">{{ $bproject->description_strategy_3 }}</textarea>
+                                    </div>
+                                    <div class="col">
+                                        3. Project adds roadway capacity
+                                    </div>            
+                                </div>
+                                <p>If either question 2 or 3 is YES, please answer the questions below.</p>
+                                <div class="form-row mb-1">
+                                    <div class="col-sm-2">
+                                        <select name="strategy_4" class="form-control" onclick="toggleTA(this.name);">
+                                            <option selected>----</option>
+                                            <option value="1" {{ $bproject->strategy_4 == 1 ? 'selected' : '' }}>Yes</option>
+                                            <option value="2" {{ $bproject->strategy_4 == 2 ? 'selected' : '' }}>No</option>
+                                        </select>
+                                        <textarea name="description_strategy_4" class="form-control" style="width: 22rem;{{ $bproject->strategy_4 == 1 ? '' : 'display: none;' }}" placeholder="If yes, identify the project name(s), state project identification number (CSJ number), and MPO ID.">{{ $bproject->description_strategy_4 }}</textarea>
+                                    </div>
+                                    <div class="col">
+                                        4. Are there other congestion mitigation projects (e.g., transportation demand management, land use, public transportation, ITS and operations, pricing, bicycle and pedestrian, and bottleneck relief) 
+                                        within the project corridor that are programmed into the current MTP?
+                                    </div>            
+                                </div>
+                                <div class="form-row mb-1">
+                                    <div class="col-sm-2">
+                                        <select name="strategy_5" class="form-control">
+                                            <option selected>----</option>
+                                            <option value="1" {{ $bproject->strategy_5 == 1 ? 'selected' : '' }}>Yes</option>
+                                            <option value="2" {{ $bproject->strategy_5 == 2 ? 'selected' : '' }}>No</option>
+                                        </select>
+                                    </div>
+                                    <div class="col">
+                                        5. Using the 2019 CMP Report, is the corridor identified as a congested segment?
+                                    </div>            
+                                </div>
+                                <div class="form-row mb-1">
+                                    <div class="col-sm-2">
+                                        <select name="strategy_6" class="form-control">
+                                            <option selected>----</option>
+                                            <option value="1" {{ $bproject->strategy_6 == 1 ? 'selected' : '' }}>Yes</option>
+                                            <option value="2" {{ $bproject->strategy_6 == 2 ? 'selected' : '' }}>No</option>
+                                        </select>
+                                    </div>
+                                    <div class="col">
+                                        6. Can the congestion be addressed without building more road capacity?
+                                    </div>            
+                                </div>
+                                <p> 7. Describe any congestion mitigation alternatives to the proposed improvement that have been considered or will be evaluated to correct the deficiencies and manage the 
+                                    facility effectively (or facilitate its management in the future).</p>
+                                <textarea name="description_strategy_7" class="form-control" style="width: 22rem;">{{ $bproject->description_strategy_7 }}</textarea>
+                                <p>8. Specify congestion mitigation strategies that will be implemented as part of the project.</p>
+                                <textarea name="description_strategy_8" class="form-control" style="width: 22rem;">{{ $bproject->description_strategy_8 }}</textarea>
+                                <p>9. What are the specific congestion reduction impacts of the implemented strategies?</p>
+                                <textarea name="description_strategy_9" class="form-control" style="width: 22rem;">{{ $bproject->description_strategy_9 }}</textarea>
+                                <p>10. If not implementing a congestion mitigation strategy as part of the project, please explain reason.</p>
+                                <textarea name="description_strategy_10" class="form-control" style="width: 22rem;">{{ $bproject->description_strategy_10 }}</textarea>
                             </div>
                         </div>
 
                         Projects will be examined at the corridor level to determine multimodal needs. Which best describes this projects. <a href="http://www.elpasompo.org/civicax/filebank/blobdload.aspx?BlobID=23409" target="_blank">Block System:</a><br>
-                        <label><input type="radio" name="block_system" value="1" {{ $project2->block_system == 1 ? 'checked' : '' }}> Within Community</label autocomplete="off">
-                        <label><input type="radio" name="block_system" value="2" {{ $project2->block_system == 2 ? 'checked' : '' }}> Community to community</label autocomplete="off">
-                        <label><input type="radio" name="block_system" value="3" {{ $project2->block_system == 3 ? 'checked' : '' }}> Community to region</label autocomplete="off">
-                        <label><input type="radio" name="block_system" value="4" {{ $project2->block_system == 4 ? 'checked' : '' }}> Region to region</label autocomplete="off">
+                        <label><input type="radio" name="block_system" value="1" {{ $bproject->block_system == 1 ? 'checked' : '' }}> Within Community</label autocomplete="off">
+                        <label><input type="radio" name="block_system" value="2" {{ $bproject->block_system == 2 ? 'checked' : '' }}> Community to community</label autocomplete="off">
+                        <label><input type="radio" name="block_system" value="3" {{ $bproject->block_system == 3 ? 'checked' : '' }}> Community to region</label autocomplete="off">
+                        <label><input type="radio" name="block_system" value="4" {{ $bproject->block_system == 4 ? 'checked' : '' }}> Region to region</label autocomplete="off">
                         <hr>
 
                         Have the above dates been reviewed by TXDOT or NMDOT?
-                        <label><input type="radio" name="reviewed_dates" value="1" {{ $project2->reviewed_dates == 1 ? 'checked' : '' }}> Yes</label autocomplete="off">
-                        <label><input type="radio" name="reviewed_dates" value="2" {{ $project2->reviewed_dates == 2 ? 'checked' : '' }}> No</label autocomplete="off">
-                        <label><input type="radio" name="reviewed_dates" value="3" {{ $project2->reviewed_dates == 3 ? 'checked' : '' }}> N/A</label autocomplete="off">
+                        <label><input type="radio" name="reviewed_dates" value="1" {{ $bproject->reviewed_dates == 1 ? 'checked' : '' }}> Yes</label autocomplete="off">
+                        <label><input type="radio" name="reviewed_dates" value="2" {{ $bproject->reviewed_dates == 2 ? 'checked' : '' }}> No</label autocomplete="off">
+                        <label><input type="radio" name="reviewed_dates" value="3" {{ $bproject->reviewed_dates == 3 ? 'checked' : '' }}> N/A</label autocomplete="off">
                         <br>
 
                         {{--Project Phases and Transit only--}}
@@ -232,42 +294,42 @@
                                     Cost). If a phase has been or will be completed with local funds or resources,
                                     please do not check. Please enter cost information for each Phase checked.</p>
                                 <label>
-                                    <input type="checkbox" name="capital" autocomplete="off" {{ $project2->capital == true ? 'checked' : '' }}>
+                                    <input type="checkbox" name="capital" autocomplete="off" {{ $bproject->capital == true ? 'checked' : '' }}>
                                     Capital
                                 </label><br>
                                 <label>
-                                    <input type="checkbox" name="operations" autocomplete="off" {{ $project2->operations == true ? 'checked' : '' }}>
+                                    <input type="checkbox" name="operations" autocomplete="off" {{ $bproject->operations == true ? 'checked' : '' }}>
                                     Operations
                                 </label><br>
                                 <label>
-                                    <input type="checkbox" name="c" autocomplete="off" {{ $project2->c == true ? 'checked' : '' }}>
+                                    <input type="checkbox" name="c" autocomplete="off" {{ $bproject->c == true ? 'checked' : '' }}>
                                     C
                                 </label><br>
                                 <label>
-                                    <input type="checkbox" name="nonc" autocomplete="off" {{ $project2->nonc == true ? 'checked' : '' }}>
+                                    <input type="checkbox" name="nonc" autocomplete="off" {{ $bproject->nonc == true ? 'checked' : '' }}>
                                     Non-C
                                 </label><br>
                                 <label>
-                                    <input type="checkbox" name="pe" autocomplete="off" {{ $project2->pe == true ? 'checked' : '' }}>
+                                    <input type="checkbox" name="pe" autocomplete="off" {{ $bproject->pe == true ? 'checked' : '' }}>
                                     PE
                                 <label>
-                                    <input type="checkbox" name="env" autocomplete="off" {{ $project2->env == true ? 'checked' : '' }}>
+                                    <input type="checkbox" name="env" autocomplete="off" {{ $bproject->env == true ? 'checked' : '' }}>
                                     E:Env
                                 </label><br>
                                 <label>
-                                    <input type="checkbox" name="eng" autocomplete="off" {{ $project2->eng == true ? 'checked' : '' }}>
+                                    <input type="checkbox" name="eng" autocomplete="off" {{ $bproject->eng == true ? 'checked' : '' }}>
                                     E:Eng
                                 </label><br>
                                 <label>
-                                    <input type="checkbox" name="r" autocomplete="off" {{ $project2->r == true ? 'checked' : '' }}>
+                                    <input type="checkbox" name="r" autocomplete="off" {{ $bproject->r == true ? 'checked' : '' }}>
                                     R
                                 </label><br>
                                 <label>
-                                    <input type="checkbox" name="acq" autocomplete="off" {{ $project2->acq == true ? 'checked' : '' }}>
+                                    <input type="checkbox" name="acq" autocomplete="off" {{ $bproject->acq == true ? 'checked' : '' }}>
                                     R:Acq
                                 </label><br>
                                 <label>
-                                    <input type="checkbox" name="utl" autocomplete="off" {{ $project2->utl == true ? 'checked' : '' }}>
+                                    <input type="checkbox" name="utl" autocomplete="off" {{ $bproject->utl == true ? 'checked' : '' }}>
                                     R:Utl
                                 </label><br>
                             </div>
@@ -277,26 +339,26 @@
                                         <h5 class="card-title text-center">**Transit Only</h5>
 
                                         <label>Apportionment Year</label>
-                                        <input type="text" name="appointment_year" class="form-control" autocomplete="off" value="{{ $project2->appointment_year }}">
+                                        <input type="number" name="appointment_year" class="form-control" autocomplete="off" value="{{ $bproject->appointment_year }}">
                                         <label>TDC Award Amount</label>
-                                        <input type="text" name="tdc_award_amount" class="form-control" autocomplete="off" value="{{ $project2->tdc_award_amount }}">
+                                        <input type="number" name="tdc_award_amount" class="form-control" autocomplete="off" value="{{ $bproject->tdc_award_amount }}">
                                         <label>TDC Award Date</label>
-                                        <input type="text" name="tdw_award_date" class="form-control" autocomplete="off" value="{{ $project2->tdw_award_date }}">
+                                        <input type="date" name="tdw_award_date" class="form-control" autocomplete="off" value="{{ $bproject->tdw_award_date }}">
                                         <label>TDC Amount Requested</label>
-                                        <input type="text" name="tdc_amount_requested" class="form-control" autocomplete="off" value="{{ $project2->tdc_amount_requested }}"><br>
+                                        <input type="number" name="tdc_amount_requested" class="form-control" autocomplete="off" value="{{ $bproject->tdc_amount_requested }}"><br>
 
                                         <h4>Project Type:</h4>
 
                                         <label>
-                                            <input type="checkbox" name="type_capital" autocomplete="off" {{ $project2->type_capital == true ? 'checked' : '' }}>
+                                            <input type="checkbox" name="type_capital" autocomplete="off" {{ $bproject->type_capital == true ? 'checked' : '' }}>
                                             Capital
                                         </label><br>
                                         <label>
-                                            <input type="checkbox" name="type_operating" autocomplete="off" {{ $project2->type_operating == true ? 'checked' : '' }}>
+                                            <input type="checkbox" name="type_operating" autocomplete="off" {{ $bproject->type_operating == true ? 'checked' : '' }}>
                                             Operating
                                         </label><br>
                                         <label>
-                                            <input type="checkbox" name="type_planning" autocomplete="off" {{ $project2->type_planning == true ? 'checked' : '' }}>
+                                            <input type="checkbox" name="type_planning" autocomplete="off" {{ $bproject->type_planning == true ? 'checked' : '' }}>
                                             Planning
                                         </label><br>
                                     </div>
@@ -306,11 +368,11 @@
                         {{--Project Funding--}}
                         <h3>Project Funding</h3>
                         <label>
-                            <input type="checkbox" name="mpo_funds" autocomplete="off" {{ $project2->mpo_funds == true ? 'checked' : '' }}>
+                            <input type="checkbox" name="mpo_funds" autocomplete="off" {{ $bproject->mpo_funds == true ? 'checked' : '' }}>
                             Requesting MPO Funds
                         </label><br>
                         <label>
-                            <input type="number" name="yoe_cost_vehicles" id = "yoe_check_vehicles" autocomplete="off" value="{{ $project2->yoe_cost_vehicles }}" readonly>
+                            <input type="number" name="yoe_cost_vehicles" id = "yoe_check_vehicles" autocomplete="off" value="{{ $bproject->yoe_cost_vehicles }}" readonly>
                             YOE Cost
                         </label><br>
                         <div class="card">
@@ -341,22 +403,22 @@
                                 <div id = "funding_vehicles">
                                     <div class="form-row mb-1">
                                         <div class="col-sm-2">
-                                            <input type="text" name="funding_category_vehicles" class="form-control" value="{{ $project2->funding_category_vehicles }}">
+                                            <input type="text" name="funding_category_vehicles" class="form-control" value="{{ $bproject->funding_category_vehicles }}">
                                         </div>
                                         <div class="col-sm-2">
-                                            <input onchange="funding_vehicles_table()" id="federal_vehicles" type="number" name="funding_federal_vehicles" class="form-control" value="{{ $project2->funding_federal_vehicles }}">
+                                            <input onchange="funding_vehicles_table()" id="federal_vehicles" type="number" name="funding_federal_vehicles" class="form-control" value="{{ $bproject->funding_federal_vehicles }}">
                                         </div>
                                         <div class="col-sm-2">
-                                            <input onchange="funding_vehicles_table()" id = "local_vehicles" type="number" name="funding_local_vehicles" class="form-control" value="{{ $project2->funding_local_vehicles }}">
+                                            <input onchange="funding_vehicles_table()" id = "local_vehicles" type="number" name="funding_local_vehicles" class="form-control" value="{{ $bproject->funding_local_vehicles }}">
                                         </div>
                                         <div class="col-sm-2">
-                                            <input onchange="funding_vehicles_table()" id = "local_beyond_vehicles" type="number" name="funding_local_beyond_vehicles" class="form-control" value="{{ $project2->funding_local_beyond_vehicles }}">
+                                            <input onchange="funding_vehicles_table()" id = "local_beyond_vehicles" type="number" name="funding_local_beyond_vehicles" class="form-control" value="{{ $bproject->funding_local_beyond_vehicles }}">
                                         </div>
                                         <div class="col-sm-2">
-                                            <input id = "total_vehicles" type="number" name="funding_total_vehicles" class="form-control" value="{{ $project2->funding_total_vehicles }}" readonly>
+                                            <input id = "total_vehicles" type="number" name="funding_total_vehicles" class="form-control" value="{{ $bproject->funding_total_vehicles }}" readonly>
                                         </div>
                                         <div class="col-sm-2">
-                                            <input onchange="funding_vehicles_table()" id = "tdc_vehicles" type="number" name="funding_tdc_vehicles" class="form-control" value="{{ $project2->funding_tdc_vehicles }}">
+                                            <input onchange="funding_vehicles_table()" id = "tdc_vehicles" type="number" name="funding_tdc_vehicles" class="form-control" value="{{ $bproject->funding_tdc_vehicles }}">
                                         </div>
                                     </div>
                                 </div>
@@ -365,19 +427,19 @@
                                         Total Funding By Share
                                     </div>
                                     <div class="col-sm-2">
-                                        <input type="number" name="funding_federal_vehicles_total" id = "federal_vehicles_total" class="form-control" value="{{ $project2->funding_federal_vehicles_total }}" readonly>
+                                        <input type="number" name="funding_federal_vehicles_total" id = "federal_vehicles_total" class="form-control" value="{{ $bproject->funding_federal_vehicles_total }}" readonly>
                                     </div>
                                     <div class="col-sm-2">
-                                        <input type="number" name="funding_local_vehicles_total" id = "local_vehicles_total" class="form-control" value="{{ $project2->funding_local_vehicles_total }}" readonly>
+                                        <input type="number" name="funding_local_vehicles_total" id = "local_vehicles_total" class="form-control" value="{{ $bproject->funding_local_vehicles_total }}" readonly>
                                     </div>
                                     <div class="col-sm-2">
-                                        <input type="number" name="funding_local_beyond_vehicles_total" id = "local_beyond_vehicles_total" class="form-control" value="{{ $project2->funding_local_beyond_vehicles_total }}" readonly>
+                                        <input type="number" name="funding_local_beyond_vehicles_total" id = "local_beyond_vehicles_total" class="form-control" value="{{ $bproject->funding_local_beyond_vehicles_total }}" readonly>
                                     </div>
                                     <div class="col-sm-2">
-                                        <input type="number" name="funding_total_vehicles_total" id = "total_vehicles_total" class="form-control" value="{{ $project2->funding_total_vehicles_total }}" readonly>
+                                        <input type="number" name="funding_total_vehicles_total" id = "total_vehicles_total" class="form-control" value="{{ $bproject->funding_total_vehicles_total }}" readonly>
                                     </div>
                                     <div class="col-sm-2">
-                                        <input type="number" name="funding_tdc_vehicles_total" id = "tdc_vehicles_total" class="form-control" value="{{ $project2->funding_tdc_vehicles_total }}" readonly>
+                                        <input type="number" name="funding_tdc_vehicles_total" id = "tdc_vehicles_total" class="form-control" value="{{ $bproject->funding_tdc_vehicles_total }}" readonly>
                                     </div>
                                 </div>
                                 <a class="btn btn-primary" role="button">Add Funding</a>
@@ -386,7 +448,7 @@
                         </div>
                         <br>
                         <label>
-                            <input type="number" id="yoe_check_bus" name="yoe_cost_bus" autocomplete="off" value="{{ $project2->yoe_cost_bus }}" readonly>
+                            <input type="number" id="yoe_check_bus" name="yoe_cost_bus" autocomplete="off" value="{{ $bproject->yoe_cost_bus }}" readonly>
                             YOE Cost
                         </label><br>
                         <div class="card">
@@ -417,22 +479,22 @@
                                 <div id = "funding_bus">
                                     <div class="form-row mb-1">
                                         <div class="col-sm-2">
-                                            <input type="text" name="funding_category_bus" class="form-control" value="{{ $project2->funding_category_bus }}">
+                                            <input type="text" name="funding_category_bus" class="form-control" value="{{ $bproject->funding_category_bus }}">
                                         </div>
                                         <div class="col-sm-2">
-                                            <input onchange="funding_bus_table()" id = "federal_bus" type="number" name="funding_federal_bus" class="form-control" value="{{ $project2->funding_federal_bus }}">
+                                            <input onchange="funding_bus_table()" id = "federal_bus" type="number" name="funding_federal_bus" class="form-control" value="{{ $bproject->funding_federal_bus }}">
                                         </div>
                                         <div class="col-sm-2">
-                                            <input onchange="funding_bus_table()" id = "local_bus" type="number" name="funding_local_bus" class="form-control" value="{{ $project2->funding_local_bus }}">
+                                            <input onchange="funding_bus_table()" id = "local_bus" type="number" name="funding_local_bus" class="form-control" value="{{ $bproject->funding_local_bus }}">
                                         </div>
                                         <div class="col-sm-2">
-                                            <input onchange="funding_bus_table()" id = "local_beyond_bus" type="number" name="funding_local_beyond_bus" class="form-control" value="{{ $project2->funding_local_beyond_bus }}">
+                                            <input onchange="funding_bus_table()" id = "local_beyond_bus" type="number" name="funding_local_beyond_bus" class="form-control" value="{{ $bproject->funding_local_beyond_bus }}">
                                         </div>
                                         <div class="col-sm-2">
-                                            <input type="number" id="total_bus" name="funding_total_bus" class="form-control" value="{{ $project2->funding_total_bus }}" readonly>
+                                            <input type="number" id="total_bus" name="funding_total_bus" class="form-control" value="{{ $bproject->funding_total_bus }}" readonly>
                                         </div>
                                         <div class="col-sm-2">
-                                            <input onchange="funding_bus_table()" id = "tdc_bus" type="number" name="funding_tdc_bus" class="form-control" value="{{ $project2->funding_tdc_bus }}">
+                                            <input onchange="funding_bus_table()" id = "tdc_bus" type="number" name="funding_tdc_bus" class="form-control" value="{{ $bproject->funding_tdc_bus }}">
                                         </div>
                                     </div>
                                 </div>
@@ -441,19 +503,19 @@
                                         Total Funding By Share
                                     </div>
                                     <div class="col-sm-2">
-                                        <input type="number" id = "federal_bus_total" name="funding_federal_bus_total" class="form-control" value="{{ $project2->funding_federal_bus_total }}" readonly>
+                                        <input type="number" id = "federal_bus_total" name="funding_federal_bus_total" class="form-control" value="{{ $bproject->funding_federal_bus_total }}" readonly>
                                     </div>
                                     <div class="col-sm-2">
-                                        <input type="number" id="local_bus_total" name="funding_local_bus_total" class="form-control" value="{{ $project2->funding_local_bus_total }}" readonly>
+                                        <input type="number" id="local_bus_total" name="funding_local_bus_total" class="form-control" value="{{ $bproject->funding_local_bus_total }}" readonly>
                                     </div>
                                     <div class="col-sm-2">
-                                        <input type="number" id="local_beyond_bus_total" name="funding_local_beyond_bus_total" class="form-control" value="{{ $project2->funding_local_beyond_bus_total }}" readonly>
+                                        <input type="number" id="local_beyond_bus_total" name="funding_local_beyond_bus_total" class="form-control" value="{{ $bproject->funding_local_beyond_bus_total }}" readonly>
                                     </div>
                                     <div class="col-sm-2">
-                                        <input type="number" id="total_bus_total" name="funding_total_bus_total" class="form-control" value="{{ $project2->funding_total_bus_total }}" readonly>
+                                        <input type="number" id="total_bus_total" name="funding_total_bus_total" class="form-control" value="{{ $bproject->funding_total_bus_total }}" readonly>
                                     </div>
                                     <div class="col-sm-2">
-                                        <input type="number" id="tdc_bus_total" name="funding_tdc_bus_total" class="form-control" value="{{ $project2->funding_tdc_bus_total }}" readonly>
+                                        <input type="number" id="tdc_bus_total" name="funding_tdc_bus_total" class="form-control" value="{{ $bproject->funding_tdc_bus_total }}" readonly>
                                     </div>
                                 </div>
                                 <a class="btn btn-primary" role="button">Add Funding</a>
@@ -463,7 +525,7 @@
                         <br>
 
                         <label>
-                            <input type="number" id="yoe_check_operations" name="yoe_cost_operations" autocomplete="off" value="{{ $project2->yoe_cost_operations }}" readonly>
+                            <input type="number" id="yoe_check_operations" name="yoe_cost_operations" autocomplete="off" value="{{ $bproject->yoe_cost_operations }}" readonly>
                             YOE Cost
                         </label><br>
                         <div class="card">
@@ -494,16 +556,16 @@
                                             <input type="text" name="funding_category_operations" class="form-control">
                                         </div>
                                         <div class="col-sm-3">
-                                            <input onchange="funding_operations_table()" id = "federal_operations" type="number" name="funding_federal_operations" class="form-control" value="{{ $project2->funding_federal_operations }}">
+                                            <input onchange="funding_operations_table()" id = "federal_operations" type="number" name="funding_federal_operations" class="form-control" value="{{ $bproject->funding_federal_operations }}">
                                         </div>
                                         <div class="col-sm-3">
-                                            <input onchange="funding_operations_table()" id = "local_operations" type="number" name="funding_local_operations" class="form-control" value="{{ $project2->funding_local_operations }}">
+                                            <input onchange="funding_operations_table()" id = "local_operations" type="number" name="funding_local_operations" class="form-control" value="{{ $bproject->funding_local_operations }}">
                                         </div>
                                         <div class="col-sm-2">
-                                            <input onchange="funding_operations_table()" id = "local_beyond_operations" type="number" name="funding_local_beyond_operations" class="form-control" value="{{ $project2->funding_local_beyond_operations }}">
+                                            <input onchange="funding_operations_table()" id = "local_beyond_operations" type="number" name="funding_local_beyond_operations" class="form-control" value="{{ $bproject->funding_local_beyond_operations }}">
                                         </div>
                                         <div class="col-sm-2">
-                                            <input type="number" id="total_operations" name="funding_total_operations" class="form-control" value="{{ $project2->funding_total_operations }}" readonly>
+                                            <input type="number" id="total_operations" name="funding_total_operations" class="form-control" value="{{ $bproject->funding_total_operations }}" readonly>
                                         </div>
                                     </div>
                                 </div>
@@ -512,16 +574,16 @@
                                         Total Funding By Share
                                     </div>
                                     <div class="col-sm-3">
-                                        <input type="number" id="federal_operations_total" name="funding_federal_operations_total" class="form-control" value="{{ $project2->funding_federal_operations_total }}" readonly>
+                                        <input type="number" id="federal_operations_total" name="funding_federal_operations_total" class="form-control" value="{{ $bproject->funding_federal_operations_total }}" readonly>
                                     </div>
                                     <div class="col-sm-3">
-                                        <input type="number" id="local_operations_total" name="funding_local_operations_total" class="form-control" value="{{ $project2->funding_local_operations_total }}" readonly>
+                                        <input type="number" id="local_operations_total" name="funding_local_operations_total" class="form-control" value="{{ $bproject->funding_local_operations_total }}" readonly>
                                     </div>
                                     <div class="col-sm-2">
-                                        <input type="number" id="local_beyond_operations_total" name="funding_local_beyond_operations_total" class="form-control" value="{{ $project2->funding_local_beyond_operations_total }}" readonly>
+                                        <input type="number" id="local_beyond_operations_total" name="funding_local_beyond_operations_total" class="form-control" value="{{ $bproject->funding_local_beyond_operations_total }}" readonly>
                                     </div>
                                     <div class="col-sm-2">
-                                        <input type="number" id="total_operations_total" name="funding_total_operations_total" class="form-control" value="{{ $project2->funding_total_operations_total }}" readonly>
+                                        <input type="number" id="total_operations_total" name="funding_total_operations_total" class="form-control" value="{{ $bproject->funding_total_operations_total }}" readonly>
                                     </div>
                                 </div>
                                 <a class="btn btn-primary" role="button">Add Funding</a>
@@ -557,22 +619,22 @@
                             <div class="card-body">
                                 <div class="form-row mb-1">
                                     <div class="col-sm-2">
-                                        <input type="text" name="sponsor" class="form-control" value="{{ $project2->sponsor }}" readonly>
+                                        <input type="text" name="sponsor" class="form-control" value="{{ $bproject->sponsor }}" readonly>
                                     </div>
                                     <div class="col-sm-2">
-                                        <input type="text" name="contact_name" class="form-control" value="{{ $project2->contact_name }}">
+                                        <input type="text" name="contact_name" class="form-control" value="{{ $bproject->contact_name }}">
                                     </div>
                                     <div class="col-sm-2">
-                                        <input type="tel" name="contact_phone" class="form-control" value="{{ $project2->contact_phone }}">
+                                        <input type="tel" name="contact_phone" class="form-control" value="{{ $bproject->contact_phone }}">
                                     </div>
                                     <div class="col-sm-2">
-                                        <input type="email" name="contact_email" class="form-control" value="{{ $project2->contact_email }}">
+                                        <input type="email" name="contact_email" class="form-control" value="{{ $bproject->contact_email }}">
                                     </div>
                                     <div class="col-sm-2">
-                                        <input type="text" name="contact_agency" class="form-control" value="{{ $project2->contact_agency }}">
+                                        <input type="text" name="contact_agency" class="form-control" value="{{ $bproject->contact_agency }}">
                                     </div>
                                     <div class="col-sm-2">
-                                        <input type="text" name="contact_title" class="form-control" value="{{ $project2->contact_title }}">
+                                        <input type="text" name="contact_title" class="form-control" value="{{ $bproject->contact_title }}">
                                     </div>
                                 </div>
                             </div>

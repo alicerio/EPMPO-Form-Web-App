@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\BProject;
+use App\Agency;
+use Illuminate\Support\Collection;
 use Illuminate\Http\Request;
 
 class BProjectController extends Controller
@@ -14,7 +16,10 @@ class BProjectController extends Controller
      */
     public function index()
     {
-        //
+        $projects = BProject::all()->where('parent_id', null);
+        $agencies = Agency::all();
+        $statuses = ['In Progress','PM Pending Review','Submitted', 'Approved','In Progress [Returned for Revision]'];
+        return view('projects.index2', compact('projects', 'statuses','agencies'));
     }
 
     /**
@@ -57,7 +62,7 @@ class BProjectController extends Controller
      */
     public function edit(BProject $bProject)
     {
-        //
+        return view('projects.edit2', compact('bProject'));
     }
 
     /**
