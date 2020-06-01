@@ -1970,7 +1970,7 @@
                 <p>Save your form before signing, all fields will be locked after signature is provided.</p>
                 <br>
                 @auth
-                @if (auth()->user()->type == 2)
+                @if (auth()->user()->type == 2 && $project->status == 2)
                 <script>
                     var obj = <?php echo json_encode($logOfChanges);?>; 
                     console.log(obj);

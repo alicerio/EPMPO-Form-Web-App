@@ -324,7 +324,7 @@ class ProjectController extends Controller
         // gets prev project
         foreach($projects as $projectHolder){
              //filters all projects with same parent ID and projects older than current project
-            if($project->id != $projectHolder->id){ //not same project
+            if($project->id != $projectHolder->id && $projectHolder->status == 2){ //not same project and status = 1 since its a submission
                 if($project->parent_id == null && $project->id  == $projectHolder->parent_id|| ($project->parent_id != null && $project->parent_id  == $projectHolder->parent_id) || ($project->parent_id != null && $project->parent_id  == $projectHolder->id)){
                     if(strtotime($project->created_at) > strtotime($projectHolder->created_at) ){
                         if($oldestProject < $projectHolder->id){
@@ -333,7 +333,6 @@ class ProjectController extends Controller
                             $attributesOfProjects = [];
                             array_push($attributesOfProjects,$projectHolder->attributesToArray());
                             $oldestProject = $projectHolder->id;  
-                          //  print_r($attributesOfProjects);
                         }
                      }
                 }
