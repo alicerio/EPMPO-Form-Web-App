@@ -13,5 +13,8 @@ class AgenciesTableSeeder extends Seeder
         DB::table('agencies')->insert(['name' => 'City of Horizon']);
         DB::table('agencies')->insert(['name' => 'El Paso County']);
         DB::table('agencies')->insert(['name' => 'City of Socorro']);
+        DB::table('agencies')->insert(['name' => 'Project Amistad']);
+        DB::table('agencies')->insert(['name' => 'Viba']);
+        DB::table('agencies')->insert(['name' => 'South Central Regional Transit District']);
     }
 }
