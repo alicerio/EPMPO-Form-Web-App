@@ -183,58 +183,62 @@
                                 <h3><a href="http://www.elpasompo.org/civicax/filebank/blobdload.aspx?BlobID=23375" target="_blank">Congestion Management Project Strategies</a></h3>
                                 <div class="form-row mb-1">
                                     <div class="col-sm-2">
-                                        <select name="strategy_1" class="form-control" onclick="toggleTA(this.name);">
+                                        <select name="strategy_1" class="form-control" onchange="displayBox(this.name)">
                                             <option selected>----</option>
                                             <option value="1">Yes</option>
                                             <option value="2">No</option>
                                         </select>
-                                        <textarea name="description_strategy_1" class="form-control" style="width: 22rem; display: none;" placeholder="Please explain based on 40CFR 93.126."></textarea>
                                     </div>
                                     <div class="col">
                                         1. Project exempt under 40CFR 93.126?
-                                    </div>            
+                                    </div> 
                                 </div>
+                                <textarea name="description_strategy_1" class="form-control" style="width: 22rem; display: none;" placeholder="Please explain based on 40CFR 93.126."></textarea>           
+
                                 <div class="form-row mb-1">
                                     <div class="col-sm-2">
-                                        <select name="strategy_2" class="form-control" onclick="toggleTA(this.name);">
+                                        <select name="strategy_2" class="form-control" onchange="displayBox(this.name)">
                                             <option selected>----</option>
                                             <option value="1">Yes</option>
                                             <option value="2">No</option>
                                         </select>
-                                        <textarea name="description_strategy_2" class="form-control" style="width: 22rem; display: none;" placeholder="Please provide analysis from corridor study or similar study that will show the project will address congestion."></textarea>
                                     </div>
                                     <div class="col">
                                         2. Project addressing congestion
                                     </div>            
                                 </div>
+                                <textarea name="description_strategy_2" class="form-control" style="width: 22rem; display: none;" placeholder="Please provide analysis from corridor study or similar study that will show the project will address congestion."></textarea>
+
                                 <div class="form-row mb-1">
                                     <div class="col-sm-2">
-                                        <select name="strategy_3" class="form-control" onclick="toggleTA(this.name);">
+                                        <select name="strategy_3" class="form-control" onchange="displayBox(this.name)">
                                             <option selected>----</option>
                                             <option value="1">Yes</option>
                                             <option value="2">No</option>
                                         </select>
-                                        <textarea name="description_strategy_3" class="form-control" style="width: 22rem; display: none;" placeholder="Please explain."></textarea>
                                     </div>
                                     <div class="col">
                                         3. Project adds roadway capacity
                                     </div>            
                                 </div>
+                                <textarea name="description_strategy_3" class="form-control" style="width: 22rem; display: none;" placeholder="Please explain."></textarea>
+
                                 <p>If either question 2 or 3 is YES, please answer the questions below.</p>
                                 <div class="form-row mb-1">
                                     <div class="col-sm-2">
-                                        <select name="strategy_4" class="form-control" onclick="toggleTA(this.name);">
+                                        <select name="strategy_4" class="form-control" onchange="displayBox(this.name)">
                                             <option selected>----</option>
                                             <option value="1">Yes</option>
                                             <option value="2">No</option>
                                         </select>
-                                        <textarea name="description_strategy_4" class="form-control" style="width: 22rem; display: none;" placeholder="If yes, identify the project name(s), state project identification number (CSJ number), and MPO ID."></textarea>
                                     </div>
                                     <div class="col">
                                         4. Are there other congestion mitigation projects (e.g., transportation demand management, land use, public transportation, ITS and operations, pricing, bicycle and pedestrian, and bottleneck relief) 
                                         within the project corridor that are programmed into the current MTP?
                                     </div>            
                                 </div>
+                                <textarea name="description_strategy_4" class="form-control" style="width: 22rem; display: none;" placeholder="If yes, identify the project name(s), state project identification number (CSJ number), and MPO ID."></textarea>
+
                                 <div class="form-row mb-1">
                                     <div class="col-sm-2">
                                         <select name="strategy_5" class="form-control">
@@ -705,6 +709,15 @@
         }else{
             console.log('not checked');
             $('textarea[name="description_'+ name +'"]').hide();
+        }
+    };
+</script>
+
+<script>
+    const displayBox = (name) => {
+        if($('select[name="'+name +'"]').val() == 1) {
+            console.log("displaying");
+            $('textarea[name="description_' + name +'"]').show();
         }
     };
 </script>
