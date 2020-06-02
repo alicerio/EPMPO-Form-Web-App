@@ -302,7 +302,7 @@ class ProjectController extends Controller
 
         $project->save();
 
-        return redirect(route('projects.index'));
+        return view('projects.edit', compact('project'));
     }
 
     /**
@@ -678,7 +678,7 @@ class ProjectController extends Controller
             $project->save();
         }
 
-        return redirect(route('projects.index'));
+        return view('projects.edit', compact('project'));
     }
 
     /**
