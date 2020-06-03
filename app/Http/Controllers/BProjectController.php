@@ -9,12 +9,6 @@ use Illuminate\Http\Request;
 
 class BProjectController extends Controller
 {
-
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
-
     
     /**
      * Display a listing of the resource.
@@ -23,10 +17,7 @@ class BProjectController extends Controller
      */
     public function index()
     {
-        $projects = BProject::all()->where('parent_id', null);
-        $agencies = Agency::all();
-        $statuses = ['In Progress','PM Pending Review','Submitted', 'Approved','In Progress [Returned for Revision]'];
-        return view('projects.index2', compact('projects', 'statuses','agencies'));
+        //
     }
 
     /**
@@ -53,11 +44,11 @@ class BProjectController extends Controller
 
         $bProject = new BProject();
         
-        $bProject->agency_id = auth()->user()->agency_id;
+        //$bProject->agency_id = auth()->user()->agency_id;
         $bProject->parent_id = request('parent_id');
         $bProject->mpo_id = request('mpo_id');
         $bProject->csj_cn = request('csj_cn');
-        $bProject->author = auth()->user()->name;
+        //$bProject->author = auth()->user()->name;
         $bProject->name = request('name');
         $bProject->description = request('description');
         $bProject->limit_from = request('limit_from');
@@ -166,7 +157,7 @@ class BProjectController extends Controller
 
         $bProject->save();
 
-        return redirect(route('projects.index2'));
+        return view('projects.edit2', compact('bProject'));
     }
 
     /**
@@ -204,11 +195,11 @@ class BProjectController extends Controller
             'name' => 'required',
         ]);
 
-        $bProject->agency_id = auth()->user()->agency_id;
+        //$bProject->agency_id = auth()->user()->agency_id;
         $bProject->parent_id = request('parent_id');
         $bProject->mpo_id = request('mpo_id');
         $bProject->csj_cn = request('csj_cn');
-        $bProject->author = auth()->user()->name;
+        //$bProject->author = auth()->user()->name;
         $bProject->name = request('name');
         $bProject->description = request('description');
         $bProject->limit_from = request('limit_from');
@@ -316,7 +307,8 @@ class BProjectController extends Controller
         $bProject->comments_1 = request('comments_5');
         $bProject->save();
 
-        return redirect(route('projects.index2'));
+        return view('projects.edit2', compact('bProject'));
+        
     }
 
     /**
@@ -327,17 +319,11 @@ class BProjectController extends Controller
      */
     public function destroy(BProject $bProject)
     {
-        $bProject->delete();
-        return redirect(route('projects.index2'));
+        //
     }
 
     public function updateMPO(Request $request, BProject $bProject)
     {
-        $bProject->mpo_id = request('mpo_id');
-        $bProject->csj_cn = request('csj_cn');
-        $bProject->name = request('name');
-        $bProject->save();
-
-        return redirect(route('projects.index2'));
+       //
     }
 }
