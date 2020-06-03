@@ -44,11 +44,11 @@ class BProjectController extends Controller
 
         $bProject = new BProject();
         
-        //$bProject->agency_id = auth()->user()->agency_id;
+        $bProject->agency_id = auth()->user()->agency_id;
         $bProject->parent_id = request('parent_id');
         $bProject->mpo_id = request('mpo_id');
         $bProject->csj_cn = request('csj_cn');
-        //$bProject->author = auth()->user()->name;
+        $bProject->author = auth()->user()->name;
         $bProject->name = request('name');
         $bProject->description = request('description');
         $bProject->limit_from = request('limit_from');
@@ -57,12 +57,12 @@ class BProjectController extends Controller
         $bProject->agency_comments = request('agency_comments');
         $bProject->transit_funds_request = request('transit_funds_request') == 'on' ? 1 : null;
         $bProject->fiscal_year = request('fiscal_year');
-        $bProject->network_year = request('network_year');
+        $bProject->network_year = request('network_year') == '----' ? null : request('network_year');
         $bProject->psp_1 = request('psp_1') == '----' ? null : request('psp_1');
-        $bProject->psp_1 = request('psp_2') == '----' ? null : request('psp_2');
-        $bProject->psp_1 = request('psp_3') == '----' ? null : request('psp_3');
-        $bProject->psp_1 = request('psp_4') == '----' ? null : request('psp_4');
-        $bProject->psp_1 = request('psp_5') == '----' ? null : request('psp_5');
+        $bProject->psp_2 = request('psp_2') == '----' ? null : request('psp_2');
+        $bProject->psp_3 = request('psp_3') == '----' ? null : request('psp_3');
+        $bProject->psp_4 = request('psp_4') == '----' ? null : request('psp_4');
+        $bProject->psp_5 = request('psp_5') == '----' ? null : request('psp_5');
         $bProject->goal_1 = request('goal_1') == 'on' ? true : false;
         $bProject->goal_2 = request('goal_2') == 'on' ? true : false;
         $bProject->goal_3 = request('goal_3') == 'on' ? true : false;
@@ -76,11 +76,11 @@ class BProjectController extends Controller
         $bProject->description_goal_5 = request('description_goal_5');
         $bProject->description_goal_6 = request('description_goal_6');
         $bProject->strategy_1 = request('strategy_1') == '----' ? null : request('strategy_1');
-        $bProject->strategy_2 = request('strategy_2') == '----' ? null : request('strategy_1');
-        $bProject->strategy_3 = request('strategy_3') == '----' ? null : request('strategy_1');
-        $bProject->strategy_4 = request('strategy_4') == '----' ? null : request('strategy_1');
-        $bProject->strategy_5 = request('strategy_5') == '----' ? null : request('strategy_1');
-        $bProject->strategy_6 = request('strategy_6') == '----' ? null : request('strategy_1');
+        $bProject->strategy_2 = request('strategy_2') == '----' ? null : request('strategy_2');
+        $bProject->strategy_3 = request('strategy_3') == '----' ? null : request('strategy_3');
+        $bProject->strategy_4 = request('strategy_4') == '----' ? null : request('strategy_4');
+        $bProject->strategy_5 = request('strategy_5') == '----' ? null : request('strategy_5');
+        $bProject->strategy_6 = request('strategy_6') == '----' ? null : request('strategy_6');
         $bProject->description_strategy_1 = request('description_strategy_1');
         $bProject->description_strategy_2 = request('description_strategy_2');
         $bProject->description_strategy_3 = request('description_strategy_3');
@@ -151,9 +151,9 @@ class BProjectController extends Controller
         $bProject->signature = request('signature');
         $bProject->comments_1 = request('comments_1');
         $bProject->comments_2 = request('comments_2');
-        $bProject->comments_1 = request('comments_3');
-        $bProject->comments_1 = request('comments_4');
-        $bProject->comments_1 = request('comments_5');
+        $bProject->comments_3 = request('comments_3');
+        $bProject->comments_4 = request('comments_4');
+        $bProject->comments_5 = request('comments_5');
 
         $bProject->save();
 
@@ -195,11 +195,11 @@ class BProjectController extends Controller
             'name' => 'required',
         ]);
 
-        //$bProject->agency_id = auth()->user()->agency_id;
+        $bProject->agency_id = auth()->user()->agency_id;
         $bProject->parent_id = request('parent_id');
         $bProject->mpo_id = request('mpo_id');
         $bProject->csj_cn = request('csj_cn');
-        //$bProject->author = auth()->user()->name;
+        $bProject->author = auth()->user()->name;
         $bProject->name = request('name');
         $bProject->description = request('description');
         $bProject->limit_from = request('limit_from');
@@ -208,12 +208,12 @@ class BProjectController extends Controller
         $bProject->agency_comments = request('agency_comments');
         $bProject->transit_funds_request = request('transit_funds_request') == 'on' ? 1 : null;
         $bProject->fiscal_year = request('fiscal_year');
-        $bProject->network_year = request('network_year');
+        $bProject->network_year = request('network_year') == '----' ? null : request('network_year');
         $bProject->psp_1 = request('psp_1') == '----' ? null : request('psp_1');
-        $bProject->psp_1 = request('psp_2') == '----' ? null : request('psp_2');
-        $bProject->psp_1 = request('psp_3') == '----' ? null : request('psp_3');
-        $bProject->psp_1 = request('psp_4') == '----' ? null : request('psp_4');
-        $bProject->psp_1 = request('psp_5') == '----' ? null : request('psp_5');
+        $bProject->psp_2 = request('psp_2') == '----' ? null : request('psp_2');
+        $bProject->psp_3 = request('psp_3') == '----' ? null : request('psp_3');
+        $bProject->psp_4 = request('psp_4') == '----' ? null : request('psp_4');
+        $bProject->psp_5 = request('psp_5') == '----' ? null : request('psp_5');
         $bProject->goal_1 = request('goal_1') == 'on' ? true : false;
         $bProject->goal_2 = request('goal_2') == 'on' ? true : false;
         $bProject->goal_3 = request('goal_3') == 'on' ? true : false;
@@ -227,11 +227,11 @@ class BProjectController extends Controller
         $bProject->description_goal_5 = request('description_goal_5');
         $bProject->description_goal_6 = request('description_goal_6');
         $bProject->strategy_1 = request('strategy_1') == '----' ? null : request('strategy_1');
-        $bProject->strategy_2 = request('strategy_2') == '----' ? null : request('strategy_1');
-        $bProject->strategy_3 = request('strategy_3') == '----' ? null : request('strategy_1');
-        $bProject->strategy_4 = request('strategy_4') == '----' ? null : request('strategy_1');
-        $bProject->strategy_5 = request('strategy_5') == '----' ? null : request('strategy_1');
-        $bProject->strategy_6 = request('strategy_6') == '----' ? null : request('strategy_1');
+        $bProject->strategy_2 = request('strategy_2') == '----' ? null : request('strategy_2');
+        $bProject->strategy_3 = request('strategy_3') == '----' ? null : request('strategy_3');
+        $bProject->strategy_4 = request('strategy_4') == '----' ? null : request('strategy_4');
+        $bProject->strategy_5 = request('strategy_5') == '----' ? null : request('strategy_5');
+        $bProject->strategy_6 = request('strategy_6') == '----' ? null : request('strategy_6');
         $bProject->description_strategy_1 = request('description_strategy_1');
         $bProject->description_strategy_2 = request('description_strategy_2');
         $bProject->description_strategy_3 = request('description_strategy_3');
@@ -302,9 +302,9 @@ class BProjectController extends Controller
         $bProject->signature = request('signature');
         $bProject->comments_1 = request('comments_1');
         $bProject->comments_2 = request('comments_2');
-        $bProject->comments_1 = request('comments_3');
-        $bProject->comments_1 = request('comments_4');
-        $bProject->comments_1 = request('comments_5');
+        $bProject->comments_3 = request('comments_3');
+        $bProject->comments_4 = request('comments_4');
+        $bProject->comments_5 = request('comments_5');
         $bProject->save();
 
         return view('projects.edit2', compact('bProject'));
