@@ -182,6 +182,9 @@
                             <div class="col">
                                 <h3><a href="http://www.elpasompo.org/civicax/filebank/blobdload.aspx?BlobID=23375" target="_blank">Congestion Management Project Strategies</a></h3>
                                 <div class="form-row mb-1">
+                                    <div class="col">
+                                        1. Project exempt under 40CFR 93.126?
+                                    </div> 
                                     <div class="col-sm-2">
                                         <select name="strategy_1" class="form-control" onchange="displayBox(this.name)">
                                             <option selected>----</option>
@@ -189,27 +192,25 @@
                                             <option value="2">No</option>
                                         </select>
                                     </div>
-                                    <div class="col">
-                                        1. Project exempt under 40CFR 93.126?
-                                    </div> 
                                 </div>
                                 <textarea name="description_strategy_1" class="form-control" style="width: 22rem; display: none;" placeholder="Please explain based on 40CFR 93.126."></textarea>           
-
                                 <div class="form-row mb-1">
+                                    <div class="col">
+                                        2. Project addressing congestion
+                                    </div> 
                                     <div class="col-sm-2">
                                         <select name="strategy_2" class="form-control" onchange="displayBox(this.name)">
                                             <option selected>----</option>
                                             <option value="1">Yes</option>
                                             <option value="2">No</option>
                                         </select>
-                                    </div>
-                                    <div class="col">
-                                        2. Project addressing congestion
-                                    </div>            
+                                    </div>           
                                 </div>
                                 <textarea name="description_strategy_2" class="form-control" style="width: 22rem; display: none;" placeholder="Please provide analysis from corridor study or similar study that will show the project will address congestion."></textarea>
-
                                 <div class="form-row mb-1">
+                                    <div class="col">
+                                        3. Project adds roadway capacity
+                                    </div>
                                     <div class="col-sm-2">
                                         <select name="strategy_3" class="form-control" onchange="displayBox(this.name)">
                                             <option selected>----</option>
@@ -217,14 +218,15 @@
                                             <option value="2">No</option>
                                         </select>
                                     </div>
-                                    <div class="col">
-                                        3. Project adds roadway capacity
-                                    </div>            
                                 </div>
                                 <textarea name="description_strategy_3" class="form-control" style="width: 22rem; display: none;" placeholder="Please explain."></textarea>
 
                                 <p>If either question 2 or 3 is YES, please answer the questions below.</p>
                                 <div class="form-row mb-1">
+                                    <div class="col">
+                                        4. Are there other congestion mitigation projects (e.g., transportation demand management, land use, public transportation, ITS and operations, pricing, bicycle and pedestrian, and bottleneck relief) 
+                                        within the project corridor that are programmed into the current MTP?
+                                    </div>   
                                     <div class="col-sm-2">
                                         <select name="strategy_4" class="form-control" onchange="displayBox(this.name)">
                                             <option selected>----</option>
@@ -232,14 +234,12 @@
                                             <option value="2">No</option>
                                         </select>
                                     </div>
-                                    <div class="col">
-                                        4. Are there other congestion mitigation projects (e.g., transportation demand management, land use, public transportation, ITS and operations, pricing, bicycle and pedestrian, and bottleneck relief) 
-                                        within the project corridor that are programmed into the current MTP?
-                                    </div>            
                                 </div>
                                 <textarea name="description_strategy_4" class="form-control" style="width: 22rem; display: none;" placeholder="If yes, identify the project name(s), state project identification number (CSJ number), and MPO ID."></textarea>
-
                                 <div class="form-row mb-1">
+                                    <div class="col">
+                                        5. Using the 2019 CMP Report, is the corridor identified as a congested segment?
+                                    </div>    
                                     <div class="col-sm-2">
                                         <select name="strategy_5" class="form-control">
                                             <option selected>----</option>
@@ -247,21 +247,18 @@
                                             <option value="2">No</option>
                                         </select>
                                     </div>
-                                    <div class="col">
-                                        5. Using the 2019 CMP Report, is the corridor identified as a congested segment?
-                                    </div>            
                                 </div>
                                 <div class="form-row mb-1">
+                                    <div class="col">
+                                        6. Can the congestion be addressed without building more road capacity?
+                                    </div> 
                                     <div class="col-sm-2">
                                         <select name="strategy_6" class="form-control">
                                             <option selected>----</option>
                                             <option value="1">Yes</option>
                                             <option value="2">No</option>
                                         </select>
-                                    </div>
-                                    <div class="col">
-                                        6. Can the congestion be addressed without building more road capacity?
-                                    </div>            
+                                    </div>           
                                 </div>
                                 <p> 7. Describe any congestion mitigation alternatives to the proposed improvement that have been considered or will be evaluated to correct the deficiencies and manage the 
                                     facility effectively (or facilitate its management in the future).</p>
@@ -404,24 +401,22 @@
                             <div class="card-body">
                                 <div id = "funding_vehicles">
                                     <div class="form-row mb-1">
-                                        <div class="col-sm-2">
-                                            <input type="text" name="funding_category_vehicles" class="form-control">
-                                        </div>
-                                        <div class="col-sm-2">
-                                            <input onchange="funding_vehicles_table()" id="federal_vehicles" type="number" name="funding_federal_vehicles" class="form-control">
-                                        </div>
-                                        <div class="col-sm-2">
-                                            <input onchange="funding_vehicles_table()" id = "local_vehicles" type="number" name="funding_local_vehicles" class="form-control">
-                                        </div>
-                                        <div class="col-sm-2">
-                                            <input onchange="funding_vehicles_table()" id = "local_beyond_vehicles" type="number" name="funding_local_beyond_vehicles" class="form-control">
-                                        </div>
-                                        <div class="col-sm-2">
-                                            <input id = "total_vehicles" type="number" name="funding_total_vehicles" class="form-control" readonly>
-                                        </div>
-                                        <div class="col-sm-2">
-                                            <input onchange="funding_vehicles_table()" id = "tdc_vehicles" type="number" name="funding_tdc_vehicles" class="form-control">
-                                        </div>
+                                        <table id="fundingVehiclesTable">
+                                            <tr id="fvtrow" class="fvt1">                                            
+                                                <td><input type="text" name="funding_category_vehicles" class="form-control">
+                                                </td>
+                                                <td><input onchange="funding_vehicles_table()" id="federal_vehicles" type="number" name="funding_federal_vehicles" class="form-control">
+                                                </td>
+                                                <td><input onchange="funding_vehicles_table()" id = "local_vehicles" type="number" name="funding_local_vehicles" class="form-control">
+                                                </td>
+                                                <td><input onchange="funding_vehicles_table()" id = "local_beyond_vehicles" type="number" name="funding_local_beyond_vehicles" class="form-control">
+                                                </td>    
+                                                <td><input id = "total_vehicles" type="number" name="funding_total_vehicles" class="form-control" readonly>
+                                                </td>
+                                                <td><input onchange="funding_vehicles_table()" id = "tdc_vehicles" type="number" name="funding_tdc_vehicles" class="form-control">
+                                                </td>
+                                            </tr>
+                                        </table>
                                     </div>
                                 </div>
                                 <div class="form-row mb-1">
@@ -444,7 +439,7 @@
                                         <input type="number" name="funding_tdc_vehicles_total" id = "tdc_vehicles_total" class="form-control" readonly>
                                     </div>
                                 </div>
-                                <a class="btn btn-primary" role="button">Add Funding</a>
+                                <a onclick = "addRow()" class="btn btn-primary" role="button">Add Funding</a>
                                 <a class="btn btn-primary" role="button">Remove Funding</a>
                             </div>
                         </div>
