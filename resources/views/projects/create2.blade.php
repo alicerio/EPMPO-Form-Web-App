@@ -411,7 +411,7 @@
                                                 </td>
                                                 <td><input onchange="funding_vehicles_table()" id = "local_beyond_vehicles" type="number" name="funding_local_beyond_vehicles" class="form-control">
                                                 </td>    
-                                                <td><input id = "total_vehicles" type="number" name="funding_total_vehicles" class="form-control" readonly>
+                                                <td><input type="number" name="funding_total_vehicles" id="fvt1_tot0" class="form-control" readonly>
                                                 </td>
                                                 <td><input onchange="funding_vehicles_table()" id = "tdc_vehicles" type="number" name="funding_tdc_vehicles" class="form-control">
                                                 </td>
@@ -475,24 +475,23 @@
                             <div class="card-body">
                                 <div id = "funding_bus">
                                     <div class="form-row mb-1">
-                                        <div class="col-sm-2">
-                                            <input type="text" name="funding_category_bus" class="form-control">
-                                        </div>
-                                        <div class="col-sm-2">
-                                            <input onchange="funding_bus_table()" id = "federal_bus" type="number" name="funding_federal_bus" class="form-control">
-                                        </div>
-                                        <div class="col-sm-2">
-                                            <input onchange="funding_bus_table()" id = "local_bus" type="number" name="funding_local_bus" class="form-control">
-                                        </div>
-                                        <div class="col-sm-2">
-                                            <input onchange="funding_bus_table()" id = "local_beyond_bus" type="number" name="funding_local_beyond_bus" class="form-control">
-                                        </div>
-                                        <div class="col-sm-2">
-                                            <input type="number" id="total_bus" name="funding_total_bus" class="form-control" readonly>
-                                        </div>
-                                        <div class="col-sm-2">
-                                            <input onchange="funding_bus_table()" id = "tdc_bus" type="number" name="funding_tdc_bus" class="form-control">
-                                        </div>
+                                        <table id="fundingBusTable">
+                                            <tr id="fbtrow" class="fbt1">   
+                                                    <td><input type="text" name="funding_category_bus" class="form-control">
+                                                    </td>                                            
+                                                    <td><input onchange="funding_bus_table()" id = "federal_bus" type="number" name="funding_federal_bus" class="form-control">
+                                                    </td>                                               
+                                                    <td><input onchange="funding_bus_table()" id = "local_bus" type="number" name="funding_local_bus" class="form-control">
+                                                    </td>                                                
+                                                    <td><input onchange="funding_bus_table()" id = "local_beyond_bus" type="number" name="funding_local_beyond_bus" class="form-control">
+                                                    </td>                                                
+                                                    <td><input type="number" id="total_bus" name="funding_total_bus" class="form-control" readonly>
+                                                    </td>
+                                                    <td><input onchange="funding_bus_table()" id = "tdc_bus" type="number" name="funding_tdc_bus" class="form-control">
+                                                    </td>
+                                                </div>
+                                            </tr>
+                                        </table>
                                     </div>
                                 </div>
                                 <div class="form-row mb-1">
@@ -520,7 +519,6 @@
                             </div>
                         </div>
                         <br>
-
                         <label>
                             <input type="number" id="yoe_check_operations" name="yoe_cost_operations" autocomplete="off" readonly>
                             YOE Cost
