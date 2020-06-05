@@ -15,6 +15,7 @@ class CreateProjectsTable extends Migration
             $table->unsignedBigInteger('parent_id')->nullable(); // use this field to reference a previous project / revision; if it's a new project then it won't have a parent id
 
             $table->tinyInteger('status')->default(0);
+            $table->tinyInteger('project_type')->default(0);
 
             // only admins can edit mpo_id and csj_cn
             $table->string('mpo_id')->nullable();

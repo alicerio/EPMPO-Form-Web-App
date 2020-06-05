@@ -66,6 +66,7 @@ class ProjectController extends Controller
         $project = new Project();
 
         $project->agency_id = auth()->user()->agency_id;
+        $project->project_type = request('project_type');
         $project->parent_id = request('parent_id');
         $project->mpo_id = request('mpo_id');
         $project->csj_cn = request('csj_cn');
@@ -264,13 +265,11 @@ class ProjectController extends Controller
         $project->costs_4 = request('costs_4') == '----' ? null : request('costs_4');
         $project->mpo_funds = request('mpo_funds') == 'on' ? 1 : null;
         $project->yoe_cost = request('yoe_cost') == '----' ? null : request('yoe_cost');
-
         $project->funding_category = implode(',', request('funding_category'));
         $project->funding_federal = implode(',', request('funding_federal'));
         $project->funding_state = implode(',', request('funding_state'));
         $project->funding_local = implode(',', request('funding_local'));
         $project->funding_local_beyond = implode(',', request('funding_local_beyond'));
-
         $project->funding_total = request('funding_total') == '----' ? null : request('funding_total');
         $project->funding_federal_result = request('funding_federal_result') == '----' ? null : request('funding_federal_result');
         $project->funding_state_result = request('funding_state_result') == '----' ? null : request('funding_state_result');
@@ -435,6 +434,7 @@ class ProjectController extends Controller
             'name' => 'required',
         ]);
 
+        $project->project_type = request('project_type');
         $project->mpo_id = request('mpo_id');
         $project->csj_cn = request('csj_cn');
         $project->author = auth()->user()->name;
@@ -632,13 +632,11 @@ class ProjectController extends Controller
         $project->costs_4 = request('costs_4') == '----' ? null : request('costs_4');
         $project->mpo_funds = request('mpo_funds') == 'on' ? 1 : null;
         $project->yoe_cost = request('yoe_cost') == '----' ? null : request('yoe_cost');
-
         $project->funding_category = implode(',', request('funding_category'));
         $project->funding_federal = implode(',', request('funding_federal'));
         $project->funding_state = implode(',', request('funding_state'));
         $project->funding_local = implode(',', request('funding_local'));
         $project->funding_local_beyond = implode(',', request('funding_local_beyond'));
-
         $project->funding_total = request('funding_total') == '----' ? null : request('funding_total');
         $project->funding_federal_result = request('funding_federal_result') == '----' ? null : request('funding_federal_result');
         $project->funding_state_result = request('funding_state_result') == '----' ? null : request('funding_state_result');
@@ -666,8 +664,6 @@ class ProjectController extends Controller
         $project->comments_3 = request('comments_3');
         $project->comments_4 = request('comments_4');
         $project->comments_5 = request('comments_5');
-
-
         if($project->status != request('status')){
             $newProject = $project->replicate();
             $newProject->status = request('status');
