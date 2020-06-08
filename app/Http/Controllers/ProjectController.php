@@ -66,7 +66,7 @@ class ProjectController extends Controller
         $project = new Project();
 
         $project->agency_id = auth()->user()->agency_id;
-        $project->project_type = request('project_type');
+        //$project->project_type = request('project_type');
         $project->parent_id = request('parent_id');
         $project->mpo_id = request('mpo_id');
         $project->csj_cn = request('csj_cn');
@@ -434,7 +434,7 @@ class ProjectController extends Controller
             'name' => 'required',
         ]);
 
-        $project->project_type = request('project_type');
+        //$project->project_type = request('project_type');
         $project->mpo_id = request('mpo_id');
         $project->csj_cn = request('csj_cn');
         $project->author = auth()->user()->name;

@@ -27,7 +27,7 @@ class BProjectController extends Controller
      */
     public function create()
     {
-        return view('projects.create2');
+        return view('projects/5310.create2');
     }
 
     /**
@@ -157,7 +157,7 @@ class BProjectController extends Controller
 
         $bProject->save();
 
-        return view('projects.edit2', compact('bProject'));
+        return view('projects/5310.edit2', compact('bProject'));
     }
 
     /**
@@ -179,7 +179,7 @@ class BProjectController extends Controller
      */
     public function edit(BProject $bProject)
     {
-        return view('projects.edit2', compact('bProject'));
+        return view('projects/5310.edit2', compact('bProject'));
     }
 
     /**
@@ -307,7 +307,7 @@ class BProjectController extends Controller
         $bProject->comments_5 = request('comments_5');
         $bProject->save();
 
-        return view('projects.edit2', compact('bProject'));
+        return view('projects/5310.edit2', compact('bProject'));
         
     }
 
