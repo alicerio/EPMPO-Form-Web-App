@@ -284,3 +284,37 @@ function addRow_3() {
     let inputId = $(table.rows[table.rows.length -1].cells[4]).find("input")[0];
     inputId.setAttribute('id',newIdTotal);
 }
+
+function form2_setView() {
+    $(":input").prop("disabled", false); // enables everything
+
+   //disable special inputs
+   for(let i =0; i < 20; i++){
+       $("#locked_val" + i).prop("disabled", true); 
+   }
+   //Make readonly
+
+   document.getElementById("mpo_id").readOnly = true;
+   document.getElementById("signed_textarea").readOnly = true;
+   document.getElementById("attachments_textarea").readOnly = true;
+   document.getElementById("federal_vehicles_total").readOnly = true;
+   document.getElementById("local_vehicles_total").readOnly = true;
+   document.getElementById("local_beyond_vehicles_total").readOnly = true;
+   document.getElementById("total_vehicles_total").readOnly = true;
+   document.getElementById("tdc_vehicles_total").readOnly = true;
+
+   document.getElementById("federal_bus_total").readOnly = true;
+   document.getElementById("local_bus_total").readOnly = true;
+   document.getElementById("local_beyond_bus_total").readOnly = true;
+   document.getElementById("total_bus_total").readOnly = true;
+   document.getElementById("tdc_bus_total").readOnly = true;
+
+   document.getElementById("federal_operations_total").readOnly = true;
+   document.getElementById("local_operations_total").readOnly = true;
+   document.getElementById("local_beyond_operations_total").readOnly = true;
+   document.getElementById("total_operations_total").readOnly = true;
+
+
+
+   
+}

@@ -49,7 +49,6 @@
                             Requesting Transit funds for his project/program (FTA, State and/or Local Funds)
                         </label>
                         <br>
-
                         <div class="form-row">
                             <div class="col">
                                 <label class="font-weight-bold">

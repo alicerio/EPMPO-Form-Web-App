@@ -1,3 +1,8 @@
+<script type="text/javascript">
+    window.onload = function() {
+        form2_setView();
+    };
+</script>
 @extends('layouts.app')
 
 @section('content')
@@ -10,7 +15,33 @@
                 @include('projects/5310.5310_part1')
             </div>
         </div>
+        <div class="row">
+            <div class="col-md-12">
+                @include('projects/5310.5310_part2')
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                @include('projects/5310.5310_part3')
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                @include('projects/5310.5310_part4')
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                @include('projects/5310.5310_part5')
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                @include('projects/5310.5310_part6')
+            </div>
+        </div>
     </form>
 </div>
-
 <script src="{{ asset('docs/js/form2FrontEndLogic.js')}}"></script>
+
+@endsection
