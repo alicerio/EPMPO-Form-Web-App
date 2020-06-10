@@ -32,7 +32,7 @@
         </div>
         <div class="row">
             <div class="col-md-12">
-                @include('projects/5310.5310_part5')
+                @include('projects/5310.5310_part5_edit')
             </div>
         </div>
         <div class="row">
@@ -40,6 +40,7 @@
                 @include('projects/5310.5310_part6')
             </div>
         </div>
+        @include('projects/5310.buttons_create2')
     </form>
 </div>
 <script src="{{ asset('docs/js/form2FrontEndLogic.js')}}"></script>
