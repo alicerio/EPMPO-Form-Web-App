@@ -9,7 +9,11 @@ use Illuminate\Http\Request;
 
 class BProjectController extends Controller
 {
-    
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -17,7 +21,24 @@ class BProjectController extends Controller
      */
     public function index()
     {
-        //
+        /*
+        $projects = BProject::all()->where('parent_id', null);
+        $agencies = Agency::all();
+        $statuses = ['In Progress','PM Pending Review','Submitted', 'Approved','In Progress [Returned for Revision]'];
+        return view('projects/5310.index2', compact('projects', 'statuses','agencies'));
+        */
+    }
+
+    public function revisions($id)
+    {
+        /*
+        $projects = BProject::orderBy('created_at', 'asc')->where('parent_id', $id)->get();
+        $projects->prepend(BProject::find($id));
+        $agencies = Agency::all();
+        $counts = [0,0,0,0,0];
+        $statuses = ['In Progress','PM Pending Review','Submitted', 'Approved','In Progress [Returned for Revision]'];
+        return view('projects/5310.revisions2', compact('projects', 'statuses','agencies', 'counts'));
+        */
     }
 
     /**
@@ -169,7 +190,46 @@ class BProjectController extends Controller
      */
     public function show(BProject $bProject)
     {
-        //
+        /*
+        $bprojects = BProject::all();
+        error_log(count($bprojects));
+        $attributesOfProjects = [];
+        $logOfChanges = [];
+        $currentProject = [];
+        $oldestProject = 0;
+        $hasMoreVersions = false;
+
+        // gets prev project
+        foreach($bprojects as $projectHolder){
+             //filters all projects with same parent ID and projects older than current project
+            if($bProject->id != $projectHolder->id && $projectHolder->status == 2){ //not same project and status = 1 since its a submission
+                if($bProject->parent_id == null && $bProject->id  == $projectHolder->parent_id|| ($bProject->parent_id != null && $bProject->parent_id  == $projectHolder->parent_id) || ($bProject->parent_id != null && $bProject->parent_id  == $projectHolder->id)){
+                    if(strtotime($project->created_at) > strtotime($projectHolder->created_at) ){
+                        if($oldestProject < $projectHolder->id){
+                            $hasMoreVersions =true;
+                            unset($attributesOfProjects); //reset
+                            $attributesOfProjects = [];
+                            array_push($attributesOfProjects,$projectHolder->attributesToArray());
+                            $oldestProject = $projectHolder->id;  
+                        }
+                     }
+                }
+            }
+         }
+
+        array_push($currentProject,$bProject->attributesToArray()); //convert format of current Project
+        error_log(count($attributesOfProjects));
+         //push
+        if($hasMoreVersions){
+            foreach($attributesOfProjects[0] as $key => $value){
+                if($attributesOfProjects[0][$key] != $currentProject[0][$key]){
+                    $logOfChanges[$key] = $attributesOfProjects[0][$key];
+                }
+            }
+        }
+     
+        return view('projects/5310.show2', compact('bProject', 'logOfChanges'));
+        */
     }
 
     /**
@@ -192,6 +252,17 @@ class BProjectController extends Controller
      */
     public function update(Request $request, BProject $bProject)
     {
+        /*
+        if(request('status') != $bProject->status && $bProject->status > 0){
+            $newProject = $bProject->replicate();
+            $newProject->status = request('status');
+            $newProject->parent_id = ($bProject->parent_id != null) ? $bProject->parent_id : $bProject->id;
+            $newProject->author = auth()->user()->name;
+            $newProject->save();
+            return redirect(route('bProject.index'));
+        }
+        */
+
         request()->validate([
             'name' => 'required',
         ]);
