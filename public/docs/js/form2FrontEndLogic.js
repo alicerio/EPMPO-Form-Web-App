@@ -87,12 +87,12 @@ function addRow_1() {
     let newIdTotal = "fvt1_tot" + table.rows.length;
     row.setAttribute('id', 'fvtrow' + table.rows.length);
 
-    cell1.innerHTML = '<input type="text" name="funding_category_vehicles[]" class="form-control">'
-    cell2.innerHTML = '<input onchange="funding_vehicles_table()" id="federal_vehicles" type="number" name="funding_federal_vehicles[]" class="form-control">'
-    cell3.innerHTML = '<input onchange="funding_vehicles_table()" id = "local_vehicles" type="number" name="funding_local_vehicles[]" class="form-control">'
-    cell4.innerHTML = '<input onchange="funding_vehicles_table()" id = "local_beyond_vehicles" type="number" name="funding_local_beyond_vehicles[]" class="form-control">'
-    cell5.innerHTML = '<input type="number" name="funding_total_vehicles" class="form-control" readonly>'
-    cell6.innerHTML = '<input onchange="funding_vehicles_table()" id = "tdc_vehicles" type="number" name="funding_tdc_vehicles[]" class="form-control">'
+    cell1.innerHTML = '<input type="text" name="funding_category_vehicles[]" class="form-control">';
+    cell2.innerHTML = '<input onchange="funding_vehicles_table()" id="federal_vehicles" type="number" name="funding_federal_vehicles[]" class="form-control">';
+    cell3.innerHTML = '<input onchange="funding_vehicles_table()" id = "local_vehicles" type="number" name="funding_local_vehicles[]" class="form-control">';
+    cell4.innerHTML = '<input onchange="funding_vehicles_table()" id = "local_beyond_vehicles" type="number" name="funding_local_beyond_vehicles[]" class="form-control">';
+    cell5.innerHTML = '<input type="number" name="funding_total_vehicles" class="form-control" readonly>';
+    cell6.innerHTML = '<input onchange="funding_vehicles_table()" id = "tdc_vehicles" type="number" name="funding_tdc_vehicles[]" class="form-control">';
 
     let inputId = $(table.rows[table.rows.length -1].cells[4]).find("input")[0];
     inputId.setAttribute('id',newIdTotal);

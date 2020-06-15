@@ -39,17 +39,26 @@
                         <table id="fundingVehiclesTable">
                             @foreach(explode(',', $bProject->funding_category_vehicles ?? '') as $index => $categories)
                             <tr id="fvtrow" class="fvt1">                                            
-                                <td><input type="text" name="funding_category_vehicles[]" class="form-control" value="{{ explode(',', $bProject->funding_category_vehicles ?? '')[$index] }}">
+                                <td><input type="text" name="funding_category_vehicles[]" class="form-control" 
+                                    value="{{ explode(',', $bProject->funding_category_vehicles ?? '')[$index] }}">
                                 </td>
-                                <td><input onchange="funding_vehicles_table()" id="federal_vehicles" type="number" name="funding_federal_vehicles[]" class="form-control" value="{{ explode(',', $bProject->funding_federal_vehicles ?? '')[$index] }}">
+                                <td><input onchange="funding_vehicles_table()" id="federal_vehicles" type="number" 
+                                    name="funding_federal_vehicles[]" class="form-control" 
+                                    value="{{ explode(',', $bProject->funding_federal_vehicles ?? '')[$index] }}">
                                 </td>
-                                <td><input onchange="funding_vehicles_table()" id = "local_vehicles" type="number" name="funding_local_vehicles[]" class="form-control" value="{{ explode(',', $bProject->funding_local_vehicles ?? '')[$index] }}">
+                                <td><input onchange="funding_vehicles_table()" id = "local_vehicles" type="number" 
+                                    name="funding_local_vehicles[]" class="form-control" 
+                                    value="{{ explode(',', $bProject->funding_local_vehicles ?? '')[$index] }}">
                                 </td>
-                                <td><input onchange="funding_vehicles_table()" id = "local_beyond_vehicles" type="number" name="funding_local_beyond_vehicles[]" class="form-control"  value="{{ explode(',', $bProject->funding_local_beyond_vehicles ?? '')[$index] }}">
+                                <td><input onchange="funding_vehicles_table()" id = "local_beyond_vehicles" type="number" 
+                                    name="funding_local_beyond_vehicles[]" class="form-control"  
+                                    value="{{ explode(',', $bProject->funding_local_beyond_vehicles ?? '')[$index] }}">
                                 </td>    
                                 <td><input type="number" name="funding_total_vehicles" id="fvt1_tot0" class="form-control" readonly>
                                 </td>
-                                <td><input onchange="funding_vehicles_table()" id = "tdc_vehicles" type="number" name="funding_tdc_vehicles[]" class="form-control" value="{{ explode(',', $bProject->funding_tdc_vehicles ?? '')[$index] }}">
+                                <td><input onchange="funding_vehicles_table()" id = "tdc_vehicles" type="number" 
+                                    name="funding_tdc_vehicles[]" class="form-control" 
+                                    value="{{ explode(',', $bProject->funding_tdc_vehicles ?? '')[$index] }}">
                                 </td>
                             </tr>
                             @endforeach
