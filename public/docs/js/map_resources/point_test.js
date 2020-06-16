@@ -27,7 +27,7 @@ function distance(pointA, pointB) {
 }
 
 function filterCrashes(circlesCordinates) {
-    let php_handler = "docs/js/map_resources/map_handler.php";
+    let php_handler = "../../docs/js/map_resources/map_handler.php";
 
     let key = 'all_pm26';
     data_for_php = {
@@ -72,14 +72,14 @@ function pm26Data(circlesCordinates, filterCrashes) {
     let mode = 1;
     let data_for_php = 0;
     let shape = "shape";
-    let php_handler = "docs/js/map_resources/map_handler.php";
+    let php_handler = "../../docs/js/map_resources/map_handler.php";
 
     let key = 'all_pm26';
     data_for_php = {
         key: key
     };
 
-    let image = "docs/images/small_blue_pin.png";
+    let image = "../../docs/images/small_blue_pin.png";
 
     for(j in circlesCordinates[0]){
         for (index in filterCrashes) { // Organize information into dictionaries
@@ -98,7 +98,6 @@ function pm26Data(circlesCordinates, filterCrashes) {
 }
 
 function normalDraw() {
-    console.log("inside 26");
     let mode = 1;
     let pm26Data = {
         goodTX: 0,
@@ -148,7 +147,7 @@ function normalDraw() {
     $.get(php_handler, data_for_php, function (data) {
         console.log("returned");
         console.log(data);
-        let image = "docs/images/crash.png";
+        let image = "../../docs/images/crash.png";
         
         let condition = '';
         var lowestRating = 0;
@@ -238,7 +237,7 @@ function normalDraw() {
 
 
 function check_a_point(x, y, circlex, circley, r) {
-    console.log(x + " " + y + " " + circlex + " " + circley + " " + r);
+   // console.log(x + " " + y + " " + circlex + " " + circley + " " + r);
     var dist = (x - circlex) * (x - circlex) + (y - circley) * (y - circley);
     r *= r;
     if (dist < r) return true;

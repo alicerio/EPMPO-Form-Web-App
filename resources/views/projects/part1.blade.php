@@ -1,3 +1,25 @@
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <script src="http://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdn.rawgit.com/bjornharrtell/jsts/gh-pages/1.4.0/jsts.min.js"></script>
+
+    <script src="{{ asset('docs/js/map_resources/map.js')}}"></script>
+    <script src="{{ asset('docs/js/map_resources/line_test.js')}}"></script>
+    <script src="{{ asset('docs/js/map_resources/point_test.js')}}"></script>
+    <script src="{{ asset('docs/js/map_resources/shapeFunctions.js')}}"></script>
+    <script src="{{ asset('docs/js/map_resources/toggle_handler.js')}}"></script>
+
+
+
+
+
+    <style>
+        #map {
+            height: 400px;
+            width: 100%;
+        }
+    </style>
+</head>
 <div class="card">
     <div class="card-header">
         Electornic Project Request Form (ePRF)
@@ -32,5 +54,31 @@
             Limit To
         </label>
         <input type="text" class="form-control" name="limit_to" value="{{ $project->limit_to ?? ''}}" disabled>
+        <button type="button" onclick="toggleVisibilityMap()">Draw Project limit and query data</button>
+        <div id="mapH" style="display:none;">
+            <div class="row">
+                <div class="col-md-8" id="map"></div>
+                <div class="col-md-4">
+                    <h3>Statistics</h3>
+                    <p>Crashes</p>
+                    <p>Pedestrians</p>
+                    <p>Serious</p>
+                    <p></p>
+                    <p></p>
+                </div>
+            </div>
+            <div class="row">
+                <button type='button' onclick="point_drawer()">Query Crashes</button>
+                <button type='button' onclick="lineDrawer()">Query Pavements</button>
+                <button type='button'> Clear</button>
+            </div>
+
+
+            <script async defer
+                src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCY0B3_Fr1vRpgJDdbvNmrVyXmoOOtiq64&libraries=visualization&libraries=drawing&callback=initMap">
+                src="http://code.jquery.com/ui/1.12.1/jquery-ui.min.js"
+            </script>
+
+        </div>
     </div>
 </div>

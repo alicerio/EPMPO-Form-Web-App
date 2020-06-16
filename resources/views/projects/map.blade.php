@@ -1,6 +1,3 @@
-<!DOCTYPE html>
-<html>
-
 <head>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
   <script src="http://code.jquery.com/jquery-3.4.1.min.js"></script>
@@ -24,8 +21,8 @@
   </style>
 </head>
 
-<body>
-  <h3>Google Maps Demo</h3>
+<div>
+
 
   <div class="row">
     <div class="col-md-6">
@@ -51,6 +48,5 @@
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCY0B3_Fr1vRpgJDdbvNmrVyXmoOOtiq64&libraries=visualization&libraries=drawing&callback=initMap">
     src="http://code.jquery.com/ui/1.12.1/jquery-ui.min.js"
     </script>
-</body>
+</div>
 
-</html>

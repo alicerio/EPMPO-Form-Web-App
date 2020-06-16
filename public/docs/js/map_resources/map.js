@@ -10,6 +10,7 @@ var paths = {
 function initMap() {
     map = new google.maps.Map(document.getElementById('map'), { // callback
         zoom: 11,
+        disableDoubleClickZoom: true,
         center: new google.maps.LatLng(31.837465, -106.2851078)
     });
     poly = new google.maps.Polyline({
@@ -19,7 +20,7 @@ function initMap() {
     });
     poly.setMap(map);
     // Add a listener for the click event
-    map.addListener('click', addLatLng);
+    map.addListener('dblclick', addLatLng);
 
 }
 
@@ -53,7 +54,7 @@ function generateCoordinates(point1,point2, circlesOnLines){
         to_visualize.lat += diffLan;
         to_visualize.lng += diffLot;
         genCord.push(Object.values(to_visualize));
-        
+        /*
          var cityCircle = new google.maps.Circle({
             strokeColor: 'red',
             strokeOpacity: 0.01,
@@ -64,6 +65,7 @@ function generateCoordinates(point1,point2, circlesOnLines){
             center: to_visualize,
             radius: 50
         });
+        */
         
     }
     console.log(genCord);

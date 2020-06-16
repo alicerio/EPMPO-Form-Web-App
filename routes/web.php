@@ -57,6 +57,6 @@ Route::get('projects/editInfo/{project}', 'ProjectController@editInfo')->name('p
 
 // For demo purposes
 Route::get('/map', function(){
-    return view('projects.map', compact('project'));
+    return view('projects.map');
 
 });

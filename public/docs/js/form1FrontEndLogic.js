@@ -180,3 +180,7 @@ function make_project_funding_readonly() {
     })
 }
 
+function toggleVisibilityMap(){
+    document.getElementById("mapH").style.display = "block";
+}
+
