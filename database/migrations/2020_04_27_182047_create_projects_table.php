@@ -24,17 +24,17 @@ class CreateProjectsTable extends Migration
             $table->string('author')->nullable();
 
             $table->string('name');
-            $table->string('description')->nullable();
-            $table->string('limit_from')->nullable();
-            $table->string('limit_to')->nullable();
-            $table->string('relationship_description')->nullable();
-            $table->string('need_purpose')->nullable();
-            $table->string('agency_comments')->nullable();
+            $table->text('description')->nullable();
+            $table->text('limit_from')->nullable();
+            $table->text('limit_to')->nullable();
+            $table->text('relationship_description')->nullable();
+            $table->text('need_purpose')->nullable();
+            $table->text('agency_comments')->nullable();
 
             $table->boolean('hwrw_funds_request')->nullable();
             $table->boolean('transit_funds_request')->nullable();
             $table->Integer('fiscal_year')->nullable();
-            $table->string('hwrw_name')->nullable();
+            $table->text('hwrw_name')->nullable();
             $table->Integer('network_year')->nullable();
             $table->tinyInteger('type')->nullable();
 
@@ -46,10 +46,10 @@ class CreateProjectsTable extends Migration
             $table->tinyInteger('existing_lanes')->nullable();
             $table->tinyInteger('district')->nullable();
             $table->tinyInteger('projected_lanes')->nullable();
-            $table->string('miles')->nullable();
+            $table->text('miles')->nullable();
             $table->tinyInteger('county')->nullable();
             $table->tinyInteger('incorporated_city')->nullable();
-            $table->string('sponsor_entity')->nullable();
+            $table->text('sponsor_entity')->nullable();
 
             $table->boolean('psp_1')->nullable();
             $table->boolean('psp_2')->nullable();
@@ -65,12 +65,12 @@ class CreateProjectsTable extends Migration
             $table->boolean('goal_5')->nullable();
             $table->boolean('goal_6')->nullable();
 
-            $table->string('description_goal_1')->nullable();
-            $table->string('description_goal_2')->nullable();
-            $table->string('description_goal_3')->nullable();
-            $table->string('description_goal_4')->nullable();
-            $table->string('description_goal_5')->nullable();
-            $table->string('description_goal_6')->nullable();
+            $table->text('description_goal_1')->nullable();
+            $table->text('description_goal_2')->nullable();
+            $table->text('description_goal_3')->nullable();
+            $table->text('description_goal_4')->nullable();
+            $table->text('description_goal_5')->nullable();
+            $table->text('description_goal_6')->nullable();
 
             $table->boolean('strategy_1')->nullable();
             $table->boolean('strategy_2')->nullable();
@@ -79,24 +79,30 @@ class CreateProjectsTable extends Migration
             $table->boolean('strategy_5')->nullable();
             $table->boolean('strategy_6')->nullable();
 
-            $table->string('description_strategy_1')->nullable();
-            $table->string('description_strategy_2')->nullable();
-            $table->string('description_strategy_3')->nullable();
-            $table->string('description_strategy_4')->nullable();
-            $table->string('description_strategy_5')->nullable();
-            $table->string('description_strategy_6')->nullable();
+            $table->text('description_strategy_1')->nullable();
+            $table->text('description_strategy_2')->nullable();
+            $table->text('description_strategy_3')->nullable();
+            $table->text('description_strategy_4')->nullable();
+            $table->text('description_strategy_5')->nullable();
+            $table->text('description_strategy_6')->nullable();
+            
+            // F2
+            $table->text('description_strategy_7')->nullable();
+            $table->text('description_strategy_8')->nullable();
+            $table->text('description_strategy_9')->nullable();
+            $table->text('description_strategy_10')->nullable();
 
-            $table->string('voc')->nullable();
-            $table->string('c0')->nullable();
-            $table->string('nox')->nullable();
-            $table->string('pm10')->nullable();
-            $table->string('prepared_by')->nullable();
+            $table->text('voc')->nullable();
+            $table->text('c0')->nullable();
+            $table->text('nox')->nullable();
+            $table->text('pm10')->nullable();
+            $table->text('prepared_by')->nullable();
 
-            $table->string('section_5309')->nullable();
-            $table->string('appointment_year')->nullable();
-            $table->string('tdc_award_amount')->nullable();
-            $table->string('tdw_award_date')->nullable();
-            $table->string('tdc_amount_requested')->nullable();
+            $table->text('section_5309')->nullable();
+            $table->text('appointment_year')->nullable();
+            $table->text('tdc_award_amount')->nullable();
+            $table->text('tdw_award_date')->nullable();
+            $table->text('tdc_amount_requested')->nullable();
 
             $table->boolean('type_capital')->nullable();
             $table->boolean('type_operating')->nullable();
@@ -104,121 +110,122 @@ class CreateProjectsTable extends Migration
             $table->boolean('type_administration')->nullable();
             $table->tinyInteger('block_system')->nullable();
 
-            // Last Page
+            $table->tinyInteger('reviewed_dates')->nullable(); // F2
 
+            // Page 3
             $table->date('schematic_start_date')->nullable();
             $table->date('schematic_end_date')->nullable();
             $table->tinyInteger('schematic_progress')->nullable();
             $table->tinyInteger('schematic_agency')->nullable();
-            $table->string('schematic_comments')->nullable();
+            $table->text('schematic_comments')->nullable();
 
             $table->date('envdoctype_start_date')->nullable();
             $table->date('envdoctype_end_date')->nullable();
             $table->tinyInteger('envdoctype_progress')->nullable();
             $table->tinyInteger('envdoctype_agency')->nullable();
-            $table->string('envdoctype_comments')->nullable();
+            $table->text('envdoctype_comments')->nullable();
 
             $table->date('envdoc_start_date')->nullable();
             $table->date('envdoc_end_date')->nullable();
             $table->tinyInteger('envdoc_progress')->nullable();
             $table->tinyInteger('envdoc_agency')->nullable();
-            $table->string('envdoc_comments')->nullable();
+            $table->text('envdoc_comments')->nullable();
 
             $table->date('pse_start_date')->nullable();
             $table->date('pse_end_date')->nullable();
             $table->tinyInteger('pse_progress')->nullable();
             $table->tinyInteger('pse_agency')->nullable();
-            $table->string('pse_comments')->nullable();
+            $table->text('pse_comments')->nullable();
 
             $table->date('rowmap_start_date')->nullable();
             $table->date('rowmap_end_date')->nullable();
             $table->tinyInteger('rowmap_progress')->nullable();
             $table->tinyInteger('rowmap_agency')->nullable();
-            $table->string('rowmap_comments')->nullable();
+            $table->text('rowmap_comments')->nullable();
 
             $table->date('rowacq_start_date')->nullable();
             $table->date('rowacq_end_date')->nullable();
             $table->tinyInteger('rowacq_progress')->nullable();
             $table->tinyInteger('rowacq_agency')->nullable();
-            $table->string('rowacq_comments')->nullable();
+            $table->text('rowacq_comments')->nullable();
             
             $table->date('utilities_start_date')->nullable();
             $table->date('utilities_end_date')->nullable();
             $table->tinyInteger('utilities_progress')->nullable();
             $table->tinyInteger('utilities_agency')->nullable();
-            $table->string('utilities_comments')->nullable();
+            $table->text('utilities_comments')->nullable();
             
             $table->date('pubinv_start_date')->nullable();
             $table->date('pubinv_end_date')->nullable();
             $table->tinyInteger('pubinv_progress')->nullable();
             $table->tinyInteger('pubinv_agency')->nullable();
-            $table->string('pubinv_comments')->nullable();
+            $table->text('pubinv_comments')->nullable();
             
             $table->date('distrev_start_date')->nullable();
             $table->date('distrev_end_date')->nullable();
             $table->tinyInteger('distrev_progress')->nullable();
             $table->tinyInteger('distrev_agency')->nullable();
-            $table->string('distrev_comments')->nullable();
+            $table->text('distrev_comments')->nullable();
 
             $table->date('agree_start_date')->nullable();
             $table->date('agree_end_date')->nullable();
             $table->tinyInteger('agree_progress')->nullable();
             $table->tinyInteger('agree_agency')->nullable();
-            $table->string('agree_comments')->nullable();
+            $table->text('agree_comments')->nullable();
 
             $table->date('procpro_start_date')->nullable();
             $table->date('procpro_end_date')->nullable();
             $table->tinyInteger('procpro_progress')->nullable();
             $table->tinyInteger('procpro_agency')->nullable();
-            $table->string('procpro_comments')->nullable();
+            $table->text('procpro_comments')->nullable();
 
             $table->date('letdate_start_date')->nullable();
             $table->date('letdate_end_date')->nullable();
             $table->tinyInteger('letdate_progress')->nullable();
             $table->tinyInteger('letdate_agency')->nullable();
-            $table->string('letdate_comments')->nullable();
+            $table->text('letdate_comments')->nullable();
 
             $table->date('consper_end_date_start_date')->nullable();
             $table->date('consper_end_date_end_date')->nullable();
             $table->tinyInteger('consper_end_date_progress')->nullable();
             $table->tinyInteger('consper_end_date_agency')->nullable();
-            $table->string('consper_end_date_comments')->nullable();
+            $table->text('consper_end_date_comments')->nullable();
 
             $table->date('peperf_start_date')->nullable();
             $table->date('peperf_end_date')->nullable();
             $table->tinyInteger('peperf_progress')->nullable();
             $table->tinyInteger('peperf_agency')->nullable();
-            $table->string('peperf_comments')->nullable();
+            $table->text('peperf_comments')->nullable();
 
             $table->date('fta_trans_start_date')->nullable();
             $table->date('fta_trans_end_date')->nullable();
             $table->tinyInteger('fta_trans_progress')->nullable();
             $table->tinyInteger('fta_trans_agency')->nullable();
-            $table->string('fta_trans_comments')->nullable();
+            $table->text('fta_trans_comments')->nullable();
 
             $table->date('active_fta_start_date')->nullable();
             $table->date('active_fta_end_date')->nullable();
             $table->tinyInteger('active_fta_progress')->nullable();
             $table->tinyInteger('active_fta_agency')->nullable();
-            $table->string('active_fta_comments')->nullable();
+            $table->text('active_fta_comments')->nullable();
 
             $table->date('bus_start_date')->nullable();
             $table->date('bus_end_date')->nullable();
             $table->tinyInteger('bus_progress')->nullable();
             $table->tinyInteger('bus_agency')->nullable();
-            $table->string('bus_comments')->nullable();
+            $table->text('bus_comments')->nullable();
 
             $table->date('delivery_start_date')->nullable();
             $table->date('delivery_end_date')->nullable();
             $table->tinyInteger('delivery_progress')->nullable();
             $table->tinyInteger('delivery_agency')->nullable();
-            $table->string('delivery_comments')->nullable();
+            $table->text('delivery_comments')->nullable();
 
             $table->date('other_start_date')->nullable();
             $table->date('other_end_date')->nullable();
             $table->tinyInteger('other_progress')->nullable();
             $table->tinyInteger('other_agency')->nullable();
-            $table->string('other_comments')->nullable();
+            $table->text('other_comments')->nullable();
 
             $table->boolean('reviewed_yes')->nullable();
             $table->boolean('reviewed_no')->nullable();
@@ -228,6 +235,10 @@ class CreateProjectsTable extends Migration
             // Project Phases
 
             $table->boolean('fta_transfer')->nullable();
+            // F2
+            $table->boolean('capital')->nullable();
+            $table->boolean('operations')->nullable();
+
             $table->boolean('c')->nullable();
             $table->boolean('nonc')->nullable();
             $table->boolean('pe')->nullable();
@@ -272,29 +283,74 @@ class CreateProjectsTable extends Migration
             $table->Integer('funding_local_beyond_result')->nullable();
             $table->Integer('funding_total_result')->nullable();
 
-            $table->string('local_pm_name')->nullable();
-            $table->string('local_pm_phone')->nullable();
-            $table->string('local_pm_email')->nullable();
-            $table->string('local_pm_agency')->nullable();
-            $table->string('local_pm_title')->nullable();
+            $table->boolean('mpo_funds_2')->nullable();
+            $table->Integer('yoe_cost_vehicles')->nullable();
+            $table->string('funding_category_vehicles')->nullable();
+            $table->string('funding_federal_vehicles')->nullable();
+            $table->string('funding_local_vehicles')->nullable();
+            $table->string('funding_local_beyond_vehicles')->nullable();
+            $table->string('funding_total_vehicles')->nullable();
+            $table->string('funding_tdc_vehicles')->nullable();
+            $table->Integer('funding_federal_vehicles_total')->nullable();
+            $table->Integer('funding_local_vehicles_total')->nullable();
+            $table->Integer('funding_local_beyond_vehicles_total')->nullable();
+            $table->Integer('funding_total_vehicles_total')->nullable();
+            $table->Integer('funding_tdc_vehicles_total')->nullable();
 
-            $table->string('state_pm_name')->nullable();
-            $table->string('state_pm_phone')->nullable();
-            $table->string('state_pm_email')->nullable();
-            $table->string('state_pm_agency')->nullable();
-            $table->string('state_pm_title')->nullable();
+            $table->Integer('yoe_cost_bus')->nullable();
+            $table->string('funding_category_bus')->nullable();
+            $table->string('funding_federal_bus')->nullable();
+            $table->string('funding_local_bus')->nullable();
+            $table->string('funding_local_beyond_bus')->nullable();
+            $table->string('funding_total_bus')->nullable();
+            $table->string('funding_tdc_bus')->nullable();
+            $table->Integer('funding_federal_bus_total')->nullable();
+            $table->Integer('funding_local_bus_total')->nullable();
+            $table->Integer('funding_local_beyond_bus_total')->nullable();
+            $table->Integer('funding_total_bus_total')->nullable();
+            $table->Integer('funding_tdc_bus_total')->nullable();
 
-            $table->string('sponsor_name')->nullable();
-            $table->string('sponsor_phone')->nullable();
-            $table->string('sponsor_email')->nullable();
-            $table->string('sponsor_agency')->nullable();
-            $table->string('sponsor_title')->nullable();
-            $table->string('signature')->nullable();
-            $table->string('comments_1')->nullable();
-            $table->string('comments_2')->nullable();
-            $table->string('comments_3')->nullable();
-            $table->string('comments_4')->nullable();
-            $table->string('comments_5')->nullable();
+            $table->Integer('yoe_cost_operations')->nullable();
+            $table->string('funding_category_operations')->nullable();
+            $table->string('funding_federal_operations')->nullable();
+            $table->string('funding_local_beyond_operations')->nullable();
+            $table->string('funding_total_operations')->nullable();
+            $table->Integer('funding_federal_operations_total')->nullable();
+            $table->Integer('funding_local_operations_total')->nullable();
+            $table->Integer('funding_local_beyond_operations_total')->nullable();
+            $table->Integer('funding_total_operations_total')->nullable();
+
+            $table->text('local_pm_name')->nullable();
+            $table->text('local_pm_phone')->nullable();
+            $table->text('local_pm_email')->nullable();
+            $table->text('local_pm_agency')->nullable();
+            $table->text('local_pm_title')->nullable();
+
+            $table->text('state_pm_name')->nullable();
+            $table->text('state_pm_phone')->nullable();
+            $table->text('state_pm_email')->nullable();
+            $table->text('state_pm_agency')->nullable();
+            $table->text('state_pm_title')->nullable();
+
+            $table->text('sponsor_name')->nullable();
+            $table->text('sponsor_phone')->nullable();
+            $table->text('sponsor_email')->nullable();
+            $table->text('sponsor_agency')->nullable();
+            $table->text('sponsor_title')->nullable();
+            
+            $table->text('sponsor')->nullable();
+            $table->text('contact_name')->nullable();
+            $table->text('contact_phone')->nullable();
+            $table->text('contact_email')->nullable();
+            $table->text('contact_agency')->nullable();
+            $table->text('contact_title')->nullable();
+
+            $table->text('signature')->nullable();
+            $table->text('comments_1')->nullable();
+            $table->text('comments_2')->nullable();
+            $table->text('comments_3')->nullable();
+            $table->text('comments_4')->nullable();
+            $table->text('comments_5')->nullable();
 
 
             $table->timestamps();

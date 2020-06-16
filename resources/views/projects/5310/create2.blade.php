@@ -8,7 +8,7 @@
 @section('content')
 
 <div id="showHolder" class="container">
-    <form action="{{ route('bprojects.store') }}" method="POST">
+    <form action="{{ route('projects.store') }}" method="POST">
         @csrf
         <div class="row">
             <div class="col-md-12">

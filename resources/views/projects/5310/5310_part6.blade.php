@@ -27,22 +27,22 @@
             <div class="card-body">
                 <div class="form-row mb-1">
                     <div class="col-sm-2">
-                        <input type="text" name="sponsor" class="form-control" value="{{ $bProject->sponsor ?? '' }}" disabled>
+                        <input type="text" name="sponsor" class="form-control" value="{{ $project->sponsor ?? '' }}" disabled>
                     </div>
                     <div class="col-sm-2">
-                        <input type="text" name="contact_name" class="form-control" value="{{ $bProject->contact_name ?? ''  }}" disabled>
+                        <input type="text" name="contact_name" class="form-control" value="{{ $project->contact_name ?? ''  }}" disabled>
                     </div>
                     <div class="col-sm-2">
-                        <input type="tel" name="contact_phone" class="form-control" value="{{ $bProject->contact_phone ?? ''  }}" disabled>
+                        <input type="tel" name="contact_phone" class="form-control" value="{{ $project->contact_phone ?? ''  }}" disabled>
                     </div>
                     <div class="col-sm-2">
-                        <input type="email" name="contact_email" class="form-control" value="{{ $bProject->contact_email ?? '' }}" disabled>
+                        <input type="email" name="contact_email" class="form-control" value="{{ $project->contact_email ?? '' }}" disabled>
                     </div>
                     <div class="col-sm-2">
-                        <input type="text" name="contact_agency" class="form-control" value="{{ $bProject->contact_agency ?? ''  }}" disabled>
+                        <input type="text" name="contact_agency" class="form-control" value="{{ $project->contact_agency ?? ''  }}" disabled>
                     </div>
                     <div class="col-sm-2">
-                        <input type="text" name="contact_title" class="form-control" value="{{ $bProject->contact_title ?? ''  }}" disabled>
+                        <input type="text" name="contact_title" class="form-control" value="{{ $project->contact_title ?? ''  }}" disabled>
                     </div>
                 </div>
             </div>
@@ -79,11 +79,11 @@
         @auth
             @if(auth()->user()->type == 1)
                 <div class="form-group">
-                    <textarea disabled class="form-control" id="signed_textarea" name = "signature" rows="2"  value="{{ $bProject->signature ?? ''  }}"></textarea>
+                    <textarea disabled class="form-control" id="signed_textarea" name = "signature" rows="2"  value="{{ $project->signature ?? ''  }}"></textarea>
                 </div>
             @else
                 <div class="form-group">
-                    <textarea class="form-control" id="signed_textarea" name = "signature" title="Only a submitter can sign this form." rows="2"  value="{{ $bProject->contact_title ?? ''  }}" disabled></textarea>
+                    <textarea class="form-control" id="signed_textarea" name = "signature" title="Only a submitter can sign this form." rows="2"  value="{{ $project->contact_title ?? ''  }}" disabled></textarea>
                 </div>
             @endif                            
         @endauth

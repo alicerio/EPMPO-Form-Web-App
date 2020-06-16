@@ -8,7 +8,7 @@
 @section('content')
 
 <div id="showHolder" class="container">
-    <form action="{{ route('bprojects.update', $bProject->id) }}" method="POST">
+    <form action="{{ route('projects.update', $project->id) }}" method="POST">
         @csrf
         @method('PATCH')
         <div class="row">

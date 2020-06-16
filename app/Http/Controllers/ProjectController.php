@@ -125,6 +125,10 @@ class ProjectController extends Controller
         $project->description_strategy_4 = request('description_strategy_4');
         $project->description_strategy_5 = request('description_strategy_5');
         $project->description_strategy_6 = request('description_strategy_6');
+        $project->description_strategy_7 = request('description_strategy_7');
+        $project->description_strategy_8 = request('description_strategy_8');
+        $project->description_strategy_9 = request('description_strategy_9');
+        $project->description_strategy_10 = request('description_strategy_10');
         $project->voc = request('voc');
         $project->c0 = request('c0');
         $project->nox = request('nox');
@@ -140,6 +144,7 @@ class ProjectController extends Controller
         $project->type_planning = request('type_planning') == 'on' ? 1 : null;
         $project->type_administration = request('type_administration') == 'on' ? 1 : null;
         $project->block_system = request('block_system');
+        $project->reviewed_dates = request('reviewed_dates');
         $project->schematic_start_date = request('schematic_start_date');
         $project->schematic_end_date = request('schematic_end_date');
         $project->schematic_progress = request('schematic_progress') == '----' ? null : request('schematic_progress');
@@ -240,6 +245,8 @@ class ProjectController extends Controller
         $project->reviewed_na = request('reviewed_na') == 'on' ? 1 : null;
         $project->date_reviewed = request('date_reviewed');
         $project->fta_transfer = request('fta_transfer') == 'on' ? 1 : null;
+        $project->capital = request('capital') == 'on' ? 1 : null;
+        $project->operations = request('operations') == 'on' ? 1 : null;
         $project->c = request('c') == 'on' ? 1 : null;
         $project->nonc = request('nonc') == 'on' ? 1 : null;
         $project->pe = request('pe') == 'on' ? 1 : null;
@@ -276,6 +283,43 @@ class ProjectController extends Controller
         $project->funding_local_result = request('funding_local_result') == '----' ? null : request('funding_local_result');
         $project->funding_local_beyond_result = request('funding_local_beyond_result') == '----' ? null : request('funding_local_beyond_result');
         $project->funding_total_result = request('funding_total_result') == '----' ? null : request('funding_total_result');
+        $project->mpo_funds_2 = request('mpo_funds_2') == 'on' ? 1 : null;
+        $project->yoe_cost_vehicles = request('yoe_cost_vehicles') == '----' ? null : request('yoe_cost_vehicles');
+/*
+        $project->funding_category_vehicles = implode(',', request('funding_category_vehicles'));
+        $project->funding_federal_vehicles = implode(',', request('funding_federal_vehicles'));
+        $project->funding_local_vehicles = implode(',', request('funding_local_vehicles'));
+        $project->funding_local_beyond_vehicles = implode(',', request('funding_local_beyond_vehicles'));
+        $project->funding_total_vehicles = implode(',', request('funding_total_vehicles'));
+        $project->funding_tdc_vehicles = implode(',', request('funding_tdc_vehicles'));
+        $project->funding_federal_vehicles_total = request('funding_federal_vehicles_total') == '----' ? null : request('funding_federal_vehicles_total');
+        $project->funding_local_vehicles_total = request('funding_local_vehicles_total') == '----' ? null : request('funding_local_vehicles_total');
+        $project->funding_local_beyond_vehicles_total = request('funding_local_beyond_vehicles_total') == '----' ? null : request('funding_local_beyond_vehicles_total');
+        $project->funding_total_vehicles_total = request('funding_total_vehicles_total') == '----' ? null : request('funding_total_vehicles_total');
+        $project->funding_tdc_vehicles_total = request('funding_tdc_vehicles_total') == '----' ? null : request('funding_tdc_vehicles_total');
+        $project->yoe_cost_bus = request('yoe_cost_bus') == '----' ? null : request('yoe_cost_bus');
+        $project->funding_category_bus = implode(',', request('funding_category_bus'));
+        $project->funding_federal_bus = implode(',', request('funding_federal_bus'));
+        $project->funding_local_bus = implode(',', request('funding_local_bus'));
+        $project->funding_local_beyond_bus = implode(',', request('funding_local_beyond_bus'));
+        $project->funding_total_bus = implode(',', request('funding_total_bus'));
+        $project->funding_tdc_bus = implode(',', request('funding_tdc_bus'));
+        $project->funding_federal_bus_total = request('funding_federal_bus_total') == '----' ? null : request('funding_federal_bus_total');
+        $project->funding_local_bus_total = request('funding_local_bus_total') == '----' ? null : request('funding_local_bus_total');
+        $project->funding_local_beyond_bus_total = request('funding_local_beyond_bus_total') == '----' ? null : request('funding_local_beyond_bus_total');
+        $project->funding_total_bus_total = request('funding_total_bus_total') == '----' ? null : request('funding_total_bus_total');
+        $project->funding_tdc_bus_total = request('funding_tdc_bus_total') == '----' ? null : request('funding_tdc_bus_total');
+        $project->yoe_cost_operations = request('yoe_cost_operations') == '----' ? null : request('yoe_cost_operations');
+        $project->funding_category_operations = implode(',', request('funding_category_operations'));
+        $project->funding_federal_operations = implode(',', request('funding_federal_operations'));
+        $project->funding_federal_operations = implode(',', request('funding_federal_operations'));
+        $project->funding_local_beyond_operations = implode(',', request('funding_local_beyond_operations'));
+        $project->funding_total_operations = implode(',', request('funding_total_operations'));
+        $project->funding_federal_operations_total = request('funding_federal_operations_total') == '----' ? null : request('funding_federal_operations_total');
+        $project->funding_local_operations_total = request('funding_local_operations_total') == '----' ? null : request('funding_local_operations_total');
+        $project->funding_local_beyond_operations_total = request('funding_local_beyond_operations_total') == '----' ? null : request('funding_local_beyond_operations_total');
+        $project->funding_total_operations_total = request('funding_total_operations_total') == '----' ? null : request('funding_total_operations_total');
+*/
         $project->local_pm_name = request('local_pm_name');
         $project->local_pm_phone = request('local_pm_phone');
         $project->local_pm_email = request('local_pm_email');
@@ -291,13 +335,18 @@ class ProjectController extends Controller
         $project->sponsor_email = request('sponsor_email');
         $project->sponsor_agency = request('sponsor_agency');
         $project->sponsor_title = request('sponsor_title');
+        $project->sponsor = request('sponsor');
+        $project->contact_name = request('contact_name');
+        $project->contact_phone = request('contact_phone');
+        $project->contact_email = request('contact_email');
+        $project->contact_agency = request('contact_agency');
+        $project->contact_title = request('contact_title');
         $project->signature = request('signature');
         $project->comments_1 = request('comments_1');
         $project->comments_2 = request('comments_2');
         $project->comments_3 = request('comments_3');
         $project->comments_4 = request('comments_4');
         $project->comments_5 = request('comments_5');
-
 
         $project->save();
 
@@ -492,6 +541,10 @@ class ProjectController extends Controller
         $project->description_strategy_4 = request('description_strategy_4');
         $project->description_strategy_5 = request('description_strategy_5');
         $project->description_strategy_6 = request('description_strategy_6');
+        $project->description_strategy_7 = request('description_strategy_7');
+        $project->description_strategy_8 = request('description_strategy_8');
+        $project->description_strategy_9 = request('description_strategy_9');
+        $project->description_strategy_10 = request('description_strategy_10');
         $project->voc = request('voc');
         $project->c0 = request('c0');
         $project->nox = request('nox');
@@ -507,6 +560,7 @@ class ProjectController extends Controller
         $project->type_planning = request('type_planning') == 'on' ? 1 : null;
         $project->type_administration = request('type_administration') == 'on' ? 1 : null;
         $project->block_system = request('block_system');
+        $project->reviewed_dates = request('reviewed_dates');
         $project->schematic_start_date = request('schematic_start_date');
         $project->schematic_end_date = request('schematic_end_date');
         $project->schematic_progress = request('schematic_progress') == '----' ? null : request('schematic_progress');
@@ -607,6 +661,8 @@ class ProjectController extends Controller
         $project->reviewed_na = request('reviewed_na') == 'on' ? 1 : null;
         $project->date_reviewed = request('date_reviewed');
         $project->fta_transfer = request('fta_transfer') == 'on' ? 1 : null;
+        $project->capital = request('capital') == 'on' ? 1 : null;
+        $project->operations = request('operations') == 'on' ? 1 : null;
         $project->c = request('c') == 'on' ? 1 : null;
         $project->nonc = request('nonc') == 'on' ? 1 : null;
         $project->pe = request('pe') == 'on' ? 1 : null;
@@ -643,6 +699,43 @@ class ProjectController extends Controller
         $project->funding_local_result = request('funding_local_result') == '----' ? null : request('funding_local_result');
         $project->funding_local_beyond_result = request('funding_local_beyond_result') == '----' ? null : request('funding_local_beyond_result');
         $project->funding_total_result = request('funding_total_result') == '----' ? null : request('funding_total_result');
+        $project->mpo_funds_2 = request('mpo_funds_2') == 'on' ? 1 : null;
+        $project->yoe_cost_vehicles = request('yoe_cost_vehicles') == '----' ? null : request('yoe_cost_vehicles');
+/*
+        $project->funding_category_vehicles = implode(',', request('funding_category_vehicles'));
+        $project->funding_federal_vehicles = implode(',', request('funding_federal_vehicles'));
+        $project->funding_local_vehicles = implode(',', request('funding_local_vehicles'));
+        $project->funding_local_beyond_vehicles = implode(',', request('funding_local_beyond_vehicles'));
+        $project->funding_total_vehicles = implode(',', request('funding_total_vehicles'));
+        $project->funding_tdc_vehicles = implode(',', request('funding_tdc_vehicles'));
+        $project->funding_federal_vehicles_total = request('funding_federal_vehicles_total') == '----' ? null : request('funding_federal_vehicles_total');
+        $project->funding_local_vehicles_total = request('funding_local_vehicles_total') == '----' ? null : request('funding_local_vehicles_total');
+        $project->funding_local_beyond_vehicles_total = request('funding_local_beyond_vehicles_total') == '----' ? null : request('funding_local_beyond_vehicles_total');
+        $project->funding_total_vehicles_total = request('funding_total_vehicles_total') == '----' ? null : request('funding_total_vehicles_total');
+        $project->funding_tdc_vehicles_total = request('funding_tdc_vehicles_total') == '----' ? null : request('funding_tdc_vehicles_total');
+        $project->yoe_cost_bus = request('yoe_cost_bus') == '----' ? null : request('yoe_cost_bus');
+        $project->funding_category_bus = implode(',', request('funding_category_bus'));
+        $project->funding_federal_bus = implode(',', request('funding_federal_bus'));
+        $project->funding_local_bus = implode(',', request('funding_local_bus'));
+        $project->funding_local_beyond_bus = implode(',', request('funding_local_beyond_bus'));
+        $project->funding_total_bus = implode(',', request('funding_total_bus'));
+        $project->funding_tdc_bus = implode(',', request('funding_tdc_bus'));
+        $project->funding_federal_bus_total = request('funding_federal_bus_total') == '----' ? null : request('funding_federal_bus_total');
+        $project->funding_local_bus_total = request('funding_local_bus_total') == '----' ? null : request('funding_local_bus_total');
+        $project->funding_local_beyond_bus_total = request('funding_local_beyond_bus_total') == '----' ? null : request('funding_local_beyond_bus_total');
+        $project->funding_total_bus_total = request('funding_total_bus_total') == '----' ? null : request('funding_total_bus_total');
+        $project->funding_tdc_bus_total = request('funding_tdc_bus_total') == '----' ? null : request('funding_tdc_bus_total');
+        $project->yoe_cost_operations = request('yoe_cost_operations') == '----' ? null : request('yoe_cost_operations');
+        $project->funding_category_operations = implode(',', request('funding_category_operations'));
+        $project->funding_federal_operations = implode(',', request('funding_federal_operations'));
+        $project->funding_federal_operations = implode(',', request('funding_federal_operations'));
+        $project->funding_local_beyond_operations = implode(',', request('funding_local_beyond_operations'));
+        $project->funding_total_operations = implode(',', request('funding_total_operations'));
+        $project->funding_federal_operations_total = request('funding_federal_operations_total') == '----' ? null : request('funding_federal_operations_total');
+        $project->funding_local_operations_total = request('funding_local_operations_total') == '----' ? null : request('funding_local_operations_total');
+        $project->funding_local_beyond_operations_total = request('funding_local_beyond_operations_total') == '----' ? null : request('funding_local_beyond_operations_total');
+        $project->funding_total_operations_total = request('funding_total_operations_total') == '----' ? null : request('funding_total_operations_total');
+*/
         $project->local_pm_name = request('local_pm_name');
         $project->local_pm_phone = request('local_pm_phone');
         $project->local_pm_email = request('local_pm_email');
@@ -658,6 +751,12 @@ class ProjectController extends Controller
         $project->sponsor_email = request('sponsor_email');
         $project->sponsor_agency = request('sponsor_agency');
         $project->sponsor_title = request('sponsor_title');
+        $project->sponsor = request('sponsor');
+        $project->contact_name = request('contact_name');
+        $project->contact_phone = request('contact_phone');
+        $project->contact_email = request('contact_email');
+        $project->contact_agency = request('contact_agency');
+        $project->contact_title = request('contact_title');
         $project->signature = request('signature');
         $project->comments_1 = request('comments_1');
         $project->comments_2 = request('comments_2');

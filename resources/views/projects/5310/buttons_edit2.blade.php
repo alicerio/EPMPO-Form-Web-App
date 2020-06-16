@@ -7,16 +7,16 @@
     </div>
     <div class="col">
         <select name="status" class="form-control" autocomplete="off">
-            <option value="{{ $bProject->status }}" selected>Save Progress</option>
+            <option value="{{ $project->status }}" selected>Save Progress</option>
             {{-- Project is in progress --}}
-            @if($bProject->status == 0 || $project->status == 4)
+            @if($project->status == 0 || $project->status == 4)
             <option value="1">Request PM Review</option>
             @endif
             {{-- Project needs to be signed off by submitter --}}
-            @if($bProject->status == 1 && auth()->user()->type >= 1)
+            @if($project->status == 1 && auth()->user()->type >= 1)
             <option value="2">Sign Off</option>
             @endif
-            @if(($bProject->status == 2 || $project->status == 3) && auth()->user()->type == 2)
+            @if(($project->status == 2 || $project->status == 3) && auth()->user()->type == 2)
             <option value="3">Approve</option>
             <option value="4">Decline</option>
             @endif
