@@ -34,10 +34,9 @@ class ProjectController extends Controller
         return view('projects.revisions', compact('projects', 'statuses','agencies', 'counts'));
     }
 
-
     public function create()
     {
-        return view('projects.create');
+        return view('projects.create');        
     }
 
     public function exportExcel()
@@ -66,7 +65,7 @@ class ProjectController extends Controller
         $project = new Project();
 
         $project->agency_id = auth()->user()->agency_id;
-        //$project->project_type = request('project_type');
+        $project->project_type = request('project_type');
         $project->parent_id = request('parent_id');
         $project->mpo_id = request('mpo_id');
         $project->csj_cn = request('csj_cn');
@@ -272,11 +271,13 @@ class ProjectController extends Controller
         $project->costs_4 = request('costs_4') == '----' ? null : request('costs_4');
         $project->mpo_funds = request('mpo_funds') == 'on' ? 1 : null;
         $project->yoe_cost = request('yoe_cost') == '----' ? null : request('yoe_cost');
+        /*
         $project->funding_category = implode(',', request('funding_category'));
         $project->funding_federal = implode(',', request('funding_federal'));
         $project->funding_state = implode(',', request('funding_state'));
         $project->funding_local = implode(',', request('funding_local'));
         $project->funding_local_beyond = implode(',', request('funding_local_beyond'));
+        
         $project->funding_total = request('funding_total') == '----' ? null : request('funding_total');
         $project->funding_federal_result = request('funding_federal_result') == '----' ? null : request('funding_federal_result');
         $project->funding_state_result = request('funding_state_result') == '----' ? null : request('funding_state_result');
@@ -285,11 +286,11 @@ class ProjectController extends Controller
         $project->funding_total_result = request('funding_total_result') == '----' ? null : request('funding_total_result');
         $project->mpo_funds_2 = request('mpo_funds_2') == 'on' ? 1 : null;
         $project->yoe_cost_vehicles = request('yoe_cost_vehicles') == '----' ? null : request('yoe_cost_vehicles');
-/*
         $project->funding_category_vehicles = implode(',', request('funding_category_vehicles'));
         $project->funding_federal_vehicles = implode(',', request('funding_federal_vehicles'));
         $project->funding_local_vehicles = implode(',', request('funding_local_vehicles'));
         $project->funding_local_beyond_vehicles = implode(',', request('funding_local_beyond_vehicles'));
+    
         $project->funding_total_vehicles = implode(',', request('funding_total_vehicles'));
         $project->funding_tdc_vehicles = implode(',', request('funding_tdc_vehicles'));
         $project->funding_federal_vehicles_total = request('funding_federal_vehicles_total') == '----' ? null : request('funding_federal_vehicles_total');
@@ -350,7 +351,12 @@ class ProjectController extends Controller
 
         $project->save();
 
-        return view('projects.edit', compact('project'));
+        if($project->project_type == 1) {
+            return view('projects.edit', compact('project'));
+        }
+        else {
+            return view('projects/5310.edit2', compact('project'));
+        }
     }
 
     /**
@@ -398,8 +404,11 @@ class ProjectController extends Controller
                 }
             }
         }
-     
-        return view('projects.show', compact('project', 'logOfChanges'));
+        if($project->project_type == 1) {
+            return view('projects.show', compact('project', 'logOfChanges'));        }
+        else {
+            return view('projects/5310.show2', compact('project', 'logOfChanges'));
+        }
         //return view('projects.show', compact('project'));
     }
 
@@ -443,7 +452,7 @@ class ProjectController extends Controller
                 }
             }
         }
-     
+        
         return view('projects.show_Comment', compact('project', 'logOfChanges'));
        // return view('projects.show_Comment');
     }
@@ -456,7 +465,12 @@ class ProjectController extends Controller
      */
     public function edit(Project $project)
     {
-        return view('projects.edit', compact('project'));
+        if($project->project_type == 1) {
+            return view('projects.edit', compact('project'));
+        }
+        else {
+            return view('projects/5310.edit2', compact('project'));
+        }
     }
 
     /**
@@ -483,7 +497,7 @@ class ProjectController extends Controller
             'name' => 'required',
         ]);
 
-        //$project->project_type = request('project_type');
+        $project->project_type = request('project_type');
         $project->mpo_id = request('mpo_id');
         $project->csj_cn = request('csj_cn');
         $project->author = auth()->user()->name;
@@ -688,6 +702,7 @@ class ProjectController extends Controller
         $project->costs_4 = request('costs_4') == '----' ? null : request('costs_4');
         $project->mpo_funds = request('mpo_funds') == 'on' ? 1 : null;
         $project->yoe_cost = request('yoe_cost') == '----' ? null : request('yoe_cost');
+        /*
         $project->funding_category = implode(',', request('funding_category'));
         $project->funding_federal = implode(',', request('funding_federal'));
         $project->funding_state = implode(',', request('funding_state'));
@@ -701,7 +716,7 @@ class ProjectController extends Controller
         $project->funding_total_result = request('funding_total_result') == '----' ? null : request('funding_total_result');
         $project->mpo_funds_2 = request('mpo_funds_2') == 'on' ? 1 : null;
         $project->yoe_cost_vehicles = request('yoe_cost_vehicles') == '----' ? null : request('yoe_cost_vehicles');
-/*
+
         $project->funding_category_vehicles = implode(',', request('funding_category_vehicles'));
         $project->funding_federal_vehicles = implode(',', request('funding_federal_vehicles'));
         $project->funding_local_vehicles = implode(',', request('funding_local_vehicles'));
@@ -731,11 +746,11 @@ class ProjectController extends Controller
         $project->funding_federal_operations = implode(',', request('funding_federal_operations'));
         $project->funding_local_beyond_operations = implode(',', request('funding_local_beyond_operations'));
         $project->funding_total_operations = implode(',', request('funding_total_operations'));
+        */
         $project->funding_federal_operations_total = request('funding_federal_operations_total') == '----' ? null : request('funding_federal_operations_total');
         $project->funding_local_operations_total = request('funding_local_operations_total') == '----' ? null : request('funding_local_operations_total');
         $project->funding_local_beyond_operations_total = request('funding_local_beyond_operations_total') == '----' ? null : request('funding_local_beyond_operations_total');
         $project->funding_total_operations_total = request('funding_total_operations_total') == '----' ? null : request('funding_total_operations_total');
-*/
         $project->local_pm_name = request('local_pm_name');
         $project->local_pm_phone = request('local_pm_phone');
         $project->local_pm_email = request('local_pm_email');
@@ -772,7 +787,12 @@ class ProjectController extends Controller
             $project->save();
         }
 
-        return view('projects.edit', compact('project'));
+        if($project->project_type == 1) {
+            return view('projects.edit', compact('project'));
+        }
+        else {
+            return view('projects/5310.edit2', compact('project'));
+        }
     }
 
     /**

@@ -3,6 +3,7 @@
         Electornic Project Request Form (ePRF)
     </div>
     <div class="card-body">
+        <input id="project_type" type="hidden" class="form-control" name="project_type" value="{{ $project->project_type ?? '1' }}" readonly>
         <label>
             MPO ID
         </label>

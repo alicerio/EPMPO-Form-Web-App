@@ -41,8 +41,7 @@
                 @include('projects/5310.5310_part6')
             </div>
         </div>
-        @include('projects/5310.buttons_create2')
-        {{--@include('projects/5310.buttons_show2')--}}
+        @include('projects/5310.buttons_show2')
     </form>
 </div>
 <script src="{{ asset('docs/js/form2FrontEndLogic.js')}}"></script>
