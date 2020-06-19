@@ -51,3 +51,11 @@ Route::get('/test', function(){
     return view('projects.nonAdminView', compact('project'));
   
 });
+
+Route::get('projects/editInfo/{project}', 'ProjectController@editInfo')->name('projects.editInfo');
+
+// For demo purposes
+Route::get('/map', function(){
+    return view('projects.map');
+
+});

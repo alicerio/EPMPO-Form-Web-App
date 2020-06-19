@@ -34,8 +34,7 @@
                         <th scope="col">Agency</th>
                         <th scope="col">Name</th>
                         <th scope="col">Status</th>
-                        <th scope="col">MPO ID</th>
-                        <th scope="col">CSJ</th>
+                        <th scope="col">Project Type</th>
                         <th scole="col">editor</th>
                     </tr>
                 </thead>
@@ -59,27 +58,7 @@
                             @else
                             <td>{{ $statuses[$project->status] }}</td>
                             @endif
-                            @if(auth()->user()->type!=2)
-                            <td>{{ $project->mpo_id }}</td>
-                            <td>{{ $project->csj_cn }}</td>
-                            <td></td>
-                            @else
-                            <form action="{{ route('projects.updateMPO', $project->id) }}" method="POST"
-                                name="inline_form">
-                                @csrf
-                                @method('PATCH')
-                                <input type="text" name="name" hidden value="{{ $project->name }}">
-                                <input type="text" name="agency_id" hidden value="{{ $project->agency_id }}">
-                                <td>
-                                    <input type="text" class="form-control" name="mpo_id"
-                                        value="{{ $project->mpo_id }}">
-                                </td>
-                                <td>
-                                    <input type="text" class="form-control" name="csj_cn"
-                                        value="{{ $project->csj_cn }}">
-                                </td>
-                            </form>
-                            @endif
+                    <td>{{ $project->author}}</td> <!-- TO DO: add type of project here, currently db does not save that -->
                             <td>
                                 <div class="dropdown">
                                     <button class="btn btn-secondary dropdown-toggle" type="button"
@@ -88,10 +67,11 @@
                                         Options
                                     </button>
                                     <div class="dropdown-menu" aria-labelledby="user_edit_options">
-                                        <a class="dropdown-item"
-                                            href="{{ route('projects.edit', $project->id) }}">Edit</a>
+                                        <!--    <a class="dropdown-item"
+                                            href="{{ route('projects.edit', $project->id) }}">Edit</a> -->
                                         @if(auth()->user()->type == 2)
-                                        <a class="dropdown-item" onclick="document.inline_form.submit();">Update MPO
+                                        <a class="dropdown-item"
+                                            href="{{ route('projects.editInfo', $project) }}">Update MPO
                                             ID</a>
                                         @endif
                                         <form action="{{ route('projects.destroy', $project->id) }}" method="POST"

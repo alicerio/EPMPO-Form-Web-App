@@ -84,7 +84,7 @@
             </div>
         </div>
         <a onclick="addRow()" id="addFundBtn" class="btn btn-primary" title="Add a new row." role="button">Add Funding</a>
-        <a class="btn btn-primary"  id="removeFundBtn" title="Delete the last row." role="button">Remove Funding</a>
+        <a onclick= "deleteRow()"class="btn btn-primary"  id="removeFundBtn" title="Delete the last row." role="button">Remove Funding</a>
     </div>
 </div>
 <br>

@@ -824,4 +824,9 @@ class ProjectController extends Controller
 
         return redirect(route('projects.index'));
     }
+    public function editInfo(Project $project)
+    {
+        return view('projects.editInfo', compact('project'));
+    }
+
 }

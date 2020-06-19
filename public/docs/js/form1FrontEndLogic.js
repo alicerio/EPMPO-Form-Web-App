@@ -102,7 +102,11 @@ function rowSum(idName, index) {
     $("#" + totId).attr("value", rowTot);
 }
 
-
+function deleteRow(){
+    var table = document.getElementById("projectFundingTablePg1");
+    table.deleteRow(table.rows.length-1);
+    console.log(table.rows.length);
+}
 //dynamic name change and row addition
 function addRow() {
     var table = document.getElementById("projectFundingTablePg1");
@@ -174,5 +178,9 @@ function make_project_funding_readonly() {
         $("#"+$(this).attr("id")).prop("readonly", true);
         i++;
     })
+}
+
+function toggleVisibilityMap(){
+    document.getElementById("mapH").style.display = "block";
 }
 
