@@ -15,7 +15,7 @@
 
     <style>
         #map {
-            height: 400px;
+            height: 450px;
             width: 100%;
         }
     </style>
@@ -59,18 +59,99 @@
             <div class="row">
                 <div class="col-md-8" id="map"></div>
                 <div class="col-md-4">
-                    <h3>Statistics</h3>
-                    <p>Crashes</p>
-                    <p>Pedestrians</p>
-                    <p>Serious</p>
-                    <p></p>
-                    <p></p>
+                    <div class="row">
+                        <div class="col-12">
+                            <h4>Crashes</h4>
+                            <table>
+                                <tr>
+                                    <td>Serious Injuries</td>
+                                    <td id="f1_seriousInjuries"></td>
+                                </tr>
+
+                                <tr>
+                                    <td>Non incapacitating Injuries</td>
+                                    <td id="f1_nonI"></td>
+                                </tr>
+
+                                <tr>
+                                    <td>Possible Injnuries</td>
+                                    <td id="f1_possibleI"></td>
+                                </tr>
+                                <tr>
+                                    <td>Injured Driving</td>
+                                    <td id="f1_InjuredD"></td>
+                                </tr>
+                                <tr>
+                                    <td>Injured Walking</td>
+                                    <td id="f1_InjuredW"></td>
+                                </tr>
+                                <tr>
+                                    <td>Injured Freight</td>
+                                    <td id="f1_InjuredF"></td>
+                                </tr>
+                                <tr>
+                                    <td>Injured Biking</td>
+                                    <td id="f1_InjuredB"></td>
+                                </tr>
+                                <tr>
+                                    <td>Killed</td>
+                                    <td id="f1_killed"></td>
+                                </tr>
+                                <tr>
+                                    <td>Killed Driving</td>
+                                    <td id="f1_killedD"></td>
+                                </tr>
+                                <tr>
+                                    <td>Killed Walking</td>
+                                    <td id="f1_killedW"></td>
+                                </tr>
+                                <tr>
+                                    <td>Killed Freight</td>
+                                    <td id="f1_killedF"></td>
+                                </tr>
+                                <tr>
+                                    <td>Killed Biking</td>
+                                    <td id="f1_killedB"></td>
+                                </tr>
+                                <tr>
+                                    <td>Crashes</td>
+                                    <td id="f1_crashes"></td>
+                                </tr>
+                                <tr>
+                                    <td>Crashes Driving</td>
+                                    <td id="f1_crashesD"></td>
+                                </tr>
+                                <tr>
+                                    <td>Crashes Walking</td>
+                                    <td id="f1_crashesW"></td>
+                                </tr>
+                                <tr>
+                                    <td>Crashes Freight</td>
+                                    <td id="f1_crashesF"></td>
+                                </tr>
+                                <tr>
+                                    <td>Crashes Biking</td>
+                                    <td id="f1_crashesB"></td>
+                                </tr>
+                            </table>
+                        </div>
+
+                    <!--    <div class="col-6">
+                            <h4>Pavements</h4>
+                            <table>
+                                <tr>
+                                    <td>Poor pavement miles:</td>
+                                    <td id="f1_pvmntMilespoor"></td>
+                                </tr>              
+                            </table>
+                        </div>
+                    </div> -->
                 </div>
             </div>
             <div class="row">
-                <button type='button' onclick="point_drawer()">Query Crashes</button>
-                <button type='button' onclick="lineDrawer()">Query Pavements</button>
-                <button type='button'> Clear</button>
+                <button type='button' title="Get Crashes that within 50 meters of lines" onclick="point_drawer()">Query Crashes</button>
+                <button type='button' title="Display pavements that intersect with lines drawn" onclick="lineDrawer()">Query Pavements</button>
+                <button type='button' title="Clear map" onclick="clearMetadata()"> Clear</button>
             </div>
 
 

@@ -1,30 +1,29 @@
-
 function pavementCond(to_php) {
     console.log("pavement summondes");
-    let mode =4;
-    //let ex =0;
-    let currentType ="driving";
+    let mode = 4;
+
+    let currentType = "Driving";
     let pm25Data = {
-        good: [0, 0, 0, 0, 0],
-        fair: [0, 0, 0, 0, 0],
-        poor: [0, 0, 0, 0, 0],
+        good: 0,
+        fair: 0,
+        poor: 0,
 
         tot_miles: 0,
-        poor_mi_perc: 0, 
+        poor_mi_perc: 0,
         tot_poor_mi: 0,
 
         tx_miles: 0,
-        tx_poor_mi: 0, 
-        tx_poor_mi_perc: 0, 
+        tx_poor_mi: 0,
+        tx_poor_mi_perc: 0,
 
         nm_miles: 0,
-        nm_poor_mi: 0, 
-        nm_poor_mi_perc: 0, 
+        nm_poor_mi: 0,
+        nm_poor_mi_perc: 0,
 
         latestYear: 0
     }
 
-    let color = '#03A9F4';  // default
+    let color = '#03A9F4'; // default
     let php_handler = "";
     let shape = "shape";
     if (mode == 4) {
@@ -40,17 +39,7 @@ function pavementCond(to_php) {
         let poorconditionMiles = 0;
         let poorconditionMilesTX = 0;
         let poorconditionMilesNM = 0;
-        let latestYear = 0;
 
-        //get latest year
-        for (index in data.shape_arr) {
-            let year = data.shape_arr[index].year_recor;
-            if (latestYear < year) {
-                latestYear = year;
-            }
-        }
-
-        pm25Data.latestYear = latestYear;
 
 
         for (index in data.shape_arr) { // iterates through every index in the returned element (data['shape_arr'])
@@ -63,119 +52,87 @@ function pavementCond(to_php) {
 
             //PMS Data
             let iri = parseInt(data.shape_arr[index].iri);
-            let year = parseInt(data.shape_arr[index].year_recor);
             let miles = parseFloat(data.shape_arr[index].miles);
             let state = data.shape_arr[index].state_code;
-            let type = data.shape_arr[index].type;
-           // console.log(shp);
+            let type = data.shape_arr[index].mode;
+            let beginning = data.shape_arr[index].begin_poin;
+            let end = data.shape_arr[index].end_point;
+            let route_name = data.shape_arr[index].route_name;
+
+            if(route_name == null){
+                route_name = "route name not availble";
+            }
+
             // makes sure to only calculate the current mode
             if (type == currentType) {
-                //filter graph Data by Year, add counts on 3 conditions
-                if (year == latestYear - 4) {
-                    if (iri > 0 && iri < 95) { // good condition
-                        pm25Data.good[0] += miles;
-                    } else if (iri > 94 && iri < 171) { // Fair condition
-                        pm25Data.fair[0] += miles;
-                    } else if (iri > 170) { // Poor condition
-                        pm25Data.poor[0] += miles;
-                    }
-                } else if (year == latestYear - 3) {
-                    if (iri > 0 && iri < 95) {
-                        pm25Data.good[1] += miles;
-                    } else if (iri > 94 && iri < 171) {
-                        pm25Data.fair[1] += miles;
-                    } else if (iri > 170) {
-                        pm25Data.poor[1] += miles;
-                    }
-                } else if (year == latestYear - 2) {
-                    if (iri > 0 && iri < 95) {
-                        pm25Data.good[2] += miles;
-                    } else if (iri > 94 && iri < 171) {
-                        pm25Data.fair[2] += miles;
-                    } else if (iri > 170) {
-                        pm25Data.poor[2] += miles;
-                    }
-                } else if (year == latestYear - 1) {
-                    if (iri > 0 && iri < 95) {
-                        pm25Data.good[3] += miles;
-                    } else if (iri > 94 && iri < 171) {
-                        pm25Data.fair[3] += miles;
-                    } else if (iri > 170) {
-                        pm25Data.poor[3] += miles;
-                    }
-                } else if (year == latestYear) {
-                    if (iri > 0 && iri < 95) {
-                        pm25Data.good[4] += miles;
-                    } else if (iri > 94 && iri < 171) {
-                        pm25Data.fair[4] += miles;
-                    } else if (iri > 170) {
-                        pm25Data.poor[4] += miles;
-                    }
-                }
-
-                if (year == latestYear) {
-                    if (iri > 170) {      // total poor condition miles
-                        poorconditionMiles += miles;
-                    }
-                    //Texas 
+                if (iri > 0 && iri < 95) {
+                    pm25Data.good += miles;
+                } else if (iri > 94 && iri < 171) {
+                    pm25Data.fair += miles;
+                } else if (iri > 170) {
+                    pm25Data.tot_poor_mi += miles;
                     if (state == 48 || state == "Texas") {
-                        //total in tx
-                        if (iri != 0) {
-                            pm25Data.tx_miles += miles;
-                        }
-
-                        //poor in tx
-                        if (iri > 170) {
-                            pm25Data.tx_poor_mi += miles;
-                        }
-
+                        pm25Data.tx_poor_mi += miles;
                     } else if (state == 35 || state == "New Mexico") {
-                        if (iri != 0) {
-                            pm25Data.nm_miles += miles;
-                        }
+                        pm25Data.nm_poor_mi += miles;
+                    }
+                }
+            }
 
-                        if (iri > 170) {
-                            pm25Data.nm_poor_mi += miles;
-                        }
-                    }
+
+            if (mode == 1 || mode == 2 || mode == 4) {
+                for (let i = 0; i < ln.length; i++) {
+                    coord = {
+                        lat: ln[i]['y'],
+                        lng: ln[i]['x']
+                    }; // this is how lat & lng is interpreted by the tool
+                    to_visualize.push(coord); // pushing the interpretation to our to_visualize array
                 }
-                //Draw latest year
-                if (year == latestYear-1) {
-                    if (mode == 1 || mode == 2 || mode == 4) {
-                        for (let i = 0; i < ln.length; i++) {
-                            coord = { lat: ln[i]['y'], lng: ln[i]['x'] }; // this is how lat & lng is interpreted by the tool
-                            to_visualize.push(coord); // pushing the interpretation to our to_visualize array
-                        }
-                        // filter colors 
-                        if (iri > 0 && iri < 95) {
-                            color = '#8BC34A'; //green
-                        } else if (iri > 94 && iri < 171) {
-                            color = '#F57C00'; //orange
-                        } else if (iri > 170) {
-                            color = '#d50000'; //red
-                        } else if (iri == 0) { // No data
-                            color = '#9E9E9E';
-                        }
-                        let line = new google.maps.Polyline({ // it is a POLYLINE
-                            path: to_visualize, // polyline has a path, defined by lat & lng 
-                            strokeColor: color,
-                            strokeOpacity: .50,
-                            strokeWeight: 4,
-                            zIndex: 99 // on top of every other shape
-                        });
-                        // Hover Effect for Google API Polygons
-                        google.maps.event.addListener(line, 'mouseover', function (event) { injectTooltip(event,commafy(parseInt(iri))); }); 
-                        google.maps.event.addListener(line, 'mousemove', function (event) { moveTooltip(event); });
-                        google.maps.event.addListener(line, 'mouseout', function (event) { deleteTooltip(event); });
-                              
-                        
-                        line.setMap(map);
-                        polylines.push(line);
-                    }
+                // filter colors 
+                if (iri > 0 && iri < 95) {
+                    color = '#8BC34A'; //green
+                } else if (iri > 94 && iri < 171) {
+                    color = '#F57C00'; //orange
+                } else if (iri > 170) {
+                    color = '#d50000'; //red
+                } else if (iri == 0) { // No data
+                    color = '#9E9E9E';
                 }
-            }   
+                let line = new google.maps.Polyline({ // it is a POLYLINE
+                    path: to_visualize, // polyline has a path, defined by lat & lng 
+                    strokeColor: color,
+                    strokeOpacity: .50,
+                    strokeWeight: 4,
+                    zIndex: 99 // on top of every other shape
+                });
+
+                //By adding paragraphs allows line break since \n did not work
+                var infoWindow = new google.maps.InfoWindow({
+                    content:( 
+                        "<p>" + "Iri: "+ commafy(parseInt(iri)) + "<br />" +
+                        "Beginning: " + beginning    + "<br />" +
+                        "End: " + end   + "<br />" +
+                        "Route Name: " + route_name  + "</p>"
+                    )
+                });
+                // Hover Effect for Google API Polygons
+                google.maps.event.addListener(line, 'mouseover', function (event) {
+                    infoWindow.setPosition(event.latLng);
+                    infoWindow.open(map);
+                });
+    
+                google.maps.event.addListener(line, 'mouseout', function (event) {
+                   infoWindow.close();
+                });
+
+
+                line.setMap(map);
+                polylines.push(line);
+            }
+
         }
- 
+
+
         //totals
         pm25Data.tot_poor_mi = (pm25Data.nm_poor_mi + pm25Data.tx_poor_mi).toFixed(2);
         pm25Data.tot_miles = pm25Data.tx_miles + pm25Data.nm_miles;
@@ -184,72 +141,31 @@ function pavementCond(to_php) {
         pm25Data.poor_mi_perc = ((pm25Data.tot_poor_mi / pm25Data.tot_miles) * 100).toFixed(2);
         pm25Data.tx_poor_mi_perc = ((pm25Data.tx_poor_mi / pm25Data.tx_miles) * 100).toFixed(2);
         pm25Data.nm_poor_mi_perc = ((pm25Data.nm_poor_mi / pm25Data.nm_miles) * 100).toFixed(2);
-
-        // If we fixed used 'toFixed(2)' earlier it cause a bug. Estimating here worked
-        pm25Data.good[0] = (pm25Data.good[0]).toFixed(2);
-        pm25Data.good[1] = (pm25Data.good[1]).toFixed(2);
-        pm25Data.good[2] = (pm25Data.good[2]).toFixed(2);
-        pm25Data.good[3] = (pm25Data.good[3]).toFixed(2);
-        pm25Data.good[4] = (pm25Data.good[4]).toFixed(2);
-
-        pm25Data.fair[0] = (pm25Data.fair[0]).toFixed(2);
-        pm25Data.fair[1] = (pm25Data.fair[1]).toFixed(2);
-        pm25Data.fair[2] = (pm25Data.fair[2]).toFixed(2);
-        pm25Data.fair[3] = (pm25Data.fair[3]).toFixed(2);
-        pm25Data.fair[4] = (pm25Data.fair[4]).toFixed(2);
-
-        pm25Data.poor[0] = (pm25Data.poor[0]).toFixed(2);
-        pm25Data.poor[1] = (pm25Data.poor[1]).toFixed(2);
-        pm25Data.poor[2] = (pm25Data.poor[2]).toFixed(2);
-        pm25Data.poor[3] = (pm25Data.poor[3]).toFixed(2);
-        pm25Data.poor[4] = (pm25Data.poor[4]).toFixed(2);
- 
-       // let corr = translateCorridor(ex); // what corridor are we on?
-
-        // if (mode == 0) {
-        //     if (ex == 'driving') {
-        //         document.getElementById("pm25DText").innerHTML = pm25Data.poor_mi_perc + "%";
-        //     } else if (ex == 'transit') {
-        //         document.getElementById("pm25T_Text").innerHTML = pm25Data.poor_mi_perc + "%";
-        //     } else if (ex == 'freight') {
-        //         document.getElementById("pm25FText").innerHTML = pm25Data.poor_mi_perc + "%";
-        //     }
-            
-        // }
-       if (mode == 1) {
-           // regionalText(pm25Data);
-        } else if (mode == 2) {
-           // dynamicCorridorText(corr, pm25Data);
-        }
-        else if(mode == 4){
-         //   dynamicCorridorText("AOI", pm25Data);
-        }
+        console.log(pm25Data);
     });
-    
+
 }
 
-function drawLines(circleCordinates){
+function drawLines(circleCordinates) {
     let cord = [];
     let obj = {
-        type: 'LineString', 
-        coordinates:[]
+        type: 'LineString',
+        coordinates: []
     }
 
-    for(let i = 0; i < circleCordinates[0].length; i+=2){
+    for (let i = 0; i < circleCordinates[0].length; i += 2) {
         cord.push(circleCordinates[0][i][1]);
         cord.push(circleCordinates[0][i][0]);
-        
+
         obj.coordinates.push(cord);
         cord = null;
         cord = [];
     }
-    obj =  JSON.stringify(obj);
+    obj = JSON.stringify(obj);
 
     to_php = {
         'AOI': obj,
-        'Table_wanted': 'pm25'
+        'Table_wanted': 'pm25_form_project'
     }
     pavementCond(to_php);
-
-    
 }

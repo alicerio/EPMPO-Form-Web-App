@@ -29,8 +29,8 @@
     $corridor_key = $corridor_key[0]; 					// following our DB and naming conventions, the $corridor_key will be found at the 0 index
     $shape = array();	
 
-    if ($key == "all_pm26") {
-        $query = "select mode,deck_cond_,superstruc,substruc_c,region,astext(SHAPE) as shape from $pm_table where corridor_key = '$key'";
+    if ($key == "all_pm18_19") {
+        $query = "select OGR_FID,crash_year,type,killed,classA,classB,classC,classO,non_injuri,unknown_in,statefp, astext(SHAPE) as shape from $pm_table where corridor_key = '$key'";
     } else if($key == "all_pm25"){
         $query = "select type,state_code,year_recor,iri, miles, astext(SHAPE) as shape from $pm_table where corridor_key = '$key'"; 
     }else {

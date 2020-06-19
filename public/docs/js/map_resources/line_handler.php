@@ -29,8 +29,8 @@ $result = mysqli_query($conn, $query);
 /**
  * Select query to be run in database
  */
-if($active_pm =="pm25"){ 
-	$query = "SELECT type,state_code,year_recor,iri, miles, ST_AsText(SHAPE)  as shape FROM $active_pm as p WHERE  ST_INTERSECTS( st_geomfromtext( st_astext(@poly), 4), p.SHAPE );"; 
+if($active_pm =="pm25_form_project"){ 
+	$query = "SELECT route_name,begin_poin,end_point,mode,state_code,year_recor,iri, miles, ST_AsText(SHAPE)  as shape FROM $active_pm as p WHERE  ST_INTERSECTS( st_geomfromtext( st_astext(@poly), 3), p.SHAPE );"; 
 }
 else{
 	$query = "SELECT ST_AsText(SHAPE) as shape FROM $active_pm as p WHERE  ST_INTERSECTS( st_geomfromtext( st_astext(@poly), 6), p.SHAPE );";

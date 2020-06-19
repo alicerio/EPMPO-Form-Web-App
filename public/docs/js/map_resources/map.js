@@ -1,11 +1,58 @@
-let counterCORD = 0;
+var counterCORD = 0;
 var poly;
+console.log(poly);
 var map;
 var paths = {
     lat:[],
     lng:[]
 };
+var makersClicked = [];
+var linesGenerated = [];
+ // Globals for shapes on map
+ var polylines = [];
+ var points = [];
+ 
+ // Globals that aid in adding hover effect for polygons
+ var coordPropName = null;
+ var tipObj = null;
+ var offset = {
+     x: 20,
+     y: 20
+ };
 
+  //clears points & lines
+function clearMetadata(){
+    for (var i = 0; i < polylines.length; i++) {
+        polylines[i].setMap(null);
+    }
+    for (var i = 0; i < points.length; i++) {
+        points[i].setMap(null);
+    }
+    console.log(poly);
+    poly.setMap(null); // delete blue line
+    
+    console.log(poly);
+
+    for(x in makersClicked){ 
+        makersClicked[x].setMap(null);
+        makersClicked[x].setMap(null);
+    }
+    points = [];
+    polylines = [];
+    makersClicked = [];
+    counterCORD = 0;
+    paths = {
+        lat:null,
+        lng:null
+    };
+    paths = {
+        lat:[],
+        lng:[]
+    };
+    console.log(counterCORD);
+    console.log(paths);
+
+}
 // Initialize and add the map
 function initMap() {
     map = new google.maps.Map(document.getElementById('map'), { // callback
@@ -19,6 +66,7 @@ function initMap() {
         strokeWeight: 3
     });
     poly.setMap(map);
+    console.log(poly);
     // Add a listener for the click event
     map.addListener('dblclick', addLatLng);
 
@@ -26,7 +74,17 @@ function initMap() {
 
 // Handles click events on a map, and adds a new point to the Polyline.
 function addLatLng(event) {
+    counterCORD ++;
     var path = poly.getPath();
+
+    // poly = new google.maps.Polyline({
+    //     path: path,
+    //     strokeColor: 'red',
+    //     strokeOpacity: 1.0,
+    //     strokeWeight: 3
+    // });
+    // poly.setMap(map);
+    // console.log(path);
     // Because path is an MVCArray, we can simply append a new coordinate
     path.push(event.latLng);
 
@@ -35,13 +93,13 @@ function addLatLng(event) {
 
     var marker = new google.maps.Marker({
         position: event.latLng,
-        title: '#' + path.getLength(),
+        title: '#' + counterCORD, //  '#' +  path.getLength(),
         map: map
     });
+    makersClicked.push(marker);
 }
 //get coordinates between the points
 function generateCoordinates(point1,point2, circlesOnLines){
-    counterCORD ++;
     let diffLan = difference(point1.lat, point2.lat)/circlesOnLines;
     let diffLot = difference(point1.lng, point2.lng)/circlesOnLines; 
 

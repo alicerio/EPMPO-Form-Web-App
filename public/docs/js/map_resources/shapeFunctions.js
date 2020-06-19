@@ -3,41 +3,30 @@
  * 
  */
 
- // Globals for shapes on map
- var polylines = [];
- var points = [];
- var polygons = [];
+
  
- // Globals that aid in adding hover effect for polygons
- var coordPropName = null;
- var tipObj = null;
- var offset = {
-     x: 20,
-     y: 20
- };
- 
- function clearMetadata(shape) {
-     if(shape == "points"){
-         for (var i = 0; i < points.length; i++) {
-             points[i].setMap(null);
-            // console.log('points off');
-         }
+//  function clearMetadata(shape) {
+//      if(shape == "points"){
+//          for (var i = 0; i < points.length; i++) {
+//              points[i].setMap(null);
+//             // console.log('points off');
+//          }
      
-     }else if(shape == "lines"){
-         for (var i = 0; i < polylines.length; i++) {
-             polylines[i].setMap(null);
-         }
-     }else{
-         for (var i = 0; i < polygons.length; i++) {
-             polygons[i].setMap(null);
-         }
-     }
+//      }else if(shape == "lines"){
+//          for (var i = 0; i < polylines.length; i++) {
+//              polylines[i].setMap(null);
+//          }
+//      }else{
+//          for (var i = 0; i < polygons.length; i++) {
+//              polygons[i].setMap(null);
+//          }
+//      }
    
-     polylines = [];
-     points = [];
-     polygons = [];
- }
- 
+//      polylines = [];
+//      points = [];
+//      polygons = [];
+//  }
+
  function wktFormatter(poly) {
      let name = poly.slice(0, 7);
      let shape_s = [];

@@ -1,5 +1,5 @@
 /** 
- * For testing purposes
+ * Handles point section on map
  *  
  */
 
@@ -11,12 +11,12 @@ function insideRange(pointA, pointB, pointC) {
     }
     return false;
 }
-
+// returns difference non negative
 function differencePositive(val1, val2) {
     if (val1 > val2) {
         return val1 - val2;
     } else {
-        return val2-val1;
+        return val2 - val1;
     }
 }
 
@@ -25,11 +25,11 @@ function distance(pointA, pointB) {
     //   console.log(Math.sqrt(Math.pow((pointA.lng - pointB.lng), 2) + Math.pow((pointA.lat - pointB.lat), 2)));
     return Math.sqrt(Math.pow((pointA.lng - pointB.lng), 2) + Math.pow((pointA.lat - pointB.lat), 2));
 }
-
+//filters possible points, this will help eliminate excess of points
 function filterCrashes(circlesCordinates) {
     let php_handler = "../../docs/js/map_resources/map_handler.php";
 
-    let key = 'all_pm26';
+    let key = 'all_pm18_19';
     data_for_php = {
         key: key
     };
@@ -44,211 +44,227 @@ function filterCrashes(circlesCordinates) {
         lat: circlesCordinates[0][299][0],
         lng: circlesCordinates[0][299][1]
     };
-  
+
     //get all points
     $.get(php_handler, data_for_php, function (data) {
+        console.log(data);
+        let latestYear = 0;
+        //get latest year
+        for (index in data.shape_arr) {
+            let year = data.shape_arr[index].crash_year;
+            if (latestYear < year) {
+                latestYear = year;
+            }
+        }
+
         for (index in data.shape_arr) {
             holder = [];
+            //gets info per iteration
+            let type = data.shape_arr[index]['type'];
+            let location = data.shape_arr[index]['statefp'];
+            let crash_year = parseInt(data.shape_arr[index]['crash_year']);
+
+            let killed = parseInt(data.shape_arr[index]['killed']);
+            let non_injuri = parseInt(data.shape_arr[index]['non_injuri']);
+            let unknown_injuri = parseInt(data.shape_arr[index]['unknown_in']);
+            let classA = parseInt(data.shape_arr[index]['classA']);
+            let classB = parseInt(data.shape_arr[index]['classB']);
+            let classC = parseInt(data.shape_arr[index]['classC']);
+            let classO = parseInt(data.shape_arr[index]['classO']);
+            let ogrID = parseInt(data.shape_arr[index]['OGR_FID']);
+
             holder.push(wktFormatterPoint(data.shape_arr[index][shape]));
             holder = holder[0][0]; // Fixes BLOBs
+
+            //store info on point
             let pointC = {
                 lat: parseFloat(holder[0].lat),
-                lng: parseFloat(holder[0].lng)
+                lng: parseFloat(holder[0].lng),
+                ogrID:ogrID,
+                type: type,
+                location: location,
+                crash_year: crash_year,
+                killed: killed,
+                non_injuri: non_injuri,
+                unknown_injuri: unknown_injuri,
+                classA: classA,
+                classB: classB,
+                classC: classC,
+                classO: classO
             };
-
+            //filter
             if (insideRange(pointA, pointB, pointC)) {
                 filter_crashes.push(pointC);
             }
         }
         console.log(filter_crashes);
-      //  alert('entering 26');
-        pm26Data(circlesCordinates, filter_crashes);
+
+        crashes(circlesCordinates, filter_crashes, latestYear);
     });
 
 
 }
+/* checks if a point is inside the non-repeated points list by looking at the ogr id
+    helps in not iterating on points that have already been seen ex: point 123 will only be read once
+    helps in keeping calculations precise */
 
-function pm26Data(circlesCordinates, filterCrashes) {
-    let mode = 1;
-    let data_for_php = 0;
-    let shape = "shape";
-    let php_handler = "../../docs/js/map_resources/map_handler.php";
+function hasItbeenSeen(currentPoint, nonRepeatedPoints){
+    return (nonRepeatedPoints).some(function(nonRepeatedPointsVal) {
+    	return currentPoint === nonRepeatedPointsVal.ogrID;
+    });
+}
 
-    let key = 'all_pm26';
-    data_for_php = {
-        key: key
-    };
-
+//draws, filters and stores info
+function crashes(circlesCordinates, filterCrashes,latestYear) {
+    console.log(latestYear);
+    //holds all info displayed on statistics
+    var crashesData = {
+        classA: 0, //Serious Injuries
+        classB: 0, //Non-Incapacitating Injuries
+        classC: 0, //Possible Injuries
+        classO: 0,
+        non_injuri: 0,
+        unknown_injuri: 0,
+        killed:0,
+        injured: 0,
+        injured_driving: 0,
+        injured_walking: 0,
+        injured_freight: 0,
+        injured_biking: 0,
+        killed_Driving: 0,
+        killed_walking:0 ,
+        killed_freight:0,
+        killed_biking:0,
+        //count of crashes
+        crashCount: 0,
+        crashCountD: 0,
+        crashCountW: 0,
+        crashCountF: 0,
+        crashCountB: 0,
+        //totals
+        dtot: 0,
+        ftot: 0,
+        wtot: 0,
+        btot: 0,
+        latestYear: 0
+    }
+    var nonRepeatedPoints = [];
     let image = "../../docs/images/small_blue_pin.png";
 
-    for(j in circlesCordinates[0]){
+    for (j in circlesCordinates[0]) {
         for (index in filterCrashes) { // Organize information into dictionaries
-            if(check_a_point(filterCrashes[index].lng, filterCrashes[index].lat,circlesCordinates[0][j][1], circlesCordinates[0][j][0], 0.004254 )){
-                let point = new google.maps.Marker({
-                    position: filterCrashes[index],
-                    title: filterCrashes[index].lat + " " + filterCrashes[index].lng,
-                    icon: image
-                });
-        
-                point.setMap(map);
-                points.push(point);
-            }
-        }
-    }
-}
+            if (isInsideCircle(filterCrashes[index].lng, filterCrashes[index].lat, circlesCordinates[0][j][1], circlesCordinates[0][j][0], 0.004254)) {
+                if(hasItbeenSeen(filterCrashes[index].ogrID, nonRepeatedPoints) == false){
+                    nonRepeatedPoints.push(filterCrashes[index]);
+                    // define variables this way so its easier to manipulate
+                    let type = filterCrashes[index]['type'];
+                    let location = filterCrashes[index]['statefp'];
+                    let crash_year = parseInt(filterCrashes[index]['crash_year']);
+                    let killed = parseInt(filterCrashes[index]['killed']);
+                    let non_injuri = parseInt(filterCrashes[index]['non_injuri']);
+                    let unknown_injuri = parseInt(filterCrashes[index]['unknown_injuri']);
+                    let classA = parseInt(filterCrashes[index]['classA']);
+                    let classB = parseInt(filterCrashes[index]['classB']);
+                    let classC = parseInt(filterCrashes[index]['classC']);
+                    let classO = parseInt(filterCrashes[index]['classO']);
 
-function normalDraw() {
-    let mode = 1;
-    let pm26Data = {
-        goodTX: 0,
-        fairTX: 0,
-        poorTX: 0,
-        noDataTX: 0,
+         
+                    crashesData.classA += classA;
+                    crashesData.classB += classB;
+                    crashesData.classC += classC;
+                    crashesData.classO += classO;
+                    crashesData.non_injuri += non_injuri;
+                    crashesData.unknown_injuri += unknown_injuri;
+                    crashesData.killed += killed;
 
-        goodNM: 0,
-        fairNM: 0,
-        poorNM: 0,
-        noDataNM: 0,
-
-        tx_good_count: 0,
-        tx_fair_count: 0,
-        tx_poor_count: 0,
-        tx_no_data_count: 0,
-
-        nm_good_count: 0,
-        nm_fair_count: 0,
-        nm_poor_count: 0,
-        nm_no_data_count: 0,
-
-        dynamicTot: 0,
-        dynamicPoor: 0,
-
-        totTXBridges: 0,
-        totNMBridges: 0,
-        tnodatabridges: 0,
-
-        lowestRating: 0
-    };
-
-    let data_for_php = 0;
-    let shape = "shape";
-    let php_handler = "docs/js/map_resources/map_handler.php";
-
-    if (mode == 0 || mode == 1) { // if we want regional (default) data
-        let key = 'all_pm26';
-        data_for_php = {
-            key: key
-        };
-    }
-
-    console.log(php_handler);
-    console.log(data_for_php);
-
-    $.get(php_handler, data_for_php, function (data) {
-        console.log("returned");
-        console.log(data);
-        let image = "../../docs/images/crash.png";
-        
-        let condition = '';
-        var lowestRating = 0;
-
-        for (index in data.shape_arr) { // Organize information into dictionaries
-            let deck_cond_ = parseInt(data.shape_arr[index]['deck_cond_']);
-            let superstruc = parseInt(data.shape_arr[index]['superstruc']);
-            let substruc_c = parseInt(data.shape_arr[index]['substruc_c']);
-            let region = data.shape_arr[index]['region'];
-            let type = data.shape_arr[index]['mode'];
-            //  let typeHolder = currentType;
-            lowestRating = Math.min(deck_cond_, superstruc, substruc_c);
-
-            let holder = [];
-
-            if (mode == 1 || mode == 2 || mode == 4) { // mode 1 and 2 allows us to draw points 
-                holder.push(wktFormatterPoint(data.shape_arr[index][shape]));
-                holder = holder[0][0]; // Fixes BLOBs
-                let to_visualize = {
-                    lat: parseFloat(holder[0].lat),
-                    lng: parseFloat(holder[0].lng)
-                };
-                let titleH = condition + ": " + lowestRating;
-                if (lowestRating == 999) {
-                    titleH = condition;
+                    //filter by type
+                    crashesData.crashCount++; 
+                    crashesData.injured += classA;
+                    if (type == "Pedestrian" || type == "PED") {
+                        image = "../../docs/images/ped.png";
+                        crashesData.crashCountW++;
+                        crashesData.injured_walking += classA;
+                        crashesData.killed_walking += killed;
+                    } else if (type == "Commerical_Vehicles" || type == "COMV") {
+                        image = "../../docs/images/truck.png";
+                        crashesData.crashCountF++;
+                        crashesData.injured_freight += classA;
+                        crashesData.killed_freight += killed;
+                    } else if (type == "GEN") {
+                        image = "../../docs/images/crash.png";
+                        crashesData.crashCountD++;
+                        crashesData.injured_driving += classA;
+                        crashesData.killed_Driving += killed;
+                    } else if (type == "Pedcyclists" || type == "BIKE") {
+                        image = "../../docs/images/cyclist.png";
+                        crashesData.crashCountB++;
+                        crashesData.injured_biking += classA;
+                        crashesData.killed_biking += killed; 
+                    } else if (type == "BIKE_COMV") {
+                        image = "../../docs/images/cyclist.png";
+                        crashesData.crashCountB++;
+                        crashesData.crashCountW++;
+                        crashesData.injured_biking += classA;
+                        crashesData.injured_freight += classA;
+                        crashesData.killed_biking += killed; 
+                        crashesData.killed_freight += killed; 
+                        
+                    } else if (type == "PED_COMV") {
+                        image = "../../docs/images/ped.png";
+                        crashesData.crashCountF++;
+                        crashesData.crashCountW++;
+                        crashesData.injured_walking += classA;
+                        crashesData.injured_freight += classA;
+                        crashesData.killed_walking += killed; 
+                        crashesData.killed_freight += killed; 
+                    }
+    
+                    let point = new google.maps.Marker({
+                        position: filterCrashes[index],
+                        title: "Year: " + crash_year + " \nSerious Injuries " + classA + 
+                        " \nNon-Incapacitating Injuries: " + classB + "\nPossible Injuries: " +
+                         classC + "\nNon-Injury: " + non_injuri + "\nkilled: " + killed,
+                        icon: image
+                    });
+    
+                    point.setMap(map);
+                    points.push(point);
                 }
-                let point = new google.maps.Marker({
-                    position: to_visualize,
-                    title: titleH,
-                    // value: '',
-                    icon: image
-                });
-                // draw by 1 type at a time
-
-                point.setMap(map);
-                points.push(point);
-
-
+              
             }
+        }
+        
+    }
+    document.getElementById("f1_seriousInjuries").innerHTML = crashesData.classA;
+    document.getElementById("f1_nonI").innerHTML = crashesData.classB;
+    document.getElementById("f1_possibleI").innerHTML = crashesData.classC;
+    document.getElementById("f1_InjuredD").innerHTML = crashesData.injured_driving;
+    document.getElementById("f1_InjuredW").innerHTML = crashesData.injured_walking;
+    document.getElementById("f1_InjuredF").innerHTML = crashesData.injured_freight;
+    document.getElementById("f1_InjuredB").innerHTML = crashesData.injured_biking;
+    document.getElementById("f1_killed").innerHTML = crashesData.killed;
+    document.getElementById("f1_killedD").innerHTML = crashesData.killed_Driving;
+    document.getElementById("f1_killedW").innerHTML = crashesData.killed_walking;
+    document.getElementById("f1_killedF").innerHTML = crashesData.killed_freight;
+    document.getElementById("f1_killedB").innerHTML = crashesData.killed_biking;
 
-        }
+    document.getElementById("f1_crashes").innerHTML = crashesData.crashCount;
+    document.getElementById("f1_crashesD").innerHTML = crashesData.crashCountD;
+    document.getElementById("f1_crashesW").innerHTML = crashesData.crashCountW;
+    document.getElementById("f1_crashesF").innerHTML = crashesData.crashCountF;
+    document.getElementById("f1_crashesB").innerHTML = crashesData.crashCountB;
+    //document.getElementById("pm18DrivingText").innerHTML = pm18data.dtot;
+  //  document.getElementById("pm18DrivingText").innerHTML = pm18data.dtot;
 
-        // tot counts
-        let totTX = pm26Data.tx_good_count + pm26Data.tx_fair_count + pm26Data.tx_poor_count + pm26Data.tx_no_data_count;
-        let totNM = pm26Data.nm_good_count + pm26Data.nm_fair_count + pm26Data.nm_poor_count + pm26Data.nm_no_data_count;
-        let totBad = pm26Data.tx_poor_count + pm26Data.nm_poor_count;
-        let mpoArea = totTX + totNM;
-        let mpo = ((totBad / mpoArea) * 100).toFixed(2);
-
-        pm26Data.tnodatabridges = pm26Data.tx_no_data_count + pm26Data.nm_no_data_count;
-        pm26Data.dynamicTot = pm26Data.totTXBridges + pm26Data.totNMBridges;
-        pm26Data.dynamicPoor = (((pm26Data.tx_poor_count + pm26Data.nm_poor_count) / pm26Data.dynamicTot) * 100).toFixed(2);
-
-        //formulas
-        if (pm26Data.tx_good_count != 0) {
-            pm26Data.goodTX = ((pm26Data.tx_good_count / pm26Data.dynamicTot) * 100).toFixed(2);
-        }
-        if (pm26Data.tx_fair_count != 0) {
-            pm26Data.fairTX = ((pm26Data.tx_fair_count / pm26Data.dynamicTot) * 100).toFixed(2);
-        }
-        if (pm26Data.tx_poor_count != 0) {
-            pm26Data.poorTX = ((pm26Data.tx_poor_count / pm26Data.dynamicTot) * 100).toFixed(2);
-        }
-        if (pm26Data.tx_no_data_count != 0) {
-            pm26Data.noDataTX = ((pm26Data.tx_no_data_count / pm26Data.dynamicTot) * 100).toFixed(2);
-        }
-        //nm
-        if (pm26Data.nm_good_count != 0) {
-            pm26Data.goodNM = ((pm26Data.nm_good_count / pm26Data.dynamicTot) * 100).toFixed(2);
-        }
-        if (pm26Data.nm_fair_count != 0) {
-            pm26Data.fairNM = ((pm26Data.nm_fair_count / pm26Data.dynamicTot) * 100).toFixed(2);
-        }
-        if (pm26Data.nm_poor_count != 0) {
-            pm26Data.poorNM = ((pm26Data.nm_poor_count / pm26Data.dynamicTot) * 100).toFixed(2);
-        }
-        if (pm26Data.nm_no_data_count != 0) {
-            pm26Data.noDataNM = ((pm26Data.nm_no_data_count / pm26Data.dynamicTot) * 100).toFixed(2);
-        }
-
-        if (mode == 1) {
-            // regionalText(pm26Data);
-        }
-
-    });
+    console.log(crashesData);
 }
 
 
-function check_a_point(x, y, circlex, circley, r) {
-   // console.log(x + " " + y + " " + circlex + " " + circley + " " + r);
+//checks if given point belongs to given circle
+function isInsideCircle(x, y, circlex, circley, r) {
+    // console.log(x + " " + y + " " + circlex + " " + circley + " " + r);
     var dist = (x - circlex) * (x - circlex) + (y - circley) * (y - circley);
     r *= r;
     if (dist < r) return true;
     return false;
-
-    /*
-        var dist_points = (a - x) * (a - x) + (b - y) * (b - y);
-        r *= r;
-        if (dist_points < r) {
-            return true;
-        }
-        return false;
-        */
 }
