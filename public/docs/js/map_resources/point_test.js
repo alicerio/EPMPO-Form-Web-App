@@ -3,6 +3,62 @@
  *  
  */
 
+var crashesData = {
+    classA: 0, //Serious Injuries
+    classB: 0, //Non-Incapacitating Injuries
+    classC: 0, //Possible Injuries
+    classO: 0,
+    non_injuri: 0,
+    unknown_injuri: 0,
+    killed:0,
+    injured: 0,
+    injured_driving: 0,
+    injured_walking: 0,
+    injured_freight: 0,
+    injured_biking: 0,
+    killed_Driving: 0,
+    killed_walking:0 ,
+    killed_freight:0,
+    killed_biking:0,
+    //count of crashes
+    crashCount: 0,
+    crashCountD: 0,
+    crashCountW: 0,
+    crashCountF: 0,
+    crashCountB: 0,
+    //totals
+    dtot: 0,
+    ftot: 0,
+    wtot: 0,
+    btot: 0,
+}
+function setAll(val) {
+    Object.keys(crashesData).forEach(function(index) {
+        crashesData[index] = val
+    });
+}
+function clearCrashesData() {
+    setAll(0);
+    document.getElementById("f1_seriousInjuries").innerHTML = crashesData.classA;
+    document.getElementById("f1_nonI").innerHTML = crashesData.classB;
+    document.getElementById("f1_possibleI").innerHTML = crashesData.classC;
+    document.getElementById("f1_InjuredD").innerHTML = crashesData.injured_driving;
+    document.getElementById("f1_InjuredW").innerHTML = crashesData.injured_walking;
+    document.getElementById("f1_InjuredF").innerHTML = crashesData.injured_freight;
+    document.getElementById("f1_InjuredB").innerHTML = crashesData.injured_biking;
+    document.getElementById("f1_killed").innerHTML = crashesData.killed;
+    document.getElementById("f1_killedD").innerHTML = crashesData.killed_Driving;
+    document.getElementById("f1_killedW").innerHTML = crashesData.killed_walking;
+    document.getElementById("f1_killedF").innerHTML = crashesData.killed_freight;
+    document.getElementById("f1_killedB").innerHTML = crashesData.killed_biking;
+
+    document.getElementById("f1_crashes").innerHTML = crashesData.crashCount;
+    document.getElementById("f1_crashesD").innerHTML = crashesData.crashCountD;
+    document.getElementById("f1_crashesW").innerHTML = crashesData.crashCountW;
+    document.getElementById("f1_crashesF").innerHTML = crashesData.crashCountF;
+    document.getElementById("f1_crashesB").innerHTML = crashesData.crashCountB;
+}
+
 
 //checks if point C is inside A and B
 function insideRange(pointA, pointB, pointC) {
@@ -22,7 +78,6 @@ function differencePositive(val1, val2) {
 
 // formula to check if a point lies between 2 points
 function distance(pointA, pointB) {
-    //   console.log(Math.sqrt(Math.pow((pointA.lng - pointB.lng), 2) + Math.pow((pointA.lat - pointB.lat), 2)));
     return Math.sqrt(Math.pow((pointA.lng - pointB.lng), 2) + Math.pow((pointA.lat - pointB.lat), 2));
 }
 //filters possible points, this will help eliminate excess of points
@@ -48,14 +103,7 @@ function filterCrashes(circlesCordinates) {
     //get all points
     $.get(php_handler, data_for_php, function (data) {
         console.log(data);
-        let latestYear = 0;
-        //get latest year
-        for (index in data.shape_arr) {
-            let year = data.shape_arr[index].crash_year;
-            if (latestYear < year) {
-                latestYear = year;
-            }
-        }
+
 
         for (index in data.shape_arr) {
             holder = [];
@@ -99,7 +147,7 @@ function filterCrashes(circlesCordinates) {
         }
         console.log(filter_crashes);
 
-        crashes(circlesCordinates, filter_crashes, latestYear);
+        crashes(circlesCordinates, filter_crashes);
     });
 
 
@@ -115,48 +163,18 @@ function hasItbeenSeen(currentPoint, nonRepeatedPoints){
 }
 
 //draws, filters and stores info
-function crashes(circlesCordinates, filterCrashes,latestYear) {
-    console.log(latestYear);
+function crashes(circlesCordinates, filterCrashes) {
     //holds all info displayed on statistics
-    var crashesData = {
-        classA: 0, //Serious Injuries
-        classB: 0, //Non-Incapacitating Injuries
-        classC: 0, //Possible Injuries
-        classO: 0,
-        non_injuri: 0,
-        unknown_injuri: 0,
-        killed:0,
-        injured: 0,
-        injured_driving: 0,
-        injured_walking: 0,
-        injured_freight: 0,
-        injured_biking: 0,
-        killed_Driving: 0,
-        killed_walking:0 ,
-        killed_freight:0,
-        killed_biking:0,
-        //count of crashes
-        crashCount: 0,
-        crashCountD: 0,
-        crashCountW: 0,
-        crashCountF: 0,
-        crashCountB: 0,
-        //totals
-        dtot: 0,
-        ftot: 0,
-        wtot: 0,
-        btot: 0,
-        latestYear: 0
-    }
     var nonRepeatedPoints = [];
     let image = "../../docs/images/small_blue_pin.png";
-
+    //console.log(filterCrashes);
     for (j in circlesCordinates[0]) {
         for (index in filterCrashes) { // Organize information into dictionaries
             if (isInsideCircle(filterCrashes[index].lng, filterCrashes[index].lat, circlesCordinates[0][j][1], circlesCordinates[0][j][0], 0.004254)) {
                 if(hasItbeenSeen(filterCrashes[index].ogrID, nonRepeatedPoints) == false){
                     nonRepeatedPoints.push(filterCrashes[index]);
                     // define variables this way so its easier to manipulate
+                    console.log(filterCrashes[index]['ogrID']);
                     let type = filterCrashes[index]['type'];
                     let location = filterCrashes[index]['statefp'];
                     let crash_year = parseInt(filterCrashes[index]['crash_year']);
@@ -226,7 +244,8 @@ function crashes(circlesCordinates, filterCrashes,latestYear) {
                          classC + "\nNon-Injury: " + non_injuri + "\nkilled: " + killed,
                         icon: image
                     });
-    
+
+                 
                     point.setMap(map);
                     points.push(point);
                 }
@@ -235,6 +254,7 @@ function crashes(circlesCordinates, filterCrashes,latestYear) {
         }
         
     }
+    // Note: Could not place the these inside a method since it would not synchronize, it was necessary to repeat this code 
     document.getElementById("f1_seriousInjuries").innerHTML = crashesData.classA;
     document.getElementById("f1_nonI").innerHTML = crashesData.classB;
     document.getElementById("f1_possibleI").innerHTML = crashesData.classC;
@@ -253,16 +273,12 @@ function crashes(circlesCordinates, filterCrashes,latestYear) {
     document.getElementById("f1_crashesW").innerHTML = crashesData.crashCountW;
     document.getElementById("f1_crashesF").innerHTML = crashesData.crashCountF;
     document.getElementById("f1_crashesB").innerHTML = crashesData.crashCountB;
-    //document.getElementById("pm18DrivingText").innerHTML = pm18data.dtot;
-  //  document.getElementById("pm18DrivingText").innerHTML = pm18data.dtot;
-
     console.log(crashesData);
 }
 
 
 //checks if given point belongs to given circle
 function isInsideCircle(x, y, circlex, circley, r) {
-    // console.log(x + " " + y + " " + circlex + " " + circley + " " + r);
     var dist = (x - circlex) * (x - circlex) + (y - circley) * (y - circley);
     r *= r;
     if (dist < r) return true;

@@ -44,6 +44,7 @@ function clearMetadata() {
     makersClicked = [];
     linesGenerated = [];
     counterCORD = 0;
+    clearCrashesData();
 }
 
 function addLine(points) {
