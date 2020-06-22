@@ -1,3 +1,21 @@
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <script src="http://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdn.rawgit.com/bjornharrtell/jsts/gh-pages/1.4.0/jsts.min.js"></script>
+
+    <script src="{{ asset('docs/js/map_resources/map.js')}}"></script>
+    <script src="{{ asset('docs/js/map_resources/line_test.js')}}"></script>
+    <script src="{{ asset('docs/js/map_resources/point_test.js')}}"></script>
+    <script src="{{ asset('docs/js/map_resources/shapeFunctions.js')}}"></script>
+    <script src="{{ asset('docs/js/map_resources/toggle_handler.js')}}"></script>
+
+    <style>
+        #map {
+            height: 450px;
+            width: 100%;
+        }
+    </style>
+</head>
 <div class="card">
     <div class="card-header">
         Electronic Project Request Form (5310 ePRF)
@@ -28,6 +46,10 @@
             Limit To
         </label>
         <input type="text" class="form-control" name="limit_to" autocomplete="off" value="{{ $project->limit_to ?? '' }}" disabled>
+        <button  class="btn btn-info" style="margin:1%" type="button" id="toggleMapButton">Draw Project limit and query data</button>
+        <div>@include('projects.map')</div>
+        
+
         <label>
             Need and Purpose:
         </label>
@@ -64,3 +86,12 @@
         </div>
     </div>
 </div>
+<script>
+    $(document).ready(function() {
+    $("#toggleMapButton").click(function(){
+       $("#mapH").toggle( 'slow', function(){
+          $(".log").text('Toggle Transition Complete');
+       });
+    });
+ });
+</script> 

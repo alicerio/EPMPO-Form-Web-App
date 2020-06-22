@@ -45,5 +45,5 @@
     </form>
 </div>
 <script src="{{ asset('docs/js/form2FrontEndLogic.js')}}"></script>
-
+<script src="{{ asset('docs/js/logOfChangesLogic.js')}}"></script>
 @endsection
