@@ -2,6 +2,9 @@
     window.onload = function() {
         form2_setView();
     };
+    var obj = <?php echo json_encode($logOfChanges);?>; 
+            console.log(obj);
+        
 </script>
 @extends('layouts.app')
 

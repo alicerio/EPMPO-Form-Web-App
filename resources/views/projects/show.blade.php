@@ -3,7 +3,7 @@
     window.onload = function() {
         make_project_funding_readonly();
     };
-    var obj = <?php echo json_encode($project);?>; 
+    var obj = <?php echo json_encode($logOfChanges);?>; 
             console.log(obj);
 </script>
 
