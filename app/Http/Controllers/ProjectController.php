@@ -460,8 +460,8 @@ class ProjectController extends Controller
             }
         }
 
-        return view('projects.show_Comment', compact('project', 'logOfChanges'));
-        // return view('projects.show_Comment');*/
+        return view('projects.show_Comment', compact('project', 'logOfChanges')); */
+         return view('projects.show_Comment', compact('project'));
     }
 
     /**
