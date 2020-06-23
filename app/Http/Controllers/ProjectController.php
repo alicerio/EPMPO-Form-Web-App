@@ -410,12 +410,11 @@ class ProjectController extends Controller
                 }
             }
         }
-        // if ($project->project_type == 1) {
+         if ($project->project_type == 1) {
             return view('projects.show', compact('project', 'logOfChanges'));
-       /* } else {
+        } else if($project->project_type == 2) {
             return view('projects/5310.show2', compact('project', 'logOfChanges'));
-        } */
-        //return view('projects.show', compact('logOfChanges'));
+        } 
     }
 
     public function show_Comment(Project $project)
