@@ -349,6 +349,24 @@ class ProjectController extends Controller
         $project->comments_4 = request('comments_4');
         $project->comments_5 = request('comments_5');
 
+        $project->serious_injuries = request("serious_injuries");
+        $project->non_incapacitating_injuries = request('non_incapacitating_injuries');
+        $project->possible_injuries = request("possible_injuries");
+        $project->injured_driving = request('injured_driving');
+        $project->injured_walking = request('injured_walking');
+        $project->injured_freight = request('injured_freight');
+        $project->injured_biking = request('injured_biking');
+        $project->killed = request('killed');
+        $project->killed_driving = request('killed_driving');
+        $project->killed_walking = request('killed_walking');
+        $project->killed_freight = request('killed_freight');
+        $project->killed_biking = request('killed_biking');
+        $project->crashes = request('crashes');
+        $project->crashes_driving = request('crashes_driving');
+        $project->crashes_walking = request('crashes_walking');
+        $project->crashes_freight = request('crashes_freight');
+        $project->crashes_biking = request('crashes_biking');
+
         $project->save();
 
         if($project->project_type == 1) {
@@ -778,6 +796,25 @@ class ProjectController extends Controller
         $project->comments_3 = request('comments_3');
         $project->comments_4 = request('comments_4');
         $project->comments_5 = request('comments_5');
+
+        $project->serious_injuries = request('serious_injuries');
+        $project->non_incapacitating_injuries = request('non_incapacitating_injuries');
+        $project->possible_injuries = request("possible_injuries");
+        $project->injured_driving = request('injured_driving');
+        $project->injured_walking = request('injured_walking');
+        $project->injured_freight = request('injured_freight');
+        $project->injured_biking = request('injured_biking');
+        $project->killed = request('killed');
+        $project->killed_driving = request('killed_driving');
+        $project->killed_walking = request('killed_walking');
+        $project->killed_freight = request('killed_freight');
+        $project->killed_biking = request('killed_biking');
+        $project->crashes = request('crashes');
+        $project->crashes_driving = request('crashes_driving');
+        $project->crashes_walking = request('crashes_walking');
+        $project->crashes_freight = request('crashes_freight');
+        $project->crashes_biking = request('crashes_biking');
+
         if($project->status != request('status')){
             $newProject = $project->replicate();
             $newProject->status = request('status');
@@ -815,6 +852,7 @@ class ProjectController extends Controller
      * @param  \App\Project  $project
      * @return \Illuminate\Http\Response
      */
+    /*
     public function updateMPO(Request $request, Project $project)
     {
         $project->mpo_id = request('mpo_id');
@@ -824,8 +862,14 @@ class ProjectController extends Controller
 
         return redirect(route('projects.index'));
     }
-    public function editInfo(Project $project)
+    */
+
+    public function editInfo(Request $request, Project $project)
     {
+        $project->mpo_id = request('mpo_id');
+        $project->csj_cn = request('csj_cn');
+        $project->save();
+
         return view('projects.editInfo', compact('project'));
     }
 

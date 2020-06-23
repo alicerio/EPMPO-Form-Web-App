@@ -58,7 +58,7 @@
                             @else
                             <td>{{ $statuses[$project->status] }}</td>
                             @endif
-                    <td>{{ $project->author}}</td> <!-- TO DO: add type of project here, currently db does not save that -->
+                    <td>{{ $project->project_type}}</td>
                             <td>
                                 <div class="dropdown">
                                     <button class="btn btn-secondary dropdown-toggle" type="button"

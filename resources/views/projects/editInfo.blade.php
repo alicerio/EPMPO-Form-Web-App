@@ -2,29 +2,27 @@
 
 @section('content')
 <div class="container">
-    <div class="row">
-        <div class="col-md-12">
-            <div class="card">
-                <div class="card-header">Edit Project Info</div>
-                <div class="card-body">
-                    <form  method="POST">
-                        @csrf
-                        @method('PATCH')
-                        <label>
-                           MPO ID:
-                        </label>
-                        <input type="text" name="name" class="form-control" value="{{ $project->name ?? '' }}">
-
-                        <label>
-                            CSJ:
-                        </label>
-                        <input type="text" name="name" class="form-control" value="{{ $user->name ?? '' }}">
-
-                        <button class="btn btn-primary mt-1 float-right">Update</button>
-                    </form>
+    <form action="{{route('projects.editInfo',$project->id)}}'" method="PATCH">
+        @csrf
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header">Edit Project Info</div>
+                        <div class="card-body">
+                            <label>
+                                MPO ID:
+                            </label>
+                            <input type="text" name="mpo_id" class="form-control" value="{{ $project->mpo_id ?? '' }}">
+                            <label>
+                                CSJ:
+                            </label>
+                            <input type="text" name="csj_cn" class="form-control" value="{{ $project->csj_cn ?? '' }}">
+                            <button class="btn btn-primary mt-1 float-right">Update</button>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
+    </form>
 </div>
 @endsection

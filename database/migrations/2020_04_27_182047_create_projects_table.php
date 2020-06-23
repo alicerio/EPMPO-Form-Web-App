@@ -15,7 +15,7 @@ class CreateProjectsTable extends Migration
             $table->unsignedBigInteger('parent_id')->nullable(); // use this field to reference a previous project / revision; if it's a new project then it won't have a parent id
 
             $table->tinyInteger('status')->default(0);
-            $table->tinyInteger('project_type')->default(0);
+            $table->tinyInteger('project_type')->default(1);
 
             // only admins can edit mpo_id and csj_cn
             $table->string('mpo_id')->nullable();
@@ -352,6 +352,25 @@ class CreateProjectsTable extends Migration
             $table->text('comments_4')->nullable();
             $table->text('comments_5')->nullable();
 
+            //$table->json('crash_categories')->nullable();
+            // This fields should later be stored as one json.
+            $table->Integer('serious_injuries')->nullable();
+            $table->Integer('non_incapacitating_injuries')->nullable();
+            $table->Integer('possible_injuries')->nullable();
+            $table->Integer('injured_driving')->nullable();
+            $table->Integer('injured_walking')->nullable();
+            $table->Integer('injured_freight')->nullable();
+            $table->Integer('injured_biking')->nullable();
+            $table->Integer('killed')->nullable();
+            $table->Integer('killed_driving')->nullable();
+            $table->Integer('killed_walking')->nullable();
+            $table->Integer('killed_freight')->nullable();
+            $table->Integer('killed_biking')->nullable();
+            $table->Integer('crashes')->nullable();
+            $table->Integer('crashes_driving')->nullable();
+            $table->Integer('crashes_walking')->nullable();
+            $table->Integer('crashes_freight')->nullable();
+            $table->Integer('crashes_biking')->nullable();
 
             $table->timestamps();
         });
