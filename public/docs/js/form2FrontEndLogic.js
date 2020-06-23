@@ -313,8 +313,5 @@ function form2_setView() {
    document.getElementById("local_operations_total").readOnly = true;
    document.getElementById("local_beyond_operations_total").readOnly = true;
    document.getElementById("total_operations_total").readOnly = true;
-
-
-
-   
 }
+

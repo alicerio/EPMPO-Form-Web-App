@@ -1,9 +1,5 @@
 @auth
 @if (auth()->user()->type == 2 && $project->status == 2)
-<script>
-    var obj = <?php echo json_encode($logOfChanges);?>; 
-            console.log(obj);
-</script>
 <button class="btn btn-primary" name="data" type="button" onclick="displayChanges(obj)">Log of changes</button>
 @else
 @endif

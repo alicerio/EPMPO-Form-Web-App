@@ -20,8 +20,8 @@ class ProjectController extends Controller
     {
         $projects = Project::all()->where('parent_id', null);
         $agencies = Agency::all();
-        $statuses = ['In Progress','PM Pending Review','Submitted', 'Approved','In Progress [Returned for Revision]'];
-        return view('projects.index', compact('projects', 'statuses','agencies'));
+        $statuses = ['In Progress', 'PM Pending Review', 'Submitted', 'Approved', 'In Progress [Returned for Revision]'];
+        return view('projects.index', compact('projects', 'statuses', 'agencies'));
     }
 
     public function revisions($id)
@@ -29,14 +29,14 @@ class ProjectController extends Controller
         $projects = Project::orderBy('created_at', 'asc')->where('parent_id', $id)->get();
         $projects->prepend(Project::find($id));
         $agencies = Agency::all();
-        $counts = [0,0,0,0,0];
-        $statuses = ['In Progress','PM Pending Review','Submitted', 'Approved','In Progress [Returned for Revision]'];
-        return view('projects.revisions', compact('projects', 'statuses','agencies', 'counts'));
+        $counts = [0, 0, 0, 0, 0];
+        $statuses = ['In Progress', 'PM Pending Review', 'Submitted', 'Approved', 'In Progress [Returned for Revision]'];
+        return view('projects.revisions', compact('projects', 'statuses', 'agencies', 'counts'));
     }
 
     public function create()
     {
-        return view('projects.create');        
+        return view('projects.create');
     }
 
     public function exportExcel()
@@ -45,7 +45,7 @@ class ProjectController extends Controller
         $columns = $project->getTableColumns();
         $projects = $project->getAll();
         $data = new collection();
-        foreach($columns as $column){
+        foreach ($columns as $column) {
             $data[0] = (object) $column;
         }
         $data = $data->merge($projects);
@@ -369,10 +369,9 @@ class ProjectController extends Controller
 
         $project->save();
 
-        if($project->project_type == 1) {
+        if ($project->project_type == 1) {
             return view('projects.edit', compact('project'));
-        }
-        else {
+        } else {
             return view('projects/5310.edit2', compact('project'));
         }
     }
@@ -383,56 +382,63 @@ class ProjectController extends Controller
      * @param  \App\Project  $project
      * @return \Illuminate\Http\Response
      */
+
+    /*
+        Here we are filtering all the projects on the database
+        we filter so we send the past submitted project only
+     */
     public function show(Project $project)
     {
-        $projects = Project::all();//Project::where('mpo_id', $project->mpo_id)->get();
+        $projects = Project::all(); //store all projects
         error_log(count($projects));
         $attributesOfProjects = [];
         $logOfChanges = [];
         $currentProject = [];
         $oldestProject = 0;
         $hasMoreVersions = false;
-
+ 
         // gets prev project
-        foreach($projects as $projectHolder){
-             //filters all projects with same parent ID and projects older than current project
-            if($project->id != $projectHolder->id && $projectHolder->status == 2){ //not same project and status = 1 since its a submission
-                if($project->parent_id == null && $project->id  == $projectHolder->parent_id|| ($project->parent_id != null && $project->parent_id  == $projectHolder->parent_id) || ($project->parent_id != null && $project->parent_id  == $projectHolder->id)){
-                    if(strtotime($project->created_at) > strtotime($projectHolder->created_at) ){
-                        if($oldestProject < $projectHolder->id){
-                            $hasMoreVersions =true;
+        foreach ($projects as $projectHolder) {
+            //filters all projects with same parent ID and projects older than current project
+            if ($project->id != $projectHolder->id && $projectHolder->status == 2) { //not same project and status = 1 since its a submission
+                if ($project->parent_id == null && $project->id  == $projectHolder->parent_id || ($project->parent_id != null && $project->parent_id  == $projectHolder->parent_id) || ($project->parent_id != null && $project->parent_id  == $projectHolder->id)) {
+                    if (strtotime($project->created_at) > strtotime($projectHolder->created_at)) { // if current project is newer than the project being iterated (project holder)
+                        //gets oldest project id
+                        if ($oldestProject < $projectHolder->id) {
+                            $hasMoreVersions = true;
                             unset($attributesOfProjects); //reset
                             $attributesOfProjects = [];
-                            array_push($attributesOfProjects,$projectHolder->attributesToArray());
-                            $oldestProject = $projectHolder->id;  
+                            array_push($attributesOfProjects, $projectHolder->attributesToArray());
+                            $oldestProject = $projectHolder->id;
                         }
-                     }
+                    }
                 }
             }
-         }
+        }
 
-        array_push($currentProject,$project->attributesToArray()); //convert format of current Project
+        array_push($currentProject, $project->attributesToArray()); //convert format of current Project
         error_log(count($attributesOfProjects));
-         //push
-        if($hasMoreVersions){
-            foreach($attributesOfProjects[0] as $key => $value){
-                if($attributesOfProjects[0][$key] != $currentProject[0][$key]){
+        //push
+        if ($hasMoreVersions) {
+            // iterates each column of table and stores only the ones that contain a change
+            foreach ($attributesOfProjects[0] as $key => $value) {
+                if ($attributesOfProjects[0][$key] != $currentProject[0][$key]) {
                     //$logOfChanges[$key] = ("Difference in: ".$key." old Value is: ".$attributesOfProjects[0][$key]);
                     $logOfChanges[$key] = $attributesOfProjects[0][$key];
                 }
             }
         }
-        if($project->project_type == 1) {
-            return view('projects.show', compact('project', 'logOfChanges'));        }
-        else {
+         if ($project->project_type == 1) {
+            return view('projects.show', compact('project', 'logOfChanges'));
+        } else if($project->project_type == 2) {
             return view('projects/5310.show2', compact('project', 'logOfChanges'));
-        }
-        //return view('projects.show', compact('project'));
+        } 
     }
 
     public function show_Comment(Project $project)
     {
-        $projects = Project::all();//Project::where('mpo_id', $project->mpo_id)->get();
+        /*
+        $projects = Project::all(); //Project::where('mpo_id', $project->mpo_id)->get();
         error_log(count($projects));
         $attributesOfProjects = [];
         $logOfChanges = [];
@@ -441,38 +447,38 @@ class ProjectController extends Controller
         $hasMoreVersions = false;
 
         // gets prev project
-        foreach($projects as $projectHolder){
-             //filters all projects with same parent ID and projects older than current project
-            if($project->id != $projectHolder->id){ //not same project
-                if($project->parent_id == null && $project->id  == $projectHolder->parent_id|| ($project->parent_id != null && $project->parent_id  == $projectHolder->parent_id) || ($project->parent_id != null && $project->parent_id  == $projectHolder->id)){
-                    if(strtotime($project->created_at) > strtotime($projectHolder->created_at) ){
-                        if($oldestProject < $projectHolder->id){
-                            $hasMoreVersions =true;
+        foreach ($projects as $projectHolder) {
+            //filters all projects with same parent ID and projects older than current project
+            if ($project->id != $projectHolder->id) { //not same project
+                if ($project->parent_id == null && $project->id  == $projectHolder->parent_id || ($project->parent_id != null && $project->parent_id  == $projectHolder->parent_id) || ($project->parent_id != null && $project->parent_id  == $projectHolder->id)) {
+                    if (strtotime($project->created_at) > strtotime($projectHolder->created_at)) {
+                        if ($oldestProject < $projectHolder->id) {
+                            $hasMoreVersions = true;
                             unset($attributesOfProjects); //reset
                             $attributesOfProjects = [];
-                            array_push($attributesOfProjects,$projectHolder->attributesToArray());
-                            $oldestProject = $projectHolder->id;  
-                          //  print_r($attributesOfProjects);
+                            array_push($attributesOfProjects, $projectHolder->attributesToArray());
+                            $oldestProject = $projectHolder->id;
+                            //  print_r($attributesOfProjects);
                         }
-                     }
+                    }
                 }
             }
-         }
+        }
 
-        array_push($currentProject,$project->attributesToArray()); //convert format of current Project
+        array_push($currentProject, $project->attributesToArray()); //convert format of current Project
         error_log(count($attributesOfProjects));
-         //push
-        if($hasMoreVersions){
-            foreach($attributesOfProjects[0] as $key => $value){
-                if($attributesOfProjects[0][$key] != $currentProject[0][$key]){
+        //push
+        if ($hasMoreVersions) {
+            foreach ($attributesOfProjects[0] as $key => $value) {
+                if ($attributesOfProjects[0][$key] != $currentProject[0][$key]) {
                     //$logOfChanges[$key] = ("Difference in: ".$key." old Value is: ".$attributesOfProjects[0][$key]);
                     $logOfChanges[$key] = $attributesOfProjects[0][$key];
                 }
             }
         }
-        
-        return view('projects.show_Comment', compact('project', 'logOfChanges'));
-       // return view('projects.show_Comment');
+
+        return view('projects.show_Comment', compact('project', 'logOfChanges')); */
+         return view('projects.show_Comment', compact('project'));
     }
 
     /**
@@ -483,10 +489,9 @@ class ProjectController extends Controller
      */
     public function edit(Project $project)
     {
-        if($project->project_type == 1) {
+        if ($project->project_type == 1) {
             return view('projects.edit', compact('project'));
-        }
-        else {
+        } else {
             return view('projects/5310.edit2', compact('project'));
         }
     }
@@ -501,7 +506,7 @@ class ProjectController extends Controller
     public function update(Request $request, Project $project)
     {
 
-        if(request('status') != $project->status && $project->status > 0){
+        if (request('status') != $project->status && $project->status > 0) {
             $newProject = $project->replicate();
             $newProject->status = request('status');
             $newProject->parent_id = ($project->parent_id != null) ? $project->parent_id : $project->id;
@@ -820,14 +825,13 @@ class ProjectController extends Controller
             $newProject->status = request('status');
             $newProject->parent_id = ($project->parent_id != null) ? $project->parent_id : $project->id;
             $newProject->save();
-        }else{            
+        } else {
             $project->save();
         }
 
-        if($project->project_type == 1) {
+        if ($project->project_type == 1) {
             return view('projects.edit', compact('project'));
-        }
-        else {
+        } else {
             return view('projects/5310.edit2', compact('project'));
         }
     }
@@ -844,8 +848,8 @@ class ProjectController extends Controller
         return redirect(route('projects.index'));
     }
 
-   
-     /**
+
+    /**
      * Update the specified resource MPO ID in storage.
      *
      * @param  \Illuminate\Http\Request  $request
@@ -872,5 +876,4 @@ class ProjectController extends Controller
 
         return view('projects.editInfo', compact('project'));
     }
-
 }

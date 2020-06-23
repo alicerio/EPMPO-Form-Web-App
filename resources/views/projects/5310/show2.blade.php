@@ -2,6 +2,11 @@
     window.onload = function() {
         form2_setView();
     };
+    var obj = <?php echo json_encode($logOfChanges);?>; 
+            console.log(obj);
+    var projectobj = <?php echo json_encode($project);?>; 
+            console.log(projectobj);
+        
 </script>
 @extends('layouts.app')
 
@@ -45,5 +50,7 @@
     </form>
 </div>
 <script src="{{ asset('docs/js/form2FrontEndLogic.js')}}"></script>
+<script src="{{ asset('docs/js/logOfChangesLogic.js')}}"></script>
+
 
 @endsection
