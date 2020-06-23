@@ -4,6 +4,8 @@
     };
     var obj = <?php echo json_encode($logOfChanges);?>; 
             console.log(obj);
+    var projectobj = <?php echo json_encode($project);?>; 
+            console.log(projectobj);
         
 </script>
 @extends('layouts.app')

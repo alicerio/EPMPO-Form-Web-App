@@ -19,7 +19,7 @@
             <a class="btn btn-primary btn-block" onclick="print()" role="button">Export to PDF</a>
         </div>
         <div class="col">
-            <select name="status" class="form-control" autocomplete="off">
+            <select id="select_Action" onchange="changeButtonText('select_Action','button_text_changer')" name="status" class="form-control" autocomplete="off">
                 <option value="0" selected>Save Progress</option>
                 <option value="1">Request PM Review</option>
             </select>
@@ -31,8 +31,8 @@
                 Submit
             </button>
             @else
-            <button class="btn btn-primary mt-1 btn-block" type="submit">
-                Save
+            <button id="button_text_changer"class="btn btn-primary mt-1 btn-block" type="submit">
+                Save Progress
             </button>
             @endif
             @endauth

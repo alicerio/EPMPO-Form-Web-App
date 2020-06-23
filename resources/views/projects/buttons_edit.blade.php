@@ -1,11 +1,11 @@
-<div class="row">
-    <div class="col">
-        <a class="btn btn-primary btn-block" href="{{route('project.excel')}}" role="button">Export to Excel</a>
+<div class="row col-8">
+    <div class="col-3">
+        <a class="btn btn-primary mt-1" href="{{route('project.excel')}}" role="button">Export to Excel</a>
     </div>
-    <div class="col">
-        <a class="btn btn-primary btn-block" onclick="print()" role="button">Export to PDF</a>
+    <div class="col-3">
+        <a class="btn btn-primary mt-1" onclick="print()" role="button">Export to PDF</a>
     </div>
-    <div class="col">
+    <div class="col-3">
         <select name="status" class="form-control" autocomplete="off">
             <option value="{{ $project->status }}" selected>Save Progress</option>
             {{-- Project is in progress --}}
@@ -22,17 +22,19 @@
             @endif
         </select>
     </div>
-    <div class="col">
+
+    <div class="col-3">
         @auth
         @if (auth()->user()->type == 1)
-        <button class="btn btn-primary mt-1 btn-block" type="sumbit">
+        <button class="btn btn-primary mt-1" type="sumbit">
             Submit
         </button>
         @else
-        <button class="btn btn-primary mt-1 btn-block" type="sumbit">
+        <button class="btn btn-primary mt-1" type="sumbit">
             Save
         </button>
         @endif
         @endauth
     </div>
+
 </div>

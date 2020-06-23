@@ -179,4 +179,9 @@ function make_project_funding_readonly() {
         i++;
     })
 }
-
+function changeButtonText(id_of_Text, id_button){
+    var select = document.getElementById(id_of_Text);
+    select = select.options[select.selectedIndex].text;
+    var button = document.getElementById(id_button);
+    button.textContent = select;
+}
