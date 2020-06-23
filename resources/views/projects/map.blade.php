@@ -5,78 +5,76 @@
       <div class="row">
         <div class="col-12">
           <h4>Crashes</h4>
-          <table>
-            <tr>
-              <td>Serious Injuries</td>
-              <td id="f1_seriousInjuries"></td>
-            </tr>
-
-            <tr>
-              <td>Non incapacitating Injuries</td>
-              <td id="f1_nonI"></td>
-            </tr>
-
-            <tr>
-              <td>Possible Injnuries</td>
-              <td id="f1_possibleI"></td>
-            </tr>
-            <tr>
-              <td>Injured Driving</td>
-              <td id="f1_InjuredD"></td>
-            </tr>
-            <tr>
-              <td>Injured Walking</td>
-              <td id="f1_InjuredW"></td>
-            </tr>
-            <tr>
-              <td>Injured Freight</td>
-              <td id="f1_InjuredF"></td>
-            </tr>
-            <tr>
-              <td>Injured Biking</td>
-              <td id="f1_InjuredB"></td>
-            </tr>
-            <tr>
-              <td>Killed</td>
-              <td id="f1_killed"></td>
-            </tr>
-            <tr>
-              <td>Killed Driving</td>
-              <td id="f1_killedD"></td>
-            </tr>
-            <tr>
-              <td>Killed Walking</td>
-              <td id="f1_killedW"></td>
-            </tr>
-            <tr>
-              <td>Killed Freight</td>
-              <td id="f1_killedF"></td>
-            </tr>
-            <tr>
-              <td>Killed Biking</td>
-              <td id="f1_killedB"></td>
-            </tr>
-            <tr>
-              <td>Crashes</td>
-              <td id="f1_crashes"></td>
-            </tr>
-            <tr>
-              <td>Crashes Driving</td>
-              <td id="f1_crashesD"></td>
-            </tr>
-            <tr>
-              <td>Crashes Walking</td>
-              <td id="f1_crashesW"></td>
-            </tr>
-            <tr>
-              <td>Crashes Freight</td>
-              <td id="f1_crashesF"></td>
-            </tr>
-            <tr>
-              <td>Crashes Biking</td>
-              <td id="f1_crashesB"></td>
-            </tr>
-          </table>
+                            <table>
+                                <tr>
+                                    <td>Serious Injuries</td>        
+                                    <td><input type="number" id = "f1_seriousInjuries" class="form-control" name="serious_injuries" value="{{$project->serious_injuries ?? ''}}" readonly></td>
+                                </tr>
+                                <tr>
+                                    <td>Non incapacitating Injuries</td>
+                                    <td><input type="number" id = "f1_nonI" class="form-control" name="non_incapacitating_injuries" value="{{$project->non_incapacitating_injuries ?? ''}}" readonly></td>
+                                </tr>
+                                <tr>
+                                    <td>Possible Injnuries</td>
+                                    <td><input type="number" id = "f1_possibleI" class="form-control" name="possible_injuries" value="{{$project->possible_injuries ?? ''}}" readonly></td>
+                                </tr>
+                                <tr>
+                                    <td>Injured Driving</td>
+                                    <td><input type="number" id = "f1_InjuredD" class="form-control" name="injured_driving" value="{{$project->injured_driving ?? ''}}" readonly></td>
+                                </tr>
+                                <tr>
+                                    <td>Injured Walking</td>
+                                    <td><input type="number" id = "f1_InjuredW" class="form-control" name="injured_walking" value="{{$project->injured_walking ?? ''}}" readonly></td>
+                                </tr>
+                                <tr>
+                                    <td>Injured Freight</td>
+                                    <td><input type="number" id = "f1_InjuredF" class="form-control" name="injured_freight" value="{{$project->injured_freight ?? ''}}" readonly></td>
+                                </tr>
+                                <tr>
+                                    <td>Injured Biking</td>
+                                    <td><input type="number" id = "f1_InjuredB" class="form-control" name="injured_biking" value="{{$project->injured_biking ?? ''}}" readonly></td>
+                                </tr>
+                                <tr>
+                                    <td>Killed</td>
+                                    <td><input type="number" id = "f1_killed" class="form-control" name="killed" value="{{$project->killed ?? ''}}" readonly></td>
+                                </tr>
+                                <tr>
+                                    <td>Killed Driving</td>
+                                    <td><input type="number" id = "f1_killedD" class="form-control" name="killed_driving" value="{{$project->killed_driving ?? ''}}" readonly></td>
+                                </tr>
+                                <tr>
+                                    <td>Killed Walking</td>
+                                    <td><input type="number" id = "f1_killedW" class="form-control" name="killed_walking" value="{{$project->killed_walking ?? ''}}" readonly></td>
+                                </tr>
+                                <tr>
+                                    <td>Killed Freight</td>
+                                    <td><input type="number" id = "f1_killedF" class="form-control" name="killed_freight" value="{{$project->killed_freight ?? ''}}" readonly></td>
+                                </tr>
+                                <tr>
+                                    <td>Killed Biking</td>
+                                    <td><input type="number" id = "f1_killedB" class="form-control" name="killed_biking" value="{{$project->killed_biking ?? ''}}" readonly></td>
+                                </tr>
+                                <tr>
+                                    <td>Crashes</td>
+                                    <td><input type="number" id = "f1_crashes" class="form-control" name="crashes" value="{{$project->crashes ?? ''}}" readonly></td>
+                                </tr>
+                                <tr>
+                                    <td>Crashes Driving</td>
+                                    <td><input type="number" id = "f1_crashesD" class="form-control" name="crashes_driving" value="{{$project->crashes_driving ?? ''}}" readonly></td>  
+                                </tr>
+                                <tr>
+                                    <td>Crashes Walking</td>
+                                    <td><input type="number" id = "f1_crashesW" class="form-control" name="crashes_walking" value="{{$project->crashes_walking ?? ''}}" readonly></td>
+                                </tr>
+                                <tr>
+                                    <td>Crashes Freight</td>
+                                    <td><input type="number" id = "f1_crashesF" class="form-control" name="crashes_freight" value="{{$project->crashes_freight ?? ''}}" readonly></td>
+                                </tr>
+                                <tr>
+                                    <td>Crashes Biking</td>
+                                    <td><input type="number" id = "f1_crashesB" class="form-control" name="crashes_biking" value="{{$project->crashes_biking ?? ''}}" readonly></td>
+                                </tr>
+                            </table>
         </div>
       </div>
     </div>
