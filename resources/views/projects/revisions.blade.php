@@ -23,21 +23,30 @@
                         </tr>
                     </thead>
                     <tbody>
+                        <!-- NOTE: This is where the statuses toggle    -->
                         @foreach ($projects as $index => $project)
-                            @if($project->agency_id == auth()->user()->agency->id && auth()->user()->type >= 0)
+                         <!-- Allow if agencies match ( for non-admins) OR if user is admin   -->
+                            @if(($project->agency_id == auth()->user()->agency->id && auth()->user()->type >= 0) || auth()->user()->type == 2)
                                 <tr class="{{ ($project->parent_id == null) ? 'table-info' : '' }}">
                                     <td>
-                                        @if($index == count($projects) - 1)
-                                            <a href="{{ route('projects.edit', $project->id) }}">
-                                                {{ $statuses[$project->status] }}
-                                                {{ ($statuses[$project->status] == 'Submitted') ? 'v' . ++$counts[$project->status] : '' }}
-                                            </a>
-                                        @else
+                                    <!--If status is submitted, display as show   -->
+                                        @if($project->status == 2)
                                             <a href="{{ route('projects.show', $project->id) }}">
                                                 {{ $statuses[$project->status] }}
                                                 {{ ($statuses[$project->status] == 'Submitted') ? 'v' . ++$counts[$project->status] : '' }}
                                             </a>
-                                        @endif
+                                    <!-- og code  -->
+                                        @elseif($index == count($projects) - 1)
+                                            <a href="{{ route('projects.edit', $project->id) }}">
+                                                {{ $statuses[$project->status] }}
+                                                {{ ($statuses[$project->status] == 'Submitted') ? 'v' . ++$counts[$project->status] : '' }}
+                                            </a>
+                                        @else 
+                                            <a href="{{ route('projects.show', $project->id) }}">
+                                                {{ $statuses[$project->status] }}
+                                                {{ ($statuses[$project->status] == 'Submitted') ? 'v' . ++$counts[$project->status] : '' }}
+                                            </a>
+                                        @endif 
                                     </td>
                                     <td>
                                         {{ $project->created_at }}

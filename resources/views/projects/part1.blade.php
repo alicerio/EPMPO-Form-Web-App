@@ -58,23 +58,7 @@
         @include('projects.map')
         <div id="mapH" style="display:none;">
             <div class="row">
-                <div class="col-md-8" id="map"></div>
-                <div class="col-md-4">
-                    <div class="row">
-                        <div class="col-12">
-                        </div>
-
-                    <!--    <div class="col-6">
-                            <h4>Pavements</h4>
-                            <table>
-                                <tr>
-                                    <td>Poor pavement miles:</td>
-                                    <td id="f1_pvmntMilespoor"></td>
-                                </tr>              
-                            </table>
-                        </div>
-                    </div> -->
-                </div>
+                <div id="map"></div>
             </div>
             <div class="row">
                 <button type='button' title="Get Crashes that within 50 meters of lines" onclick="point_drawer()">Query Crashes</button>

@@ -1,4 +1,4 @@
-<div class="row col-8">
+<div class="row col-12">
     <div class="col-3">
         <a class="btn btn-primary mt-1" href="{{route('project.excel')}}" role="button">Export to Excel</a>
     </div>
@@ -6,7 +6,7 @@
         <a class="btn btn-primary mt-1" onclick="print()" role="button">Export to PDF</a>
     </div>
     <div class="col-3">
-        <select name="status" class="form-control" autocomplete="off">
+        <select name="status" class="mx-1" onchange="changeButtonText('select_Action','button_text_changer')"autocomplete="off">
             <option value="{{ $project->status }}" selected>Save Progress</option>
             {{-- Project is in progress --}}
             @if($project->status == 0 || $project->status == 4)
