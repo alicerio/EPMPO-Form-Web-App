@@ -12,6 +12,10 @@ var linesGenerated = [];
 var polylines = [];
 var points = [];
 
+//document.getElementById("points").value = points;
+
+console.log(points);
+
 //clears points & lines and objects related to shapes on map
 function clearMetadata() {
     //lines of query
@@ -95,6 +99,8 @@ function addLatLng(event) {
         map: map
     });
     makersClicked.push(marker);
+    console.log(makersClicked);
+    document.getElementById("point").value = makersClicked;
 }
 //get coordinates between the points
 function generateCoordinates(point1, point2, circlesOnLines) {

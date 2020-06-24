@@ -7,6 +7,11 @@ use Illuminate\Support\Facades\DB;
 
 class Project extends Model
 {
+    // Casts array into json.
+    protected $casts = [
+        'points' => 'array'
+    ];
+
     public function getTableColumns() {
         $qry = "SELECT column_name
             FROM information_schema.columns

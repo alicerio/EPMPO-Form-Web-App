@@ -366,6 +366,7 @@ class ProjectController extends Controller
         $project->crashes_walking = request('crashes_walking');
         $project->crashes_freight = request('crashes_freight');
         $project->crashes_biking = request('crashes_biking');
+        $project->points = request('points');
 
         $project->save();
 
@@ -819,6 +820,7 @@ class ProjectController extends Controller
         $project->crashes_walking = request('crashes_walking');
         $project->crashes_freight = request('crashes_freight');
         $project->crashes_biking = request('crashes_biking');
+        $project->points = request('points');
 
         if($project->status != request('status')){
             $newProject = $project->replicate();

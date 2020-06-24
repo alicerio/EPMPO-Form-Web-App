@@ -174,7 +174,7 @@ function crashes(circlesCordinates, filterCrashes) {
                 if(hasItbeenSeen(filterCrashes[index].ogrID, nonRepeatedPoints) == false){
                     nonRepeatedPoints.push(filterCrashes[index]);
                     // define variables this way so its easier to manipulate
-                    console.log(filterCrashes[index]['ogrID']);
+                    //console.log(filterCrashes[index]['ogrID']);
                     let type = filterCrashes[index]['type'];
                     let location = filterCrashes[index]['statefp'];
                     let crash_year = parseInt(filterCrashes[index]['crash_year']);
@@ -254,6 +254,7 @@ function crashes(circlesCordinates, filterCrashes) {
         }
         
     }
+    //console.log(nonRepeatedPoints);
     document.getElementById("f1_seriousInjuries").value = crashesData.classA;
     document.getElementById("f1_nonI").value = crashesData.classB;
     document.getElementById("f1_possibleI").value = crashesData.classC;
