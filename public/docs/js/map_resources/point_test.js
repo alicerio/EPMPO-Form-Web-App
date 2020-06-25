@@ -39,24 +39,26 @@ function setAll(val) {
 }
 function clearCrashesData() {
     setAll(0);
-    document.getElementById("f1_seriousInjuries").innerHTML = crashesData.classA;
-    document.getElementById("f1_nonI").innerHTML = crashesData.classB;
-    document.getElementById("f1_possibleI").innerHTML = crashesData.classC;
-    document.getElementById("f1_InjuredD").innerHTML = crashesData.injured_driving;
-    document.getElementById("f1_InjuredW").innerHTML = crashesData.injured_walking;
-    document.getElementById("f1_InjuredF").innerHTML = crashesData.injured_freight;
-    document.getElementById("f1_InjuredB").innerHTML = crashesData.injured_biking;
-    document.getElementById("f1_killed").innerHTML = crashesData.killed;
-    document.getElementById("f1_killedD").innerHTML = crashesData.killed_Driving;
-    document.getElementById("f1_killedW").innerHTML = crashesData.killed_walking;
-    document.getElementById("f1_killedF").innerHTML = crashesData.killed_freight;
-    document.getElementById("f1_killedB").innerHTML = crashesData.killed_biking;
+    /*
+    document.getElementById("").innerHTML = crashesData.classA;
+    document.getElementById("").innerHTML = crashesData.classB;
+    document.getElementById("").innerHTML = crashesData.classC;
+    document.getElementById("").innerHTML = crashesData.injured_driving;
+    document.getElementById("").innerHTML = crashesData.injured_walking;
+    document.getElementById("").innerHTML = crashesData.injured_freight;
+    document.getElementById("").innerHTML = crashesData.injured_biking;
+    document.getElementById("").innerHTML = crashesData.killed;
+    document.getElementById("").innerHTML = crashesData.killed_Driving;
+    document.getElementById("").innerHTML = crashesData.killed_walking;
+    document.getElementById("").innerHTML = crashesData.killed_freight;
+    document.getElementById("").innerHTML = crashesData.killed_biking;
 
-    document.getElementById("f1_crashes").innerHTML = crashesData.crashCount;
-    document.getElementById("f1_crashesD").innerHTML = crashesData.crashCountD;
-    document.getElementById("f1_crashesW").innerHTML = crashesData.crashCountW;
-    document.getElementById("f1_crashesF").innerHTML = crashesData.crashCountF;
-    document.getElementById("f1_crashesB").innerHTML = crashesData.crashCountB;
+    document.getElementById("").innerHTML = crashesData.crashCount;
+    document.getElementById("").innerHTML = crashesData.crashCountD;
+    document.getElementById("").innerHTML = crashesData.crashCountW;
+    document.getElementById("").innerHTML = crashesData.crashCountF;
+    document.getElementById("").innerHTML = crashesData.crashCountB;
+    */
 }
 
 
@@ -255,24 +257,25 @@ function crashes(circlesCordinates, filterCrashes) {
         
     }
     //console.log(nonRepeatedPoints);
-    document.getElementById("f1_seriousInjuries").value = crashesData.classA;
-    document.getElementById("f1_nonI").value = crashesData.classB;
-    document.getElementById("f1_possibleI").value = crashesData.classC;
-    document.getElementById("f1_InjuredD").value = crashesData.injured_driving;
-    document.getElementById("f1_InjuredW").value = crashesData.injured_walking;
-    document.getElementById("f1_InjuredF").value = crashesData.injured_freight;
-    document.getElementById("f1_InjuredB").value = crashesData.injured_biking;
-    document.getElementById("f1_killed").value = crashesData.killed;
-    document.getElementById("f1_killedD").value = crashesData.killed_Driving;
-    document.getElementById("f1_killedW").value = crashesData.killed_walking;
-    document.getElementById("f1_killedF").value = crashesData.killed_freight;
-    document.getElementById("f1_killedB").value = crashesData.killed_biking;
+    /*
+    document.getElementById("").value = crashesData.classA;
+    document.getElementById("").value = crashesData.classB;
+    document.getElementById("").value = crashesData.classC;
+    document.getElementById("").value = crashesData.injured_driving;
+    document.getElementById("").value = crashesData.injured_walking;
+    document.getElementById("").value = crashesData.injured_freight;
+    document.getElementById("").value = crashesData.injured_biking;
+    document.getElementById("").value = crashesData.killed;
+    document.getElementById("").value = crashesData.killed_Driving;
+    document.getElementById("").value = crashesData.killed_walking;
+    document.getElementById("").value = crashesData.killed_freight;
+    document.getElementById("").value = crashesData.killed_biking;
 
-    document.getElementById("f1_crashes").value = crashesData.crashCount;
-    document.getElementById("f1_crashesD").value = crashesData.crashCountD;
-    document.getElementById("f1_crashesW").value = crashesData.crashCountW;
-    document.getElementById("f1_crashesF").value = crashesData.crashCountF;
-    document.getElementById("f1_crashesB").value = crashesData.crashCountB;
+    document.getElementById("").value = crashesData.crashCount;
+    document.getElementById("").value = crashesData.crashCountD;
+    document.getElementById("").value = crashesData.crashCountW;
+    document.getElementById("").value = crashesData.crashCountF;
+    document.getElementById("").value = crashesData.crashCountB;*/
     //document.getElementById("pm18DrivingText").innerHTML = pm18data.dtot;
   //  document.getElementById("pm18DrivingText").innerHTML = pm18data.dtot;
 
