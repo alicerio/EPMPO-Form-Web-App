@@ -21,7 +21,7 @@
         Electronic Project Request Form (5310 ePRF)
     </div>
     <div class="card-body">
-        <input id="project_type" type="hidden" class="form-control" name="project_type" value="{{ $project->project_type ?? '2' }}" readonly>
+        <input id="project_type" type="hidden" class="form-control" name="project_type" value="{{ $project->project_type ?? '5310' }}" readonly>
         <label>
             MPO ID
         </label>

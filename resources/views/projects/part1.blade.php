@@ -7,11 +7,6 @@
     <script src="{{ asset('docs/js/map_resources/point_test.js')}}"></script>
     <script src="{{ asset('docs/js/map_resources/shapeFunctions.js')}}"></script>
     <script src="{{ asset('docs/js/map_resources/toggle_handler.js')}}"></script>
-
-
-
-
-
     <style>
         #map {
             height: 450px;
@@ -24,7 +19,7 @@
         Electornic Project Request Form (ePRF)
     </div>
     <div class="card-body">
-        <input id="project_type" type="hidden" class="form-control" name="project_type" value="{{ $project->project_type ?? '1' }}" readonly>
+        <input id="project_type" type="hidden" class="form-control" name="project_type" value="{{ $project->project_type ?? 'TASA' }}" readonly>
         <label>
             MPO ID
         </label>
