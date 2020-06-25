@@ -7,6 +7,7 @@ function pavementCond(to_php) {
         good: 0,
         fair: 0,
         poor: 0,
+        no_data:0,
 
         tot_miles: 0,
         poor_mi_perc: 0,
@@ -65,7 +66,10 @@ function pavementCond(to_php) {
 
             // makes sure to only calculate the current mode
             if (type == currentType) {
-                if (iri > 0 && iri < 95) {
+                if(iri == 0){
+                    pm25Data.no_data += miles;
+                }
+                else if (iri > 0 && iri < 95) {
                     pm25Data.good += miles;
                 } else if (iri > 94 && iri < 171) {
                     pm25Data.fair += miles;
