@@ -13,15 +13,15 @@
     </div>
     <div class="col">
         @auth
-            @if (auth()->user()->type == 1)
-            <button class="btn btn-primary mt-1 btn-block" type="submit">
-                Submit
-            </button>
-            @else
-            <button id="button_text_changer"class="btn btn-primary mt-1 btn-block" type="submit">
-                Save Progress
-            </button>
-            @endif
+        @if (auth()->user()->type == 1)
+        <button class="btn btn-primary mt-1 btn-block" type="submit">
+            Submit
+        </button>
+        @else
+        <button id="button_text_changer" class="btn btn-primary mt-1 btn-block" type="submit">
+            Save Progress
+        </button>
+        @endif
         @endauth
     </div>
 </div>
