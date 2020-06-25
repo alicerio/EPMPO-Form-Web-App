@@ -350,23 +350,23 @@ class CreateProjectsTable extends Migration
 
             //$table->json('crash_categories')->nullable();
             // This fields should later be stored as one json.
-            $table->Integer('pavement_good_condition')->nullable();
-            $table->Integer('pavement_fair_condition')->nullable();
-            $table->Integer('pavement_poor_condition')->nullable();
-            $table->Integer('total_crash_EP')->nullable();
-            $table->Integer('fatal_crash_EP')->nullable();
-            $table->Integer('injury_crash_EP')->nullable();
-            $table->Integer('pedestrian_crash_EP')->nullable();
-            $table->Integer('total_crash_DA')->nullable();
-            $table->Integer('fatal_crash_DA')->nullable();
-            $table->Integer('injury_crash_DA')->nullable();
-            $table->Integer('pedestrian_crash_DA')->nullable();
-            $table->Integer('good_bridges')->nullable();
-            $table->Integer('fair_bridges')->nullable();
-            $table->Integer('poor_bridges')->nullable();
-            $table->Integer('good_area')->nullable();
-            $table->Integer('fair_area')->nullable();
-            $table->Integer('poor_area')->nullable();
+            $table->float('pavement_good_condition',8,2)->nullable();
+            $table->float('pavement_fair_condition',8,2)->nullable();
+            $table->float('pavement_poor_condition',8,2)->nullable();
+            $table->Integer('total_crash_EP',8,2)->nullable();
+            $table->Integer('fatal_crash_EP',8,2)->nullable();
+            $table->Integer('injury_crash_EP',8,2)->nullable();
+            $table->Integer('pedestrian_crash_EP',8,2)->nullable();
+            $table->Integer('total_crash_DA',8,2)->nullable();
+            $table->Integer('fatal_crash_DA',8,2)->nullable();
+            $table->Integer('injury_crash_DA',8,2)->nullable();
+            $table->Integer('pedestrian_crash_DA',8,2)->nullable();
+            $table->Integer('good_bridges',8,2)->nullable();
+            $table->Integer('fair_bridges',8,2)->nullable();
+            $table->Integer('poor_bridges',8,2)->nullable();
+            $table->float('good_area',8,2)->nullable();
+            $table->float('fair_area',8,2)->nullable();
+            $table->float('poor_area',8,2)->nullable();
             
             $table->json("points")->nullable();
 
