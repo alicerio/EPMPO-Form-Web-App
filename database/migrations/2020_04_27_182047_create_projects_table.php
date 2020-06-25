@@ -364,6 +364,9 @@ class CreateProjectsTable extends Migration
             $table->Integer('good_bridges')->nullable();
             $table->Integer('fair_bridges')->nullable();
             $table->Integer('poor_bridges')->nullable();
+            $table->Integer('good_area')->nullable();
+            $table->Integer('fair_area')->nullable();
+            $table->Integer('poor_area')->nullable();
             
             $table->json("points")->nullable();
 

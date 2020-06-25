@@ -359,6 +359,9 @@ class ProjectController extends Controller
         $project->good_bridges = request('good_bridges');
         $project->fair_bridges = request('fair_bridges');
         $project->poor_bridges = request('poor_bridges');
+        $project->good_area = request('good_area');
+        $project->fair_area = request('fair_area');
+        $project->poor_area = request('poor_area');
 
         $project->points = request('points');
 
@@ -808,6 +811,10 @@ class ProjectController extends Controller
         $project->good_bridges = request('good_bridges');
         $project->fair_bridges = request('fair_bridges');
         $project->poor_bridges = request('poor_bridges');
+        $project->good_area = request('good_area');
+        $project->fair_area = request('fair_area');
+        $project->poor_area = request('poor_area');
+
         $project->points = request('points');
 
         if($project->status != request('status')){

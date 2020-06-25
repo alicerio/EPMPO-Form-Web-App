@@ -20,18 +20,18 @@
         </tr>
         <tr>
           <td>Good Condition</td>
-          <td><input type="number" id="f1_seriousInjuries" class="form-control" name="serious_injuries"
-              value="{{$project->serious_injuries ?? ''}}" readonly></td>
+          <td><input type="number" id="good_pavement" class="form-control" name="pavement_good_condition"
+              value="{{$project->pavement_good_condition ?? ''}}" readonly></td>
         </tr>
         <tr>
           <td>Fair condition</td>
-          <td><input type="number" id="f1_nonI" class="form-control" name="non_incapacitating_injuries"
-              value="{{$project->non_incapacitating_injuries ?? ''}}" readonly></td>
+          <td><input type="number" id="fair_pavement" class="form-control" name="pavement_fair_condition"
+              value="{{$project->pavement_fair_condition ?? ''}}" readonly></td>
         </tr>
         <tr>
           <td>Poor condition</td>
-          <td><input type="number" id="f1_possibleI" class="form-control" name="possible_injuries"
-              value="{{$project->possible_injuries ?? ''}}" readonly></td>
+          <td><input type="number" id="poor_pavement" class="form-control" name="pavement_poor_condition"
+              value="{{$project->pavement_poor_condition ?? ''}}" readonly></td>
         </tr>
       </table>
     </div>
@@ -45,23 +45,23 @@
         </tr>
         <tr>
           <td>Total crashes</td>
-          <td><input type="number" id="f1_crashes" class="form-control" name="crashes"
-              value="{{$project->crashes ?? ''}}" readonly></td>
+          <td><input type="number" id="EP_total_crash" class="form-control" name="total_crash_EP"
+              value="{{$project->total_crash_EP ?? ''}}" readonly></td>
         </tr>
         <tr>
           <td>Fatal crashes</td>
-          <td><input type="number" id="f1_seriousInjuries" class="form-control" name="serious_injuries"
-              value="{{$project->serious_injuries ?? ''}}" readonly></td>
+          <td><input type="number" id="EP_fatal_crash" class="form-control" name="fatal_crash_EP"
+              value="{{$project->fatal_crash_EP ?? ''}}" readonly></td>
         </tr>
         <tr>
           <td>Serious injury Crashes</td>
-          <td><input type="number" id="f1_nonI" class="form-control" name="non_incapacitating_injuries"
-              value="{{$project->non_incapacitating_injuries ?? ''}}" readonly></td>
+          <td><input type="number" id="EP_injury_crash" class="form-control" name="injury_crash_EP"
+              value="{{$project->injury_crash_EP ?? ''}}" readonly></td>
         </tr>
         <tr>
           <td>Crashes Involving Pedestrians or cyclists</td>
-          <td><input type="number" id="f1_possibleI" class="form-control" name="possible_injuries"
-              value="{{$project->possible_injuries ?? ''}}" readonly></td>
+          <td><input type="number" id="EP_pedestrian_crash" class="form-control" name="pedestrian_crash_EP"
+              value="{{$project->pedestrian_crash_EP ?? ''}}" readonly></td>
         </tr>
       </table>
       <table class="table">
@@ -72,23 +72,23 @@
         </tr>
         <tr>
           <td>Total crashes</td>
-          <td><input type="number" id="f1_crashes" class="form-control" name="crashes"
-              value="{{$project->crashes ?? ''}}" readonly></td>
+          <td><input type="number" id="DA_total_crash" class="form-control" name="total_crash_DA"
+              value="{{$project->total_crash_DA ?? ''}}" readonly></td>
         </tr>
         <tr>
           <td>Fatal crashes</td>
-          <td><input type="number" id="f1_seriousInjuries" class="form-control" name="serious_injuries"
-              value="{{$project->serious_injuries ?? ''}}" readonly></td>
+          <td><input type="number" id="DA_fatal_crash" class="form-control" name="fatal_crash_DA"
+              value="{{$project->fatal_crash_DA ?? ''}}" readonly></td>
         </tr>
         <tr>
           <td>Serious injury Crashes</td>
-          <td><input type="number" id="f1_nonI" class="form-control" name="non_incapacitating_injuries"
-              value="{{$project->non_incapacitating_injuries ?? ''}}" readonly></td>
+          <td><input type="number" id="DA_injury_crash" class="form-control" name="injury_crash_DA"
+              value="{{$project->injury_crash_DA ?? ''}}" readonly></td>
         </tr>
         <tr>
           <td>Crashes Involving Pedestrians or cyclists</td>
-          <td><input type="number" id="f1_possibleI" class="form-control" name="possible_injuries"
-              value="{{$project->possible_injuries ?? ''}}" readonly></td>
+          <td><input type="number" id="DA_pedestrian_crash" class="form-control" name="pedestrian_crash_DA"
+              value="{{$project->pedestrian_crash_DA ?? ''}}" readonly></td>
         </tr>
       </table>
 
@@ -103,24 +103,24 @@
         </tr>
         <tr>
           <td>Good Condition</td>
-          <td><input type="number" id="f1_seriousInjuries" class="form-control" name="serious_injuries"
-              value="{{$project->serious_injuries ?? ''}}" readonly></td>
-          <td><input type="number" id="f1_seriousInjuries" class="form-control" name="serious_injuries"
-              value="{{$project->serious_injuries ?? ''}}" readonly></td>
+          <td><input type="number" id="good_bridge" class="form-control" name="good_bridges"
+              value="{{$project->good_bridges ?? ''}}" readonly></td>
+          <td><input type="number" id="good_deck_area" class="form-control" name="good_area"
+              value="{{$project->good_area ?? ''}}" readonly></td>
         </tr>
         <tr>
           <td>Fair condition</td>
-          <td><input type="number" id="f1_nonI" class="form-control" name="non_incapacitating_injuries"
-              value="{{$project->non_incapacitating_injuries ?? ''}}" readonly></td>
-          <td><input type="number" id="f1_seriousInjuries" class="form-control" name="serious_injuries"
-              value="{{$project->serious_injuries ?? ''}}" readonly></td>
+          <td><input type="number" id="fair_bridge" class="form-control" name="fair_bridges"
+              value="{{$project->fair_bridges ?? ''}}" readonly></td>
+          <td><input type="number" id="fair_deck_area" class="form-control" name="fair_area"
+              value="{{$project->fair_area ?? ''}}" readonly></td>
         </tr>
         <tr>
           <td>Poor condition</td>
-          <td><input type="number" id="f1_possibleI" class="form-control" name="possible_injuries"
-              value="{{$project->possible_injuries ?? ''}}" readonly></td>
-          <td><input type="number" id="f1_seriousInjuries" class="form-control" name="serious_injuries"
-              value="{{$project->serious_injuries ?? ''}}" readonly></td>
+          <td><input type="number" id="poor_bridge" class="form-control" name="poor_bridges"
+              value="{{$project->poor_bridges ?? ''}}" readonly></td>
+          <td><input type="number" id="poor_deck_area" class="form-control" name="poor_area"
+              value="{{$project->poor_area ?? ''}}" readonly></td>
         </tr>
       </table>
     </div>
