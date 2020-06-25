@@ -346,32 +346,25 @@ class CreateProjectsTable extends Migration
             $table->text('contact_title')->nullable();
 
             $table->text('signature')->nullable();
-            $table->text('comments_1')->nullable();
-            $table->text('comments_2')->nullable();
-            $table->text('comments_3')->nullable();
-            $table->text('comments_4')->nullable();
-            $table->text('comments_5')->nullable();
+            $table->text('comments')->nullable();
 
             //$table->json('crash_categories')->nullable();
             // This fields should later be stored as one json.
-            $table->Integer('serious_injuries')->nullable();
-            $table->Integer('non_incapacitating_injuries')->nullable();
-            $table->Integer('possible_injuries')->nullable();
-            $table->Integer('injured_driving')->nullable();
-            $table->Integer('injured_walking')->nullable();
-            $table->Integer('injured_freight')->nullable();
-            $table->Integer('injured_biking')->nullable();
-            $table->Integer('killed')->nullable();
-            $table->Integer('killed_driving')->nullable();
-            $table->Integer('killed_walking')->nullable();
-            $table->Integer('killed_freight')->nullable();
-            $table->Integer('killed_biking')->nullable();
-            $table->Integer('crashes')->nullable();
-            $table->Integer('crashes_driving')->nullable();
-            $table->Integer('crashes_walking')->nullable();
-            $table->Integer('crashes_freight')->nullable();
-            $table->Integer('crashes_biking')->nullable();
-
+            $table->Integer('pavement_good_condition')->nullable();
+            $table->Integer('pavement_fair_condition')->nullable();
+            $table->Integer('pavement_poor_condition')->nullable();
+            $table->Integer('total_crash_EP')->nullable();
+            $table->Integer('fatal_crash_EP')->nullable();
+            $table->Integer('injury_crash_EP')->nullable();
+            $table->Integer('pedestrian_crash_EP')->nullable();
+            $table->Integer('total_crash_DA')->nullable();
+            $table->Integer('fatal_crash_DA')->nullable();
+            $table->Integer('injury_crash_DA')->nullable();
+            $table->Integer('pedestrian_crash_DA')->nullable();
+            $table->Integer('good_bridges')->nullable();
+            $table->Integer('fair_bridges')->nullable();
+            $table->Integer('poor_bridges')->nullable();
+            
             $table->json("points")->nullable();
 
             $table->timestamps();

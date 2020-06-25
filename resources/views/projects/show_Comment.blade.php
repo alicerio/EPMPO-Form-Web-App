@@ -2,6 +2,8 @@
 
 @section('content')
 <div class="container">
+    <form action="{{route('projects.project_comments',$project->id)}}'" method="POST">
+        @csrf
     <div class="row">
         <div class="col-md-9">
             @include('projects.part1')
@@ -12,11 +14,9 @@
                     <div class="card card-info">
                         @auth
                         @if(auth()->user()->type == 2)
-                        <textarea placeholder="Comments" class="pb-cmnt-textarea" name="comments_1"
-                            value="{{$project->comments_1 }}"></textarea>
-                        <button class="btn btn-primary d-flex justify-content-center" type="button">Add Comment</button>
+                        <textarea name="comments_1" class="form-control" placeholder="Comments">{{$project->comments_1 ?? '' }}</textarea>
                         @else
-                        <textarea placeholder="Comments" class="pb-cmnt-textarea" readonly></textarea>
+                        <textarea name="comments_1" class="form-control" placeholder="Comments" readonly>{{$project->comments_1 ?? '' }}</textarea>
                         @endif
                         @endauth
                     </div>
@@ -37,11 +37,9 @@
                     <div class="card card-info">
                         @auth
                         @if(auth()->user()->type == 2)
-                        <textarea placeholder="Comments" class="pb-cmnt-textarea" name="comments_1"
-                            value="{{$project->comments_1 }}"></textarea>
-                        <button class="btn btn-primary d-flex justify-content-center" type="button">Add Comment</button>
+                        <textarea name="comments_2" class="form-control" placeholder="Comments">{{$project->comments_2 ?? '' }}</textarea>
                         @else
-                        <textarea placeholder="Comments" class="pb-cmnt-textarea" readonly></textarea>
+                        <textarea name="comments_2" class="form-control" placeholder="Comments" readonly>{{$project->comments_2 ?? '' }}</textarea>
                         @endif
                         @endauth
                     </div>
@@ -62,11 +60,9 @@
                     <div class="card card-info">
                         @auth
                         @if(auth()->user()->type == 2)
-                        <textarea placeholder="Comments" class="pb-cmnt-textarea" name="comments_1"
-                            value="{{$project->comments_1 }}"></textarea>
-                        <button class="btn btn-primary d-flex justify-content-center" type="button">Add Comment</button>
+                        <textarea name="comments_3" class="form-control" placeholder="Comments">{{$project->comments_3 ?? '' }}</textarea>
                         @else
-                        <textarea placeholder="Comments" class="pb-cmnt-textarea" readonly></textarea>
+                        <textarea name="comments_3" class="form-control" placeholder="Comments" readonly>{{$project->comments_3 ?? '' }}</textarea>
                         @endif
                         @endauth
                     </div>
@@ -87,11 +83,9 @@
                     <div class="card card-info">
                         @auth
                         @if(auth()->user()->type == 2)
-                        <textarea placeholder="Comments" class="pb-cmnt-textarea" name="comments_1"
-                            value="{{$project->comments_1 }}"></textarea>
-                        <button class="btn btn-primary d-flex justify-content-center" type="button">Add Comment</button>
+                        <textarea name="comments_4" class="form-control" placeholder="Comments">{{$project->comments_4 ?? '' }}</textarea>
                         @else
-                        <textarea placeholder="Comments" class="pb-cmnt-textarea" readonly></textarea>
+                        <textarea name="comments_4" class="form-control" placeholder="Comments" readonly>{{$project->comments_4 ?? '' }}</textarea>
                         @endif
                         @endauth
                     </div>
@@ -112,11 +106,9 @@
                     <div class="card card-info">
                         @auth
                         @if(auth()->user()->type == 2)
-                        <textarea placeholder="Comments" class="pb-cmnt-textarea" name="comments_1"
-                            value="{{$project->comments_1 }}"></textarea>
-                        <button class="btn btn-primary d-flex justify-content-center" type="button">Add Comment</button>
+                        <textarea name="comments_5" class="form-control" placeholder="Comments">{{$project->comments_5 ?? '' }}</textarea>
                         @else
-                        <textarea placeholder="Comments" class="pb-cmnt-textarea" readonly></textarea>
+                        <textarea name="comments_5" class="form-control" placeholder="Comments" readonly>{{$project->comments_5 ?? '' }}</textarea>
                         @endif
                         @endauth
                     </div>
@@ -135,11 +127,9 @@
                     <div class="card card-info">
                         @auth
                         @if(auth()->user()->type == 2)
-                        <textarea placeholder="Comments" class="pb-cmnt-textarea" name="comments_1"
-                            value="{{$project->comments_1 }}"></textarea>
-                        <button class="btn btn-primary d-flex justify-content-center" type="button">Add Comment</button>
+                        <textarea name="comments_6" class="form-control" placeholder="Comments">{{$project->comments_6 ?? '' }}</textarea>
                         @else
-                        <textarea placeholder="Comments" class="pb-cmnt-textarea" readonly></textarea>
+                        <textarea name="comments_6" class="form-control" placeholder="Comments" readonly>{{$project->comments_6 ?? '' }}</textarea>
                         @endif
                         @endauth
                     </div>
@@ -149,6 +139,7 @@
     </div>
     @if($project->status == 2)
     <a class="btn btn-primary" href="{{ url()->previous() }}" role="button">Comments</a>
+    <button class="btn btn-primary mt-1 float-right">Submit Comments</button>
     @endif
 </div>
 

@@ -49,41 +49,8 @@
             Limit To
         </label>
         <input type="text" class="form-control" name="limit_to" value="{{ $project->limit_to ?? ''}}" disabled>
-        <button  class="btn btn-info" id='toggleMapButton' type="button">Draw Project limit and query data</button>
+        <button class="btn btn-info" id='toggleMapButton' type="button">Draw Project limit and query data</button>
         @include('projects.map')
-        <div id="mapH" style="display:none;">
-            <div class="row">
-                <div class="col-md-8" id="map"></div>
-                <div class="col-md-4">
-                    <div class="row">
-                        <div class="col-12">
-                        </div>
-
-                    <!--    <div class="col-6">
-                            <h4>Pavements</h4>
-                            <table>
-                                <tr>
-                                    <td>Poor pavement miles:</td>
-                                    <td id="f1_pvmntMilespoor"></td>
-                                </tr>              
-                            </table>
-                        </div>
-                    </div> -->
-                </div>
-            </div>
-            <div class="row">
-                <button type='button' title="Get Crashes that within 50 meters of lines" onclick="point_drawer()">Query Crashes</button>
-                <button type='button' title="Display pavements that intersect with lines drawn" onclick="lineDrawer()">Query Pavements</button>
-                <button type='button' title="Clear map" onclick="clearMetadata()"> Clear</button>
-            </div>
-
-
-            <script async defer
-                src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCY0B3_Fr1vRpgJDdbvNmrVyXmoOOtiq64&libraries=visualization&libraries=drawing&callback=initMap">
-                src="http://code.jquery.com/ui/1.12.1/jquery-ui.min.js"
-            </script>
-
-        </div>
     </div>
 </div>
 <script>

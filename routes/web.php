@@ -16,7 +16,6 @@ Route::get('/', 'HomeController@index')->name('home');
 
 Route::resource('/users', 'UserController');
 
-Route::get('projects/comments/{project}', 'ProjectController@show_Comment')->name('projects.project_comments');
 Route::get('projects/revisions/{project}', 'ProjectController@revisions')->name('projects.revisions');
 
 Route::patch('projects/updateMPO/{project}', 'ProjectController@updateMPO')->name('projects.updateMPO');
@@ -53,6 +52,9 @@ Route::get('/test', function(){
 });
 
 Route::get('projects/editInfo/{project}', 'ProjectController@editInfo')->name('projects.editInfo');
+
+//Route::get('projects/comments/{project}', 'ProjectController@show_Comment')->name('projects.project_comments');
+
 
 // For demo purposes
 Route::get('/map', function(){

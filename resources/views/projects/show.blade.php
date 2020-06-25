@@ -47,10 +47,12 @@
                 @include('projects.part7')
             </div>
         </div>
+        {{--
         @if($project->status == 2)
         <a class="btn btn-primary" href="{{route('projects.project_comments',$project->id)}}" role="button">Comments</a>
         @endif
         @include('projects.buttons_show')
+        --}}
     </form>
 </div>
 <style>

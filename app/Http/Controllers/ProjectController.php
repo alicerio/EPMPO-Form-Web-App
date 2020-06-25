@@ -343,34 +343,28 @@ class ProjectController extends Controller
         $project->contact_agency = request('contact_agency');
         $project->contact_title = request('contact_title');
         $project->signature = request('signature');
-        $project->comments_1 = request('comments_1');
-        $project->comments_2 = request('comments_2');
-        $project->comments_3 = request('comments_3');
-        $project->comments_4 = request('comments_4');
-        $project->comments_5 = request('comments_5');
+        $project->comments = request('comments');
 
-        $project->serious_injuries = request("serious_injuries");
-        $project->non_incapacitating_injuries = request('non_incapacitating_injuries');
-        $project->possible_injuries = request("possible_injuries");
-        $project->injured_driving = request('injured_driving');
-        $project->injured_walking = request('injured_walking');
-        $project->injured_freight = request('injured_freight');
-        $project->injured_biking = request('injured_biking');
-        $project->killed = request('killed');
-        $project->killed_driving = request('killed_driving');
-        $project->killed_walking = request('killed_walking');
-        $project->killed_freight = request('killed_freight');
-        $project->killed_biking = request('killed_biking');
-        $project->crashes = request('crashes');
-        $project->crashes_driving = request('crashes_driving');
-        $project->crashes_walking = request('crashes_walking');
-        $project->crashes_freight = request('crashes_freight');
-        $project->crashes_biking = request('crashes_biking');
+        $project->pavement_good_condition = request('pavement_good_condition');
+        $project->pavement_fair_condition = request('pavement_fair_condition');
+        $project->pavement_poor_condition = request('pavement_poor_condition');
+        $project->total_crash_EP = request('total_crash_EP');
+        $project->fatal_crash_EP = request('fatal_crash_EP');
+        $project->injury_crash_EP = request('injury_crash_EP');
+        $project->pedestrian_crash_EP = request('pedestrian_crash_EP');
+        $project->total_crash_DA = request('total_crash_DA');
+        $project->fatal_crash_DA = request('fatal_crash_DA');
+        $project->injury_crash_DA = request('injury_crash_DA');
+        $project->pedestrian_crash_DA = request('pedestrian_crash_DA');
+        $project->good_bridges = request('good_bridges');
+        $project->fair_bridges = request('fair_bridges');
+        $project->poor_bridges = request('poor_bridges');
+
         $project->points = request('points');
 
         $project->save();
 
-        if ($project->project_type == 1) {
+        if ($project->project_type == "TASA") {
             return view('projects.edit', compact('project'));
         } else {
             return view('projects/5310.edit2', compact('project'));
@@ -429,16 +423,17 @@ class ProjectController extends Controller
                 }
             }
         }
-         if ($project->project_type == 1) {
+        if ($project->project_type == "TASA") {
             return view('projects.show', compact('project', 'logOfChanges'));
-        } else if($project->project_type == 2) {
+        } else {
             return view('projects/5310.show2', compact('project', 'logOfChanges'));
         } 
     }
 
+    /*
     public function show_Comment(Project $project)
     {
-        /*
+        
         $projects = Project::all(); //Project::where('mpo_id', $project->mpo_id)->get();
         error_log(count($projects));
         $attributesOfProjects = [];
@@ -478,9 +473,9 @@ class ProjectController extends Controller
             }
         }
 
-        return view('projects.show_Comment', compact('project', 'logOfChanges')); */
-         return view('projects.show_Comment', compact('project'));
-    }
+        return view('projects.show_Comment', compact('project', 'logOfChanges')); 
+        return view('projects.show_Comment', compact('project'));
+    }*/
 
     /**
      * Show the form for editing the specified resource.
@@ -490,7 +485,7 @@ class ProjectController extends Controller
      */
     public function edit(Project $project)
     {
-        if ($project->project_type == 1) {
+        if ($project->project_type == "TASA") {
             return view('projects.edit', compact('project'));
         } else {
             return view('projects/5310.edit2', compact('project'));
@@ -797,29 +792,22 @@ class ProjectController extends Controller
         $project->contact_agency = request('contact_agency');
         $project->contact_title = request('contact_title');
         $project->signature = request('signature');
-        $project->comments_1 = request('comments_1');
-        $project->comments_2 = request('comments_2');
-        $project->comments_3 = request('comments_3');
-        $project->comments_4 = request('comments_4');
-        $project->comments_5 = request('comments_5');
+        $project->comments = request('comments');
 
-        $project->serious_injuries = request('serious_injuries');
-        $project->non_incapacitating_injuries = request('non_incapacitating_injuries');
-        $project->possible_injuries = request("possible_injuries");
-        $project->injured_driving = request('injured_driving');
-        $project->injured_walking = request('injured_walking');
-        $project->injured_freight = request('injured_freight');
-        $project->injured_biking = request('injured_biking');
-        $project->killed = request('killed');
-        $project->killed_driving = request('killed_driving');
-        $project->killed_walking = request('killed_walking');
-        $project->killed_freight = request('killed_freight');
-        $project->killed_biking = request('killed_biking');
-        $project->crashes = request('crashes');
-        $project->crashes_driving = request('crashes_driving');
-        $project->crashes_walking = request('crashes_walking');
-        $project->crashes_freight = request('crashes_freight');
-        $project->crashes_biking = request('crashes_biking');
+        $project->pavement_good_condition = request('pavement_good_condition');
+        $project->pavement_fair_condition = request('pavement_fair_condition');
+        $project->pavement_poor_condition = request('pavement_poor_condition');
+        $project->total_crash_EP = request('total_crash_EP');
+        $project->fatal_crash_EP = request('fatal_crash_EP');
+        $project->injury_crash_EP = request('injury_crash_EP');
+        $project->pedestrian_crash_EP = request('pedestrian_crash_EP');
+        $project->total_crash_DA = request('total_crash_DA');
+        $project->fatal_crash_DA = request('fatal_crash_DA');
+        $project->injury_crash_DA = request('injury_crash_DA');
+        $project->pedestrian_crash_DA = request('pedestrian_crash_DA');
+        $project->good_bridges = request('good_bridges');
+        $project->fair_bridges = request('fair_bridges');
+        $project->poor_bridges = request('poor_bridges');
         $project->points = request('points');
 
         if($project->status != request('status')){
@@ -831,7 +819,7 @@ class ProjectController extends Controller
             $project->save();
         }
 
-        if ($project->project_type == 1) {
+        if ($project->project_type == "TASA") {
             return view('projects.edit', compact('project'));
         } else {
             return view('projects/5310.edit2', compact('project'));
@@ -878,4 +866,19 @@ class ProjectController extends Controller
 
         return view('projects.editInfo', compact('project'));
     }
+
+    /*
+    public function show_Comment(Request $request, Project $project) {
+        $project->comments_1 = request('comments_1');
+        $project->comments_2 = request('comments_2');
+        $project->comments_3 = request('comments_3');
+        $project->comments_4 = request('comments_4');
+        $project->comments_5 = request('comments_5');
+        $project->comments_6 = request('comments_6');
+
+        $project->save();
+
+        return view('projects.show_Comment',compact('project'));
+    }
+    */
 }
