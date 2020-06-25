@@ -11,7 +11,12 @@ var linesGenerated = [];
 // Globals for shapes on map
 var polylines = [];
 var points = [];
-
+var pavementsData = {
+    good: 0,
+    fair: 0,
+    poor: 0,
+    lane_miles: 0,
+}
 //document.getElementById("points").value = points;
 
 console.log(points);
@@ -100,7 +105,7 @@ function addLatLng(event) {
     });
     makersClicked.push(marker);
     console.log(makersClicked);
-    document.getElementById("point").value = makersClicked;
+    //document.getElementById("point").value = makersClicked;
 }
 //get coordinates between the points
 function generateCoordinates(point1, point2, circlesOnLines) {
