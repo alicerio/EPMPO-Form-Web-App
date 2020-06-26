@@ -16,13 +16,10 @@
         </select>
 
         <button id="button_text_changer" class="btn btn-primary mx-1" type="submit">
-            ---
         </button>
         <button class="btn btn-primary mx-1" name="data" type="button" onclick="displayChanges(obj)">Log of changes</button>
         @endif
    
-        <a id ="show_anchor1" class="btn btn-primary mx-1" href="{{route('projects.project_comments',$project->id)}}" role="button">Comments</a>
-
         <a id ="show_anchor2" class="btn btn-primary mx-1" href="{{route('project.excel')}}" role="button">Export to
             Excel</a>
   

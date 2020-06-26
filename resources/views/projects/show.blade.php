@@ -53,7 +53,6 @@
         @endif
         --}}
         @include('projects.buttons_show')
-        --}}
     </form>
 </div>
 <style>
