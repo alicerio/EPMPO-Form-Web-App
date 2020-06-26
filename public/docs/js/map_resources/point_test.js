@@ -7,36 +7,6 @@
 //     cond
 // } = require("lodash");
 
-var crashesData = {
-    classA: 0, //Serious Injuries
-    classB: 0, //Non-Incapacitating Injuries
-    classC: 0, //Possible Injuries
-    classO: 0,
-    non_injuri: 0,
-    unknown_injuri: 0,
-    killed: 0,
-    injured: 0,
-    injured_driving: 0,
-    injured_walking: 0,
-    injured_freight: 0,
-    injured_biking: 0,
-    killed_Driving: 0,
-    killed_walking: 0,
-    killed_freight: 0,
-    killed_biking: 0,
-    //count of crashes
-    crashCount: 0,
-    crashCountD: 0,
-    crashCountW: 0,
-    crashCountF: 0,
-    crashCountB: 0,
-    //totals
-    dtot: 0,
-    ftot: 0,
-    wtot: 0,
-    btot: 0,
-}
-
 function setAll(val) {
     Object.keys(crashesData).forEach(function (index) {
         crashesData[index] = val
@@ -184,72 +154,86 @@ function crashes(circlesCordinates, filterCrashes) {
                     // define variables this way so its easier to manipulate
                     //console.log(filterCrashes[index]['ogrID']);
                     let type = filterCrashes[index]['type'];
-                    let location = filterCrashes[index]['statefp'];
+                    let location = filterCrashes[index]['location'];
                     let crash_year = parseInt(filterCrashes[index]['crash_year']);
                     let killed = parseInt(filterCrashes[index]['killed']);
-                    let non_injuri = parseInt(filterCrashes[index]['non_injuri']);
-                    let unknown_injuri = parseInt(filterCrashes[index]['unknown_injuri']);
                     let classA = parseInt(filterCrashes[index]['classA']);
-                    let classB = parseInt(filterCrashes[index]['classB']);
-                    let classC = parseInt(filterCrashes[index]['classC']);
-                    let classO = parseInt(filterCrashes[index]['classO']);
+    
+                    let isFatal = "YES_NO";
+                    let isSerious  = "YES_NO"; 
+                    let isPedBike = "YES_NO";
 
+                    if(location == "48"){
+                        crashesData.total_crashes_tx++;
+                        crashesData.fatal_crashes_tx += killed;
+                        crashesData.serious_injury_crashes_tx += classA;
+                       
+                    }else if(location == "35"){
+                        crashesData.total_crashes_nm++;
+                        crashesData.fatal_crashes_nm += killed;
+                        crashesData.serious_injury_crashes_nm += classA;
+                    }
 
-                    crashesData.classA += classA;
-                    crashesData.classB += classB;
-                    crashesData.classC += classC;
-                    crashesData.classO += classO;
-                    crashesData.non_injuri += non_injuri;
-                    crashesData.unknown_injuri += unknown_injuri;
-                    crashesData.killed += killed;
+                    if(killed > 0){
+                        isFatal = "Yes";
+                    }else{
+                        isFatal = "No";
+                    }
 
+                    if(crypto > 0 ){
+                        isSerious = "Yes";
+                    }else{
+                        isSerious = "No";
+                    }
+                    isPedBike = "No";
                     //filter by type
-                    crashesData.crashCount++;
-                    crashesData.injured += classA;
                     if (type == "Pedestrian" || type == "PED") {
                         image = "../../docs/images/ped.png";
-                        crashesData.crashCountW++;
-                        crashesData.injured_walking += classA;
-                        crashesData.killed_walking += killed;
+                        isPedBike = "Yes";
+                        if(location == "48"){
+                            crashesData.ped_bike_crashes_tx;
+                         
+                        }else if(location == "35"){
+                            crashesData.ped_bike_crashes_nm;
+                        }
                     } else if (type == "Commerical_Vehicles" || type == "COMV") {
                         image = "../../docs/images/truck.png";
-                        crashesData.crashCountF++;
-                        crashesData.injured_freight += classA;
-                        crashesData.killed_freight += killed;
+       
                     } else if (type == "GEN") {
                         image = "../../docs/images/crash.png";
-                        crashesData.crashCountD++;
-                        crashesData.injured_driving += classA;
-                        crashesData.killed_Driving += killed;
+                   
                     } else if (type == "Pedcyclists" || type == "BIKE") {
                         image = "../../docs/images/cyclist.png";
-                        crashesData.crashCountB++;
-                        crashesData.injured_biking += classA;
-                        crashesData.killed_biking += killed;
+                        isPedBike = "Yes";
+                        if(location == "48"){
+                            crashesData.ped_bike_crashes_tx;
+                        }else if(location == "35"){
+                            crashesData.ped_bike_crashes_nm;
+                        }
                     } else if (type == "BIKE_COMV") {
                         image = "../../docs/images/cyclist.png";
-                        crashesData.crashCountB++;
-                        crashesData.crashCountW++;
-                        crashesData.injured_biking += classA;
-                        crashesData.injured_freight += classA;
-                        crashesData.killed_biking += killed;
-                        crashesData.killed_freight += killed;
-
+                        isPedBike = "Yes";
+                        if(location == "48"){
+                            crashesData.ped_bike_crashes_tx;
+                        }else if(location == "35"){
+                            crashesData.ped_bike_crashes_nm;
+                        }
                     } else if (type == "PED_COMV") {
                         image = "../../docs/images/ped.png";
-                        crashesData.crashCountF++;
-                        crashesData.crashCountW++;
-                        crashesData.injured_walking += classA;
-                        crashesData.injured_freight += classA;
-                        crashesData.killed_walking += killed;
-                        crashesData.killed_freight += killed;
+                        isPedBike = "Yes";
+                        if(location == "48"){
+                            crashesData.ped_bike_crashes_tx;
+                        }else if(location == "35"){
+                            crashesData.ped_bike_crashes_nm;
+                        }
                     }
 
                     let point = new google.maps.Marker({
                         position: filterCrashes[index],
-                        title: "Year: " + crash_year + " \nSerious Injuries " + classA +
-                            " \nNon-Incapacitating Injuries: " + classB + "\nPossible Injuries: " +
-                            classC + "\nNon-Injury: " + non_injuri + "\nkilled: " + killed,
+                        title: "Year: " + crash_year + 
+                        "\nFatal Crash: " + isFatal +
+                        "\nSerious injury crash: " + isSerious +
+                        "\nCrashes involving pedestrians or cyclists: " + isPedBike,
                         icon: image
                     });
 
