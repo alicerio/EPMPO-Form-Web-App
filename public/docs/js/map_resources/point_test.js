@@ -246,6 +246,16 @@ function crashes(circlesCordinates, filterCrashes) {
         }
 
     }
+    document.getElementById("EP_total_crash").value = crashesData.total_crashes_tx;
+    document.getElementById("EP_fatal_crash").value = crashesData.fatal_crashes_tx;
+    document.getElementById("EP_injury_crash").value = crashesData.serious_injury_crashes_tx;
+    document.getElementById("EP_pedestrian_crash").value = crashesData.ped_bike_crashes_tx;
+
+    document.getElementById("DA_total_crash").value = crashesData.total_crashes_nm;
+    document.getElementById("DA_fatal_crash").value = crashesData.fatal_crashes_nm;
+    document.getElementById("DA_injury_crash").value = crashesData.serious_injury_crashes_nm;
+    document.getElementById("DA_pedestrian_crash").value = crashesData.ped_bike_crashes_nm;
+
     //console.log(nonRepeatedPoints);
     /*
     document.getElementById("").value = crashesData.classA;
@@ -366,6 +376,12 @@ function bridges(circlesCordinates, filterBridges) {
         }
 
     }
+    document.getElementById("good_deck_area").value = bridgeData.deckArea_good;
+    document.getElementById("good_bridge").value = bridgeData.good;
+    document.getElementById("fair_deck_area").value = bridgeData.deckArea_fair;
+    document.getElementById("fair_bridge").value = bridgeData.fair;
+    document.getElementById("poor_deck_area").value = bridgeData.deckArea_poor;
+    document.getElementById("poor_bridge").value = bridgeData.poor;
     //console.log(nonRepeatedPoints);
     /*
     document.getElementById("").value = crashesData.classA;
