@@ -7,14 +7,17 @@
 //     cond
 // } = require("lodash");
 
-function setAll(val) {
-    Object.keys(crashesData).forEach(function (index) {
-        crashesData[index] = val
+function setAll(val,obj) {
+    Object.keys(obj).forEach(function (index) {
+        obj[index] = val
     });
 }
 
 function clearCrashesData() {
-    setAll(0);
+    setAll(0,crashesData);
+    setAll(0,bridgeData);
+    setAll(0,pavementsData);
+
     /*
     document.getElementById("").innerHTML = crashesData.classA;
     document.getElementById("").innerHTML = crashesData.classB;
