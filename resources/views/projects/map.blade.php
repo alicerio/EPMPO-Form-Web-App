@@ -3,7 +3,9 @@
     <div class="col-10" id="map"></div>
     <div style="margin-top:1%" class="col-2">
       <button type='button' class="btn btn-info" title="Get Crashes that within 50 meters of lines"
-        onclick="point_drawer()">Query Crashes</button>
+        onclick="point_drawer('crashes')">Query Crashes</button>
+        <button type='button' class="btn btn-info" title="Get Crashes that within 50 meters of lines"
+        onclick="point_drawer('bridges')">Query Bridges</button>
       <button type='button' class="btn btn-info" title="Display pavements that intersect with lines drawn"
         onclick="lineDrawer()">Query Pavements</button>
       <button type='button' class="btn btn-info" title="Clear map" onclick="clearMetadata()"> Clear</button>

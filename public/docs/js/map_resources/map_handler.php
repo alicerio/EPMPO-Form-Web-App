@@ -33,6 +33,8 @@
         $query = "select OGR_FID,crash_year,type,killed,classA,classB,classC,classO,non_injuri,unknown_in,statefp, astext(SHAPE) as shape from $pm_table where corridor_key = '$key'";
     } else if($key == "all_pm25"){
         $query = "select type,state_code,year_recor,iri, miles, astext(SHAPE) as shape from $pm_table where corridor_key = '$key'"; 
+    }else if($key == "form_bridges"){
+        $query = "select OGR_FID,cat10___br,cat29___de, astext(SHAPE) as shape from $pm_table where corridor_key = '$key'"; 
     }else {
         $query = "select astext(SHAPE) as shape from $pm_table where corridor_key = '$key'"; // temporal note: find an elegant way to generalize this
     }
