@@ -1,7 +1,8 @@
 function pavementCond(to_php) {
-    let color = '#03A9F4'; // default
+    let color = '#f403e0'; // default
     let shape = "shape";
     let php_handler = "../../docs/js/map_resources/line_handler.php";
+    let cond = "";
 
     $.get(php_handler, to_php, function (data) { // ajax call to populate pavement lines
         console.log(data);
@@ -21,7 +22,7 @@ function pavementCond(to_php) {
             let through_lanes =  parseFloat(data.shape_arr[index].through_la);
 
             let currentLaneMiles = (end_point - begin_point) * through_lanes;
-            let cond = "";
+           
             // makes sure to only calculate the current mode
             //  if (type == currentType) {
 
@@ -79,8 +80,6 @@ function pavementCond(to_php) {
 
             line.setMap(map);
             polylines.push(line);
-
-
         }
 
         console.log(pavementsData);

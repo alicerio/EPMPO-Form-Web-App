@@ -3,6 +3,10 @@
  *  
  */
 
+// const {
+//     cond
+// } = require("lodash");
+
 var crashesData = {
     classA: 0, //Serious Injuries
     classB: 0, //Non-Incapacitating Injuries
@@ -10,16 +14,16 @@ var crashesData = {
     classO: 0,
     non_injuri: 0,
     unknown_injuri: 0,
-    killed:0,
+    killed: 0,
     injured: 0,
     injured_driving: 0,
     injured_walking: 0,
     injured_freight: 0,
     injured_biking: 0,
     killed_Driving: 0,
-    killed_walking:0 ,
-    killed_freight:0,
-    killed_biking:0,
+    killed_walking: 0,
+    killed_freight: 0,
+    killed_biking: 0,
     //count of crashes
     crashCount: 0,
     crashCountD: 0,
@@ -32,11 +36,13 @@ var crashesData = {
     wtot: 0,
     btot: 0,
 }
+
 function setAll(val) {
-    Object.keys(crashesData).forEach(function(index) {
+    Object.keys(crashesData).forEach(function (index) {
         crashesData[index] = val
     });
 }
+
 function clearCrashesData() {
     setAll(0);
     /*
@@ -130,7 +136,7 @@ function filterCrashes(circlesCordinates) {
             let pointC = {
                 lat: parseFloat(holder[0].lat),
                 lng: parseFloat(holder[0].lng),
-                ogrID:ogrID,
+                ogrID: ogrID,
                 type: type,
                 location: location,
                 crash_year: crash_year,
@@ -158,9 +164,9 @@ function filterCrashes(circlesCordinates) {
     helps in not iterating on points that have already been seen ex: point 123 will only be read once
     helps in keeping calculations precise */
 
-function hasItbeenSeen(currentPoint, nonRepeatedPoints){
-    return (nonRepeatedPoints).some(function(nonRepeatedPointsVal) {
-    	return currentPoint === nonRepeatedPointsVal.ogrID;
+function hasItbeenSeen(currentPoint, nonRepeatedPoints) {
+    return (nonRepeatedPoints).some(function (nonRepeatedPointsVal) {
+        return currentPoint === nonRepeatedPointsVal.ogrID;
     });
 }
 
@@ -173,7 +179,7 @@ function crashes(circlesCordinates, filterCrashes) {
     for (j in circlesCordinates[0]) {
         for (index in filterCrashes) { // Organize information into dictionaries
             if (isInsideCircle(filterCrashes[index].lng, filterCrashes[index].lat, circlesCordinates[0][j][1], circlesCordinates[0][j][0], 0.004254)) {
-                if(hasItbeenSeen(filterCrashes[index].ogrID, nonRepeatedPoints) == false){
+                if (hasItbeenSeen(filterCrashes[index].ogrID, nonRepeatedPoints) == false) {
                     nonRepeatedPoints.push(filterCrashes[index]);
                     // define variables this way so its easier to manipulate
                     //console.log(filterCrashes[index]['ogrID']);
@@ -188,7 +194,7 @@ function crashes(circlesCordinates, filterCrashes) {
                     let classC = parseInt(filterCrashes[index]['classC']);
                     let classO = parseInt(filterCrashes[index]['classO']);
 
-         
+
                     crashesData.classA += classA;
                     crashesData.classB += classB;
                     crashesData.classC += classC;
@@ -198,7 +204,7 @@ function crashes(circlesCordinates, filterCrashes) {
                     crashesData.killed += killed;
 
                     //filter by type
-                    crashesData.crashCount++; 
+                    crashesData.crashCount++;
                     crashesData.injured += classA;
                     if (type == "Pedestrian" || type == "PED") {
                         image = "../../docs/images/ped.png";
@@ -219,42 +225,42 @@ function crashes(circlesCordinates, filterCrashes) {
                         image = "../../docs/images/cyclist.png";
                         crashesData.crashCountB++;
                         crashesData.injured_biking += classA;
-                        crashesData.killed_biking += killed; 
+                        crashesData.killed_biking += killed;
                     } else if (type == "BIKE_COMV") {
                         image = "../../docs/images/cyclist.png";
                         crashesData.crashCountB++;
                         crashesData.crashCountW++;
                         crashesData.injured_biking += classA;
                         crashesData.injured_freight += classA;
-                        crashesData.killed_biking += killed; 
-                        crashesData.killed_freight += killed; 
-                        
+                        crashesData.killed_biking += killed;
+                        crashesData.killed_freight += killed;
+
                     } else if (type == "PED_COMV") {
                         image = "../../docs/images/ped.png";
                         crashesData.crashCountF++;
                         crashesData.crashCountW++;
                         crashesData.injured_walking += classA;
                         crashesData.injured_freight += classA;
-                        crashesData.killed_walking += killed; 
-                        crashesData.killed_freight += killed; 
+                        crashesData.killed_walking += killed;
+                        crashesData.killed_freight += killed;
                     }
-    
+
                     let point = new google.maps.Marker({
                         position: filterCrashes[index],
-                        title: "Year: " + crash_year + " \nSerious Injuries " + classA + 
-                        " \nNon-Incapacitating Injuries: " + classB + "\nPossible Injuries: " +
-                         classC + "\nNon-Injury: " + non_injuri + "\nkilled: " + killed,
+                        title: "Year: " + crash_year + " \nSerious Injuries " + classA +
+                            " \nNon-Incapacitating Injuries: " + classB + "\nPossible Injuries: " +
+                            classC + "\nNon-Injury: " + non_injuri + "\nkilled: " + killed,
                         icon: image
                     });
 
-                 
+
                     point.setMap(map);
                     points.push(point);
                 }
-              
+
             }
         }
-        
+
     }
     //console.log(nonRepeatedPoints);
     /*
@@ -277,12 +283,130 @@ function crashes(circlesCordinates, filterCrashes) {
     document.getElementById("").value = crashesData.crashCountF;
     document.getElementById("").value = crashesData.crashCountB;*/
     //document.getElementById("pm18DrivingText").innerHTML = pm18data.dtot;
-  //  document.getElementById("pm18DrivingText").innerHTML = pm18data.dtot;
+    //  document.getElementById("pm18DrivingText").innerHTML = pm18data.dtot;
 
     console.log(crashesData);
 }
 
+//filters possible points, this will help eliminate excess of points
+function filterBridges(circlesCordinates) {
+    let php_handler = "../../docs/js/map_resources/map_handler.php";
 
+    let key = 'form_bridges';
+    data_for_php = {
+        key: key
+    };
+    let shape = "shape";
+    let filter_bridges = [];
+
+    let pointA = {
+        lat: circlesCordinates[0][0][0],
+        lng: circlesCordinates[0][0][1]
+    };
+    let pointB = {
+        lat: circlesCordinates[0][299][0],
+        lng: circlesCordinates[0][299][1]
+    };
+    //get all points
+    $.get(php_handler, data_for_php, function (data) {
+        console.log(data);
+
+        for (index in data.shape_arr) {
+            holder = [];
+            //gets info per iteration
+            let cond = data.shape_arr[index]['cat10___br'];
+            let deckA = parseInt(data.shape_arr[index]['cat29___de']);
+            let ogrID = data.shape_arr[index]['OGR_FID'];
+
+            holder.push(wktFormatterPoint(data.shape_arr[index][shape]));
+            holder = holder[0][0]; // Fixes BLOBs
+
+            //store info on point
+            let pointC = {
+                lat: parseFloat(holder[0].lat),
+                lng: parseFloat(holder[0].lng),
+                ogrID: ogrID,
+                cond: cond,
+                deckArea: deckA
+
+            };
+            //filter
+            if (insideRange(pointA, pointB, pointC)) {
+                filter_bridges.push(pointC);
+            }
+        }
+        console.log(filter_bridges);
+        bridges(circlesCordinates, filter_bridges);
+    });
+}
+function bridges(circlesCordinates, filterBridges) {
+    //holds all info displayed on statistics
+    console.log('inside bridges');
+    var nonRepeatedPoints = [];
+    let image = "../../docs/images/small_blue_pin.png";
+    for (j in circlesCordinates[0]) {
+        for (index in filterBridges) { // Organize information into dictionaries
+            if (isInsideCircle(filterBridges[index].lng, filterBridges[index].lat, circlesCordinates[0][j][1], circlesCordinates[0][j][0], 0.004254)) {
+                if (hasItbeenSeen(filterBridges[index].ogrID, nonRepeatedPoints) == false) {
+                    nonRepeatedPoints.push(filterBridges[index]);
+            
+                    let cond = filterBridges[index]['cond'];
+                    let deckA = filterBridges[index]['deckArea'];
+
+                    if(cond == "Good"){
+                        image = "../../docs/images/greenPin.png";
+                        bridgeData.deckArea_good += deckA;
+                        bridgeData.good++;
+                    }else if(cond == "Fair"){
+                        image = "../../docs/images/yellowPin.png";
+                        bridgeData.deckArea_fair += deckA;
+                        bridgeData.fair++;
+                    }else if(cond == "Poor"){
+                        bridgeData.deckArea_poor += deckA;
+                        image = "../../docs/images/redPin.png";
+                        bridgeData.poor++;
+                    }
+
+                    let point = new google.maps.Marker({
+                        position: filterBridges[index],
+                        title: "Condition: " + cond + " \nDeck Area (sq. ft.): " + deckA,
+                        icon: image
+                    });
+
+                    point.setMap(map);
+                    points.push(point);
+          
+                }
+
+            }
+        }
+
+    }
+    //console.log(nonRepeatedPoints);
+    /*
+    document.getElementById("").value = crashesData.classA;
+    document.getElementById("").value = crashesData.classB;
+    document.getElementById("").value = crashesData.classC;
+    document.getElementById("").value = crashesData.injured_driving;
+    document.getElementById("").value = crashesData.injured_walking;
+    document.getElementById("").value = crashesData.injured_freight;
+    document.getElementById("").value = crashesData.injured_biking;
+    document.getElementById("").value = crashesData.killed;
+    document.getElementById("").value = crashesData.killed_Driving;
+    document.getElementById("").value = crashesData.killed_walking;
+    document.getElementById("").value = crashesData.killed_freight;
+    document.getElementById("").value = crashesData.killed_biking;
+
+    document.getElementById("").value = crashesData.crashCount;
+    document.getElementById("").value = crashesData.crashCountD;
+    document.getElementById("").value = crashesData.crashCountW;
+    document.getElementById("").value = crashesData.crashCountF;
+    document.getElementById("").value = crashesData.crashCountB;*/
+    //document.getElementById("pm18DrivingText").innerHTML = pm18data.dtot;
+    //  document.getElementById("pm18DrivingText").innerHTML = pm18data.dtot;
+
+    console.log(bridgeData);
+}
 //checks if given point belongs to given circle
 function isInsideCircle(x, y, circlex, circley, r) {
     var dist = (x - circlex) * (x - circlex) + (y - circley) * (y - circley);

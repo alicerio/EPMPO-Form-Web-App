@@ -17,6 +17,14 @@ var pavementsData = {
     poor: 0,
     lane_miles: 0,
 }
+var bridgeData = {
+    good:0,
+    fair:0,
+    poor:0,
+    deckArea_good:0,
+    deckArea_fair:0,
+    deckArea_poor:0
+};
 //document.getElementById("points").value = points;
 
 console.log(points);
@@ -148,7 +156,7 @@ function pointInTheMiddle(point1, point2) {
 
 // Function that will iterate 2 points at a time and draws 2 points per iteration so
 // user can click infinite circles and draw
-function point_drawer() {
+function point_drawer(typeOfPoint) {
     let circleCordinates = [];
     for (let i = 0; i < paths.lat.length; i++) {
         if (i >= 1) {
@@ -161,7 +169,12 @@ function point_drawer() {
                 lng: parseFloat(paths.lng[i - 1])
             };
             circleCordinates.push(generateCoordinates(point1, point2, 300));
-            filterCrashes(circleCordinates);
+            if(typeOfPoint == "crashes"){
+                filterCrashes(circleCordinates);
+            }else if(typeOfPoint == "bridges"){
+                filterBridges(circleCordinates);
+            }
+           
             circleCordinates = [];
         }
     }
