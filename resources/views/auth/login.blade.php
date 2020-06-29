@@ -37,7 +37,7 @@
 						Welcome
 					</span>
 					<span class="login100-form-title p-b-48">
-						<img src="public/docs/images/elmpologoblack.png">
+						<img src="/docs/images/elmpologoblack.png">
 					</span>
 
 					<div class="wrap-input100 validate-input" data-validate = "Valid email is: a@b.c">

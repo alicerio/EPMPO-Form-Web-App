@@ -18,26 +18,29 @@ function clearCrashesData() {
     setAll(0,bridgeData);
     setAll(0,pavementsData);
 
-    /*
-    document.getElementById("").innerHTML = crashesData.classA;
-    document.getElementById("").innerHTML = crashesData.classB;
-    document.getElementById("").innerHTML = crashesData.classC;
-    document.getElementById("").innerHTML = crashesData.injured_driving;
-    document.getElementById("").innerHTML = crashesData.injured_walking;
-    document.getElementById("").innerHTML = crashesData.injured_freight;
-    document.getElementById("").innerHTML = crashesData.injured_biking;
-    document.getElementById("").innerHTML = crashesData.killed;
-    document.getElementById("").innerHTML = crashesData.killed_Driving;
-    document.getElementById("").innerHTML = crashesData.killed_walking;
-    document.getElementById("").innerHTML = crashesData.killed_freight;
-    document.getElementById("").innerHTML = crashesData.killed_biking;
+    //pavements reset
+    document.getElementById("good_pavement").value = 0;
+    document.getElementById("fair_pavement").value = 0;
+    document.getElementById("poor_pavement").value = 0;
+    //crashes reset
+    document.getElementById("EP_total_crash").value = 0;
+    document.getElementById("EP_fatal_crash").value = 0;
+    document.getElementById("EP_injury_crash").value = 0;
+    document.getElementById("EP_pedestrian_crash").value = 0;
+    document.getElementById("DA_total_crash").value = 0;
+    document.getElementById("DA_fatal_crash").value = 0;
+    document.getElementById("DA_injury_crash").value = 0;
+    document.getElementById("DA_pedestrian_crash").value = 0;
+    //bridges reset
+    document.getElementById("good_bridge").value = 0;
+    document.getElementById("good_deck_area").value = 0;
+    document.getElementById("fair_bridge").value = 0;
+    document.getElementById("fair_deck_area").value = 0;
+    document.getElementById("poor_bridge").value = 0;
+    document.getElementById("poor_deck_area").value = 0;
 
-    document.getElementById("").innerHTML = crashesData.crashCount;
-    document.getElementById("").innerHTML = crashesData.crashCountD;
-    document.getElementById("").innerHTML = crashesData.crashCountW;
-    document.getElementById("").innerHTML = crashesData.crashCountF;
-    document.getElementById("").innerHTML = crashesData.crashCountB;
-    */
+
+    
 }
 
 
