@@ -437,8 +437,8 @@ class ProjectController extends Controller
         $projects = Project::all(); //store all projects
         foreach ($projects as $iterator) {
             if($iterator->parent_id == $currentProject->parent_id ){
-                // if project being iterated has a newer id than the current project's id and has a status of submitted 
-                if($iterator->id > $currentProject->id && $iterator->status == 2 ){
+                // if project being iterated has a newer id than the current project's id that means there are more submissions
+                if($iterator->id > $currentProject->id ){
                     $infoCurrentProject["currentSubmission"] = 0; //false
                 }
             }
