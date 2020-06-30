@@ -119,7 +119,7 @@
     <div id="space"></div>
     <div class="row">
         <div class="col-md-9">
-            @include('projects.part6')
+            @include('projects.part6Edit')
         </div>
         <div class="col-md-3">
             <div class="row">

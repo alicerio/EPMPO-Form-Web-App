@@ -87,9 +87,9 @@
                             value="{{ $project->funding_total_result ?? '' }}" disabled>
                     </div>
                 </div>
-                <a onclick="addRow()" class="btn btn-primary" title="Add a new row." role="button">Add Funding</a>
-                <a class="btn btn-primary" title="Delete the last row." role="button">Remove
-                    Funding</a>
+                <button onclick="addRow()" class="btn btn-primary" title="Add a new row." role="button">Add Funding</button>
+                <button class="btn btn-primary" title="Delete the last row." role="button">Remove
+                    Funding</button>
             </div>
         </div>
         <br>

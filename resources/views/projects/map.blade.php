@@ -2,13 +2,13 @@
   <div class="row">
     <div class="col-10" id="map"></div>
     <div style="margin-top:1%" class="col-2">
-      <button type='button' class="btn btn-info" title="Get Crashes that within 50 meters of lines"
+      <button id = "queryCrashesBtn" type='button' class="btn btn-info" title="Get Crashes that within 50 meters of lines"
         onclick="point_drawer('crashes')">Query Crashes</button>
-        <button type='button' class="btn btn-info" title="Get Crashes that within 50 meters of lines"
+        <button id = "queryBridgesBtn" type='button' class="btn btn-info" title="Get Crashes that within 50 meters of lines"
         onclick="point_drawer('bridges')">Query Bridges</button>
-      <button type='button' class="btn btn-info" title="Display pavements that intersect with lines drawn"
+      <button id = "queryPavementsBtn" type='button' class="btn btn-info" title="Display pavements that intersect with lines drawn"
         onclick="lineDrawer()">Query Pavements</button>
-      <button type='button' class="btn btn-info" title="Clear map" onclick="clearMetadata()"> Clear</button>
+      <button id="clearQueryBtn"type='button' class="btn btn-info" title="Clear map" onclick="clearMetadata()"> Clear</button>
     </div>
   </div>
 
