@@ -37,30 +37,38 @@
             <div class="col">
                 <h3><a href="http://www.elpasompo.org/civicax/filebank/blobdload.aspx?BlobID=23375" target="_blank">Congestion Management Project Strategies</a></h3>
                 <div class="form-row mb-1">
+                    <div class="col">
+                        1. Project exempt under 40CFR 93.126?
+                        <h6><a href="http://www.elpasompo.org/civicax/filebank/blobdload.aspx?BlobID=23375" target="_blank">Helpful Link</a></h6>
+                        ​A detailed analysis is required to justify the exemption of all individual projects being proposed under 40CFR 93.126. 
+                        Example: If a project is being considered as exempt for safety due to the project being proposed as a road diet: 
+                        Identify locations and limits of proposed road diet sections and the number of travel lanes impacted.  
+                        Include traffic counts, fatalities and serious injuries resulting from motorized and non-motorized crashes and source of data.  
+                        Distinguish between road diets for bicycle lanes and parking.  
+                        Is this project consistent with MPO documents, project agreements and environmental documents, El Paso MPO Travel Demand Model (TDM)? 
+                        <h6><a href="http://www.elpasompo.org/scroll_bar_area/conformity_/transportation_conformity_report_2015_naaqs_appendices.htm" target="_blank">Helpful link (TDM Shapefile Appendix H): </a></h6>
+                        <textarea name="description_strategy_1" class="form-control" style="width: 22rem;{{ $project->strategy_1 ?? '' == 1 ? '' : 'display: none;' }}" placeholder="Please explain based on 40CFR 93.126.">{{ $project->description_strategy_1 ?? '' }}</textarea>
+                    </div>      
                     <div class="col-sm-2">
                         <select name="strategy_1" class="form-control" onchange="displayBox(this.name);">
                             <option selected>----</option>
                             <option value="1" {{ $project->strategy_1 ?? '' == 1 ? 'selected' : '' }}>Yes</option>
                             <option value="2" {{ $project->strategy_1 ?? '' == 2 ? 'selected' : '' }}>No</option>
                         </select>
-                        <textarea name="description_strategy_1" class="form-control" style="width: 22rem;{{ $project->strategy_1 ?? '' == 1 ? '' : 'display: none;' }}" placeholder="Please explain based on 40CFR 93.126.">{{ $project->description_strategy_1 ?? '' }}</textarea>
-                    </div>
-                    <div class="col">
-                        1. Project exempt under 40CFR 93.126?
-                    </div>            
+                    </div>     
                 </div>
                 <div class="form-row mb-1">
+                    <div class="col">
+                        2. Project addressing congestion
+                        <textarea name="description_strategy_2" class="form-control" style="width: 22rem;{{ $project->strategy_2 ?? '' == 1 ? '' : 'display: none;' }}" placeholder="Please provide analysis from corridor study or similar study that will show the project will address congestion.">{{ $project->description_strategy_2 ?? '' }}</textarea>
+                    </div>   
                     <div class="col-sm-2">
                         <select name="strategy_2" class="form-control" onchange="displayBox(this.name);">
                             <option selected>----</option>
                             <option value="1" {{ $project->strategy_2 ?? '' == 1 ? 'selected' : '' }}>Yes</option>
                             <option value="2" {{ $project->strategy_2 ?? '' == 2 ? 'selected' : '' }}>No</option>
                         </select>
-                        <textarea name="description_strategy_2" class="form-control" style="width: 22rem;{{ $project->strategy_2 ?? '' == 1 ? '' : 'display: none;' }}" placeholder="Please provide analysis from corridor study or similar study that will show the project will address congestion.">{{ $project->description_strategy_2 ?? '' }}</textarea>
-                    </div>
-                    <div class="col">
-                        2. Project addressing congestion
-                    </div>            
+                    </div>         
                 </div>
                 <div class="form-row mb-1">
                     <div class="col-sm-2">
@@ -154,8 +162,10 @@
 <script>
     const displayBox = (name) => {
         if($('select[name="'+name +'"]').val() == 1) {
-            console.log("displaying");
             $('textarea[name="description_' + name +'"]').show();
+        }
+        else {
+            $('textarea[name="description_' + name +'"]').hide();
         }
     };
 </script>
