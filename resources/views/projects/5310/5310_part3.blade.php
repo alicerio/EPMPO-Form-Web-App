@@ -59,7 +59,11 @@
                 </div>
                 <div class="form-row mb-1">
                     <div class="col">
-                        2. Project addressing congestion
+                        2. Project addressing congestion?
+                        <br>
+                        If “yes”, please provide a quantitative analysis if existing for use in CMP. 
+                        <br>
+                        Instructions: Please provide analysis from corridor study or similar study that will show the project will address congestion. 
                         <textarea name="description_strategy_2" class="form-control" style="width: 22rem;{{ $project->strategy_2 ?? '' == 1 ? '' : 'display: none;' }}" placeholder="Please provide analysis from corridor study or similar study that will show the project will address congestion.">{{ $project->description_strategy_2 ?? '' }}</textarea>
                     </div>   
                     <div class="col-sm-2">
@@ -71,65 +75,95 @@
                     </div>         
                 </div>
                 <div class="form-row mb-1">
+                    <div class="col">
+                        3. Project adds roadway capacity.
+                        <br>
+                        Instructions: Significant SOV capacity-adding projects impact regional or corridor travel patterns. 
+                        Project descriptions typically include a new roadway or bypass, major or minor road widening to add additional through lanes on an existing highway, 
+                        major roadway reconstruction, adding capacity to a corridor by improving many related intersections. 
+                        <textarea name="description_strategy_3" class="form-control" style="width: 22rem;{{ $project->strategy_3 ?? '' == 1 ? '' : 'display: none;' }}" placeholder="Please explain.">{{ $project->description_strategy_3 ?? '' }}</textarea>
+                    </div> 
                     <div class="col-sm-2">
                         <select name="strategy_3" class="form-control" onchange="displayBox(this.name);">
                             <option selected>----</option>
                             <option value="1" {{ $project->strategy_3 ?? '' == 1 ? 'selected' : '' }}>Yes</option>
                             <option value="2" {{ $project->strategy_3 ?? '' == 2 ? 'selected' : '' }}>No</option>
                         </select>
-                        <textarea name="description_strategy_3" class="form-control" style="width: 22rem;{{ $project->strategy_3 ?? '' == 1 ? '' : 'display: none;' }}" placeholder="Please explain.">{{ $project->description_strategy_3 ?? '' }}</textarea>
-                    </div>
-                    <div class="col">
-                        3. Project adds roadway capacity
-                    </div>            
+                    </div>           
                 </div>
-                <p>If either question 2 or 3 is YES, please answer the questions below.</p>
+                <p>If the answer is “Yes” for either question(s) 2 or 3 please answer the questions below </p>
                 <div class="form-row mb-1">
+                    <div class="col">
+                        4. Are there other congestion mitigation projects (e.g., transportation demand management, land use, public transportation, ITS and operations, pricing, bicycle and pedestrian, and bottleneck relief) 
+                        within the project corridor that are programmed into the current MTP?
+                        <br>
+                        Instructions: Check project list in EPMPO’s current MTP to identify committed projects.​ 
+                        <h6><a href="http://www.elpasompo.org/scroll_bar_area/mtp/default.htm" target="_blank">Helpful link</a></h6>
+                        <textarea name="description_strategy_4" class="form-control" style="width: 22rem;{{ $project->strategy_4 ?? '' == 1 ? '' : 'display: none;' }}" placeholder="If yes, identify the project name(s), state project identification number (CSJ number), and MPO ID.">{{ $project->description_strategy_4 ?? '' }}</textarea>
+                    </div>     
                     <div class="col-sm-2">
                         <select name="strategy_4" class="form-control" onchange="displayBox(this.name);">
                             <option selected>----</option>
                             <option value="1" {{ $project->strategy_4 ?? '' == 1 ? 'selected' : '' }}>Yes</option>
                             <option value="2" {{ $project->strategy_4 ?? '' == 2 ? 'selected' : '' }}>No</option>
                         </select>
-                        <textarea name="description_strategy_4" class="form-control" style="width: 22rem;{{ $project->strategy_4 ?? '' == 1 ? '' : 'display: none;' }}" placeholder="If yes, identify the project name(s), state project identification number (CSJ number), and MPO ID.">{{ $project->description_strategy_4 ?? '' }}</textarea>
-                    </div>
-                    <div class="col">
-                        4. Are there other congestion mitigation projects (e.g., transportation demand management, land use, public transportation, ITS and operations, pricing, bicycle and pedestrian, and bottleneck relief) 
-                        within the project corridor that are programmed into the current MTP?
-                    </div>            
+                    </div>       
                 </div>
                 <div class="form-row mb-1">
+                    <div class="col">
+                        5. Using the 2019 CMP Report, is the corridor identified as a congested segment?
+                        <br>
+                        Instructions: See congestion problems and needs section of the 2019 CMP Report (page 21) to identify congested segments.
+                        <h6><a href="http://www.elpasompo.org/other/congestion_management_process_/default.htm" target="_blank">Helpful link</a></h6>
+                        <textarea name="description_strategy_5" class="form-control" style="width: 22rem;{{ $project->strategy_5 ?? '' == 1 ? '' : 'display: none;' }}">{{ $project->description_strategy_5 ?? '' }}</textarea>
+                    </div>       
                     <div class="col-sm-2">
-                        <select name="strategy_5" class="form-control">
+                        <select name="strategy_5" class="form-control" onchange="displayBox(this.name);">
                             <option selected>----</option>
                             <option value="1" {{ $project->strategy_5 ?? '' == 1 ? 'selected' : '' }}>Yes</option>
                             <option value="2" {{ $project->strategy_5 ?? '' == 2 ? 'selected' : '' }}>No</option>
                         </select>
-                    </div>
-                    <div class="col">
-                        5. Using the 2019 CMP Report, is the corridor identified as a congested segment?
-                    </div>            
+                    </div>     
                 </div>
                 <div class="form-row mb-1">
+                    <div class="col">
+                        6. Can the congestion be addressed without building more road capacity?
+                        <br>
+                        Instructions: Using simulation or other appropriate analysis tool, conduct an alternatives analysis to determine whether 
+                        the problem/deficiency can be addressed without building more road capacity. 
+                        <textarea name="description_strategy_6" class="form-control" style="width: 22rem;{{ $project->strategy_6 ?? '' == 1 ? '' : 'display: none;' }}">{{ $project->description_strategy_6 ?? '' }}</textarea>
+                    </div>            
                     <div class="col-sm-2">
-                        <select name="strategy_6" class="form-control">
+                        <select name="strategy_6" class="form-control" onchange="displayBox(this.name);">
                             <option selected>----</option>
                             <option value="1" {{ $project->strategy_6 ?? '' == 1 ? 'selected' : '' }}>Yes</option>
                             <option value="2" {{ $project->strategy_6 ?? '' == 2 ? 'selected' : '' }}>No</option>
                         </select>
                     </div>
-                    <div class="col">
-                        6. Can the congestion be addressed without building more road capacity?
-                    </div>            
                 </div>
                 <p> 7. Describe any congestion mitigation alternatives to the proposed improvement that have been considered or will be evaluated to correct the deficiencies and manage the 
-                    facility effectively (or facilitate its management in the future).</p>
+                    facility effectively (or facilitate its management in the future).
+                    <br>
+                    Instructions: Using regional CMP Strategies identified in the 2019 CMP (pg. 27), identify corridor-level congestion mitigation strategies that will be evaluated to address the problems and deficiencies in the corridor. 
+                    Consider strategies as an alternative to the added capacity project, and/or bundle congestion mitigation strategies into the added capacity project.</p>
+                    <h6><a href="http://www.elpasompo.org/other/congestion_management_process_/default.htm" target="_blank">Helpful link</a></h6>
                 <textarea name="description_strategy_7" class="form-control" style="width: 22rem;">{{ $project->description_strategy_7 ?? '' }}</textarea>
-                <p>8. Specify congestion mitigation strategies that will be implemented as part of the project.</p>
+                <p>8. Specify congestion mitigation strategies that will be implemented as part of the project.
+                    <br>
+                    Instructions: Identify which congestion mitigation strategies will be implemented as part of the project. 
+                    Using regional CMP Strategies identified in the 2019 CMP (pg. 27) (For example bike lanes, ITS, operational improvements, etc.) 
+                </p>
+                <h6><a href="http://www.elpasompo.org/other/congestion_management_process_/default.htm" target="_blank">Helpful link</a></h6>
                 <textarea name="description_strategy_8" class="form-control" style="width: 22rem;">{{ $project->description_strategy_8 ?? '' }}</textarea>
-                <p>9. What are the specific congestion reduction impacts of the implemented strategies?</p>
+                <p>9. What are the specific congestion reduction impacts of the implemented strategies?
+                    <br>
+                    Instructions: Based on the results of the congestion mitigation analysis, document the benefits in terms of specific CMP performance measures when possible. 
+                </p>
                 <textarea name="description_strategy_9" class="form-control" style="width: 22rem;">{{ $project->description_strategy_9 ?? '' }}</textarea>
-                <p>10. If not implementing a congestion mitigation strategy as part of the project, please explain reason.</p>
+                <p>10. If not implementing a congestion mitigation strategy as part of the project, please explain reason.
+                    <br>
+                    Instructions: Include an explanation that highlights the reason why no congestion mitigation strategies are feasible or warranted as part of the project. 
+                </p>
                 <textarea name="description_strategy_10" class="form-control" style="width: 22rem;">{{ $project->description_strategy_10 ?? '' }}</textarea>
             </div>
         </div>
