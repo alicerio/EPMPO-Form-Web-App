@@ -156,6 +156,5 @@
         @endauth
         <p>Save your form before signing, all fields will be locked after signature is provided.</p>
         <br>
-        @include('projects.comments')
     </div>
 </div>

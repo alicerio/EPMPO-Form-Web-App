@@ -1,10 +1,17 @@
 @extends('layouts.app')
 <script>
+    var projectH = <?php echo json_encode($project);?>; 
+    var obj = <?php echo json_encode($logOfChanges ?? '');?>; 
+    console.log('on edit');
     window.onload = function() {
-        form1_setView();
+        if(projectH.status == 2){
+            make_project_funding_readonly();
+        }else{
+            form1_setView();
+        }
     };
-    var obj = <?php echo json_encode($project);?>; 
-            console.log(obj);
+   
+    console.log("on Edit view");
 </script>
 @section('content')
 
@@ -45,11 +52,19 @@
         <div class="row">
             <div class="col-md-12">
                 @include('projects.part7')
+                @if($project->status != 0)
+                @include('projects.comments')
+                @endif
             </div>
         </div>
-
-       @include('projects.buttons_edit')
-    <form>
+        <div id="editButtonsDiv">
+            @if($project->status == 2)
+            @include('projects.buttons_show')
+            @else
+            @include('projects.buttons_edit')
+            @endif
+        </div>
+        <form>
 </div>
 <style>
     button {

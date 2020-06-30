@@ -165,6 +165,7 @@ function make_project_funding_readonly() {
     $("#showHolder :input").attr("disabled", true);
     //Enable back these buttons
     $("#showButtonsDiv :input").prop("disabled", false); // all buttons on this div
+    $("#editButtonsDiv :input").prop("disabled", false);
     $("#commentHolder :input").prop("disabled", false);
     $("#toggleMapButton").prop("disabled", false);
     

@@ -514,11 +514,16 @@ class ProjectController extends Controller
      */
     public function edit(Project $project)
     {
+        $logOfChanges = array();
+        $logOfChanges =  $this->getLogOfChangesArray($project);
+        $infoCurrentProject = array();
+        $infoCurrentProject =  $this->infoCurrentProject($project); // get if current project is latest submission
+ 
         if ($project->project_type == "TASA") {
-            return view('projects.edit', compact('project'));
+            return view('projects.edit', compact('project', 'logOfChanges', 'infoCurrentProject'));
         } else {
-            return view('projects/5310.edit2', compact('project'));
-        }
+            return view('projects/5310.edit2', compact('project', 'logOfChanges', 'infoCurrentProject'));
+        } 
     }
 
     /**

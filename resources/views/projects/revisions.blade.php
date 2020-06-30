@@ -31,7 +31,7 @@
                                     <td>
                                     <!--If status is submitted, display as show   -->
                                         @if($project->status == 2)
-                                            <a href="{{ route('projects.show', $project->id) }}">
+                                            <a href="{{ route('projects.edit', $project->id) }}"> <!--come back here -->
                                                 {{ $statuses[$project->status] }}
                                                 {{ ($statuses[$project->status] == 'Submitted') ? 'v' . ++$counts[$project->status] : '' }}
                                             </a>

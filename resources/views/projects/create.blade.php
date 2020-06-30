@@ -37,7 +37,7 @@
         </div>
         <div class="row">
             <div class="col-md-12">
-                @include('projects.part6Edit')
+                @include('projects.part6')
             </div>
         </div>
         <div class="row">
