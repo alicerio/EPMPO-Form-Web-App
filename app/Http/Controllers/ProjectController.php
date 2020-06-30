@@ -373,20 +373,17 @@ class ProjectController extends Controller
             return view('projects/5310.edit2', compact('project'));
         }
     }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Project  $project
-     * @return \Illuminate\Http\Response
-     */
-
     /*
         Here we are filtering all the projects on the database
         we filter so we send the past submitted project only
      */
-    public function show(Project $project)
+    /*
+        Here we are filtering all the projects on the database
+        we filter so we send the past submitted project only
+     */
+    public function getLogOfChangesArray($projectReceived)
     {
+        //projectReceived is the current project instance
         $projects = Project::all(); //store all projects
         error_log(count($projects));
         $attributesOfProjects = [];
@@ -394,13 +391,13 @@ class ProjectController extends Controller
         $currentProject = [];
         $oldestProject = 0;
         $hasMoreVersions = false;
- 
+
         // gets prev project
         foreach ($projects as $projectHolder) {
             //filters all projects with same parent ID and projects older than current project
-            if ($project->id != $projectHolder->id && $projectHolder->status == 2) { //not same project and status = 1 since its a submission
-                if ($project->parent_id == null && $project->id  == $projectHolder->parent_id || ($project->parent_id != null && $project->parent_id  == $projectHolder->parent_id) || ($project->parent_id != null && $project->parent_id  == $projectHolder->id)) {
-                    if (strtotime($project->created_at) > strtotime($projectHolder->created_at)) { // if current project is newer than the project being iterated (project holder)
+            if ($projectReceived->id != $projectHolder->id && $projectHolder->status == 2) { //not same project and status = 1 since its a submission
+                if ($projectReceived->parent_id == null && $projectReceived->id  == $projectHolder->parent_id || ($projectReceived->parent_id != null && $projectReceived->parent_id  == $projectHolder->parent_id) || ($projectReceived->parent_id != null && $projectReceived->parent_id  == $projectHolder->id)) {
+                    if (strtotime($projectReceived->created_at) > strtotime($projectHolder->created_at)) { // if current project is newer than the project being iterated (project holder)
                         //gets oldest project id
                         if ($oldestProject < $projectHolder->id) {
                             $hasMoreVersions = true;
@@ -414,7 +411,7 @@ class ProjectController extends Controller
             }
         }
 
-        array_push($currentProject, $project->attributesToArray()); //convert format of current Project
+        array_push($currentProject, $projectReceived->attributesToArray()); //convert format of current Project
         error_log(count($attributesOfProjects));
         //push
         if ($hasMoreVersions) {
@@ -426,11 +423,39 @@ class ProjectController extends Controller
                 }
             }
         }
+        return  $logOfChanges;
+    }
+    //if we need more info we could find it here and store it in an array that will be send to the front end
+    public function infoCurrentProject($currentProject)
+    {
+        $infoCurrentProject = array(
+            "currentSubmission" => 1, //true
+        );
+
+        $projects = Project::all(); //store all projects
+        foreach ($projects as $iterator) {
+            if ($iterator->parent_id == $currentProject->parent_id) {
+                // if project being iterated has a newer id than the current project's id 
+                // that means there are more submissions
+                if($iterator->id > $currentProject->id ){
+                    $infoCurrentProject["currentSubmission"] = 0; //false
+                }
+            }
+        }
+        return $infoCurrentProject;
+    }
+    public function show(Project $project)
+    {
+        $logOfChanges = array();
+        $logOfChanges =  $this->getLogOfChangesArray($project);
+        $infoCurrentProject = array();
+        $infoCurrentProject =  $this->infoCurrentProject($project); // get if current project is latest submission
+
         if ($project->project_type == "TASA") {
-            return view('projects.show', compact('project', 'logOfChanges'));
+            return view('projects.show', compact('project', 'logOfChanges', 'infoCurrentProject'));
         } else {
-            return view('projects/5310.show2', compact('project', 'logOfChanges'));
-        } 
+            return view('projects/5310.show2', compact('project', 'logOfChanges', 'infoCurrentProject'));
+        }
     }
 
     /*
@@ -817,7 +842,7 @@ class ProjectController extends Controller
 
         $project->points = request('points');
 
-        if($project->status != request('status')){
+        if ($project->status != request('status')) {
             $newProject = $project->replicate();
             $newProject->status = request('status');
             $newProject->parent_id = ($project->parent_id != null) ? $project->parent_id : $project->id;

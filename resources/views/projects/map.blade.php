@@ -4,7 +4,7 @@
     <div style="margin-top:1%" class="col-2">
       <button type='button' class="btn btn-info" title="Get Crashes that within 50 meters of lines"
         onclick="point_drawer('crashes')">Query Crashes</button>
-        <button type='button' class="btn btn-info" title="Get Crashes that within 50 meters of lines"
+      <button type='button' class="btn btn-info" title="Get Crashes that within 50 meters of lines"
         onclick="point_drawer('bridges')">Query Bridges</button>
       <button type='button' class="btn btn-info" title="Display pavements that intersect with lines drawn"
         onclick="lineDrawer()">Query Pavements</button>
@@ -121,7 +121,7 @@
           <td>Poor condition</td>
           <td><input type="number" id="poor_bridge" class="form-control" name="poor_bridges"
               value="{{$project->poor_bridges ?? ''}}" readonly></td>
-          <td><input type="number" id="poor_deck_area" class="form-control" name="poor_area"
+          <td id="poor_deck_area"><input type="number" class="form-control" name="poor_area"
               value="{{$project->poor_area ?? ''}}" readonly></td>
         </tr>
       </table>
