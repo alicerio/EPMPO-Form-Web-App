@@ -49,15 +49,14 @@
         <button  class="btn btn-info" style="margin:1%" type="button" id="toggleMapButton">Draw Project limit and query data</button>
         <div>@include('projects.map')</div>
         
-
         <label>
             Need and Purpose:
         </label>
-        <textarea disabled name="need_purpose" class="form-control" {{ $project->need_purpose ?? '' }}></textarea>
+        <textarea disabled name="need_purpose" class="form-control">{{ $project->need_purpose ?? '' }}</textarea>
         <label>
             Agency Comments:
         </label>
-        <textarea disabled name="agency_comments" class="form-control" {{ $project->agency_comments ?? '' }}></textarea>
+        <textarea disabled name="agency_comments" class="form-control">{{ $project->agency_comments ?? '' }}</textarea>
         <hr>
         <label>
             <input type="checkbox" name="transit_funds_request" autocomplete="off" {{ $project->transit_funds_request ?? '' == true ? 'checked' : '' }} disabled>
@@ -77,10 +76,11 @@
                 </label>
                 <select disabled name="network_year" class="form-control">
                     <option>----</option>
-                    <option value="2020" {{ $project->network_year ?? '' == 2020 ? 'selected' : ''}}>2020</option>
-                    <option value="2030" {{ $project->network_year ?? '' == 2030 ? 'selected' : ''}}>2030</option>
-                    <option value="2040" {{ $project->network_year ?? '' == 2040 ? 'selected' : ''}}>2040</option>
-                    <option value="2045" {{ $project->network_year ?? '' == 2045 ? 'selected' : ''}}>2045</option>
+                    {{$temp = $project->network_year ?? ''}}
+                    <option value="2020" {{ $temp == 2020 ? 'selected' : ''}}>2020</option>
+                    <option value="2030" {{ $temp == 2030 ? 'selected' : ''}}>2030</option>
+                    <option value="2040" {{ $temp == 2040 ? 'selected' : ''}}>2040</option>
+                    <option value="2050" {{ $temp == 2050 ? 'selected' : ''}}>2050</option>
                 </select>
             </div>
         </div>

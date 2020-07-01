@@ -5,7 +5,6 @@
             <div class="card-header">
                 <div class="form-row">
                     <div class="col-sm-2">
-                        Sponsor
                     </div>
                     <div class="col-sm-2">
                         Name
@@ -27,7 +26,7 @@
             <div class="card-body">
                 <div class="form-row mb-1">
                     <div class="col-sm-2">
-                        <input type="text" name="sponsor" class="form-control" value="{{ $project->sponsor ?? '' }}" disabled>
+                        Sponsor
                     </div>
                     <div class="col-sm-2">
                         <input type="text" name="contact_name" class="form-control" value="{{ $project->contact_name ?? ''  }}" disabled>

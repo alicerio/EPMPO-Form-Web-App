@@ -47,7 +47,6 @@
                 @include('projects.part7')
             </div>
         </div>
-
        @include('projects.buttons_edit')
     <form>
 </div>

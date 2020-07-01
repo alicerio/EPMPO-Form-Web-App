@@ -26,28 +26,30 @@
                     <div class="col-sm-1">
                         <select disabled name="schematic_progress" class="form-control" autocomplete="off">
                             <option>----</option>
-                            <option value="1" {{ $project->schematic_progress ?? '' == 1 ? 'selected' : ''  }}>0%
+                            {{$temp = $project->schematic_progress ?? ''}}
+                            <option value="1" {{ $$temp == 1 ? 'selected' : ''  }}>0%
                             </option>
-                            <option value="2" {{ $project->schematic_progress ?? '' == 2 ? 'selected' : ''  }}>30%
+                            <option value="2" {{ $$temp == 2 ? 'selected' : ''  }}>30%
                             </option>
-                            <option value="3" {{ $project->schematic_progress ?? '' == 3 ? 'selected' : ''  }}>60%
+                            <option value="3" {{ $$temp == 3 ? 'selected' : ''  }}>60%
                             </option>
-                            <option value="4" {{ $project->schematic_progress ?? '' == 4 ? 'selected' : ''  }}>90%
+                            <option value="4" {{ $$temp == 4 ? 'selected' : ''  }}>90%
                             </option>
-                            <option value="5" {{ $project->schematic_progress ?? '' == 5 ? 'selected' : ''  }}>
-                                100%</option>
-                            <option value="6" {{ $project->schematic_progress ?? '' == 6 ? 'selected' : ''  }}>N/A
+                            <option value="5" {{ $$temp == 5 ? 'selected' : ''  }}>100%
+                            </option>
+                            <option value="6" {{ $$temp == 6 ? 'selected' : ''  }}>N/A
                             </option>
                         </select>
                     </div>
                     <div class="col-sm-2">
                         <select disabled name="schematic_agency" class="form-control" autocomplete="off">
                             <option>----</option>
-                            <option value="1" {{ $project->schematic_agency ?? '' == 1 ? 'selected' : '' }}>
+                            {{$temp = $project->schematic_agency ?? ''}}
+                            <option value="1" {{ $temp == 1 ? 'selected' : '' }}>
                                 TxDOT</option>
-                            <option value="2" {{ $project->schematic_agency ?? '' == 2 ? 'selected' : '' }}>
+                            <option value="2" {{ $temp == 2 ? 'selected' : '' }}>
                                 Local</option>
-                            <option value="3" {{ $project->schematic_agency ?? '' == 3 ? 'selected' : '' }}>
+                            <option value="3" {{ $temp == 3 ? 'selected' : '' }}>
                                 Other</option>
                         </select>
                     </div>
@@ -72,29 +74,31 @@
                     <div class="col-sm-1">
                         <select id= "locked_val2" disabled name="envdoctype_progress" class="form-control" autocomplete="off">
                             <option>----</option>
-                            <option value="1" {{ $project->envdoctype_progress ?? '' == 1 ? 'selected' : ''  }}>0%
+                            {{$temp = $project->envdoctype_progress ?? ''}}
+                            <option value="1" {{ $temp == 1 ? 'selected' : ''  }}>0%
                             </option>
-                            <option value="2" {{ $project->envdoctype_progress ?? '' == 2 ? 'selected' : ''  }}>
+                            <option value="2" {{ $temp == 2 ? 'selected' : ''  }}>
                                 30%</option>
-                            <option value="3" {{ $project->envdoctype_progress ?? '' == 3 ? 'selected' : ''  }}>
+                            <option value="3" {{ $temp == 3 ? 'selected' : ''  }}>
                                 60%</option>
-                            <option value="4" {{ $project->envdoctype_progress ?? '' == 4 ? 'selected' : ''  }}>
+                            <option value="4" {{ $temp == 4 ? 'selected' : ''  }}>
                                 90%</option>
-                            <option value="5" {{ $project->envdoctype_progress ?? '' == 5 ? 'selected' : ''  }}>
+                            <option value="5" {{ $temp == 5 ? 'selected' : ''  }}>
                                 100%
                             </option>
-                            <option value="6" {{ $project->envdoctype_progress ?? '' == 6 ? 'selected' : ''  }}>
+                            <option value="6" {{ $temp == 6 ? 'selected' : ''  }}>
                                 N/A</option>
                         </select>
                     </div>
                     <div class="col-sm-2">
                         <select id= "locked_val3" disabled name="envdoctype_agency" class="form-control" autocomplete="off">
                             <option>----</option>
-                            <option value="1" {{ $project->envdoctype_agency ?? '' == 1 ? 'selected' : '' }}>
+                            {{$temp = $project->envdoctype_agency ?? ''}}
+                            <option value="1" {{ $temp == 1 ? 'selected' : '' }}>
                                 TxDOT</option>
-                            <option value="2" {{ $project->envdoctype_agency ?? '' == 2 ? 'selected' : '' }}>
+                            <option value="2" {{ $temp == 2 ? 'selected' : '' }}>
                                 Local</option>
-                            <option value="3" {{ $project->envdoctype_agency ?? '' == 3 ? 'selected' : '' }}>
+                            <option value="3" {{ $temp == 3 ? 'selected' : '' }}>
                                 Other</option>
                         </select>
                     </div>
@@ -119,28 +123,30 @@
                     <div class="col-sm-1">
                         <select disabled name="envdoc_progress" class="form-control" autocomplete="off">
                             <option>----</option>
-                            <option value="1" {{ $project->envdoc_progress ?? '' == 1 ? 'selected' : ''  }}>0%
+                            {{$temp = $project->envdoc_progress ?? ''}}
+                            <option value="1" {{ $temp == 1 ? 'selected' : ''  }}>0%
                             </option>
-                            <option value="2" {{ $project->envdoc_progress ?? '' == 2 ? 'selected' : ''  }}>
+                            <option value="2" {{ $temp == 2 ? 'selected' : ''  }}>
                                 30%</option>
-                            <option value="3" {{ $project->envdoc_progress ?? '' == 3 ? 'selected' : ''  }}>
+                            <option value="3" {{ $temp == 3 ? 'selected' : ''  }}>
                                 60%</option>
-                            <option value="4" {{ $project->envdoc_progress ?? '' == 4 ? 'selected' : ''  }}>
+                            <option value="4" {{ $temp == 4 ? 'selected' : ''  }}>
                                 90%</option>
-                            <option value="5" {{ $project->envdoc_progress ?? '' == 5 ? 'selected' : ''  }}>
+                            <option value="5" {{ $temp == 5 ? 'selected' : ''  }}>
                                 100%</option>
-                            <option value="6" {{ $project->envdoc_progress ?? '' == 6 ? 'selected' : ''  }}>
+                            <option value="6" {{ $temp == 6 ? 'selected' : ''  }}>
                                 N/A</option>
                         </select>
                     </div>
                     <div class="col-sm-2">
                         <select disabled name="envdoc_agency" class="form-control" autocomplete="off">
                             <option>----</option>
-                            <option value="1" {{ $project->envdoc_agency ?? '' == 1 ? 'selected' : '' }}>TxDOT
+                            {{$temp = $project->envdoc_agency ?? ''}}
+                            <option value="1" {{ $temp == 1 ? 'selected' : '' }}>TxDOT
                             </option>
-                            <option value="2" {{ $project->envdoc_agency ?? '' == 2 ? 'selected' : '' }}>Local
+                            <option value="2" {{ $temp == 2 ? 'selected' : '' }}>Local
                             </option>
-                            <option value="3" {{ $project->envdoc_agency ?? '' == 3 ? 'selected' : '' }}>Other
+                            <option value="3" {{ $temp == 3 ? 'selected' : '' }}>Other
                             </option>
                         </select>
                     </div>
