@@ -1,6 +1,5 @@
 <head>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
-    <script src="http://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="https://cdn.rawgit.com/bjornharrtell/jsts/gh-pages/1.4.0/jsts.min.js"></script>
     <script src="{{ asset('docs/js/map_resources/map.js')}}"></script>
     <script src="{{ asset('docs/js/map_resources/line_test.js')}}"></script>
