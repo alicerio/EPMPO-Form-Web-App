@@ -4,8 +4,9 @@
             <div class="col-sm-1">
                 <select disabled name="psp_1" class="form-control">
                     <option selected>----</option>
-                    <option value="1" {{ $project->psp_1 ?? '' == 1 ? 'selected' : '' }}>Yes</option>
-                    <option value="2" {{ $project->psp_1 ?? '' == 2 ? 'selected' : '' }}>No</option>
+                    {{$temp = $project->psp_1 ?? ''}}
+                    <option value="1" {{ $temp == 1 ? 'selected' : '' }}>Yes</option>
+                    <option value="2" {{ $temp == 2 ? 'selected' : '' }}>No</option>
                 </select>
             </div>
             <div class="col">
@@ -17,8 +18,9 @@
             <div class="col-sm-1">
                 <select disabled name="psp_2" class="form-control">
                     <option selected>----</option>
-                    <option value="1" {{ $project->psp_2 ?? '' == 1 ? 'selected' : '' }}>Yes</option>
-                    <option value="2" {{ $project->psp_2 ?? '' == 2 ? 'selected' : '' }}>No</option>
+                    {{$temp = $project->psp_2 ?? ''}}
+                    <option value="1" {{ $temp == 1 ? 'selected' : '' }}>Yes</option>
+                    <option value="2" {{ $temp == 2 ? 'selected' : '' }}>No</option>
                 </select>
             </div>
             <div class="col">
@@ -31,8 +33,9 @@
             <div class="col-sm-1">
                 <select disabled name="psp_3" class="form-control">
                     <option selected>----</option>
-                    <option value="1" {{ $project->psp_3 ?? '' == 1 ? 'selected' : '' }}>Yes</option>
-                    <option value="2" {{ $project->psp_3 ?? '' == 2 ? 'selected' : '' }}>No</option>
+                    {{$temp = $project->psp_3 ?? ''}}
+                    <option value="1" {{ $temp == 1 ? 'selected' : '' }}>Yes</option>
+                    <option value="2" {{ $temp == 2 ? 'selected' : '' }}>No</option>
                 </select>
             </div>
             <div class="col">
@@ -44,8 +47,9 @@
             <div class="col-sm-1">
                 <select disabled name="psp_4" class="form-control">
                     <option selected>----</option>
-                    <option value="1" {{ $project->psp_4 ?? '' == 1 ? 'selected' : '' }}>Yes</option>
-                    <option value="2" {{ $project->psp_4 ?? '' == 2 ? 'selected' : '' }}>No</option>
+                    {{$temp = $project->psp_4 ?? ''}}
+                    <option value="1" {{ $temp == 1 ? 'selected' : '' }}>Yes</option>
+                    <option value="2" {{ $temp == 2 ? 'selected' : '' }}>No</option>
                 </select>
             </div>
             <div class="col">
@@ -58,8 +62,9 @@
             <div class="col-sm-1">
                 <select disabled name="psp_5" class="form-control">
                     <option selected>----</option>
-                    <option value="1" {{ $project->psp_5 ?? '' == 1 ? 'selected' : '' }}>Yes</option>
-                    <option value="2" {{ $project->psp_5 ?? '' == 2 ? 'selected' : '' }}>No</option>
+                    {{$temp = $project->psp_5 ?? ''}}
+                    <option value="1" {{ $temp == 1 ? 'selected' : '' }}>Yes</option>
+                    <option value="2" {{ $temp == 2 ? 'selected' : '' }}>No</option>
                 </select>
             </div>
             <div class="col">

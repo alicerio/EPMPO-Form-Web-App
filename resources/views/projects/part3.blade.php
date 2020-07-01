@@ -4,8 +4,9 @@
         <div class="col-sm-1">
             <select disabled name="psp_1" class="form-control">
                 <option>----</option>
-                <option value="1" {{ $project->psp_1 ?? '' == 1  ? 'selected' : '' }}>Yes</option>
-                <option value="2" {{ $project->psp_1 ?? '' == 2  ? 'selected' : '' }}>No</option>
+                {{$temp = $project->psp_1 ?? ''}}
+                <option value="1" {{ $temp == 1  ? 'selected' : '' }}>Yes</option>
+                <option value="2" {{ $temp == 2  ? 'selected' : '' }}>No</option>
             </select>
         </div>
         <div class="col">
@@ -18,8 +19,9 @@
         <div class="col-sm-1">
             <select disabled name="psp_2" class="form-control">
                 <option>----</option>
-                <option value="1" {{ $project->psp_2 ?? '' == 1 ? 'selected' : '' }}>Yes</option>
-                <option value="2" {{ $project->psp_2 ?? '' == 2 ? 'selected' : '' }}>No</option>
+                {{$temp = $project->psp_2 ?? ''}}
+                <option value="1" {{ $temp == 1 ? 'selected' : '' }}>Yes</option>
+                <option value="2" {{ $temp == 2 ? 'selected' : '' }}>No</option>
             </select>
         </div>
         <div class="col">
@@ -33,8 +35,9 @@
         <div class="col-sm-1">
             <select disabled name="psp_3" class="form-control">
                 <option>----</option>
-                <option value="1" {{ $project->psp_3 ?? '' == 1 ? 'selected' : '' }}>Yes</option>
-                <option value="2" {{ $project->psp_3 ?? '' == 2 ? 'selected' : '' }}>No</option>
+                {{$temp = $project->psp_3 ?? ''}}
+                <option value="1" {{ $temp == 1 ? 'selected' : '' }}>Yes</option>
+                <option value="2" {{ $temp == 2 ? 'selected' : '' }}>No</option>
             </select>
         </div>
         <div class="col">
@@ -46,8 +49,9 @@
         <div class="col-sm-1">
             <select disabled name="psp_4" class="form-control">
                 <option>----</option>
-                <option value="1" {{ $project->psp_4 ?? '' == 1  ? 'selected' : '' }}>Yes</option>
-                <option value="2" {{ $project->psp_4 ?? '' == 2  ? 'selected' : '' }}>No</option>
+                {{$temp = $project->psp_4 ?? ''}}
+                <option value="1" {{ $temp == 1  ? 'selected' : '' }}>Yes</option>
+                <option value="2" {{ $temp == 2  ? 'selected' : '' }}>No</option>
             </select>
         </div>
         <div class="col">
@@ -60,8 +64,9 @@
         <div class="col-sm-1">
             <select disabled name="psp_5" class="form-control">
                 <option>----</option>
-                <option value="1" {{ $project->psp_5 ?? '' == 1  ? 'selected' : '' }}>Yes</option>
-                <option value="2" {{ $project->psp_5 ?? '' == 2  ? 'selected' : '' }}>No</option>
+                {{$temp = $project->psp_5 ?? ''}}
+                <option value="1" {{ $temp == 1  ? 'selected' : '' }}>Yes</option>
+                <option value="2" {{ $temp == 2  ? 'selected' : '' }}>No</option>
             </select>
         </div>
         <div class="col">
@@ -73,8 +78,9 @@
         <div class="col-sm-1">
             <select disabled name="psp_6" class="form-control">
                 <option>----</option>
-                <option value="1" {{ $project->psp_6 ?? '' == 1  ? 'selected' : '' }}>Yes</option>
-                <option value="2" {{ $project->psp_6 ?? '' == 2  ? 'selected' : '' }}>No</option>
+                {{$temp = $project->psp_6 ?? ''}}
+                <option value="1" {{ $temp == 1  ? 'selected' : '' }}>Yes</option>
+                <option value="2" {{ $temp == 2  ? 'selected' : '' }}>No</option>
             </select>
         </div>
         <div class="col">
@@ -169,8 +175,9 @@
                     <div class="col-sm-2">
                         <select name="strategy_1" class="form-control" onchange="displayBox(this.name);">
                             <option selected>----</option>
-                            <option value="1" {{ $project->strategy_1 ?? '' == 1 ? 'selected' : '' }}>Yes</option>
-                            <option value="2" {{ $project->strategy_1 ?? '' == 2 ? 'selected' : '' }}>No</option>
+                            {{$temp = $project->strategy_1 ?? ''}}
+                            <option value="1" {{ $temp == 1 ? 'selected' : '' }}>Yes</option>
+                            <option value="2" {{ $temp == 2 ? 'selected' : '' }}>No</option>
                         </select>
                         <textarea name="description_strategy_1" class="form-control" style="width: 22rem;{{ $project->strategy_1 ?? '' == 1 ? '' : 'display: none;' }}" placeholder="Please explain based on 40CFR 93.126.">{{ $project->description_strategy_1 ?? '' }}</textarea>
                     </div>
@@ -182,8 +189,9 @@
                     <div class="col-sm-2">
                         <select name="strategy_2" class="form-control" onchange="displayBox(this.name);">
                             <option selected>----</option>
-                            <option value="1" {{ $project->strategy_2 ?? '' == 1 ? 'selected' : '' }}>Yes</option>
-                            <option value="2" {{ $project->strategy_2 ?? '' == 2 ? 'selected' : '' }}>No</option>
+                            {{$temp = $project->strategy_2 ?? ''}}
+                            <option value="1" {{ $temp ?? '' == 1 ? 'selected' : '' }}>Yes</option>
+                            <option value="2" {{ $temp ?? '' == 2 ? 'selected' : '' }}>No</option>
                         </select>
                         <textarea name="description_strategy_2" class="form-control" style="width: 22rem;{{ $project->strategy_2 ?? '' == 1 ? '' : 'display: none;' }}" placeholder="Please provide analysis from corridor study or similar study that will show the project will address congestion.">{{ $project->description_strategy_2 ?? '' }}</textarea>
                     </div>
@@ -195,8 +203,9 @@
                     <div class="col-sm-2">
                         <select name="strategy_3" class="form-control" onchange="displayBox(this.name);">
                             <option selected>----</option>
-                            <option value="1" {{ $project->strategy_3 ?? '' == 1 ? 'selected' : '' }}>Yes</option>
-                            <option value="2" {{ $project->strategy_3 ?? '' == 2 ? 'selected' : '' }}>No</option>
+                            {{$temp = $project->strategy_3 ?? ''}}
+                            <option value="1" {{ $temp == 1 ? 'selected' : '' }}>Yes</option>
+                            <option value="2" {{ $temp == 2 ? 'selected' : '' }}>No</option>
                         </select>
                         <textarea name="description_strategy_3" class="form-control" style="width: 22rem;{{ $project->strategy_3 ?? '' == 1 ? '' : 'display: none;' }}" placeholder="Please explain.">{{ $project->description_strategy_3 ?? '' }}</textarea>
                     </div>
@@ -209,8 +218,9 @@
                     <div class="col-sm-2">
                         <select name="strategy_4" class="form-control" onchange="displayBox(this.name);">
                             <option selected>----</option>
-                            <option value="1" {{ $project->strategy_4 ?? '' == 1 ? 'selected' : '' }}>Yes</option>
-                            <option value="2" {{ $project->strategy_4 ?? '' == 2 ? 'selected' : '' }}>No</option>
+                            {{$temp = $project->strategy_4 ?? ''}}
+                            <option value="1" {{ $temp == 1 ? 'selected' : '' }}>Yes</option>
+                            <option value="2" {{ $temp == 2 ? 'selected' : '' }}>No</option>
                         </select>
                         <textarea name="description_strategy_4" class="form-control" style="width: 22rem;{{ $project->strategy_4 ?? '' == 1 ? '' : 'display: none;' }}" placeholder="If yes, identify the project name(s), state project identification number (CSJ number), and MPO ID.">{{ $project->description_strategy_4 ?? '' }}</textarea>
                     </div>
@@ -223,8 +233,9 @@
                     <div class="col-sm-2">
                         <select name="strategy_5" class="form-control">
                             <option selected>----</option>
-                            <option value="1" {{ $project->strategy_5 ?? '' == 1 ? 'selected' : '' }}>Yes</option>
-                            <option value="2" {{ $project->strategy_5 ?? '' == 2 ? 'selected' : '' }}>No</option>
+                            {{$temp = $project->strategy_5 ?? ''}}
+                            <option value="1" {{ $temp == 1 ? 'selected' : '' }}>Yes</option>
+                            <option value="2" {{ $temp == 2 ? 'selected' : '' }}>No</option>
                         </select>
                     </div>
                     <div class="col">
@@ -235,8 +246,9 @@
                     <div class="col-sm-2">
                         <select name="strategy_6" class="form-control">
                             <option selected>----</option>
-                            <option value="1" {{ $project->strategy_6 ?? '' == 1 ? 'selected' : '' }}>Yes</option>
-                            <option value="2" {{ $project->strategy_6 ?? '' == 2 ? 'selected' : '' }}>No</option>
+                            {{$temp = $project->strategy_6 ?? ''}}
+                            <option value="1" {{ $temp == 1 ? 'selected' : '' }}>Yes</option>
+                            <option value="2" {{ $temp == 2 ? 'selected' : '' }}>No</option>
                         </select>
                     </div>
                     <div class="col">

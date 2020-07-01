@@ -4,6 +4,7 @@
         make_project_readonly();
     };
     var obj = <?php echo json_encode($logOfChanges);?>; 
+    var project = <?php echo json_encode($project);?>; 
             console.log(obj);
 </script>
 

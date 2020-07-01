@@ -55,7 +55,7 @@
         <div id="buttonHolder">
             @include('projects.buttons_edit')
         </div>
-        <form>
+    </form>
 </div>
 <style>
     button {
