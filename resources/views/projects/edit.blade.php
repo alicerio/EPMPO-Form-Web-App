@@ -1,10 +1,15 @@
 @extends('layouts.app')
 <script>
-    window.onload = function() {
-        form1_setView();
-    };
     var obj = <?php echo json_encode($project);?>; 
-            console.log(obj);
+    window.onload = function() {
+        if(obj.status == 3){
+            make_project_readonly();
+        }else{
+            form1_setView();
+        }
+    };
+
+    
 </script>
 @section('content')
 
@@ -47,9 +52,10 @@
                 @include('projects.part7')
             </div>
         </div>
-
-       @include('projects.buttons_edit')
-    <form>
+        <div id="buttonHolder">
+            @include('projects.buttons_edit')
+        </div>
+        <form>
 </div>
 <style>
     button {

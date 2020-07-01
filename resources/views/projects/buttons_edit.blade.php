@@ -1,3 +1,7 @@
+<!-- 
+We took advantage of the blade programming style.
+Depending what state or status you are in, the front end changes.
+-->
 <div class="row col-12">
     @include('projects.buttons_shared')
     @if($project->status !=3)

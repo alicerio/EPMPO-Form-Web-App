@@ -1,7 +1,7 @@
 @extends('layouts.app')
 <script>
     window.onload = function() {
-        make_project_funding_readonly();
+        make_project_readonly();
     };
     var obj = <?php echo json_encode($logOfChanges);?>; 
             console.log(obj);
@@ -47,13 +47,7 @@
                 @include('projects.part7')
             </div>
         </div>
-        {{--
-        @if($project->status == 2)
-        <a class="btn btn-primary" href="{{route('projects.project_comments',$project->id)}}"
-        role="button">Comments</a>
-        @endif
-        --}}
-        <div id="showButtonsDiv">
+        <div id="buttonHolder"> 
             @include('projects.buttons_show')
         </div>
     </form>
