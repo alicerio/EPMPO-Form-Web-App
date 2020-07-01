@@ -27,17 +27,17 @@
                         <select disabled name="schematic_progress" class="form-control" autocomplete="off">
                             <option>----</option>
                             {{$temp = $project->schematic_progress ?? ''}}
-                            <option value="1" {{ $$temp == 1 ? 'selected' : ''  }}>0%
+                            <option value="1" {{ $temp == 1 ? 'selected' : ''  }}>0%
                             </option>
-                            <option value="2" {{ $$temp == 2 ? 'selected' : ''  }}>30%
+                            <option value="2" {{ $temp == 2 ? 'selected' : ''  }}>30%
                             </option>
-                            <option value="3" {{ $$temp == 3 ? 'selected' : ''  }}>60%
+                            <option value="3" {{ $temp == 3 ? 'selected' : ''  }}>60%
                             </option>
-                            <option value="4" {{ $$temp == 4 ? 'selected' : ''  }}>90%
+                            <option value="4" {{ $temp == 4 ? 'selected' : ''  }}>90%
                             </option>
-                            <option value="5" {{ $$temp == 5 ? 'selected' : ''  }}>100%
+                            <option value="5" {{ $temp == 5 ? 'selected' : ''  }}>100%
                             </option>
-                            <option value="6" {{ $$temp == 6 ? 'selected' : ''  }}>N/A
+                            <option value="6" {{ $temp == 6 ? 'selected' : ''  }}>N/A
                             </option>
                         </select>
                     </div>
