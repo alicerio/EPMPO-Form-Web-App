@@ -83,8 +83,8 @@
                     value="{{ $project->funding_total_result ?? '' }}" readonly>
             </div>
         </div>
-        <a onclick="addRow()" id="addFundBtn" class="btn btn-primary" title="Add a new row." role="button">Add Funding</a>
-        <a onclick= "deleteRow()"class="btn btn-primary"  id="removeFundBtn" title="Delete the last row." role="button">Remove Funding</a>
+        <button onclick="addRow()" id="addFundBtn" class="btn btn-primary" title="Add a new row." role="button">Add Funding</button>
+        <button onclick= "deleteRow()"class="btn btn-primary"  id="removeFundBtn" title="Delete the last row." role="button">Remove Funding</button>
     </div>
 </div>
 <br>

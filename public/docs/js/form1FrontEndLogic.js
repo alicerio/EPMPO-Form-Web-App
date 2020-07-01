@@ -102,9 +102,9 @@ function rowSum(idName, index) {
     $("#" + totId).attr("value", rowTot);
 }
 
-function deleteRow(){
+function deleteRow() {
     var table = document.getElementById("projectFundingTablePg1");
-    table.deleteRow(table.rows.length-1);
+    table.deleteRow(table.rows.length - 1);
     console.log(table.rows.length);
 }
 //dynamic name change and row addition
@@ -141,45 +141,39 @@ function addRow() {
 function form1_setView() {
     $(":input").prop("disabled", false); // enables everything
 
-   //disable special inputs
-   for(let i =0; i < 20; i++){
-       $("#locked_val" + i).prop("disabled", true); 
-   }
-   //Make readonly
-   document.getElementById("mpo_id").readOnly = true;
-   document.getElementById("yoe_cs_tot").readOnly = true;
-   document.getElementById("tot_yoe").readOnly = true;
-   document.getElementById("yoe_check").readOnly = true;
-   document.getElementById("pftpg1_tot0").readOnly = true;
-   document.getElementById("federal_total").readOnly = true;
-   document.getElementById("state_total").readOnly = true;
-   document.getElementById("local_total").readOnly = true;
-   document.getElementById("local_beyond_total").readOnly = true;
-   document.getElementById("total_total").readOnly = true;
-   document.getElementById("signed_textarea").readOnly = true;
-   document.getElementById("attachments_textarea").readOnly = true;
+    //disable special inputs
+    for (let i = 0; i < 20; i++) {
+        $("#locked_val" + i).prop("disabled", true);
+    }
+    //Make readonly
+    document.getElementById("mpo_id").readOnly = true;
+    document.getElementById("yoe_cs_tot").readOnly = true;
+    document.getElementById("tot_yoe").readOnly = true;
+    document.getElementById("yoe_check").readOnly = true;
+    document.getElementById("pftpg1_tot0").readOnly = true;
+    document.getElementById("federal_total").readOnly = true;
+    document.getElementById("state_total").readOnly = true;
+    document.getElementById("local_total").readOnly = true;
+    document.getElementById("local_beyond_total").readOnly = true;
+    document.getElementById("total_total").readOnly = true;
+    document.getElementById("signed_textarea").readOnly = true;
+    document.getElementById("attachments_textarea").readOnly = true;
 }
-/*
-Iterate on table and make elements read only
-Used for show only
-*/
+
 function make_project_funding_readonly() {
-/* Pending: Disable buttons 
-    $("#addFileBtn").prop("disabled", true);
-    $("#openBtn").prop("disabled", true);
-    $("#removeBtn").prop("disabled", true);
-    $("#showBtn").prop("disabled", true);
-    $("#addFundBtn").prop("disabled", true);
-    $("#removeFundBtn").prop("disabled", true);
-*/
-    let i = 0;
-    var inputValues = $('#project_funding :input').map(function () { 
-        $($(this)).attr('id', 'pfelement'+i); // give an element to a tr
-        $("#"+$(this).attr("id")).prop("readonly", true);
-        i++;
-    })
+    //Disable everything, #showHolder holds all show blade view
+    $("#showHolder :input").attr("readonly", true);
+    //Enable back these buttons
+    $("#showButtonsDiv :input").prop("readonly", false); // all buttons on this div
+    $("#editButtonsDiv :input").prop("readonly", false);
+    $("#commentHolder :input").prop("readonly", false);
+    $("#toggleMapButton").prop("readonly", false);
+    $("#project_comments_H").prop("readonly", false);
+    
+    
 }
-function changeButtonText(id_of_Text, id_button){
+
+function changeButtonText(id_of_Text, id_button) {
     var select = document.getElementById(id_of_Text);
     select = select.options[select.selectedIndex].text;
     var button = document.getElementById(id_button);

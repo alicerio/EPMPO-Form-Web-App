@@ -49,10 +49,13 @@
         </div>
         {{--
         @if($project->status == 2)
-        <a class="btn btn-primary" href="{{route('projects.project_comments',$project->id)}}" role="button">Comments</a>
+        <a class="btn btn-primary" href="{{route('projects.project_comments',$project->id)}}"
+        role="button">Comments</a>
         @endif
         --}}
-        @include('projects.buttons_show')
+        <div id="showButtonsDiv">
+            @include('projects.buttons_show')
+        </div>
     </form>
 </div>
 <style>
