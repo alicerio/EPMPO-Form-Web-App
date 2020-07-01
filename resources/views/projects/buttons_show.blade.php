@@ -22,7 +22,6 @@
     <!-- Check if user is ADMIN and if is a submission -->
     @if(auth()->user()->type == 2 && $project->status == 2)
     <button class="btn btn-primary mx-1" name="data" type="button" onclick="displayChanges(obj)">Log of changes</button>
-    <button class="btn btn-primary mx-1" type="submit"> Save Comments </button>
     @endif
 
 
