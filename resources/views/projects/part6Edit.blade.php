@@ -40,7 +40,7 @@
                     @foreach(explode(',', $project->funding_category ?? '') as $index => $categories)
                     <tr id='pfrow' class="pftpg1">
                         <td><input type="text" name="funding_category[]" class="form-control"
-                                value="{{ explode(',', $project->funding_category ?? '')[$index] }}"></td>
+                                ></td>
                         <td><input onchange="project_funding_table()" id="federal" type="number"
                                 name="funding_federal[]" class="form-control"
                                 value="{{ explode(',', $project->funding_federal ?? '')[$index] }}"></td>
