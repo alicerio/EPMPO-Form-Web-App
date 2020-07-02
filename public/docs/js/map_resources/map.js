@@ -115,10 +115,13 @@ function initMap() {
     */
     try {
         if (project.status == 3) {
+            // no listener
+            console.log("No listener");
+        }else{
             map.addListener('dblclick', addLatLng);
         }
     } catch {
-        map.addListener('dblclick', addLatLng);
+            map.addListener('dblclick', addLatLng);
     }
 
 
@@ -228,47 +231,50 @@ function lineDrawer() {
     }
 }
 /** 
- * This Function plots the points saved on project so user can see on show
- * where he or she had clicked.
+ * This Function plots the points saved on project so user can see on show and edit
+ * where he or she had clicked. Without this function the map will appear empty after having the project saved.
  * Checks if values exists on the bridges, crashes and pavements. If value exists then 
  * run query so points can be seen. 
 */
 function show_edit_ViewMap() {
     let image = "../../docs/images/redPin.png";
-    let markers =  JSON.parse(project.points);
-    console.log(paths);
-    
-    for (marker in markers.lat) {
-        console.log(markers.lat[marker]);
-        paths.lat.push(markers.lat[marker]);
-        paths.lng.push(markers.lng[marker]);
-        counterCORD++; // global var that counts click, we are adding since add line requires this number. Can be seen on action on addLatLng Function
-        if(marker >= 1){
-            addLine(paths);
+    try{
+        let markers =  JSON.parse(project.points);
+        for (marker in markers.lat) {
+            console.log(markers.lat[marker]);
+            paths.lat.push(markers.lat[marker]);
+            paths.lng.push(markers.lng[marker]);
+            counterCORD++; // global var that counts click, we are adding since add line requires this number. Can be seen on action on addLatLng Function
+            if(marker >= 1){
+                addLine(paths);
+            }
+            let to_Plot = {
+                lat: markers.lat[marker],
+                lng: markers.lng[marker]
+            };
+            
+            let pointT = new google.maps.Marker({
+                position: to_Plot,
+                title: "#" + (parseInt(marker)+1),
+                icon: image
+            });
+            pointT.setMap(map);
+            points.push(pointT);
         }
-        let to_Plot = {
-            lat: markers.lat[marker],
-            lng: markers.lng[marker]
-        };
-        
-        let pointT = new google.maps.Marker({
-            position: to_Plot,
-            title: "#" + (parseInt(marker)+1),
-            icon: image
-        });
-        pointT.setMap(map);
-    }
-    if(project.poor_bridges != null){
-        console.log("about to call bridges");
-        point_drawer('bridges');
-    }
-    if(project.pavement_fair_condition != null){
-        console.log("about to call pavements");
-        lineDrawer();
-    }
-    console.log(project.total_crash_EP);
-    if(project.total_crash_EP != null){
-        console.log("about to crashes");
-        point_drawer('crashes');
+        if(project.poor_bridges != null){
+            console.log("about to call bridges");
+            point_drawer('bridges');
+        }
+        if(project.pavement_fair_condition != null){
+            console.log("about to call pavements");
+            lineDrawer();
+        }
+        console.log(project.total_crash_EP);
+        if(project.total_crash_EP != null){
+            console.log("about to crashes");
+            point_drawer('crashes');
+        }
+    }catch{
+        console.log("Nothing on map");
     }
 }
