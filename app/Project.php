@@ -9,7 +9,30 @@ class Project extends Model
 {
     // Casts array into json.
     protected $casts = [
-        'points' => 'array'
+        'points' => 'array',
+        'funding_category' => 'array',
+        'funding_federal' => 'array',
+        'funding_state' => 'array',
+        'funding_local' => 'array',
+        'funding_local_beyond' => 'array',
+        'funding_total' => 'array',
+        'funding_category_vehicles' => 'array',
+        'funding_federal_vehicles' => 'array',
+        'funding_local_vehicles' => 'array',
+        'funding_local_beyond_vehicles' => 'array',
+        'funding_total_vehicles' => 'array',
+        'funding_tdc_vehicles' => 'array',
+        'funding_category_bus' => 'array',
+        'funding_federal_bus' => 'array',
+        'funding_local_bus' => 'array',
+        'funding_local_beyond_bus' => 'array',
+        'funding_total_bus' => 'array',
+        'funding_tdc_bus' => 'array',
+        'funding_category_operations' => 'array',
+        'funding_federal_operations' => 'array',
+        'funding_local_operations' => 'array',
+        'funding_local_beyond_operations' => 'array',
+        'funding_total_operations' => 'array'
     ];
 
     public function getTableColumns() {

@@ -270,12 +270,12 @@ class CreateProjectsTable extends Migration
             $table->boolean('mpo_funds')->nullable();
             $table->Integer('yoe_cost')->nullable();
 
-            $table->string('funding_category')->nullable();
-            $table->string('funding_federal')->nullable();
-            $table->string('funding_state')->nullable();
-            $table->string('funding_local')->nullable();
-            $table->string('funding_local_beyond')->nullable();
-            $table->string('funding_total')->nullable();
+            $table->json('funding_category')->nullable();
+            $table->json('funding_federal')->nullable();
+            $table->json('funding_state')->nullable();
+            $table->json('funding_local')->nullable();
+            $table->json('funding_local_beyond')->nullable();
+            $table->json('funding_total')->nullable();
 
             $table->Integer('funding_federal_result')->nullable();
             $table->Integer('funding_state_result')->nullable();
@@ -285,12 +285,12 @@ class CreateProjectsTable extends Migration
 
             $table->boolean('mpo_funds_2')->nullable();
             $table->Integer('yoe_cost_vehicles')->nullable();
-            $table->string('funding_category_vehicles')->nullable();
-            $table->string('funding_federal_vehicles')->nullable();
-            $table->string('funding_local_vehicles')->nullable();
-            $table->string('funding_local_beyond_vehicles')->nullable();
-            $table->string('funding_total_vehicles')->nullable();
-            $table->string('funding_tdc_vehicles')->nullable();
+            $table->json('funding_category_vehicles')->nullable();
+            $table->json('funding_federal_vehicles')->nullable();
+            $table->json('funding_local_vehicles')->nullable();
+            $table->json('funding_local_beyond_vehicles')->nullable();
+            $table->json('funding_total_vehicles')->nullable();
+            $table->json('funding_tdc_vehicles')->nullable();
             $table->Integer('funding_federal_vehicles_total')->nullable();
             $table->Integer('funding_local_vehicles_total')->nullable();
             $table->Integer('funding_local_beyond_vehicles_total')->nullable();
@@ -298,12 +298,12 @@ class CreateProjectsTable extends Migration
             $table->Integer('funding_tdc_vehicles_total')->nullable();
 
             $table->Integer('yoe_cost_bus')->nullable();
-            $table->string('funding_category_bus')->nullable();
-            $table->string('funding_federal_bus')->nullable();
-            $table->string('funding_local_bus')->nullable();
-            $table->string('funding_local_beyond_bus')->nullable();
-            $table->string('funding_total_bus')->nullable();
-            $table->string('funding_tdc_bus')->nullable();
+            $table->json('funding_category_bus')->nullable();
+            $table->json('funding_federal_bus')->nullable();
+            $table->json('funding_local_bus')->nullable();
+            $table->json('funding_local_beyond_bus')->nullable();
+            $table->json('funding_total_bus')->nullable();
+            $table->json('funding_tdc_bus')->nullable();
             $table->Integer('funding_federal_bus_total')->nullable();
             $table->Integer('funding_local_bus_total')->nullable();
             $table->Integer('funding_local_beyond_bus_total')->nullable();
@@ -311,10 +311,10 @@ class CreateProjectsTable extends Migration
             $table->Integer('funding_tdc_bus_total')->nullable();
 
             $table->Integer('yoe_cost_operations')->nullable();
-            $table->string('funding_category_operations')->nullable();
-            $table->string('funding_federal_operations')->nullable();
-            $table->string('funding_local_beyond_operations')->nullable();
-            $table->string('funding_total_operations')->nullable();
+            $table->json('funding_category_operations')->nullable();
+            $table->json('funding_federal_operations')->nullable();
+            $table->json('funding_local_beyond_operations')->nullable();
+            $table->json('funding_total_operations')->nullable();
             $table->Integer('funding_federal_operations_total')->nullable();
             $table->Integer('funding_local_operations_total')->nullable();
             $table->Integer('funding_local_beyond_operations_total')->nullable();
