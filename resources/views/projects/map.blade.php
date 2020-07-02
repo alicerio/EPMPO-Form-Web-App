@@ -122,7 +122,7 @@
           <td>Poor condition</td>
           <td><input type="number" id="poor_bridge" class="form-control" name="poor_bridges"
               value="{{$project->poor_bridges ?? ''}}" readonly></td>
-          <td id="poor_deck_area"><input type="number" class="form-control" name="poor_area"
+          <td><input type="number" id="poor_deck_area" class="form-control" name="poor_area"
               value="{{$project->poor_area ?? ''}}" readonly></td>
         </tr>
         <input type="hidden" id="point" class="form-control" name = "points[]">

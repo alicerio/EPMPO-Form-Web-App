@@ -171,28 +171,30 @@
                     <div class="col-sm-1">
                         <select disabled name="pse_progress" class="form-control" autocomplete="off">
                             <option>----</option>
-                            <option value="1" {{ $project->pse_progress ?? '' == 1 ? 'selected' : ''  }}>0%
+                            {{$temp = $project->pse_progress ?? ''}}
+                            <option value="1" {{ $temp == 1 ? 'selected' : ''  }}>0%
                             </option>
-                            <option value="2" {{ $project->pse_progress ?? '' == 2 ? 'selected' : ''  }}>30%
+                            <option value="2" {{ $temp == 2 ? 'selected' : ''  }}>30%
                             </option>
-                            <option value="3" {{ $project->pse_progress ?? '' == 3 ? 'selected' : ''  }}>60%
+                            <option value="3" {{ $temp == 3 ? 'selected' : ''  }}>60%
                             </option>
-                            <option value="4" {{ $project->pse_progress ?? '' == 4 ? 'selected' : ''  }}>90%
+                            <option value="4" {{ $temp == 4 ? 'selected' : ''  }}>90%
                             </option>
-                            <option value="5" {{ $project->pse_progress ?? '' == 5 ? 'selected' : ''  }}>100%
+                            <option value="5" {{ $temp == 5 ? 'selected' : ''  }}>100%
                             </option>
-                            <option value="6" {{ $project->pse_progress ?? '' == 6 ? 'selected' : ''  }}>N/A
+                            <option value="6" {{ $temp == 6 ? 'selected' : ''  }}>N/A
                             </option>
                         </select>
                     </div>
                     <div class="col-sm-2">
                         <select disabled name="pse_agency" class="form-control" autocomplete="off">
                             <option>----</option>
-                            <option value="1" {{ $project->pse_agency ?? '' == 1 ? 'selected' : '' }}>TxDOT
+                            {{$temp = $project->pse_agency ?? ''}}
+                            <option value="1" {{ $temp == 1 ? 'selected' : '' }}>TxDOT
                             </option>
-                            <option value="2" {{ $project->pse_agency ?? '' == 2 ? 'selected' : '' }}>Local
+                            <option value="2" {{ $temp == 2 ? 'selected' : '' }}>Local
                             </option>
-                            <option value="3" {{ $project->pse_agency ?? '' == 3 ? 'selected' : '' }}>Other
+                            <option value="3" {{ $temp == 3 ? 'selected' : '' }}>Other
                             </option>
                         </select>
                     </div>
@@ -217,28 +219,30 @@
                     <div class="col-sm-1">
                         <select disabled name="rowmap_progress" class="form-control" autocomplete="off">
                             <option>----</option>
-                            <option value="1" {{ $project->rowmap_progress ?? '' == 1 ? 'selected' : ''  }}>0%
+                            {{$temp = $project->rowmap_progress ?? ''}}
+                            <option value="1" {{ $temp == 1 ? 'selected' : ''  }}>0%
                             </option>
-                            <option value="2" {{ $project->rowmap_progress ?? '' == 2 ? 'selected' : ''  }}>
+                            <option value="2" {{ $temp == 2 ? 'selected' : ''  }}>
                                 30%</option>
-                            <option value="3" {{ $project->rowmap_progress ?? '' == 3 ? 'selected' : ''  }}>
+                            <option value="3" {{ $temp == 3 ? 'selected' : ''  }}>
                                 60%</option>
-                            <option value="4" {{ $project->rowmap_progress ?? '' == 4 ? 'selected' : ''  }}>
+                            <option value="4" {{ $temp == 4 ? 'selected' : ''  }}>
                                 90%</option>
-                            <option value="5" {{ $project->rowmap_progress ?? '' == 5 ? 'selected' : ''  }}>
+                            <option value="5" {{ $temp == 5 ? 'selected' : ''  }}>
                                 100%</option>
-                            <option value="6" {{ $project->rowmap_progress ?? '' == 6 ? 'selected' : ''  }}>
+                            <option value="6" {{ $temp == 6 ? 'selected' : ''  }}>
                                 N/A</option>
                         </select>
                     </div>
                     <div class="col-sm-2">
                         <select disabled name="rowmap_agency" class="form-control" autocomplete="off">
                             <option>----</option>
-                            <option value="1" {{ $project->rowmap_agency ?? '' == 1 ? 'selected' : '' }}>TxDOT
+                            {{$temp = $project->rowmap_agency ?? ''}}
+                            <option value="1" {{ $temp == 1 ? 'selected' : '' }}>TxDOT
                             </option>
-                            <option value="2" {{ $project->rowmap_agency ?? '' == 2 ? 'selected' : '' }}>Local
+                            <option value="2" {{ $temp == 2 ? 'selected' : '' }}>Local
                             </option>
-                            <option value="3" {{ $project->rowmap_agency ?? '' == 3 ? 'selected' : '' }}>Other
+                            <option value="3" {{ $temp == 3 ? 'selected' : '' }}>Other
                             </option>
                         </select>
                     </div>
@@ -263,28 +267,30 @@
                     <div class="col-sm-1">
                         <select disabled name="rowacq_progress" class="form-control" autocomplete="off">
                             <option>----</option>
-                            <option value="1" {{ $project->rowacq_progress ?? '' == 1 ? 'selected' : ''  }}>0%
+                            {{$temp = $project->rowacq_progress ?? ''}}
+                            <option value="1" {{ $temp == 1 ? 'selected' : ''  }}>0%
                             </option>
-                            <option value="2" {{ $project->rowacq_progress ?? '' == 2 ? 'selected' : ''  }}>
+                            <option value="2" {{ $temp == 2 ? 'selected' : ''  }}>
                                 30%</option>
-                            <option value="3" {{ $project->rowacq_progress ?? '' == 3 ? 'selected' : ''  }}>
+                            <option value="3" {{ $temp == 3 ? 'selected' : ''  }}>
                                 60%</option>
-                            <option value="4" {{ $project->rowacq_progress ?? '' == 4 ? 'selected' : ''  }}>
+                            <option value="4" {{ $temp == 4 ? 'selected' : ''  }}>
                                 90%</option>
-                            <option value="5" {{ $project->rowacq_progress ?? '' == 5 ? 'selected' : ''  }}>
+                            <option value="5" {{ $temp == 5 ? 'selected' : ''  }}>
                                 100%</option>
-                            <option value="6" {{ $project->rowacq_progress ?? '' == 6 ? 'selected' : ''  }}>
+                            <option value="6" {{ $temp == 6 ? 'selected' : ''  }}>
                                 N/A</option>
                         </select>
                     </div>
                     <div class="col-sm-2">
                         <select disabled name="rowacq_agency" class="form-control" autocomplete="off">
                             <option>----</option>
-                            <option value="1" {{ $project->rowacq_agency ?? '' == 1 ? 'selected' : '' }}>TxDOT
+                            {{$temp = $project->rowacq_agency ?? ''}}
+                            <option value="1" {{ $temp == 1 ? 'selected' : '' }}>TxDOT
                             </option>
-                            <option value="2" {{ $project->rowacq_agency ?? '' == 2 ? 'selected' : '' }}>Local
+                            <option value="2" {{ $temp == 2 ? 'selected' : '' }}>Local
                             </option>
-                            <option value="3" {{ $project->rowacq_agency ?? '' == 3 ? 'selected' : '' }}>Other
+                            <option value="3" {{ $temp == 3 ? 'selected' : '' }}>Other
                             </option>
                         </select>
                     </div>
@@ -309,28 +315,30 @@
                     <div class="col-sm-1">
                         <select disabled name="utilities_progress" class="form-control" autocomplete="off">
                             <option>----</option>
-                            <option value="1" {{ $project->utilities_progress ?? '' == 1 ? 'selected' : ''  }}>0%
+                            {{$temp = $project->utilities_progress ?? ''}}
+                            <option value="1" {{ $temp == 1 ? 'selected' : ''  }}>0%
                             </option>
-                            <option value="2" {{ $project->utilities_progress ?? '' == 2 ? 'selected' : ''  }}>30%
+                            <option value="2" {{ $temp == 2 ? 'selected' : ''  }}>30%
                             </option>
-                            <option value="3" {{ $project->utilities_progress ?? '' == 3 ? 'selected' : ''  }}>60%
+                            <option value="3" {{ $temp == 3 ? 'selected' : ''  }}>60%
                             </option>
-                            <option value="4" {{ $project->utilities_progress ?? '' == 4 ? 'selected' : ''  }}>90%
+                            <option value="4" {{ $temp == 4 ? 'selected' : ''  }}>90%
                             </option>
-                            <option value="5" {{ $project->utilities_progress ?? '' == 5 ? 'selected' : ''  }}>
+                            <option value="5" {{ $temp == 5 ? 'selected' : ''  }}>
                                 100%</option>
-                            <option value="6" {{ $project->utilities_progress ?? '' == 6 ? 'selected' : ''  }}>N/A
+                            <option value="6" {{ $temp == 6 ? 'selected' : ''  }}>N/A
                             </option>
                         </select>
                     </div>
                     <div class="col-sm-2">
                         <select disabled name="utilities_agency" class="form-control" autocomplete="off">
                             <option>----</option>
-                            <option value="1" {{ $project->utilities_agency ?? '' == 1 ? 'selected' : '' }}>
+                            {{$temp = $project->utilities_agency ?? ''}}
+                            <option value="1" {{ $temp == 1 ? 'selected' : '' }}>
                                 TxDOT</option>
-                            <option value="2" {{ $project->utilities_agency ?? '' == 2 ? 'selected' : '' }}>
+                            <option value="2" {{ $temp == 2 ? 'selected' : '' }}>
                                 Local</option>
-                            <option value="3" {{ $project->utilities_agency ?? '' == 3 ? 'selected' : '' }}>
+                            <option value="3" {{ $temp == 3 ? 'selected' : '' }}>
                                 Other</option>
                         </select>
                     </div>
@@ -355,28 +363,30 @@
                     <div class="col-sm-1">
                         <select disabled name="pubinv_progress" class="form-control" autocomplete="off">
                             <option>----</option>
-                            <option value="1" {{ $project->pubinv_progress ?? '' == 1 ? 'selected' : ''  }}>0%
+                            {{$temp = $project->pubinv_progress ?? ''}}
+                            <option value="1" {{ $temp == 1 ? 'selected' : ''  }}>0%
                             </option>
-                            <option value="2" {{ $project->pubinv_progress ?? '' == 2 ? 'selected' : ''  }}>
+                            <option value="2" {{ $temp == 2 ? 'selected' : ''  }}>
                                 30%</option>
-                            <option value="3" {{ $project->pubinv_progress ?? '' == 3 ? 'selected' : ''  }}>
+                            <option value="3" {{ $temp == 3 ? 'selected' : ''  }}>
                                 60%</option>
-                            <option value="4" {{ $project->pubinv_progress ?? '' == 4 ? 'selected' : ''  }}>
+                            <option value="4" {{ $temp == 4 ? 'selected' : ''  }}>
                                 90%</option>
-                            <option value="5" {{ $project->pubinv_progress ?? '' == 5 ? 'selected' : ''  }}>
+                            <option value="5" {{ $temp == 5 ? 'selected' : ''  }}>
                                 100%</option>
-                            <option value="6" {{ $project->pubinv_progress ?? '' == 6 ? 'selected' : ''  }}>
+                            <option value="6" {{ $temp == 6 ? 'selected' : ''  }}>
                                 N/A</option>
                         </select>
                     </div>
                     <div class="col-sm-2">
                         <select disabled name="pubinv_agency" class="form-control" autocomplete="off">
                             <option>----</option>
-                            <option value="1" {{ $project->pubinv_agency ?? '' == 1 ? 'selected' : '' }}>TxDOT
+                            {{$temp = $project->pubinv_agency ?? ''}}
+                            <option value="1" {{ $temp == 1 ? 'selected' : '' }}>TxDOT
                             </option>
-                            <option value="2" {{ $project->pubinv_agency ?? '' == 2 ? 'selected' : '' }}>Local
+                            <option value="2" {{ $temp == 2 ? 'selected' : '' }}>Local
                             </option>
-                            <option value="3" {{ $project->pubinv_agency ?? '' == 3 ? 'selected' : '' }}>Other
+                            <option value="3" {{ $temp == 3 ? 'selected' : '' }}>Other
                             </option>
                         </select>
                     </div>
@@ -401,28 +411,30 @@
                     <div class="col-sm-1">
                         <select disabled name="distrev_progress" class="form-control" autocomplete="off">
                             <option>----</option>
-                            <option value="1" {{ $project->distrev_progress ?? '' == 1 ? 'selected' : ''  }}>
+                            {{$temp = $project->distrev_progress ?? ''}}
+                            <option value="1" {{ $temp == 1 ? 'selected' : ''  }}>
                                 0%</option>
-                            <option value="2" {{ $project->distrev_progress ?? '' == 2 ? 'selected' : ''  }}>
+                            <option value="2" {{ $temp == 2 ? 'selected' : ''  }}>
                                 30%</option>
-                            <option value="3" {{ $project->distrev_progress ?? '' == 3 ? 'selected' : ''  }}>
+                            <option value="3" {{ $temp == 3 ? 'selected' : ''  }}>
                                 60%</option>
-                            <option value="4" {{ $project->distrev_progress ?? '' == 4 ? 'selected' : ''  }}>
+                            <option value="4" {{ $temp == 4 ? 'selected' : ''  }}>
                                 90%</option>
-                            <option value="5" {{ $project->distrev_progress ?? '' == 5 ? 'selected' : ''  }}>
+                            <option value="5" {{ $temp == 5 ? 'selected' : ''  }}>
                                 100%</option>
-                            <option value="6" {{ $project->distrev_progress ?? '' == 6 ? 'selected' : ''  }}>
+                            <option value="6" {{ $temp == 6 ? 'selected' : ''  }}>
                                 N/A</option>
                         </select>
                     </div>
                     <div class="col-sm-2">
                         <select disabled name="distrev_agency" class="form-control" autocomplete="off">
                             <option>----</option>
-                            <option value="1" {{ $project->distrev_agency ?? '' == 1 ? 'selected' : '' }}>
+                            {{$temp = $project->distrev_agency ?? ''}}
+                            <option value="1" {{ $temp == 1 ? 'selected' : '' }}>
                                 TxDOT</option>
-                            <option value="2" {{ $project->distrev_agency ?? '' == 2 ? 'selected' : '' }}>
+                            <option value="2" {{ $temp == 2 ? 'selected' : '' }}>
                                 Local</option>
-                            <option value="3" {{ $project->distrev_agency ?? '' == 3 ? 'selected' : '' }}>
+                            <option value="3" {{ $temp == 3 ? 'selected' : '' }}>
                                 Other</option>
                         </select>
                     </div>
@@ -447,28 +459,30 @@
                     <div class="col-sm-1">
                         <select disabled name="agree_progress" class="form-control" autocomplete="off">
                             <option>----</option>
-                            <option value="1" {{ $project->agree_progress ?? '' == 1 ? 'selected' : ''  }}>0%
+                            {{$temp = $project->agree_progress ?? ''}}
+                            <option value="1" {{ $temp == 1 ? 'selected' : ''  }}>0%
                             </option>
-                            <option value="2" {{ $project->agree_progress ?? '' == 2 ? 'selected' : ''  }}>30%
+                            <option value="2" {{ $temp == 2 ? 'selected' : ''  }}>30%
                             </option>
-                            <option value="3" {{ $project->agree_progress ?? '' == 3 ? 'selected' : ''  }}>60%
+                            <option value="3" {{ $temp == 3 ? 'selected' : ''  }}>60%
                             </option>
-                            <option value="4" {{ $project->agree_progress ?? '' == 4 ? 'selected' : ''  }}>90%
+                            <option value="4" {{ $temp == 4 ? 'selected' : ''  }}>90%
                             </option>
-                            <option value="5" {{ $project->agree_progress ?? '' == 5 ? 'selected' : ''  }}>
+                            <option value="5" {{ $temp == 5 ? 'selected' : ''  }}>
                                 100%</option>
-                            <option value="6" {{ $project->agree_progress ?? '' == 6 ? 'selected' : ''  }}>N/A
+                            <option value="6" {{ $temp == 6 ? 'selected' : ''  }}>N/A
                             </option>
                         </select>
                     </div>
                     <div class="col-sm-2">
                         <select disabled name="agree_agency" class="form-control" autocomplete="off">
                             <option>----</option>
-                            <option value="1" {{ $project->agree_agency ?? '' == 1 ? 'selected' : '' }}>TxDOT
+                            {{$temp = $project->agree_agency ?? ''}}
+                            <option value="1" {{ $temp == 1 ? 'selected' : '' }}>TxDOT
                             </option>
-                            <option value="2" {{ $project->agree_agency ?? '' == 2 ? 'selected' : '' }}>Local
+                            <option value="2" {{ $temp == 2 ? 'selected' : '' }}>Local
                             </option>
-                            <option value="3" {{ $project->agree_agency ?? '' == 3 ? 'selected' : '' }}>Other
+                            <option value="3" {{ $temp == 3 ? 'selected' : '' }}>Other
                             </option>
                         </select>
                     </div>
@@ -493,28 +507,30 @@
                     <div class="col-sm-1">
                         <select disabled name="procpro_progress" class="form-control" autocomplete="off">
                             <option>----</option>
-                            <option value="1" {{ $project->procpro_progress ?? '' == 1 ? 'selected' : ''  }}>
+                            {{$temp = $project->procpro_progress ?? ''}}
+                            <option value="1" {{ $temp == 1 ? 'selected' : ''  }}>
                                 0%</option>
-                            <option value="2" {{ $project->procpro_progress ?? '' == 2 ? 'selected' : ''  }}>
+                            <option value="2" {{ $temp == 2 ? 'selected' : ''  }}>
                                 30%</option>
-                            <option value="3" {{ $project->procpro_progress ?? '' == 3 ? 'selected' : ''  }}>
+                            <option value="3" {{ $temp == 3 ? 'selected' : ''  }}>
                                 60%</option>
-                            <option value="4" {{ $project->procpro_progress ?? '' == 4 ? 'selected' : ''  }}>
+                            <option value="4" {{ $temp == 4 ? 'selected' : ''  }}>
                                 90%</option>
-                            <option value="5" {{ $project->procpro_progress ?? '' == 5 ? 'selected' : ''  }}>
+                            <option value="5" {{ $temp == 5 ? 'selected' : ''  }}>
                                 100%</option>
-                            <option value="6" {{ $project->procpro_progress ?? '' == 6 ? 'selected' : ''  }}>
+                            <option value="6" {{ $temp == 6 ? 'selected' : ''  }}>
                                 N/A</option>
                         </select>
                     </div>
                     <div class="col-sm-2">
                         <select disabled name="procpro_agency" class="form-control" autocomplete="off">
                             <option>----</option>
-                            <option value="1" {{ $project->procpro_agency ?? '' == 1 ? 'selected' : '' }}>
+                            {{$temp = $project->procpro_agency ?? ''}}
+                            <option value="1" {{ $temp == 1 ? 'selected' : '' }}>
                                 TxDOT</option>
-                            <option value="2" {{ $project->procpro_agency ?? '' == 2 ? 'selected' : '' }}>
+                            <option value="2" {{ $temp == 2 ? 'selected' : '' }}>
                                 Local</option>
-                            <option value="3" {{ $project->procpro_agency ?? '' == 3 ? 'selected' : '' }}>
+                            <option value="3" {{ $temp == 3 ? 'selected' : '' }}>
                                 Other</option>
                         </select>
                     </div>
@@ -539,28 +555,30 @@
                     <div class="col-sm-1">
                         <select id= "locked_val5" disabled name="letdate_progress" class="form-control locked" autocomplete="off">
                             <option>----</option>
-                            <option value="1" {{ $project->letdate_progress ?? '' == 1 ? 'selected' : ''  }}>
+                            {{$temp = $project->letdate_progress ?? ''}}
+                            <option value="1" {{ $temp == 1 ? 'selected' : ''  }}>
                                 0%</option>
-                            <option value="2" {{ $project->letdate_progress ?? '' == 2 ? 'selected' : ''  }}>
+                            <option value="2" {{ $temp == 2 ? 'selected' : ''  }}>
                                 30%</option>
-                            <option value="3" {{ $project->letdate_progress ?? '' == 3 ? 'selected' : ''  }}>
+                            <option value="3" {{ $temp == 3 ? 'selected' : ''  }}>
                                 60%</option>
-                            <option value="4" {{ $project->letdate_progress ?? '' == 4 ? 'selected' : ''  }}>
+                            <option value="4" {{ $temp == 4 ? 'selected' : ''  }}>
                                 90%</option>
-                            <option value="5" {{ $project->letdate_progress ?? '' == 5 ? 'selected' : ''  }}>
+                            <option value="5" {{ $temp == 5 ? 'selected' : ''  }}>
                                 100%</option>
-                            <option value="6" {{ $project->letdate_progress ?? '' == 6 ? 'selected' : ''  }}>
+                            <option value="6" {{ $temp == 6 ? 'selected' : ''  }}>
                                 N/A</option>
                         </select>
                     </div>
                     <div class="col-sm-2">
                         <select id= "locked_val6" disabled name="letdate_agency" class="form-control" autocomplete="off">
                             <option>----</option>
-                            <option value="1" {{ $project->letdate_agency ?? '' == 1 ? 'selected' : '' }}>
+                            {{$temp = $project->letdate_agency ?? ''}}
+                            <option value="1" {{ $temp == 1 ? 'selected' : '' }}>
                                 TxDOT</option>
-                            <option value="2" {{ $project->letdate_agency ?? '' == 2 ? 'selected' : '' }}>
+                            <option value="2" {{ $temp == 2 ? 'selected' : '' }}>
                                 Local</option>
-                            <option value="3" {{ $project->letdate_agency ?? '' == 3 ? 'selected' : '' }}>
+                            <option value="3" {{ $temp == 3 ? 'selected' : '' }}>
                                 Other</option>
                         </select>
                     </div>
@@ -585,22 +603,23 @@
                     <div class="col-sm-1">
                         <select id= "locked_val8" disabled name="consper_end_date_progress" class="form-control" autocomplete="off">
                             <option>----</option>
-                            <option value="1" {{ $project->consper_end_date_progress ?? '' == 1 ? 'selected' : ''  }}>
+                            {{$temp = $project->consper_end_date_progress ?? ''}}
+                            <option value="1" {{ $temp == 1 ? 'selected' : ''  }}>
                                 0%
                             </option>
-                            <option value="2" {{ $project->consper_end_date_progress ?? '' == 2 ? 'selected' : ''  }}>
+                            <option value="2" {{ $temp == 2 ? 'selected' : ''  }}>
                                 30%
                             </option>
-                            <option value="3" {{ $project->consper_end_date_progress ?? '' == 3 ? 'selected' : ''  }}>
+                            <option value="3" {{ $temp == 3 ? 'selected' : ''  }}>
                                 60%
                             </option>
-                            <option value="4" {{ $project->consper_end_date_progress ?? '' == 4 ? 'selected' : ''  }}>
+                            <option value="4" {{ $temp == 4 ? 'selected' : ''  }}>
                                 90%
                             </option>
-                            <option value="5" {{ $project->consper_end_date_progress ?? '' == 5 ? 'selected' : ''  }}>
+                            <option value="5" {{ $temp == 5 ? 'selected' : ''  }}>
                                 100%
                             </option>
-                            <option value="6" {{ $project->consper_end_date_progress ?? '' == 6 ? 'selected' : ''  }}>
+                            <option value="6" {{ $temp == 6 ? 'selected' : ''  }}>
                                 N/A
                             </option>
                         </select>
@@ -608,13 +627,14 @@
                     <div class="col-sm-2">
                         <select id= "locked_val9" disabled name="consper_end_date_agency" class="form-control" autocomplete="off">
                             <option>----</option>
-                            <option value="1" {{ $project->consper_end_date_agency ?? '' == 1 ? 'selected' : '' }}>
+                            {{$temp = $project->consper_end_date_agency ?? ''}}
+                            <option value="1" {{ $temp == 1 ? 'selected' : '' }}>
                                 TxDOT
                             </option>
-                            <option value="2" {{ $project->consper_end_date_agency ?? '' == 2 ? 'selected' : '' }}>
+                            <option value="2" {{ $temp == 2 ? 'selected' : '' }}>
                                 Local
                             </option>
-                            <option value="3" {{ $project->consper_end_date_agency ?? '' == 3 ? 'selected' : '' }}>
+                            <option value="3" {{ $temp == 3 ? 'selected' : '' }}>
                                 Other
                             </option>
                         </select>
@@ -640,28 +660,30 @@
                     <div class="col-sm-1">
                         <select id= "locked_val12" disabled name="peperf_progress" class="form-control" autocomplete="off">
                             <option>----</option>
-                            <option value="1" {{ $project->peperf_progress ?? '' == 1 ? 'selected' : ''  }}>0%
+                            {{$temp = $project->peperf_progress ?? ''}}
+                            <option value="1" {{ $temp == 1 ? 'selected' : ''  }}>0%
                             </option>
-                            <option value="2" {{ $project->peperf_progress ?? '' == 2 ? 'selected' : ''  }}>
+                            <option value="2" {{ $temp == 2 ? 'selected' : ''  }}>
                                 30%</option>
-                            <option value="3" {{ $project->peperf_progress ?? '' == 3 ? 'selected' : ''  }}>
+                            <option value="3" {{ $temp == 3 ? 'selected' : ''  }}>
                                 60%</option>
-                            <option value="4" {{ $project->peperf_progress ?? '' == 4 ? 'selected' : ''  }}>
+                            <option value="4" {{ $temp == 4 ? 'selected' : ''  }}>
                                 90%</option>
-                            <option value="5" {{ $project->peperf_progress ?? '' == 5 ? 'selected' : ''  }}>
+                            <option value="5" {{ $temp == 5 ? 'selected' : ''  }}>
                                 100%</option>
-                            <option value="6" {{ $project->peperf_progress ?? '' == 6 ? 'selected' : ''  }}>
+                            <option value="6" {{ $temp == 6 ? 'selected' : ''  }}>
                                 N/A</option>
                         </select>
                     </div>
                     <div class="col-sm-2">
                         <select id= "locked_val13" disabled name="peperf_agency" class="form-control" autocomplete="off">
                             <option>----</option>
-                            <option value="1" {{ $project->peperf_agency ?? '' == 1 ? 'selected' : '' }}>TxDOT
+                            {{$temp = $project->peperf_agency ?? ''}}
+                            <option value="1" {{ $temp == 1 ? 'selected' : '' }}>TxDOT
                             </option>
-                            <option value="2" {{ $project->peperf_agency ?? '' == 2 ? 'selected' : '' }}>Local
+                            <option value="2" {{ $temp == 2 ? 'selected' : '' }}>Local
                             </option>
-                            <option value="3" {{ $project->peperf_agency ?? '' == 3 ? 'selected' : '' }}>Other
+                            <option value="3" {{ $temp == 3 ? 'selected' : '' }}>Other
                             </option>
                         </select>
                     </div>
@@ -692,28 +714,30 @@
                     <div class="col-sm-1">
                         <select disabled name="fta_trans_progress" class="form-control" autocomplete="off">
                             <option>----</option>
-                            <option value="1" {{ $project->fta_trans_progress ?? '' == 1 ? 'selected' : ''  }}>0%
+                            {{$temp = $project->fta_trans_progress ?? ''}}
+                            <option value="1" {{ $temp == 1 ? 'selected' : ''  }}>0%
                             </option>
-                            <option value="2" {{ $project->fta_trans_progress ?? ''  == 2 ? 'selected' : ''  }}>30%
+                            <option value="2" {{ $temp  == 2 ? 'selected' : ''  }}>30%
                             </option>
-                            <option value="3" {{ $project->fta_trans_progress ?? '' == 3 ? 'selected' : ''  }}>60%
+                            <option value="3" {{ $temp == 3 ? 'selected' : ''  }}>60%
                             </option>
-                            <option value="4" {{ $project->fta_trans_progress ?? '' == 4 ? 'selected' : ''  }}>90%
+                            <option value="4" {{ $temp == 4 ? 'selected' : ''  }}>90%
                             </option>
-                            <option value="5" {{ $project->fta_trans_progress ?? '' == 5 ? 'selected' : ''  }}>
+                            <option value="5" {{ $temp == 5 ? 'selected' : ''  }}>
                                 100%</option>
-                            <option value="6" {{ $project->fta_trans_progress ?? '' == 6 ? 'selected' : ''  }}>N/A
+                            <option value="6" {{ $temp == 6 ? 'selected' : ''  }}>N/A
                             </option>
                         </select>
                     </div>
                     <div class="col-sm-2">
                         <select disabled name="fta_trans_agency" class="form-control" autocomplete="off">
                             <option>----</option>
-                            <option value="1" {{ $project->fta_trans_agency ?? '' == 1 ? 'selected' : '' }}>
+                            {{$temp = $project->fta_trans_agency ?? ''}}
+                            <option value="1" {{ $temp == 1 ? 'selected' : '' }}>
                                 TxDOT</option>
-                            <option value="2" {{ $project->fta_trans_agency ?? '' == 2 ? 'selected' : '' }}>
+                            <option value="2" {{ $temp == 2 ? 'selected' : '' }}>
                                 Local</option>
-                            <option value="3" {{ $project->fta_trans_agency ?? '' == 3 ? 'selected' : '' }}>
+                            <option value="3" {{ $temp == 3 ? 'selected' : '' }}>
                                 Other</option>
                         </select>
                     </div>
@@ -738,28 +762,30 @@
                     <div class="col-sm-1">
                         <select disabled name="bus_progress" class="form-control" autocomplete="off">
                             <option>----</option>
-                            <option value="1" {{ $project->bus_progress ?? '' == 1 ? 'selected' : ''  }}>0%
+                            {{$temp = $project->bus_progress ?? ''}}
+                            <option value="1" {{ $temp == 1 ? 'selected' : ''  }}>0%
                             </option>
-                            <option value="2" {{ $project->bus_progress ?? '' == 2 ? 'selected' : ''  }}>30%
+                            <option value="2" {{ $temp == 2 ? 'selected' : ''  }}>30%
                             </option>
-                            <option value="3" {{ $project->bus_progress ?? '' == 3 ? 'selected' : ''  }}>60%
+                            <option value="3" {{ $temp == 3 ? 'selected' : ''  }}>60%
                             </option>
-                            <option value="4" {{ $project->bus_progress ?? '' == 4 ? 'selected' : ''  }}>90%
+                            <option value="4" {{ $temp == 4 ? 'selected' : ''  }}>90%
                             </option>
-                            <option value="5" {{ $project->bus_progress ?? ''  == 5 ? 'selected' : ''  }}>100%
+                            <option value="5" {{ $temp  == 5 ? 'selected' : ''  }}>100%
                             </option>
-                            <option value="6" {{ $project->bus_progress ?? '' == 6 ? 'selected' : ''  }}>N/A
+                            <option value="6" {{ $temp == 6 ? 'selected' : ''  }}>N/A
                             </option>
                         </select>
                     </div>
                     <div class="col-sm-2">
                         <select disabled name="bus_agency" class="form-control" autocomplete="off">
                             <option>----</option>
-                            <option value="1" {{ $project->bus_agency ?? '' == 1 ? 'selected' : ''  }}>TxDOT
+                            {{$temp = $project->bus_agency ?? ''}}
+                            <option value="1" {{ $temp == 1 ? 'selected' : ''  }}>TxDOT
                             </option>
-                            <option value="2" {{ $project->bus_agency ?? '' == 2 ? 'selected' : ''  }}>Local
+                            <option value="2" {{ $temp == 2 ? 'selected' : ''  }}>Local
                             </option>
-                            <option value="3" {{ $project->bus_agency ?? ''  == 3 ? 'selected' : ''  }}>Other
+                            <option value="3" {{ $temp  == 3 ? 'selected' : ''  }}>Other
                             </option>
                         </select>
                     </div>
@@ -784,28 +810,30 @@
                     <div class="col-sm-1">
                         <select disabled name="delivery_progress" class="form-control" autocomplete="off">
                             <option>----</option>
-                            <option value="1" {{ $project->delivery_progress ?? '' == 1 ? 'selected' : ''  }}>
+                            {{$temp = $project->delivery_progress ?? ''}}
+                            <option value="1" {{ $temp == 1 ? 'selected' : ''  }}>
                                 0%</option>
-                            <option value="2" {{ $project->delivery_progress ?? ''  == 2 ? 'selected' : ''  }}>
+                            <option value="2" {{ $temp  == 2 ? 'selected' : ''  }}>
                                 30%</option>
-                            <option value="3" {{ $project->delivery_progress ?? '' == 3 ? 'selected' : ''  }}>
+                            <option value="3" {{ $temp == 3 ? 'selected' : ''  }}>
                                 60%</option>
-                            <option value="4" {{ $project->delivery_progress ?? '' == 4 ? 'selected' : ''  }}>
+                            <option value="4" {{ $temp == 4 ? 'selected' : ''  }}>
                                 90%</option>
-                            <option value="5" {{ $project->delivery_progress ?? '' == 5 ? 'selected' : ''  }}>
+                            <option value="5" {{ $temp == 5 ? 'selected' : ''  }}>
                                 100%</option>
-                            <option value="6" {{ $project->delivery_progress ?? '' == 6 ? 'selected' : ''  }}>
+                            <option value="6" {{ $temp == 6 ? 'selected' : ''  }}>
                                 N/A</option>
                         </select>
                     </div>
                     <div class="col-sm-2">
                         <select disabled name="delivery_agency" class="form-control" autocomplete="off">
                             <option>----</option>
-                            <option value="1" {{ $project->delivery_agency ?? '' == 1 ? 'selected' : ''  }}>
+                            {{$temp = $project->delivery_agency ?? ''}}
+                            <option value="1" {{ $temp == 1 ? 'selected' : ''  }}>
                                 TxDOT</option>
-                            <option value="2" {{ $project->delivery_agency ?? '' == 2 ? 'selected' : ''  }}>
+                            <option value="2" {{ $temp == 2 ? 'selected' : ''  }}>
                                 Local</option>
-                            <option value="3" {{ $project->delivery_agency ?? '' == 3 ? 'selected' : ''  }}>
+                            <option value="3" {{ $temp == 3 ? 'selected' : ''  }}>
                                 Other</option>
                         </select>
                     </div>
@@ -830,28 +858,30 @@
                     <div class="col-sm-1">
                         <select disabled name="other_progress" class="form-control" autocomplete="off">
                             <option>----</option>
-                            <option value="1" {{ $project->other_progress ?? '' == 1 ? 'selected' : ''  }}>0%
+                            {{$temp = $project->other_progress ?? ''}}
+                            <option value="1" {{ $temp == 1 ? 'selected' : ''  }}>0%
                             </option>
-                            <option value="2" {{ $project->other_progress ?? '' == 2 ? 'selected' : ''  }}>30%
+                            <option value="2" {{ $temp == 2 ? 'selected' : ''  }}>30%
                             </option>
-                            <option value="3" {{ $project->other_progress ?? '' == 3 ? 'selected' : ''  }}>60%
+                            <option value="3" {{ $temp == 3 ? 'selected' : ''  }}>60%
                             </option>
-                            <option value="4" {{ $project->other_progress ?? '' == 4 ? 'selected' : ''  }}>90%
+                            <option value="4" {{ $temp == 4 ? 'selected' : ''  }}>90%
                             </option>
-                            <option value="5" {{ $project->other_progress ?? '' == 5 ? 'selected' : ''  }}>
+                            <option value="5" {{ $temp == 5 ? 'selected' : ''  }}>
                                 100%</option>
-                            <option value="6" {{ $project->other_progress ?? '' == 6 ? 'selected' : ''  }}>N/A
+                            <option value="6" {{ $temp == 6 ? 'selected' : ''  }}>N/A
                             </option>
                         </select>
                     </div>
                     <div class="col-sm-2">
                         <select disabled name="other_agency" class="form-control" autocomplete="off">
                             <option>----</option>
-                            <option value="1" {{ $project->other_agency ?? '' == 1 ? 'selected' : ''  }}>TxDOT
+                            {{$temp = $project->other_agency ?? ''}}
+                            <option value="1" {{ $temp == 1 ? 'selected' : ''  }}>TxDOT
                             </option>
-                            <option value="2" {{ $project->other_agency ?? '' == 2 ? 'selected' : ''  }}>Local
+                            <option value="2" {{ $temp == 2 ? 'selected' : ''  }}>Local
                             </option>
-                            <option value="3" {{ $project->other_agency ?? '' == 3 ? 'selected' : ''  }}>Other
+                            <option value="3" {{ $temp == 3 ? 'selected' : ''  }}>Other
                             </option>
                         </select>
                     </div>
