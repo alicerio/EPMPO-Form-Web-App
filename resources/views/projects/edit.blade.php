@@ -1,8 +1,9 @@
 @extends('layouts.app')
 <script>
-    var obj = <?php echo json_encode($project);?>; 
+    var project = <?php echo json_encode($project);?>; 
     window.onload = function() {
-        if(obj.status == 3){
+        show_edit_ViewMap();
+        if(project.status == 3){
             make_project_readonly();
         }else{
             form1_setView();
