@@ -40,10 +40,18 @@
                 @include('projects/5310.5310_part6')
             </div>
         </div>
-        @include('projects/5310.buttons_create2')
+        <div id="buttonHolder">
+            @include('projects.buttons_create')
+        </div>
         {{--@include('projects/5310.buttons_edit2')--}}
     </form>
 </div>
+<style>
+    button {
+        margin: 1%;
+    }
+</style>
 <script src="{{ asset('docs/js/form2FrontEndLogic.js')}}"></script>
 <script src="{{ asset('docs/js/logOfChangesLogic.js')}}"></script>
+<script src="{{ asset('docs/js/sharedFrontEndLogic.js')}}"></script>
 @endsection

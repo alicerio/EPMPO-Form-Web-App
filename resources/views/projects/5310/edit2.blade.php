@@ -1,7 +1,15 @@
 <script type="text/javascript">
+    var project = <?php echo json_encode($project);?>; 
     window.onload = function() {
-        form2_setView();
+        show_edit_ViewMap();
+        if(project.status == 3){
+            make_project_readonly();
+        }else{
+            //form1_setView();
+            form2_setView();
+        }
     };
+ 
 </script>
 @extends('layouts.app')
 
@@ -41,9 +49,12 @@
                 @include('projects/5310.5310_part6')
             </div>
         </div>
-        @include('projects/5310.buttons_edit2')
+        <div id="buttonHolder">
+            @include('projects.buttons_edit')
+        </div>
     </form>
 </div>
 <script src="{{ asset('docs/js/form2FrontEndLogic.js')}}"></script>
 <script src="{{ asset('docs/js/logOfChangesLogic.js')}}"></script>
+<script src="{{ asset('docs/js/sharedFrontEndLogic.js')}}"></script>
 @endsection
