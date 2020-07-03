@@ -125,7 +125,13 @@
           <td><input type="number" id="poor_deck_area" class="form-control" name="poor_area"
               value="{{$project->poor_area ?? ''}}" readonly></td>
         </tr>
-        <input type="hidden" id="point" class="form-control" name = "points[]">
+        @if ($project->points ?? '' != null)
+        @foreach($project->points ?? '' as $index => $categories)
+        <input type="hidden" id="point" class="form-control" name = "points[]" value="{{$project->points[$index] ?? ''}}" readonly>
+        @endforeach
+        @else
+        <input type="hidden" id="point" class="form-control" name = "points[]" readonly>
+        @endif
       </table>
     </div>
   </div>
