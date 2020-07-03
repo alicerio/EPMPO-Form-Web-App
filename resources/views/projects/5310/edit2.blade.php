@@ -1,3 +1,4 @@
+@extends('layouts.app')
 <script type="text/javascript">
     var project = <?php echo json_encode($project);?>; 
     window.onload = function() {
@@ -11,7 +12,7 @@
     };
  
 </script>
-@extends('layouts.app')
+
 
 @section('content')
 
@@ -54,6 +55,11 @@
         </div>
     </form>
 </div>
+<style>
+    button {
+        margin: 1%;
+    }
+</style>
 <script src="{{ asset('docs/js/form2FrontEndLogic.js')}}"></script>
 <script src="{{ asset('docs/js/logOfChangesLogic.js')}}"></script>
 <script src="{{ asset('docs/js/sharedFrontEndLogic.js')}}"></script>

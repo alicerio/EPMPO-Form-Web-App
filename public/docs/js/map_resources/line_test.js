@@ -83,9 +83,9 @@ function pavementCond(to_php) {
         }
 
         console.log(pavementsData);
-        document.getElementById("good_pavement").value = pavementsData.good;
-        document.getElementById("fair_pavement").value = pavementsData.fair;
-        document.getElementById("poor_pavement").value = pavementsData.poor;
+        document.getElementById("good_pavement").value = (pavementsData.good).toFixed(2);
+        document.getElementById("fair_pavement").value = (pavementsData.fair).toFixed(2);
+        document.getElementById("poor_pavement").value = (pavementsData.poor).toFixed(2);
     });
 
 }

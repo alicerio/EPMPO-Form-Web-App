@@ -114,7 +114,7 @@ function initMap() {
        Project is visible since on show blade we made it global.
     */
     try {
-        if (project.status == 3) {
+        if (project.status == 2) {
             // no listener
             console.log("No listener");
         }else{
