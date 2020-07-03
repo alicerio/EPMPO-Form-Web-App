@@ -37,7 +37,8 @@
         <div id="project_funding">
             <div class="form-row mb-1">
                 <table id="projectFundingTablePg1">
-                    @foreach($project->funding_federal ?? '' as $index => $categories)
+                    @if ($project->funding_federal != null)
+                    @foreach($project->funding_federal ?? '' as $index => $categories)                        
                     <tr id='pfrow' class="pftpg1">
                         <td><input type="text" name="funding_category[]" class="form-control" value="{{$project->funding_category[$index]}}"></td>
                         <td><input onchange="project_funding_table()" id="federal" type="number"
@@ -48,10 +49,11 @@
                                 class="form-control" value="{{$project->funding_local[$index]}}"></td>
                         <td><input onchange="project_funding_table()" id="local_cont" type="number"
                                 name="funding_local_beyond[]" class="form-control" value="{{$project->funding_local_beyond[$index]}}"></td>
-                        <td><input type="number" name="funding_total" id="pftpg1_tot0" class="form-control" readonly>
+                        <td><input type="number" name="funding_total[]" id="pftpg1_tot0" class="form-control" readonly>
                         </td>
                     </tr>
                     @endforeach
+                    @endif
                 </table>
             </div>
         </div>

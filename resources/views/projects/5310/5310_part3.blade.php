@@ -38,7 +38,7 @@
                 <h3><a href="http://www.elpasompo.org/civicax/filebank/blobdload.aspx?BlobID=23375" target="_blank">Congestion Management Project Strategies</a></h3>
                 <div class="form-row mb-1">
                     <div class="col">
-                        1. Project exempt under 40CFR 93.126?
+                        1. Is the project exempt under 40CFR 93.126?
                         <h6><a href="http://www.elpasompo.org/civicax/filebank/blobdload.aspx?BlobID=23375" target="_blank">Helpful Link</a></h6>
                         ​A detailed analysis is required to justify the exemption of all individual projects being proposed under 40CFR 93.126. 
                         Example: If a project is being considered as exempt for safety due to the project being proposed as a road diet: 

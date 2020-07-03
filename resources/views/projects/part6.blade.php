@@ -42,21 +42,21 @@
                     <div class="form-row mb-1">
                         <table id="projectFundingTablePg1">
                             <tr id='pfrow' class="pftpg1">
-                                <td><input type="text" name="funding_category" class="form-control">
+                                <td><input type="text" name="funding_category[]" class="form-control">
                                 </td>
                                 <td><input onchange="project_funding_table()" id="federal" type="number"
-                                        name="funding_federal" class="form-control">
+                                        name="funding_federal[]" class="form-control">
                                 </td>
                                 <td><input onchange="project_funding_table()" id="state" type="number"
-                                        name="funding_state" class="form-control">
+                                        name="funding_state[]" class="form-control">
                                 </td>
                                 <td><input onchange="project_funding_table()" id="local" type="number"
-                                        name="funding_local" class="form-control">
+                                        name="funding_local[]" class="form-control">
                                 </td>
                                 <td><input onchange="project_funding_table()" id="local_cont" type="number"
-                                        name="funding_local_beyond" class="form-control">
+                                        name="funding_local_beyond[]" class="form-control">
                                 </td>
-                                <td><input type="number" name="funding_total" id="pftpg1_tot0" class="form-control"
+                                <td><input type="number" name="funding_total[]" id="pftpg1_tot0" class="form-control"
                                         readonly></td>
                             </tr>
                         </table>
@@ -89,6 +89,7 @@
                 </div>
                 <button onclick="addRow()" class="btn btn-primary" title="Add a new row." type="button">Add Funding</button>
                 <button onclick= "deleteRow()"class="btn btn-primary" id="removeFundBtn" title="Delete the last row." type="button">Remove Funding</button>
+
             </div>
         </div>
         <br>
