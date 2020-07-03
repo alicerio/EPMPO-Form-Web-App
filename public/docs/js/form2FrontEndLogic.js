@@ -286,7 +286,7 @@ function addRow_3() {
     cell2.innerHTML = '<input onchange="funding_operations_table()" id = "federal_operations" type="number" name="funding_federal_operations[]" class="form-control">'
     cell3.innerHTML = '<input onchange="funding_operations_table()" id = "local_operations" type="number" name="funding_local_operations[]" class="form-control">'
     cell4.innerHTML = '<input onchange="funding_operations_table()" id = "local_beyond_operations" type="number" name="funding_local_beyond_operations[]" class="form-control">'
-    cell5.innerHTML = '<input type="number" name="funding_total_operations" class="form-control" readonly>'
+    cell5.innerHTML = '<input type="number" name="funding_total_operations[]" class="form-control" readonly>'
     let inputId = $(table.rows[table.rows.length -1].cells[4]).find("input")[0];
     inputId.setAttribute('id',newIdTotal);
 }

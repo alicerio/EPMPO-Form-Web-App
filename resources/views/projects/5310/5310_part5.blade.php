@@ -191,7 +191,7 @@
                                 </td>
                                 <td><input onchange="funding_operations_table()" id = "local_beyond_operations" type="number" name="funding_local_beyond_operations[]" class="form-control">
                                 </td>
-                                <td><input type="number" id="fot1_tot0" name="funding_total_operations" class="form-control"readonly>
+                                <td><input type="number" id="fot1_tot0" name="funding_total_operations[]" class="form-control"readonly>
                                 </td>
                             </tr>
                         </table>

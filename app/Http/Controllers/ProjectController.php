@@ -277,8 +277,8 @@ class ProjectController extends Controller
         $project->funding_state = request('funding_state');
         $project->funding_local = request('funding_local');
         $project->funding_local_beyond = request('funding_local_beyond');
-        
-        $project->funding_total = request('funding_total') == '----' ? null : request('funding_total');
+        $project->funding_total = request('funding_total');
+
         $project->funding_federal_result = request('funding_federal_result') == '----' ? null : request('funding_federal_result');
         $project->funding_state_result = request('funding_state_result') == '----' ? null : request('funding_state_result');
         $project->funding_local_result = request('funding_local_result') == '----' ? null : request('funding_local_result');
@@ -755,8 +755,8 @@ class ProjectController extends Controller
         $project->funding_state = request('funding_state');
         $project->funding_local = request('funding_local');
         $project->funding_local_beyond = request('funding_local_beyond');
+        $project->funding_total = request('funding_total');
         
-        $project->funding_total = request('funding_total') == '----' ? null : request('funding_total');
         $project->funding_federal_result = request('funding_federal_result') == '----' ? null : request('funding_federal_result');
         $project->funding_state_result = request('funding_state_result') == '----' ? null : request('funding_state_result');
         $project->funding_local_result = request('funding_local_result') == '----' ? null : request('funding_local_result');

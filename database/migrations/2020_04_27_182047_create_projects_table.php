@@ -315,8 +315,7 @@ class CreateProjectsTable extends Migration
             $table->json('funding_federal_operations')->nullable();
             $table->json('funding_local_operations')->nullable();
             $table->json('funding_local_beyond_operations')->nullable();
-            //$table->json('funding_total_operations')->nullable();
-            $table->Integer('funding_total_operations')->nullable();
+            $table->json('funding_total_operations')->nullable();
             $table->Integer('funding_federal_operations_total')->nullable();
             $table->Integer('funding_local_operations_total')->nullable();
             $table->Integer('funding_local_beyond_operations_total')->nullable();
