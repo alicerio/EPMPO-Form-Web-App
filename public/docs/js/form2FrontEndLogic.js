@@ -73,6 +73,12 @@ function rowSum_1(idName, index) {
     $("#" + totId).attr("value",rowTot);
 }
 
+function deleteRow() {
+    var table = document.getElementById("fundingVehiclesTable");
+    table.deleteRow(table.rows.length - 1);
+    console.log(table.rows.length);
+}
+
 function addRow_1() {
     var table = document.getElementById("fundingVehiclesTable");
     var row = table.insertRow(table.rows.length);
@@ -91,7 +97,7 @@ function addRow_1() {
     cell2.innerHTML = '<input onchange="funding_vehicles_table()" id="federal_vehicles" type="number" name="funding_federal_vehicles[]" class="form-control">';
     cell3.innerHTML = '<input onchange="funding_vehicles_table()" id = "local_vehicles" type="number" name="funding_local_vehicles[]" class="form-control">';
     cell4.innerHTML = '<input onchange="funding_vehicles_table()" id = "local_beyond_vehicles" type="number" name="funding_local_beyond_vehicles[]" class="form-control">';
-    cell5.innerHTML = '<input type="number" name="funding_total_vehicles" class="form-control" readonly>';
+    cell5.innerHTML = '<input type="number" name="funding_total_vehicles[]" class="form-control" readonly>';
     cell6.innerHTML = '<input onchange="funding_vehicles_table()" id = "tdc_vehicles" type="number" name="funding_tdc_vehicles[]" class="form-control">';
 
     let inputId = $(table.rows[table.rows.length -1].cells[4]).find("input")[0];
@@ -186,11 +192,11 @@ function addRow_2() {
     let newIdTotal = "fbt1_tot" + table.rows.length;
     row.setAttribute('id', 'fbtrow' + table.rows.length);
 
-    cell1.innerHTML = '<input type="text" name="funding_category_bus" class="form-control">'
+    cell1.innerHTML = '<input type="text" name="funding_category_bus[]" class="form-control">'
     cell2.innerHTML = '<input onchange="funding_bus_table()" id = "federal_bus" type="number" name="funding_federal_bus[]" class="form-control">'
     cell3.innerHTML = '<input onchange="funding_bus_table()" id = "local_bus" type="number" name="funding_local_bus[]" class="form-control">'
     cell4.innerHTML = '<input onchange="funding_bus_table()" id = "local_beyond_bus" type="number" name="funding_local_beyond_bus[]" class="form-control">'
-    cell5.innerHTML = '<input type="number" name="funding_total_bus" class="form-control" readonly>'
+    cell5.innerHTML = '<input type="number" name="funding_total_bus[]" class="form-control" readonly>'
     cell6.innerHTML = '<input onchange="funding_bus_table()" id = "tdc_bus" type="number" name="funding_tdc_bus[]" class="form-control">'
     let inputId = $(table.rows[table.rows.length -1].cells[4]).find("input")[0];
     inputId.setAttribute('id',newIdTotal);
@@ -276,7 +282,7 @@ function addRow_3() {
     let newIdTotal = "fot1_tot" + table.rows.length;
     row.setAttribute('id', 'fotrow' + table.rows.length);
 
-    cell1.innerHTML = '<input type="text" name="funding_category_operations" class="form-control">'
+    cell1.innerHTML = '<input type="text" name="funding_category_operations[]" class="form-control">'
     cell2.innerHTML = '<input onchange="funding_operations_table()" id = "federal_operations" type="number" name="funding_federal_operations[]" class="form-control">'
     cell3.innerHTML = '<input onchange="funding_operations_table()" id = "local_operations" type="number" name="funding_local_operations[]" class="form-control">'
     cell4.innerHTML = '<input onchange="funding_operations_table()" id = "local_beyond_operations" type="number" name="funding_local_beyond_operations[]" class="form-control">'

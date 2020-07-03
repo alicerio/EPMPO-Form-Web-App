@@ -314,6 +314,7 @@ class ProjectController extends Controller
         $project->yoe_cost_operations = request('yoe_cost_operations') == '----' ? null : request('yoe_cost_operations');
         $project->funding_category_operations = request('funding_category_operations');
         $project->funding_federal_operations = request('funding_federal_operations');
+        $project->funding_local_operations = request('funding_local_operations');
         $project->funding_local_beyond_operations = request('funding_local_beyond_operations');
         $project->funding_total_operations = request('funding_total_operations');
         $project->funding_federal_operations_total = request('funding_federal_operations_total') == '----' ? null : request('funding_federal_operations_total');
@@ -791,6 +792,7 @@ class ProjectController extends Controller
         $project->yoe_cost_operations = request('yoe_cost_operations') == '----' ? null : request('yoe_cost_operations');
         $project->funding_category_operations = request('funding_category_operations');
         $project->funding_federal_operations = request('funding_federal_operations');
+        $project->funding_local_operations = request('funding_local_operations');
         $project->funding_local_beyond_operations = request('funding_local_beyond_operations');
         $project->funding_total_operations = request('funding_total_operations');
         $project->funding_federal_operations_total = request('funding_federal_operations_total') == '----' ? null : request('funding_federal_operations_total');

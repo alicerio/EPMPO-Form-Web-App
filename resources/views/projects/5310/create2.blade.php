@@ -32,7 +32,7 @@
         </div>
         <div class="row">
             <div class="col-md-12">
-                @include('projects/5310.5310_part5_edit')
+                @include('projects/5310.5310_part5')
             </div>
         </div>
         <div class="row">

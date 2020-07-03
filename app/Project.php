@@ -32,7 +32,7 @@ class Project extends Model
         'funding_federal_operations' => 'array',
         'funding_local_operations' => 'array',
         'funding_local_beyond_operations' => 'array',
-        'funding_total_operations' => 'array'
+        //'funding_total_operations' => 'array'
     ];
 
     public function getTableColumns() {

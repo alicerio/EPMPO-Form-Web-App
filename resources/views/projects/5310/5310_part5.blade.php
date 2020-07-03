@@ -38,17 +38,17 @@
                     <div class="form-row mb-1">
                         <table id="fundingVehiclesTable">
                             <tr id="fvtrow" class="fvt1">                                            
-                                <td><input type="text" name="funding_category_vehicles" class="form-control">
+                                <td><input type="text" name="funding_category_vehicles[]" class="form-control">
                                 </td>
-                                <td><input onchange="funding_vehicles_table()" id="federal_vehicles" type="number" name="funding_federal_vehicles" class="form-control">
+                                <td><input onchange="funding_vehicles_table()" id="federal_vehicles" type="number" name="funding_federal_vehicles[]" class="form-control">
                                 </td>
-                                <td><input onchange="funding_vehicles_table()" id = "local_vehicles" type="number" name="funding_local_vehicles" class="form-control">
+                                <td><input onchange="funding_vehicles_table()" id = "local_vehicles" type="number" name="funding_local_vehicles[]" class="form-control">
                                 </td>
-                                <td><input onchange="funding_vehicles_table()" id = "local_beyond_vehicles" type="number" name="funding_local_beyond_vehicles" class="form-control">
+                                <td><input onchange="funding_vehicles_table()" id = "local_beyond_vehicles" type="number" name="funding_local_beyond_vehicles[]" class="form-control">
                                 </td>    
-                                <td><input type="number" name="funding_total_vehicles" id="fvt1_tot0" class="form-control" readonly>
+                                <td><input type="number" name="funding_total_vehicles[]" id="fvt1_tot0" class="form-control" readonly>
                                 </td>
-                                <td><input onchange="funding_vehicles_table()" id = "tdc_vehicles" type="number" name="funding_tdc_vehicles" class="form-control">
+                                <td><input onchange="funding_vehicles_table()" id = "tdc_vehicles" type="number" name="funding_tdc_vehicles[]" class="form-control">
                                 </td>
                             </tr>
                         </table>
@@ -112,17 +112,17 @@
                     <div class="form-row mb-1">
                         <table id="fundingBusTable">
                             <tr id="fbtrow" class="fbt1">   
-                                <td><input type="text" name="funding_category_bus" class="form-control">
+                                <td><input type="text" name="funding_category_bus[]" class="form-control">
                                 </td>                                            
-                                <td><input onchange="funding_bus_table()" id = "federal_bus" type="number" name="funding_federal_bus" class="form-control">
+                                <td><input onchange="funding_bus_table()" id = "federal_bus" type="number" name="funding_federal_bus[]" class="form-control">
                                 </td>                                               
-                                <td><input onchange="funding_bus_table()" id = "local_bus" type="number" name="funding_local_bus" class="form-control">
+                                <td><input onchange="funding_bus_table()" id = "local_bus" type="number" name="funding_local_bus[]" class="form-control">
                                 </td>                                                
-                                <td><input onchange="funding_bus_table()" id = "local_beyond_bus" type="number" name="funding_local_beyond_bus" class="form-control">
+                                <td><input onchange="funding_bus_table()" id = "local_beyond_bus" type="number" name="funding_local_beyond_bus[]" class="form-control">
                                 </td>                                                
-                                <td><input type="number" id="fbt1_tot0" name="funding_total_bus" class="form-control" readonly>
+                                <td><input type="number" id="fbt1_tot0" name="funding_total_bus[]" class="form-control" readonly>
                                 </td>
-                                <td><input onchange="funding_bus_table()" id = "tdc_bus" type="number" name="funding_tdc_bus" class="form-control">
+                                <td><input onchange="funding_bus_table()" id = "tdc_bus" type="number" name="funding_tdc_bus[]" class="form-control">
                                 </td>
                             </tr>
                         </table>
@@ -183,13 +183,13 @@
                     <div class="form-row mb-1">
                         <table id="fundingOperationsTable">
                             <tr id="fotrow" class="fot1"> 
-                                <td><input type="text" name="funding_category_operations" class="form-control">
+                                <td><input type="text" name="funding_category_operations[]" class="form-control">
                                 </td>
-                                <td><input onchange="funding_operations_table()" id = "federal_operations" type="number" name="funding_federal_operations" class="form-control">
+                                <td><input onchange="funding_operations_table()" id = "federal_operations" type="number" name="funding_federal_operations[]" class="form-control">
                                 </td>
-                                <td><input onchange="funding_operations_table()" id = "local_operations" type="number" name="funding_local_operations" class="form-control">
+                                <td><input onchange="funding_operations_table()" id = "local_operations" type="number" name="funding_local_operations[]" class="form-control">
                                 </td>
-                                <td><input onchange="funding_operations_table()" id = "local_beyond_operations" type="number" name="funding_local_beyond_operations" class="form-control">
+                                <td><input onchange="funding_operations_table()" id = "local_beyond_operations" type="number" name="funding_local_beyond_operations[]" class="form-control">
                                 </td>
                                 <td><input type="number" id="fot1_tot0" name="funding_total_operations" class="form-control"readonly>
                                 </td>
