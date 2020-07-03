@@ -81,8 +81,8 @@
                         <input type="number" name="funding_tdc_vehicles_total" id = "tdc_vehicles_total" class="form-control" value="{{ $project->funding_tdc_vehicles_total ?? '' }}" disabled>
                     </div>
                 </div>
-                <a onclick = "addRow_1()" class="btn btn-primary" role="button">Add Funding</a>
-                <a class="btn btn-primary" role="button">Remove Funding</a>
+                <button onclick = "addRow_1()" class="btn btn-primary" type="button">Add Funding</button>
+                <button class="btn btn-primary" type="button">Remove Funding</button>
             </div>
         </div>
         <br>
@@ -159,8 +159,8 @@
                         <input type="number" id="tdc_bus_total" name="funding_tdc_bus_total" class="form-control" value="{{ $project->funding_tdc_bus_total ?? '' }}" disabled>
                     </div>
                 </div>
-                <a onclick = "addRow_2()" class="btn btn-primary" role="button">Add Funding</a>
-                <a class="btn btn-primary" role="button">Remove Funding</a>
+                <button onclick = "addRow_2()" class="btn btn-primary" type="button">Add Funding</button>
+                <button class="btn btn-primary" type="button">Remove Funding</button>
             </div>
         </div>
         <br>
@@ -228,8 +228,8 @@
                         </td>
                     </table>
                 </div>
-                <a onclick = "addRow_3()" class="btn btn-primary" role="button">Add Funding</a>
-                <a class="btn btn-primary" role="button">Remove Funding</a>
+                <button onclick = "addRow_3()" class="btn btn-primary" type="button">Add Funding</button>
+                <button class="btn btn-primary" type="button">Remove Funding</button>
             </div>
         </div>
     </div>
