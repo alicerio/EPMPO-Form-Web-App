@@ -57,6 +57,10 @@ class Project extends Model
     }
 
     public function getAll(){
-        return collect(DB::select('select * from '.$this->getTable()));
+        return collect(DB::select('select * from'.$this->getTable()));
+    }
+
+    public function getAll2($id) {
+        return collect(DB::select('select * from '.$this->getTable(). ' where id = '.  $id));
     }
 }

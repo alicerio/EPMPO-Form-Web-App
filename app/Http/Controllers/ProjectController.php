@@ -39,16 +39,16 @@ class ProjectController extends Controller
         return view('projects.create');
     }
 
-    public function exportExcel()
+    public function exportExcel(Project $project)
     {
-        $project = new Project();
         $columns = $project->getTableColumns();
-        $projects = $project->getAll();
+        $projects = $project->getAll2($project->id);
+        
         $data = new collection();
         foreach ($columns as $column) {
             $data[0] = (object) $column;
         }
-        $data = $data->merge($projects);
+        $data = $data->merge($projects);  
         $fileName = "Projects.xlsx";
         $excel = Exporter::make('Excel');
         $excel->load($data);
