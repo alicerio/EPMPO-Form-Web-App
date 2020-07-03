@@ -1,6 +1,7 @@
 <div class="row mt-1">
     <div class="col">
-        <a class="btn btn-primary btn-block" href="{{route('project.excel')}}" role="button">Export to Excel</a>
+        <a id="show_anchor2" class="btn btn-primary mx-1" href="{{route('project.excel',$project ?? '')}}" role="button">Export to
+            Excel</a>
     </div>
     <div class="col">
         <a class="btn btn-primary btn-block" onclick="print()" role="button">Export to PDF</a>

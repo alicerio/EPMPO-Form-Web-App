@@ -25,7 +25,7 @@ Route::resource('/bprojects', 'BProjectController');
 
 Route::resource('agencies', 'AgencyController');
 
-Route::get('projects/exportExcel/{project}','ProjectController@exportExcel')->name('project.excel'); 
+Route::get('project-excel/{project}','ProjectController@exportExcel')->name('project.excel'); 
 
 // For demo purposes
 Route::get('/records', function(){
