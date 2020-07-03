@@ -30,7 +30,6 @@ function project_funding_table() {
     let state_sum = 0;
     let local_sum = 0;
     let local_cont_sum = 0;
-    let total_sum = 0;
 
     var inputValues = $('#project_funding :input').map(function () {
         let h = "";
@@ -39,22 +38,18 @@ function project_funding_table() {
         if ($(this).attr("id") == "federal") {
             if (h >= 0) {
                 federal_sum += h;
-                total_sum += h;
             }
         } else if ($(this).attr("id") == "state") {
             if (h >= 0) {
                 state_sum += h;
-                total_sum += h;
             }
         } else if ($(this).attr("id") == "local") {
             if (h >= 0) {
                 local_sum += h;
-                total_sum += h;
             }
         } else if ($(this).attr("id") == "local_cont") {
             if (h >= 0) {
                 local_cont_sum += h;
-                total_sum += h;
             }
         }
     })
@@ -63,8 +58,8 @@ function project_funding_table() {
     document.getElementById("state_total").value = state_sum;
     document.getElementById("local_total").value = local_sum;
     document.getElementById("local_beyond_total").value = local_cont_sum;
-    document.getElementById("total_total").value = total_sum;
-    document.getElementById("yoe_check").value = total_sum;
+    document.getElementById("total_total").value =  federal_sum +state_sum + local_sum + local_cont_sum;;
+    document.getElementById("yoe_check").value = federal_sum +state_sum + local_sum + local_cont_sum;
 
     rowSumMaster();
 }
@@ -85,11 +80,12 @@ function rowSum(idName, index) {
     let toSearch = "#" + idName + ' :input';
     let rowTot = 0;
     let totId = "";
-    //get sum
+    //get sum by iterating given row
     var inputValues = $(toSearch).map(function () {
         let h = $(this).val();
-        if (parseInt($(this).val()) > 0 && $(this).attr("name") != "funding_total" && $(this).attr("name") != "funding_category") {
+        if (parseInt($(this).val()) > 0 && $(this).attr("name") != "funding_total[]" && $(this).attr("name") != "funding_category[]") {
             h = parseInt($(this).val());
+            console.log(h + " at " + $(this).attr("name") );
             rowTot += h;
         }
     })
@@ -183,3 +179,4 @@ function changeButtonText(id_of_Text, id_button) {
     var button = document.getElementById(id_button);
     button.textContent = select;
 }
+
