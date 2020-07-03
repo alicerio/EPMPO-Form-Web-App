@@ -3,10 +3,6 @@
  *  
  */
 
-// const {
-//     cond
-// } = require("lodash");
-
 function setAll(val,obj) {
     Object.keys(obj).forEach(function (index) {
         obj[index] = val

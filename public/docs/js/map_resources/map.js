@@ -18,26 +18,26 @@ var pavementsData = {
     lane_miles: 0,
 }
 var bridgeData = {
-    good:0,
-    fair:0,
-    poor:0,
-    deckArea_good:0,
-    deckArea_fair:0,
-    deckArea_poor:0
+    good: 0,
+    fair: 0,
+    poor: 0,
+    deckArea_good: 0,
+    deckArea_fair: 0,
+    deckArea_poor: 0
 };
 var crashesData = {
-    total_crashes_tx:0, //
-    fatal_crashes_tx:0,// K - killed
-    serious_injury_crashes_tx:0, // A - suspected serious
-    ped_bike_crashes_tx:0,//
+    total_crashes_tx: 0, //
+    fatal_crashes_tx: 0, // K - killed
+    serious_injury_crashes_tx: 0, // A - suspected serious
+    ped_bike_crashes_tx: 0, //
 
-    total_crashes_nm:0, //
-    fatal_crashes_nm:0,
-    serious_injury_crashes_nm:0,
-    ped_bike_crashes_nm:0,//
+    total_crashes_nm: 0, //
+    fatal_crashes_nm: 0,
+    serious_injury_crashes_nm: 0,
+    ped_bike_crashes_nm: 0, //
 
 }
-//document.getElementById("points").value = points;
+
 
 console.log(points);
 
@@ -61,12 +61,12 @@ function clearMetadata() {
         makersClicked[x].setMap(null);
     }
     paths = {
-        lat:null,
-        lng:null
+        lat: null,
+        lng: null
     };
     paths = {
-        lat:[],
-        lng:[]
+        lat: [],
+        lng: []
     };
     points = [];
     polylines = [];
@@ -77,6 +77,7 @@ function clearMetadata() {
 }
 
 function addLine(points) {
+    console.log(points);
     var poly;
     var to_vizualize = [{
             lat: points.lat[counterCORD - 2],
@@ -103,8 +104,27 @@ function initMap() {
         zoom: 11,
         disableDoubleClickZoom: true,
         center: new google.maps.LatLng(31.837465, -106.2851078)
+
     });
-    map.addListener('dblclick', addLatLng);
+    /* If project is not on show, do not enable listener
+
+       This could have been solved by using removeEventListener() but for some reason is throwing 
+       and error. This was necessery so when user is on show he or she will not be able to click on
+       the map and since this will draw points. 
+       Project is visible since on show blade we made it global.
+    */
+    try {
+        if (project.status == 3) {
+            // no listener
+            console.log("No listener");
+        }else{
+            map.addListener('dblclick', addLatLng);
+        }
+    } catch {
+            map.addListener('dblclick', addLatLng);
+    }
+
+
 }
 
 // Handles click events on a map, and adds a new points and connects them with line
@@ -117,15 +137,15 @@ function addLatLng(event) {
     if (counterCORD >= 2) {
         addLine(paths);
     }
-    
+
     var marker = new google.maps.Marker({
         position: event.latLng,
-        title: '#' + counterCORD, 
+        title: '#' + counterCORD,
         map: map
     });
     makersClicked.push(marker);
-    console.log(makersClicked);
-    //document.getElementById("point").value = makersClicked;
+    console.log(paths);
+    document.getElementById("point").value = JSON.stringify(paths);
 }
 //get coordinates between the points
 function generateCoordinates(point1, point2, circlesOnLines) {
@@ -181,12 +201,12 @@ function point_drawer(typeOfPoint) {
                 lng: parseFloat(paths.lng[i - 1])
             };
             circleCordinates.push(generateCoordinates(point1, point2, 300));
-            if(typeOfPoint == "crashes"){
+            if (typeOfPoint == "crashes") {
                 filterCrashes(circleCordinates);
-            }else if(typeOfPoint == "bridges"){
+            } else if (typeOfPoint == "bridges") {
                 filterBridges(circleCordinates);
             }
-           
+
             circleCordinates = [];
         }
     }
@@ -208,5 +228,53 @@ function lineDrawer() {
             drawLines(circleCordinates);
             circleCordinates = [];
         }
+    }
+}
+/** 
+ * This Function plots the points saved on project so user can see on show and edit
+ * where he or she had clicked. Without this function the map will appear empty after having the project saved.
+ * Checks if values exists on the bridges, crashes and pavements. If value exists then 
+ * run query so points can be seen. 
+*/
+function show_edit_ViewMap() {
+    let image = "../../docs/images/redPin.png";
+    try{
+        let markers =  JSON.parse(project.points);
+        for (marker in markers.lat) {
+            console.log(markers.lat[marker]);
+            paths.lat.push(markers.lat[marker]);
+            paths.lng.push(markers.lng[marker]);
+            counterCORD++; // global var that counts click, we are adding since add line requires this number. Can be seen on action on addLatLng Function
+            if(marker >= 1){
+                addLine(paths);
+            }
+            let to_Plot = {
+                lat: markers.lat[marker],
+                lng: markers.lng[marker]
+            };
+            
+            let pointT = new google.maps.Marker({
+                position: to_Plot,
+                title: "#" + (parseInt(marker)+1),
+                icon: image
+            });
+            pointT.setMap(map);
+            points.push(pointT);
+        }
+        if(project.poor_bridges != null){
+            console.log("about to call bridges");
+            point_drawer('bridges');
+        }
+        if(project.pavement_fair_condition != null){
+            console.log("about to call pavements");
+            lineDrawer();
+        }
+        console.log(project.total_crash_EP);
+        if(project.total_crash_EP != null){
+            console.log("about to crashes");
+            point_drawer('crashes');
+        }
+    }catch{
+        console.log("Nothing on map");
     }
 }

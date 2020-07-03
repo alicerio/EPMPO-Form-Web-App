@@ -125,6 +125,7 @@
           <td><input type="number" id="poor_deck_area" class="form-control" name="poor_area"
               value="{{$project->poor_area ?? ''}}" readonly></td>
         </tr>
+        <input type="hidden" id="point" class="form-control" name = "points[]">
       </table>
     </div>
   </div>
