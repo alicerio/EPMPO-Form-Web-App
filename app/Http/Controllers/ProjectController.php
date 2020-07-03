@@ -39,8 +39,12 @@ class ProjectController extends Controller
         return view('projects.create');
     }
 
-    public function exportExcel()
+    public function exportExcel($id)
     {
+        $projects = Project::orderBy('created_at', 'asc')->where('parent_id', $id)->get();
+        $projects->prepend(Project::find($id));
+
+        /*
         $project = new Project();
         $columns = $project->getTableColumns();
         $projects = $project->getAll();
@@ -49,10 +53,12 @@ class ProjectController extends Controller
             $data[0] = (object) $column;
         }
         $data = $data->merge($projects);
-        $fileName = "Projects.xlsx";
+        $fileName = "Project.xlsx";
         $excel = Exporter::make('Excel');
         $excel->load($data);
         return $excel->stream($fileName);
+        */
+        return Exporter::make('Excel')->load($projects)->stream("Project.xlsx");
     }
 
     public function store(Request $request)
