@@ -82,4 +82,5 @@
 </style>
 <script src="{{ asset('docs/js/logOfChangesLogic.js')}}"></script>
 <script src="{{ asset('docs/js/form1FrontEndLogic.js')}}"></script>
+<script src="{{ asset('docs/js/sharedFrontEndLogic.js')}}"></script>
 @endsection

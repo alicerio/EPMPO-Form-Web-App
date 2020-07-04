@@ -1,9 +1,15 @@
 @extends('layouts.app')
 <script>
     var project = <?php echo json_encode($project);?>; 
+    console.log(project.status);
     window.onload = function() {
         show_edit_ViewMap();
-        if(project.status == 3){
+        if(project.status == 1){
+            set_required();  
+            form1_setView();
+        }
+        else if(project.status == 3){
+            console.log("aqui");
             make_project_readonly();
         }else{
             form1_setView();
@@ -83,4 +89,5 @@
 </style>
 <script src="{{ asset('docs/js/logOfChangesLogic.js')}}"></script>
 <script src="{{ asset('docs/js/form1FrontEndLogic.js')}}"></script>
+<script src="{{ asset('docs/js/sharedFrontEndLogic.js')}}"></script>
 @endsection

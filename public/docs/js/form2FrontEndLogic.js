@@ -59,8 +59,8 @@ function rowSum_1(idName, index) {
     let totId = "";
     var inputValues = $(toSearch).map(function() {
         let h = $(this).val();
-        if(parseInt($(this).val())>0 && $(this).attr("name") != "funding_total_vehicles" && $(this).attr("name") != "funding_category_vehicles" 
-        && $(this).attr("name") != "funding_tdc_vehicles") {
+        if(parseInt($(this).val())>0 && $(this).attr("name") != "funding_total_vehicles[]" && $(this).attr("name") != "funding_category_vehicles[]" 
+        && $(this).attr("name") != "funding_tdc_vehicles[]") {
             h = parseInt($(this).val());
             rowTot+=h;
         }
@@ -164,8 +164,8 @@ function rowSum_2(idName, index) {
     let totId = "";
     var inputValues = $(toSearch).map(function() {
         let h = $(this).val();
-        if(parseInt($(this).val())>0 && $(this).attr("name") != "funding_total_bus" && $(this).attr("name") != "funding_category_bus" 
-        && $(this).attr("name") != "funding_tdc_bus") {
+        if(parseInt($(this).val())>0 && $(this).attr("name") != "funding_total_bus[]" && $(this).attr("name") != "funding_category_bus[]" 
+        && $(this).attr("name") != "funding_tdc_bus[]") {
             h = parseInt($(this).val());
             rowTot+=h;
         }
@@ -256,7 +256,7 @@ function rowSum_3(idName, index) {
     let totId = "";
     var inputValues = $(toSearch).map(function() {
         let h = $(this).val();
-        if(parseInt($(this).val())>0 && $(this).attr("name") != "funding_total_operations" && $(this).attr("name") != "funding_category_operations") {
+        if(parseInt($(this).val())>0 && $(this).attr("name") != "funding_total_operations[]" && $(this).attr("name") != "funding_category_operations[]") {
             h = parseInt($(this).val());
             rowTot+=h;
         }

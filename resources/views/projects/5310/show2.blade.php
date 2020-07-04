@@ -1,12 +1,13 @@
 <script type="text/javascript">
-    window.onload = function() {
-        form2_setView();
-    };
     var obj = <?php echo json_encode($logOfChanges);?>; 
+    var project = <?php echo json_encode($project);?>; 
             console.log(obj);
-    var projectobj = <?php echo json_encode($project);?>; 
-            console.log(projectobj);
-        
+            console.log(project);
+    window.onload = function() {
+        make_project_readonly();
+        show_edit_ViewMap();
+      //  form2_setView(); //og code 
+    };
 </script>
 @extends('layouts.app')
 
@@ -46,11 +47,15 @@
                 @include('projects/5310.5310_part6')
             </div>
         </div>
-        @include('projects/5310.buttons_show2')
+        <div id="buttonHolder">
+            @include('projects.buttons_show')
+        </div>
     </form>
 </div>
 <script src="{{ asset('docs/js/form2FrontEndLogic.js')}}"></script>
 <script src="{{ asset('docs/js/logOfChangesLogic.js')}}"></script>
+<script src="{{ asset('docs/js/sharedFrontEndLogic.js')}}"></script>
+
 
 
 @endsection
