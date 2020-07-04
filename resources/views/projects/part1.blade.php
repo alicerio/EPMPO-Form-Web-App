@@ -17,7 +17,7 @@
     <div class="card-header">
         Electornic Project Request Form (ePRF)
     </div>
-    <div class="card-body">
+    <div id="required" class="card-body">
         <input id="project_type" type="hidden" class="form-control" name="project_type" value="{{ $project->project_type ?? 'TASA' }}" readonly>
         <label>
             MPO ID

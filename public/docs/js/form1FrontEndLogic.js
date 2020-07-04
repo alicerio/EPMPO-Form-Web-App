@@ -155,3 +155,9 @@ function form1_setView() {
     document.getElementById("signed_textarea").readOnly = true;
     document.getElementById("attachments_textarea").readOnly = true;
 }
+
+function set_required(){
+    console.log("this ran");
+    $("#required :input").prop('required',true);
+   // document.getElementById("required").required = true;
+}
