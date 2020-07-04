@@ -900,6 +900,14 @@ class ProjectController extends Controller
         return view('projects.editInfo', compact('project'));
     }
 
+    public function comments(Request $request, Project $project)
+    {
+        $project->comments = request('comments');
+        $project->save();
+
+        return view('projects.comments',compact('project'));
+    }
+
     /*
     public function show_Comment(Request $request, Project $project) {
         $project->comments_1 = request('comments_1');

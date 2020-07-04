@@ -27,6 +27,8 @@ Route::resource('agencies', 'AgencyController');
 
 Route::get('project-excel/{project}','ProjectController@exportExcel')->name('project.excel'); 
 
+Route::get('projects/comments/{project}','ProjectController@comments')->name('projects.comments');
+
 // For demo purposes
 Route::get('/records', function(){
     return view('projects.records', compact('project'));

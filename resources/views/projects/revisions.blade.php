@@ -60,7 +60,7 @@
         </div>
     </div>
     <div id="project_comments_H">
-        @include('projects.comments')
+        {{--@include('projects.comments')--}}
     </div>
 </div>
 @endsection

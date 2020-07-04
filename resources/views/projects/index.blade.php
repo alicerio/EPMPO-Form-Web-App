@@ -71,7 +71,7 @@
                                             href="{{ route('projects.edit', $project->id) }}">Edit</a> -->
                                         @if(auth()->user()->type == 2)
                                         <a class="dropdown-item"
-                                            href="{{ route('projects.editInfo', $project) }}">Update MPO
+                                            href="{{ route('projects.editInfo', $project->id) }}">Update MPO
                                             ID</a>
                                         @endif
                                         <form action="{{ route('projects.destroy', $project->id) }}" method="POST"

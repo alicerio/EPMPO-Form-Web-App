@@ -55,6 +55,7 @@
         </div>
         <div id="buttonHolder">
             @include('projects.buttons_edit')
+            <textarea name="comments" id="commentS" class="form-control" rows="5" placeholder="Add Comments">{{$project->comments ?? '' }}</textarea>
         </div>
     </form>
 </div>

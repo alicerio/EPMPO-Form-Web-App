@@ -53,6 +53,8 @@
         </div>
         <div id="buttonHolder"> 
             @include('projects.buttons_show')
+            <a href="{{ route('projects.comments', $project->id) }}">Comments</a>
+            <textarea name="comments" id="commentS" style="display:none;" class="form-control" rows="5" placeholder="Add Comments">{{$project->comments ?? '' }}</textarea>
         </div>
     </form>
 </div>
