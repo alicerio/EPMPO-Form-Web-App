@@ -22,7 +22,11 @@
             </div>
         </div>
         <div id="buttonHolder">
-            @include('projects.buttons_edit')
+            <input type="hidden" class="form-control" name="status" value="{{ $project->status ?? '2' }}" readonly>
+            <button id="button_text_changer" class="btn btn-primary mx-1" type="submit">
+                Save Comments
+            </button>
+
         </div>
         <div class="row">
     <div class="col-md-12">
