@@ -15,8 +15,6 @@
             form1_setView();
         }
     };
-
-    
 </script>
 @section('content')
 
@@ -61,8 +59,12 @@
         </div>
         <div id="buttonHolder">
             @include('projects.buttons_edit')
-            {{-- Show COMMENTS--}}
-            <textarea name="comments" id="commentS" class="form-control" rows="5" placeholder="Add Comments">{{$project->comments ?? '' }}</textarea>
+            @auth
+            @if(auth()->user()->type == 2)
+                <button class="btn btn-info" rows = "5" id="toggleCommentsButton" type="button">Show Comments</button>
+                <textarea name="comments" id="commentS" style="display:none;" class="form-control" rows="5" placeholder="Comments" readonly>{{$project->comments ?? '' }}</textarea>
+            @endif
+            @endauth
         </div>
     </form>
 </div>
@@ -91,4 +93,12 @@
 <script src="{{ asset('docs/js/logOfChangesLogic.js')}}"></script>
 <script src="{{ asset('docs/js/form1FrontEndLogic.js')}}"></script>
 <script src="{{ asset('docs/js/sharedFrontEndLogic.js')}}"></script>
+<script>
+    $(document).ready(function() {
+    $("#toggleCommentsButton").click(function(){
+       $("#commentS").toggle( 'slow', function(){
+       });
+    });
+ });
+</script> 
 @endsection

@@ -321,3 +321,8 @@ function form2_setView() {
    document.getElementById("total_operations_total").readOnly = true;
 }
 
+function set_required(){
+    console.log("this ran");
+    //$("#required :input").prop('required',true);
+}
+

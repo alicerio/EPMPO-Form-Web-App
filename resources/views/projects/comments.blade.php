@@ -21,30 +21,29 @@
                 @include('projects.part1')
             </div>
         </div>
-        <div id="buttonHolder">
-            <input type="hidden" class="form-control" name="status" value="{{ $project->status ?? '2' }}" readonly>
-            <button id="button_text_changer" class="btn btn-primary mx-1" type="submit">
-                Save Comments
-            </button>
-
-        </div>
+        <div class="card">
+            <div class="card-header">
+                <h5 class="float-left">Project: {{ $project->name }}</h5>
+            </div>
+        <input type="hidden" class="form-control" name="status" value="{{ $project->status ?? '2' }}" readonly>
         <div class="row">
-    <div class="col-md-12">
-        <div class="form-group">
-        @auth
-        @if(auth()->user()->type == 2)
-            <button class="btn btn-info" rows = "5" id="toggleCommentsButton" type="button">Add Comments</button>
-            <textarea name="comments" id="commentS" style="display:none;" class="form-control" rows="5" placeholder="Add Comments">{{$project->comments ?? '' }}</textarea>
-        @else
-            <button class="btn btn-info" rows = "5" id="toggleCommentsButton" type="button">Show Comments</button>
-            <textarea name="comments" id="commentS" style="display:none;" class="form-control" rows="5" placeholder="Show Comments" readonly>{{$project->comments ?? '' }}</textarea>
-        @endif
-        @endauth
+            <div class="col-md-12">
+                <div class="form-group">
+                    @auth
+                    @if(auth()->user()->type == 2)
+                        <textarea name="comments" id="commentS" class="form-control" rows="5" placeholder="Add Comments">{{$project->comments ?? '' }}</textarea>
+                        <button id="button_text_changer" class="btn btn-primary mx-1" type="submit">
+                            Save Comments
+                        </button>
+                    @endif
+                    @endauth
+                </div>
+            </div>
         </div>
-    </div>
-</div>
+        </div>
     </form>
 </div>
+
 <style>
     button {
         margin: 1%;
