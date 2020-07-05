@@ -323,6 +323,6 @@ function form2_setView() {
 
 function set_required(){
     console.log("this ran");
-    //$("#required :input").prop('required',true);
+    $("#required :input").prop('required',true);
 }
 

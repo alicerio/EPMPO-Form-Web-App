@@ -26,27 +26,29 @@
             MPO ID
         </label>
         <input id = "mpo_id" type="text" class="form-control" name="mpo_id" autocomplete="off" value="{{ $project->mpo_id ?? '' }}" readonly>
-        <label>
-            CSJ or CN
-        </label>
-        <input id="scj" type="text" class="form-control" name="csj_cn" autocomplete="off" value="{{ $project->csj_cn ?? '' }}" readonly>
-        <label>
-            Project Name
-        </label>
-        <input type="text" class="form-control" name="name" autocomplete="off" value="{{ $project->name ?? '' }}" disabled>
-        <label>
-            Project Description
-        </label>
-        <input type="text" class="form-control" name="description" autocomplete="off" value="{{ $project->description ?? '' }}" disabled>
-        <label>
-            Limit From
-        </label>
-        <input type="text" class="form-control" name="limit_from" autocomplete="off" value="{{ $project->limit_from ?? '' }}" disabled>
-        <label>
-            Limit To
-        </label>
-        <input type="text" class="form-control" name="limit_to" autocomplete="off" value="{{ $project->limit_to ?? '' }}" disabled>
-        <button  class="btn btn-info" style="margin:1%" type="button" id="toggleMapButton">Draw Project limit and query data</button>
+        <div id = "required">
+            <label>
+                CSJ or CN
+            </label>
+            <input id="scj" type="text" class="form-control" name="csj_cn" autocomplete="off" value="{{ $project->csj_cn ?? '' }}" readonly>
+            <label>
+                Project Name
+            </label>
+            <input type="text" class="form-control" name="name" autocomplete="off" value="{{ $project->name ?? '' }}" disabled>
+            <label>
+                Project Description
+            </label>
+            <input type="text" class="form-control" name="description" autocomplete="off" value="{{ $project->description ?? '' }}" disabled>
+            <label>
+                Limit From
+            </label>
+            <input type="text" class="form-control" name="limit_from" autocomplete="off" value="{{ $project->limit_from ?? '' }}" disabled>
+            <label>
+                Limit To
+            </label>
+            <input type="text" class="form-control" name="limit_to" autocomplete="off" value="{{ $project->limit_to ?? '' }}" disabled>
+            <button  class="btn btn-info" style="margin:1%" type="button" id="toggleMapButton">Draw Project limit and query data</button>
+        </div>
         <div>@include('projects.map')</div>
         
         <label>

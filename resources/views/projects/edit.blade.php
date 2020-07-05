@@ -1,5 +1,5 @@
 @extends('layouts.app')
-<script>
+<script type="text/javascript">
     var project = <?php echo json_encode($project);?>; 
     console.log(project.status);
     window.onload = function() {
@@ -60,8 +60,10 @@
         <div id="buttonHolder">
             @include('projects.buttons_edit')
             @auth
-            @if(auth()->user()->type == 2)
+            @if(auth()->user()->type != 2)
                 <button class="btn btn-info" rows = "5" id="toggleCommentsButton" type="button">Show Comments</button>
+                <textarea name="comments" id="commentS" style="display:none;" class="form-control" rows="5" placeholder="Comments" readonly>{{$project->comments ?? '' }}</textarea>
+            @else
                 <textarea name="comments" id="commentS" style="display:none;" class="form-control" rows="5" placeholder="Comments" readonly>{{$project->comments ?? '' }}</textarea>
             @endif
             @endauth

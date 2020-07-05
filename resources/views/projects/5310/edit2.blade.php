@@ -5,14 +5,16 @@
         show_edit_ViewMap();
         if(project.status == 3){
             make_project_readonly();
-        }else{
-            //form1_setView();
+        }
+        else if(project.status == 1){
+            set_required();
+            form2_setView();
+        }
+        else{
             form2_setView();
         }
     };
- 
 </script>
-
 
 @section('content')
 
