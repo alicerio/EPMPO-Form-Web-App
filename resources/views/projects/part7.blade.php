@@ -64,15 +64,15 @@
                     </div>
                     <div class="col-sm-2">
                         <input type="email" name="state_pm_email" class="form-control"
-                            value="{{ $project->state_pm_name ?? ''}}" disabled>
+                            value="{{ $project->state_pm_email ?? ''}}" disabled>
                     </div>
                     <div class="col-sm-2">
                         <input type="text" name="state_pm_agency" class="form-control"
-                            value="{{ $project->state_pm_name ?? ''}}" disabled>
+                            value="{{ $project->state_pm_agency ?? ''}}" disabled>
                     </div>
                     <div class="col-sm-2">
                         <input type="text" name="state_pm_title" class="form-control"
-                            value="{{ $project->state_pm_name ?? ''}}" disabled>
+                            value="{{ $project->state_pm_title ?? ''}}" disabled>
                     </div>
                 </div>
                 <div class="form-row mb-1">
