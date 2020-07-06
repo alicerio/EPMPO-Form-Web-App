@@ -340,8 +340,10 @@
 <script>
     const displayBox = (name) => {
         if($('select[name="'+name +'"]').val() == 1) {
-            console.log("displaying");
             $('textarea[name="description_' + name +'"]').show();
+        }
+        else {
+            $('textarea[name="description_' + name +'"]').hide();
         }
     };
 </script>

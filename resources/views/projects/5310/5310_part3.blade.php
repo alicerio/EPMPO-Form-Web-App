@@ -62,7 +62,7 @@
                 </div>
                 <div class="form-row mb-1">
                     <div class="col">
-                        2. Project addressing congestion?
+                        2. Is the project addressing congestion?
                         <br>
                         If “yes”, please provide a quantitative analysis if existing for use in CMP. 
                         <br>
@@ -80,7 +80,7 @@
                 </div>
                 <div class="form-row mb-1">
                     <div class="col">
-                        3. Project adds roadway capacity.
+                        3. Does the project add roadway capacity?
                         <br>
                         Instructions: Significant SOV capacity-adding projects impact regional or corridor travel patterns. 
                         Project descriptions typically include a new roadway or bypass, major or minor road widening to add additional through lanes on an existing highway, 
