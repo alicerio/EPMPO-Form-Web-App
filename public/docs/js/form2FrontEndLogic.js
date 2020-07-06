@@ -324,5 +324,9 @@ function form2_setView() {
 function set_required(){
     console.log("this ran");
     $("#required :input").prop('required',true);
+    $("#required_psp :input").prop('required',true);
+    $("#required_cmp :input").prop('required',true);
+    $("#required_contact :input").prop('required',true);
+
 }
 

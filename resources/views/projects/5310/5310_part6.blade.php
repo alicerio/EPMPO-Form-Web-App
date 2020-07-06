@@ -24,24 +24,26 @@
                 </div>
             </div>
             <div class="card-body">
-                <div class="form-row mb-1">
-                    <div class="col-sm-2">
-                        Sponsor
-                    </div>
-                    <div class="col-sm-2">
-                        <input type="text" name="contact_name" class="form-control" value="{{ $project->contact_name ?? ''  }}" disabled>
-                    </div>
-                    <div class="col-sm-2">
-                        <input type="tel" name="contact_phone" class="form-control" value="{{ $project->contact_phone ?? ''  }}" disabled>
-                    </div>
-                    <div class="col-sm-2">
-                        <input type="email" name="contact_email" class="form-control" value="{{ $project->contact_email ?? '' }}" disabled>
-                    </div>
-                    <div class="col-sm-2">
-                        <input type="text" name="contact_agency" class="form-control" value="{{ $project->contact_agency ?? ''  }}" disabled>
-                    </div>
-                    <div class="col-sm-2">
-                        <input type="text" name="contact_title" class="form-control" value="{{ $project->contact_title ?? ''  }}" disabled>
+                <div class="required_contact">
+                    <div class="form-row mb-1">
+                        <div class="col-sm-2">
+                            Sponsor
+                        </div>
+                        <div class="col-sm-2">
+                            <input type="text" name="contact_name" class="form-control" value="{{ $project->contact_name ?? ''  }}" disabled>
+                        </div>
+                        <div class="col-sm-2">
+                            <input type="tel" name="contact_phone" class="form-control" value="{{ $project->contact_phone ?? ''  }}" disabled>
+                        </div>
+                        <div class="col-sm-2">
+                            <input type="email" name="contact_email" class="form-control" value="{{ $project->contact_email ?? '' }}" disabled>
+                        </div>
+                        <div class="col-sm-2">
+                            <input type="text" name="contact_agency" class="form-control" value="{{ $project->contact_agency ?? ''  }}" disabled>
+                        </div>
+                        <div class="col-sm-2">
+                            <input type="text" name="contact_title" class="form-control" value="{{ $project->contact_title ?? ''  }}" disabled>
+                        </div>
                     </div>
                 </div>
             </div>
