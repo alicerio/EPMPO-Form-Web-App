@@ -80,11 +80,15 @@
         @auth
             @if(auth()->user()->type == 1)
                 <div class="form-group">
-                    <textarea disabled class="form-control" id="signed_textarea" name = "signature" rows="2"  value="{{ $project->signature ?? ''  }}"></textarea>
+                    <textarea disabled class="form-control" id="signed_textarea" name = "signature" rows="2">
+                        {{ $project->signature ?? ''  }}
+                    </textarea>
                 </div>
             @else
                 <div class="form-group">
-                    <textarea class="form-control" id="signed_textarea" name = "signature" title="Only a submitter can sign this form." rows="2"  value="{{ $project->contact_title ?? ''  }}" disabled></textarea>
+                    <textarea class="form-control" id="signed_textarea" name = "signature" title="Only a submitter can sign this form." rows="2"  disabled>
+                        {{ $project->signature ?? ''  }}
+                    </textarea>
                 </div>
             @endif                            
         @endauth

@@ -1,6 +1,10 @@
 @extends('layouts.app')
-<script type="text/javascript">
+@php
+    $currentUser = auth()->user()->type  //  Store current user 
+@endphp
+<script>
     var project = <?php echo json_encode($project);?>; 
+    var currentUser = <?php echo json_encode($currentUser);?>;  // get current user
     console.log(project.status);
     window.onload = function() {
         show_edit_ViewMap();
@@ -13,6 +17,10 @@
             make_project_readonly();
         }else{
             form1_setView();
+        }
+
+        if(currentUser == 1){
+            remove_readonly("signed_textarea");
         }
     };
 </script>
@@ -102,5 +110,5 @@
        });
     });
  });
-</script> 
+</script>
 @endsection
