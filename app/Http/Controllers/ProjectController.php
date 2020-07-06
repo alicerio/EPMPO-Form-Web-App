@@ -367,11 +367,12 @@ class ProjectController extends Controller
 
         $project->save();
 
-        if ($project->project_type == "TASA") {
+        /*if ($project->project_type == "TASA") {
             return view('projects.edit', compact('project'));
         } else {
             return view('projects/5310.edit2', compact('project'));
-        }
+        }*/
+        return redirect(route('projects.revisions', compact('project')));
     }
     /*
         Here we are filtering all the projects on the database
@@ -456,6 +457,7 @@ class ProjectController extends Controller
         } else {
             return view('projects/5310.show2', compact('project', 'logOfChanges', 'infoCurrentProject'));
         }
+        //return redirect(route('projects.index'));
     }
 
     /*
@@ -518,6 +520,7 @@ class ProjectController extends Controller
         } else {
             return view('projects/5310.edit2', compact('project'));
         }
+        //return redirect(route('projects.index'));
     }
 
     /**
@@ -537,6 +540,7 @@ class ProjectController extends Controller
             $newProject->author = auth()->user()->name;
             $newProject->save();
             return redirect(route('projects.index'));
+            //return redirect(route('projects.revisions', compact('newProject')));
         }
 
 
@@ -852,11 +856,12 @@ class ProjectController extends Controller
             $project->save();
         }
 
-        if ($project->project_type == "TASA") {
+        /*if ($project->project_type == "TASA") {
             return view('projects.edit', compact('project'));
         } else {
             return view('projects/5310.edit2', compact('project'));
-        }
+        }*/
+        return redirect(route('projects.revisions', compact('project')));
     }
 
     /**
