@@ -1,5 +1,7 @@
 @extends('layouts.app')
-{{$currentUser = auth()->user()->type }} {{--  Store current user --}}
+@php
+    $currentUser = auth()->user()->type  //  Store current user 
+@endphp
 <script>
     var project = <?php echo json_encode($project);?>; 
     var currentUser = <?php echo json_encode($currentUser);?>;  // get current user
