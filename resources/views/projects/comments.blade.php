@@ -16,7 +16,7 @@
     <form action="{{ route('projects.update', $project->id) }}" method="POST">
         @csrf
         @method('PATCH')
-        @if($project->type == "TASA")
+        @if($project->project_type == "TASA")
             <div class="row" style="display: none">
                 <div class="col-md-12">
                     @include('projects.part1')
