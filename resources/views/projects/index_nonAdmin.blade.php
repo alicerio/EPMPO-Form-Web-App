@@ -33,6 +33,7 @@
                         <th scope="col">Project</th>
                         <th scope="col">Creator</th>
                         <th scope="col">Status</th>
+                        <th scope="col">Project Type</th>
                         <th scole="col">editor</th>
                     </tr>
                 </thead>
@@ -52,6 +53,7 @@
                             @else
                             <td>{{ $statuses[$project->status] }}</td>
                             @endif
+                            <td>{{ $project->project_type}}</td>
                             @if(auth()->user()->type!=2)
 
                             @else
