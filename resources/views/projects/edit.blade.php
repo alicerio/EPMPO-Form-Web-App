@@ -1,6 +1,8 @@
 @extends('layouts.app')
+{{$currentUser = auth()->user()->type }} {{--  Store current user --}}
 <script>
     var project = <?php echo json_encode($project);?>; 
+    var currentUser = <?php echo json_encode($currentUser);?>;  // get current user
     console.log(project.status);
     window.onload = function() {
         show_edit_ViewMap();
@@ -13,6 +15,10 @@
             make_project_readonly();
         }else{
             form1_setView();
+        }
+
+        if(currentUser == 1){
+            remove_readonly("signed_textarea");
         }
     };
 </script>
@@ -61,8 +67,8 @@
             @include('projects.buttons_edit')
             @auth
             @if(auth()->user()->type == 2)
-                <button class="btn btn-info" rows = "5" id="toggleCommentsButton" type="button">Show Comments</button>
-                <textarea name="comments" id="commentS" style="display:none;" class="form-control" rows="5" placeholder="Comments" readonly>{{$project->comments ?? '' }}</textarea>
+            <button class="btn btn-info" rows = "5" id="toggleCommentsButton" type="button">Show Comments</button>
+            <textarea name="comments" id="commentS" style="display:none;" class="form-control" rows="5" placeholder="Comments" readonly>{{$project->comments ?? '' }}</textarea>
             @endif
             @endauth
         </div>
@@ -100,5 +106,5 @@
        });
     });
  });
-</script> 
+</script>
 @endsection

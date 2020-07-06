@@ -23,4 +23,8 @@ function make_project_readonly() {
     $("#toggleMapButton").prop("disabled", false);
 }
 
+function remove_readonly(element){
+    $("#"+element).prop("readonly",false)
+}
+
 

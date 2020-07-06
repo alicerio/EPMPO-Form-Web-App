@@ -80,8 +80,8 @@
                         Sponsor
                     </div>
                     <div class="col-sm-2">
-                        <input type="text" name="sponsor_name" class="form-control" value="{{ $project->sponsor_name ?? ''}}"
-                            disabled>
+                        <input type="text" name="sponsor_name" class="form-control"
+                            value="{{ $project->sponsor_name ?? ''}}" disabled>
                     </div>
                     <div class="col-sm-2">
                         <input type="tel" name="sponsor_phone" class="form-control"
@@ -144,7 +144,7 @@
         @if(auth()->user()->type == 1)
         <div class="form-group">
             <textarea class="form-control" id="signed_textarea" name="signature" rows="2"
-                value="{{ $project->sponsor_title ?? '' }}" disabled></textarea>
+                value="{{ $project->signature ?? '' }}" disabled></textarea>
         </div>
         @else
         <div class="form-group">
@@ -155,6 +155,6 @@
         @endif
         @endauth
         <p>Save your form before signing, all fields will be locked after signature is provided.</p>
-        <br>       
+        <br>
     </div>
 </div>
