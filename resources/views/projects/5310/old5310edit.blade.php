@@ -64,7 +64,7 @@
                                     Network Year
                                 </label>
                                 <select name="network_year" class="form-control">
-                                    <option>----</option>
+                                    <option></option>
                                     <option value="2020" {{ $project->network_year == 2020 ? 'selected' : ''}}>2020</option>
                                     <option value="2030" {{ $project->network_year == 2030 ? 'selected' : ''}}>2030</option>
                                     <option value="2040" {{ $project->network_year == 2040 ? 'selected' : ''}}>2040</option>
@@ -79,7 +79,7 @@
                         <div class="form-row mb-1">
                             <div class="col-sm-1">
                                 <select name="psp_1" class="form-control">
-                                    <option selected>----</option>
+                                    <option></option>
                                     <option value="1" {{ $project->psp_1 == 1 ? 'selected' : '' }}>Yes</option>
                                     <option value="2" {{ $project->psp_1 == 2 ? 'selected' : '' }}>No</option>
                                 </select>
@@ -93,7 +93,7 @@
                         <div class="form-row mb-1">
                             <div class="col-sm-1">
                                 <select name="psp_2" class="form-control">
-                                    <option selected>----</option>
+                                    <option></option>
                                     <option value="1" {{ $project->psp_2 == 1 ? 'selected' : '' }}>Yes</option>
                                     <option value="2" {{ $project->psp_2 == 2 ? 'selected' : '' }}>No</option>
                                 </select>
@@ -107,7 +107,7 @@
                         <div class="form-row mb-1">
                             <div class="col-sm-1">
                                 <select name="psp_3" class="form-control">
-                                    <option selected>----</option>
+                                    <option></option>
                                     <option value="1" {{ $project->psp_3 == 1 ? 'selected' : '' }}>Yes</option>
                                     <option value="2" {{ $project->psp_3 == 2 ? 'selected' : '' }}>No</option>
                                 </select>
@@ -120,7 +120,7 @@
                         <div class="form-row mb-1">
                             <div class="col-sm-1">
                                 <select name="psp_4" class="form-control">
-                                    <option selected>----</option>
+                                    <option></option>
                                     <option value="1" {{ $project->psp_4 == 1 ? 'selected' : '' }}>Yes</option>
                                     <option value="2" {{ $project->psp_4 == 2 ? 'selected' : '' }}>No</option>
                                 </select>
@@ -134,7 +134,7 @@
                         <div class="form-row mb-1">
                             <div class="col-sm-1">
                                 <select name="psp_5" class="form-control">
-                                    <option selected>----</option>
+                                    <option></option>
                                     <option value="1" {{ $project->psp_5 == 1 ? 'selected' : '' }}>Yes</option>
                                     <option value="2" {{ $project->psp_5 == 2 ? 'selected' : '' }}>No</option>
                                 </select>
@@ -186,7 +186,7 @@
                                 <div class="form-row mb-1">
                                     <div class="col-sm-2">
                                         <select name="strategy_1" class="form-control" onclick="toggleTA(this.name);">
-                                            <option selected>----</option>
+                                            <option></option>
                                             <option value="1" {{ $project->strategy_1 == 1 ? 'selected' : '' }}>Yes</option>
                                             <option value="2" {{ $project->strategy_1 == 2 ? 'selected' : '' }}>No</option>
                                         </select>
@@ -199,7 +199,7 @@
                                 <div class="form-row mb-1">
                                     <div class="col-sm-2">
                                         <select name="strategy_2" class="form-control" onclick="toggleTA(this.name);">
-                                            <option selected>----</option>
+                                            <option></option>
                                             <option value="1" {{ $project->strategy_2 == 1 ? 'selected' : '' }}>Yes</option>
                                             <option value="2" {{ $project->strategy_2 == 2 ? 'selected' : '' }}>No</option>
                                         </select>
@@ -212,7 +212,7 @@
                                 <div class="form-row mb-1">
                                     <div class="col-sm-2">
                                         <select name="strategy_3" class="form-control" onclick="toggleTA(this.name);">
-                                            <option selected>----</option>
+                                            <option></option>
                                             <option value="1" {{ $project->strategy_3 == 1 ? 'selected' : '' }}>Yes</option>
                                             <option value="2" {{ $project->strategy_3 == 2 ? 'selected' : '' }}>No</option>
                                         </select>
@@ -226,7 +226,7 @@
                                 <div class="form-row mb-1">
                                     <div class="col-sm-2">
                                         <select name="strategy_4" class="form-control" onclick="toggleTA(this.name);">
-                                            <option selected>----</option>
+                                            <option></option>
                                             <option value="1" {{ $project->strategy_4 == 1 ? 'selected' : '' }}>Yes</option>
                                             <option value="2" {{ $project->strategy_4 == 2 ? 'selected' : '' }}>No</option>
                                         </select>
@@ -240,7 +240,7 @@
                                 <div class="form-row mb-1">
                                     <div class="col-sm-2">
                                         <select name="strategy_5" class="form-control">
-                                            <option selected>----</option>
+                                            <option></option>
                                             <option value="1" {{ $project->strategy_5 == 1 ? 'selected' : '' }}>Yes</option>
                                             <option value="2" {{ $project->strategy_5 == 2 ? 'selected' : '' }}>No</option>
                                         </select>
@@ -252,7 +252,7 @@
                                 <div class="form-row mb-1">
                                     <div class="col-sm-2">
                                         <select name="strategy_6" class="form-control">
-                                            <option selected>----</option>
+                                            <option></option>
                                             <option value="1" {{ $project->strategy_6 == 1 ? 'selected' : '' }}>Yes</option>
                                             <option value="2" {{ $project->strategy_6 == 2 ? 'selected' : '' }}>No</option>
                                         </select>

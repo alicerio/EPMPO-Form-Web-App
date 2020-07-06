@@ -207,7 +207,7 @@
         <div class="form-row mb-1">
             <div class="col-sm-1">
                 <select disabled name="costs_1" class="form-control">
-                    <option selected>----</option>
+                    <option></option>
                     <option value="1" {{ $project->costs_1  ?? '' == 1 ? 'selected' : ''  }}>Yes</option>
                     <option value="2" {{ $project->costs_1  ?? '' == 2 ? 'selected' : ''  }}>No</option>
                 </select>
@@ -220,7 +220,7 @@
         <div class="form-row mb-1">
             <div class="col-sm-1">
                 <select disabled name="costs_2" class="form-control">
-                    <option selected>----</option>
+                    <option></option>
                     <option value="1" {{ $project->costs_2  ?? '' == 1 ? 'selected' : ''  }}>Yes</option>
                     <option value="2" {{ $project->costs_2  ?? '' == 2 ? 'selected' : ''  }}>No</option>
                 </select>
@@ -233,7 +233,7 @@
         <div class="form-row mb-1">
             <div class="col-sm-1">
                 <select disabled name="costs_3" class="form-control">
-                    <option selected>----</option>
+                    <option></option>
                     <option value="1" {{ $project->costs_3  ?? '' == 1 ? 'selected' : ''  }}>Yes</option>
                     <option value="2" {{ $project->costs_3  ?? '' == 2 ? 'selected' : ''  }}>No</option>
                 </select>
@@ -248,7 +248,7 @@
         <div class="form-row mb-1">
             <div class="col-sm-1">
                 <select disabled name="costs_4" class="form-control">
-                    <option selected>----</option>
+                    <option></option>
                     <option value="1" {{ $project->costs_4  ?? '' == 1 ? 'selected' : ''  }}>Yes</option>
                     <option value="2" {{ $project->costs_4  ?? '' == 2 ? 'selected' : ''  }}>No</option>
                 </select>

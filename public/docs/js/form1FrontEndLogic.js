@@ -158,6 +158,26 @@ function form1_setView() {
 
 function set_required(){
     console.log("this ran");
-    $("#required :input").prop('required',true);
-   // document.getElementById("required").required = true;
+    $("#showHolder :input").prop('required',true); // Everything is required
+    $("#showHolder :checkbox").prop('required',false); // Every checkbox is not required
+    //optionals
+    $("#part4_inputs :input").prop('required',false); // make optional
+    //To fix error "An invalid form control with name = "" is not focusable"
+    $("#description_goal_1").prop('required',false); // make optional
+    $("#description_goal_2").prop('required',false); // make optional
+    $("#description_goal_3").prop('required',false); // make optional
+    $("#description_goal_4").prop('required',false); // make optional
+    $("#description_goal_5").prop('required',false); // make optional
+    $("#description_goal_6").prop('required',false); // make optional
+
+    $("#description_strategy_1").prop('required',false); // make optional
+    $("#description_strategy_2").prop('required',false); // make optional
+    $("#description_strategy_3").prop('required',false); // make optional
+    $("#description_strategy_4").prop('required',false); // make optional
+    $("#description_strategy_5").prop('required',false); // make optional
+    $("#description_strategy_6").prop('required',false); // make optional
+
+    
+
+  
 }

@@ -94,7 +94,7 @@
                                     Network Year
                                 </label>
                                 <select name="network_year" class="form-control">
-                                    <option>----</option>
+                                    <option></option>
                                     <option value="2020">2020</option>
                                     <option value="2030">2030</option>
                                     <option value="2040">2040</option>
@@ -106,7 +106,7 @@
                                     Type of Project
                                 </label>
                                 <select name="type" class="form-control">
-                                    <option>----</option>
+                                    <option></option>
                                     <option value="1">Additional Lanes</option>
                                     <option value="2">Aesthetics</option>
                                     <option value="3">Bikeway</option>
@@ -152,7 +152,7 @@
                                     Federal Functional Classificaiton (<a href="https://www.txdot.gov/apps/statewide_mapping/StatewidePlanningMap.html" target="_blank">Texas</a>, <a href="http://www.elpasompo.org/civicax/filebank/blobdload.aspx?BlobID=23410" target="_blank">New Mexico</a>):
                                 </label>
                                 <select name="classification" class="form-control">
-                                    <option>----</option>
+                                    <option></option>
                                     <option value="1">Interstate</option>
                                     <option value="2">Freeway/Expressway</option>
                                     <option value="3">Principal Arterial</option>
@@ -178,7 +178,7 @@
                                     DOT District:
                                 </label>
                                 <select name="district" class="form-control">
-                                    <option>----</option>
+                                    <option></option>
                                     <option value="1">TX Dist.24</option>
                                     <option value="2">NM Dist. 1</option>
                                     <option value="3">NM Dist.2</option>
@@ -198,7 +198,7 @@
                                     County:
                                 </label>
                                 <select name="county" class="form-control">
-                                    <option>----</option>
+                                    <option></option>
                                     <option value="1">El Paso</option>
                                     <option value="2">Doña Ana</option>
                                     <option value="3">Otero</option>
@@ -218,7 +218,7 @@
                                     Incorporated City:
                                 </label>
                                 <select name="incorporated_city" class="form-control">
-                                    <option>----</option>
+                                    <option></option>
                                     <option value="1">Anthony TX</option>
                                     <option value="2">Anthony NM</option>
                                     <option value="3">Clint</option>
@@ -254,7 +254,7 @@
                         <div class="form-row mb-1">
                             <div class="col-sm-1">
                                 <select name="psp_1" class="form-control">
-                                    <option selected>----</option>
+                                    <option></option>
                                     <option value="1">Yes</option>
                                     <option value="2">No</option>
                                 </select>
@@ -267,7 +267,7 @@
                         <div class="form-row mb-1">
                             <div class="col-sm-1">
                                 <select name="psp_2" class="form-control">
-                                    <option selected>----</option>
+                                    <option></option>
                                     <option value="1">Yes</option>
                                     <option value="2">No</option>
                                 </select>
@@ -280,7 +280,7 @@
                         <div class="form-row mb-1">
                             <div class="col-sm-1">
                                 <select name="psp_3" class="form-control">
-                                    <option selected>----</option>
+                                    <option></option>
                                     <option value="1">Yes</option>
                                     <option value="2">No</option>
                                 </select>
@@ -293,7 +293,7 @@
                         <div class="form-row mb-1">
                             <div class="col-sm-1">
                                 <select name="psp_4" class="form-control">
-                                    <option selected>----</option>
+                                    <option></option>
                                     <option value="1">Yes</option>
                                     <option value="2">No</option>
                                 </select>
@@ -306,7 +306,7 @@
                         <div class="form-row mb-1">
                             <div class="col-sm-1">
                                 <select name="psp_5" class="form-control">
-                                    <option selected>----</option>
+                                    <option></option>
                                     <option value="1">Yes</option>
                                     <option value="2">No</option>
                                 </select>
@@ -319,7 +319,7 @@
                         <div class="form-row mb-1">
                             <div class="col-sm-1">
                                 <select name="psp_6" class="form-control">
-                                    <option selected>----</option>
+                                    <option></option>
                                     <option value="1">Yes</option>
                                     <option value="2">No</option>
                                 </select>
@@ -390,32 +390,32 @@
                                     <input type="checkbox" name="strategy_1" onclick="toggleTA(this.name);" autocomplete="off">
                                     Travel Demand Management Strategies
                                 </label><br>
-                                <textarea name="description_strategy_1" class="form-control" style="width: 22rem; display: none;" placeholder="How does this project meet this strategy?"></textarea>
+                                <textarea id = "description_strategy_1" name="description_strategy_1" class="form-control" style="width: 22rem; display: none;" placeholder="How does this project meet this strategy?"></textarea>
                                 <label>
                                     <input type="checkbox" name="strategy_2" onclick="toggleTA(this.name);" autocomplete="off">
                                     Traffic Operations Strategies
                                 </label><br>
-                                <textarea name="description_strategy_2" class="form-control" style="width: 22rem; display: none;" placeholder="How does this project meet this strategy?"></textarea>
+                                <textarea  id = "description_strategy_2" name="description_strategy_2" class="form-control" style="width: 22rem; display: none;" placeholder="How does this project meet this strategy?"></textarea>
                                 <label>
                                     <input type="checkbox" name="strategy_3" onclick="toggleTA(this.name);" autocomplete="off">
                                     Public Transportation Strategies
                                 </label><br>
-                                <textarea name="description_strategy_3" class="form-control" style="width: 22rem; display: none;" placeholder="How does this project meet this strategy?"></textarea>
+                                <textarea id = "description_strategy_3" name="description_strategy_3" class="form-control" style="width: 22rem; display: none;" placeholder="How does this project meet this strategy?"></textarea>
                                 <label>
                                     <input type="checkbox" name="strategy_4" onclick="toggleTA(this.name);" autocomplete="off">
                                     System Reliability
                                 </label><br>
-                                <textarea name="description_strategy_4" class="form-control" style="width: 22rem; display: none;" placeholder="How does this project meet this strategy?"></textarea>
+                                <textarea id = "description_strategy_4" name="description_strategy_4" class="form-control" style="width: 22rem; display: none;" placeholder="How does this project meet this strategy?"></textarea>
                                 <label>
                                     <input type="checkbox" name="strategy_5" onclick="toggleTA(this.name);" autocomplete="off">
                                     Road Capacity Strategies
                                 </label><br>
-                                <textarea name="description_strategy_5" class="form-control" style="width: 22rem; display: none;" placeholder="How does this project meet this strategy?"></textarea>
+                                <textarea id = "description_strategy_5" name="description_strategy_5" class="form-control" style="width: 22rem; display: none;" placeholder="How does this project meet this strategy?"></textarea>
                                 <label>
                                     <input type="checkbox" name="strategy_6" onclick="toggleTA(this.name);" autocomplete="off">
                                     Non-CMP Strategies
                                 </label><br>
-                                <textarea name="description_strategy_6" class="form-control mb-1" style="width: 22rem; display: none;" placeholder="How does this project meet this strategy?"></textarea>
+                                <textarea id = "description_strategy_6" name="description_strategy_6" class="form-control mb-1" style="width: 22rem; display: none;" placeholder="How does this project meet this strategy?"></textarea>
 
                                 <div class="card" style="width: 22rem;">
                                     <div class="card-body">
@@ -505,7 +505,7 @@
                                     </div>
                                     <div class="col-sm-1">
                                         <select name="schematic_progress" class="form-control" autocomplete="off">
-                                            <option>----</option>
+                                            <option></option>
                                             <option value="1">0%</option>
                                             <option value="2">30%</option>
                                             <option value="3">60%</option>
@@ -516,7 +516,7 @@
                                     </div>
                                     <div class="col-sm-2">
                                         <select name="schematic_agency" class="form-control" autocomplete="off">
-                                            <option>----</option>
+                                            <option></option>
                                             <option value="1">TxDOT</option>
                                             <option value="2">Local</option>
                                             <option value="3">Other</option>
@@ -539,12 +539,12 @@
                                     </div>
                                     <div class="col-sm-1">
                                         <select disabled name="envdoctype_progress" class="form-control" autocomplete="off">
-                                            <option>----</option>
+                                            <option></option>
                                         </select>
                                     </div>
                                     <div class="col-sm-2">
                                         <select disabled name="envdoctype_agency" class="form-control" autocomplete="off">
-                                            <option>----</option>
+                                            <option></option>
                                         </select>
                                     </div>
                                     <div class="col-sm-2">
@@ -564,7 +564,7 @@
                                     </div>
                                     <div class="col-sm-1">
                                         <select name="envdoc_progress" class="form-control" autocomplete="off">
-                                            <option>----</option>
+                                            <option></option>
                                             <option value="1">0%</option>
                                             <option value="2">30%</option>
                                             <option value="3">60%</option>
@@ -575,7 +575,7 @@
                                     </div>
                                     <div class="col-sm-2">
                                         <select name="envdoc_agency" class="form-control" autocomplete="off">
-                                            <option>----</option>
+                                            <option></option>
                                             <option value="1">TxDOT</option>
                                             <option value="2">Local</option>
                                             <option value="3">Other</option>
@@ -598,7 +598,7 @@
                                     </div>
                                     <div class="col-sm-1">
                                         <select name="pse_progress" class="form-control" autocomplete="off">
-                                            <option>----</option>
+                                            <option></option>
                                             <option value="1">0%</option>
                                             <option value="2">30%</option>
                                             <option value="3">60%</option>
@@ -609,7 +609,7 @@
                                     </div>
                                     <div class="col-sm-2">
                                         <select name="pse_agency" class="form-control" autocomplete="off">
-                                            <option>----</option>
+                                            <option></option>
                                             <option value="1">TxDOT</option>
                                             <option value="2">Local</option>
                                             <option value="3">Other</option>
@@ -632,7 +632,7 @@
                                     </div>
                                     <div class="col-sm-1">
                                         <select name="rowmap_progress" class="form-control" autocomplete="off">
-                                            <option>----</option>
+                                            <option></option>
                                             <option value="1">0%</option>
                                             <option value="2">30%</option>
                                             <option value="3">60%</option>
@@ -643,7 +643,7 @@
                                     </div>
                                     <div class="col-sm-2">
                                         <select name="rowmap_agency" class="form-control" autocomplete="off">
-                                            <option>----</option>
+                                            <option></option>
                                             <option value="1">TxDOT</option>
                                             <option value="2">Local</option>
                                             <option value="3">Other</option>
@@ -666,7 +666,7 @@
                                     </div>
                                     <div class="col-sm-1">
                                         <select name="rowacq_progress" class="form-control" autocomplete="off">
-                                            <option>----</option>
+                                            <option></option>
                                             <option value="1">0%</option>
                                             <option value="2">30%</option>
                                             <option value="3">60%</option>
@@ -677,7 +677,7 @@
                                     </div>
                                     <div class="col-sm-2">
                                         <select name="rowacq_agency" class="form-control" autocomplete="off">
-                                            <option>----</option>
+                                            <option></option>
                                             <option value="1">TxDOT</option>
                                             <option value="2">Local</option>
                                             <option value="3">Other</option>
@@ -700,7 +700,7 @@
                                     </div>
                                     <div class="col-sm-1">
                                         <select name="utilities_progress" class="form-control" autocomplete="off">
-                                            <option>----</option>
+                                            <option></option>
                                             <option value="1">0%</option>
                                             <option value="2">30%</option>
                                             <option value="3">60%</option>
@@ -711,7 +711,7 @@
                                     </div>
                                     <div class="col-sm-2">
                                         <select name="utilities_agency" class="form-control" autocomplete="off">
-                                            <option>----</option>
+                                            <option></option>
                                             <option value="1">TxDOT</option>
                                             <option value="2">Local</option>
                                             <option value="3">Other</option>
@@ -734,7 +734,7 @@
                                     </div>
                                     <div class="col-sm-1">
                                         <select name="pubinv_progress" class="form-control" autocomplete="off">
-                                            <option>----</option>
+                                            <option></option>
                                             <option value="1">0%</option>
                                             <option value="2">30%</option>
                                             <option value="3">60%</option>
@@ -745,7 +745,7 @@
                                     </div>
                                     <div class="col-sm-2">
                                         <select name="pubinv_agency" class="form-control" autocomplete="off">
-                                            <option>----</option>
+                                            <option></option>
                                             <option value="1">TxDOT</option>
                                             <option value="2">Local</option>
                                             <option value="3">Other</option>
@@ -768,7 +768,7 @@
                                     </div>
                                     <div class="col-sm-1">
                                         <select name="distrev_progress" class="form-control" autocomplete="off">
-                                            <option>----</option>
+                                            <option></option>
                                             <option value="1">0%</option>
                                             <option value="2">30%</option>
                                             <option value="3">60%</option>
@@ -779,7 +779,7 @@
                                     </div>
                                     <div class="col-sm-2">
                                         <select name="distrev_agency" class="form-control" autocomplete="off">
-                                            <option>----</option>
+                                            <option></option>
                                             <option value="1">TxDOT</option>
                                             <option value="2">Local</option>
                                             <option value="3">Other</option>
@@ -802,7 +802,7 @@
                                     </div>
                                     <div class="col-sm-1">
                                         <select name="agree_progress" class="form-control" autocomplete="off">
-                                            <option>----</option>
+                                            <option></option>
                                             <option value="1">0%</option>
                                             <option value="2">30%</option>
                                             <option value="3">60%</option>
@@ -813,7 +813,7 @@
                                     </div>
                                     <div class="col-sm-2">
                                         <select name="agree_agency" class="form-control" autocomplete="off">
-                                            <option>----</option>
+                                            <option></option>
                                             <option value="1">TxDOT</option>
                                             <option value="2">Local</option>
                                             <option value="3">Other</option>
@@ -836,7 +836,7 @@
                                     </div>
                                     <div class="col-sm-1">
                                         <select name="procpro_progress" class="form-control" autocomplete="off">
-                                            <option>----</option>
+                                            <option></option>
                                             <option value="1">0%</option>
                                             <option value="2">30%</option>
                                             <option value="3">60%</option>
@@ -847,7 +847,7 @@
                                     </div>
                                     <div class="col-sm-2">
                                         <select name="procpro_agency" class="form-control" autocomplete="off">
-                                            <option>----</option>
+                                            <option></option>
                                             <option value="1">TxDOT</option>
                                             <option value="2">Local</option>
                                             <option value="3">Other</option>
@@ -870,12 +870,12 @@
                                     </div>
                                     <div class="col-sm-1">
                                         <select disabled name="letdate_progress" class="form-control" autocomplete="off">
-                                            <option>----</option>
+                                            <option></option>
                                         </select>
                                     </div>
                                     <div class="col-sm-2">
                                         <select disabled name="letdate_agency" class="form-control" autocomplete="off">
-                                            <option>----</option>
+                                            <option></option>
                                         </select>
                                     </div>
                                     <div class="col-sm-2">
@@ -895,12 +895,12 @@
                                     </div>
                                     <div class="col-sm-1">
                                         <select disabled name="consper_end_date_progress" class="form-control" autocomplete="off">
-                                            <option>----</option>
+                                            <option></option>
                                         </select>
                                     </div>
                                     <div class="col-sm-2">
                                         <select disabled name="consper_end_date_agency" class="form-control" autocomplete="off">
-                                            <option>----</option>
+                                            <option></option>
                                         </select>
                                     </div>
                                     <div class="col-sm-2">
@@ -920,12 +920,12 @@
                                     </div>
                                     <div class="col-sm-1">
                                         <select disabled name="peperf_progress" class="form-control" autocomplete="off">
-                                            <option>----</option>
+                                            <option></option>
                                         </select>
                                     </div>
                                     <div class="col-sm-2">
                                         <select disabled name="peperf_agency" class="form-control" autocomplete="off">
-                                            <option>----</option>
+                                            <option></option>
                                         </select>
                                     </div>
                                     <div class="col-sm-2">
@@ -951,7 +951,7 @@
                                     </div>
                                     <div class="col-sm-1">
                                         <select name="fta_trans_progress" class="form-control" autocomplete="off">
-                                            <option>----</option>
+                                            <option></option>
                                             <option value="1">0%</option>
                                             <option value="2">30%</option>
                                             <option value="3">60%</option>
@@ -962,7 +962,7 @@
                                     </div>
                                     <div class="col-sm-2">
                                         <select name="fta_trans_agency" class="form-control" autocomplete="off">
-                                            <option>----</option>
+                                            <option></option>
                                             <option value="1">TxDOT</option>
                                             <option value="2">Local</option>
                                             <option value="3">Other</option>
@@ -985,7 +985,7 @@
                                     </div>
                                     <div class="col-sm-1">
                                         <select name="active_fta_progress" class="form-control" autocomplete="off">
-                                            <option>----</option>
+                                            <option></option>
                                             <option value="1">0%</option>
                                             <option value="2">30%</option>
                                             <option value="3">60%</option>
@@ -996,7 +996,7 @@
                                     </div>
                                     <div class="col-sm-2">
                                         <select name="active_fta_agency" class="form-control" autocomplete="off">
-                                            <option>----</option>
+                                            <option></option>
                                             <option value="1">TxDOT</option>
                                             <option value="2">Local</option>
                                             <option value="3">Other</option>
@@ -1019,7 +1019,7 @@
                                     </div>
                                     <div class="col-sm-1">
                                         <select name="bus_progress" class="form-control" autocomplete="off">
-                                            <option>----</option>
+                                            <option></option>
                                             <option value="1">0%</option>
                                             <option value="2">30%</option>
                                             <option value="3">60%</option>
@@ -1030,7 +1030,7 @@
                                     </div>
                                     <div class="col-sm-2">
                                         <select name="bus_agency" class="form-control" autocomplete="off">
-                                            <option>----</option>
+                                            <option></option>
                                             <option value="1">TxDOT</option>
                                             <option value="2">Local</option>
                                             <option value="3">Other</option>
@@ -1053,7 +1053,7 @@
                                     </div>
                                     <div class="col-sm-1">
                                         <select name="delivery_progress" class="form-control" autocomplete="off">
-                                            <option>----</option>
+                                            <option></option>
                                             <option value="1">0%</option>
                                             <option value="2">30%</option>
                                             <option value="3">60%</option>
@@ -1064,7 +1064,7 @@
                                     </div>
                                     <div class="col-sm-2">
                                         <select name="delivery_agency" class="form-control" autocomplete="off">
-                                            <option>----</option>
+                                            <option></option>
                                             <option value="1">TxDOT</option>
                                             <option value="2">Local</option>
                                             <option value="3">Other</option>
@@ -1087,7 +1087,7 @@
                                     </div>
                                     <div class="col-sm-1">
                                         <select name="other_progress" class="form-control" autocomplete="off">
-                                            <option>----</option>
+                                            <option></option>
                                             <option value="1">0%</option>
                                             <option value="2">30%</option>
                                             <option value="3">60%</option>
@@ -1098,7 +1098,7 @@
                                     </div>
                                     <div class="col-sm-2">
                                         <select name="other_agency" class="form-control" autocomplete="off">
-                                            <option>----</option>
+                                            <option></option>
                                             <option value="1">TxDOT</option>
                                             <option value="2">Local</option>
                                             <option value="3">Other</option>
@@ -1321,7 +1321,7 @@
                         <div class="form-row mb-1">
                             <div class="col-sm-1">
                                 <select name="costs_1" class="form-control">
-                                    <option selected>----</option>
+                                    <option></option>
                                     <option value="1">Yes</option>
                                     <option value="2">No</option>
                                 </select>
@@ -1334,7 +1334,7 @@
                         <div class="form-row mb-1">
                             <div class="col-sm-1">
                                 <select name="costs_2" class="form-control">
-                                    <option selected>----</option>
+                                    <option></option>
                                     <option value="1">Yes</option>
                                     <option value="2">No</option>
                                 </select>
@@ -1347,7 +1347,7 @@
                         <div class="form-row mb-1">
                             <div class="col-sm-1">
                                 <select name="costs_3" class="form-control">
-                                    <option selected>----</option>
+                                    <option></option>
                                     <option value="1">Yes</option>
                                     <option value="2">No</option>
                                 </select>
@@ -1362,7 +1362,7 @@
                         <div class="form-row mb-1">
                             <div class="col-sm-1">
                                 <select name="costs_4" class="form-control">
-                                    <option selected>----</option>
+                                    <option></option>
                                     <option value="1">Yes</option>
                                     <option value="2">No</option>
                                 </select>

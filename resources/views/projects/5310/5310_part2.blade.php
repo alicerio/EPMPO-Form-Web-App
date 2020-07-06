@@ -4,7 +4,7 @@
             <div class="form-row mb-1">
                 <div class="col-sm-1">
                     <select disabled name="psp_1" class="form-control">
-                        <option selected>----</option>
+                        <option></option>
                         {{$temp = $project->psp_1 ?? ''}}
                         <option value="1" {{ $temp == 1 ? 'selected' : '' }}>Yes</option>
                         <option value="2" {{ $temp == 2 ? 'selected' : '' }}>No</option>
@@ -18,7 +18,7 @@
             <div class="form-row mb-1">
                 <div class="col-sm-1">
                     <select disabled name="psp_2" class="form-control">
-                        <option selected>----</option>
+                        <option></option>
                         {{$temp = $project->psp_2 ?? ''}}
                         <option value="1" {{ $temp == 1 ? 'selected' : '' }}>Yes</option>
                         <option value="2" {{ $temp == 2 ? 'selected' : '' }}>No</option>
@@ -33,7 +33,7 @@
             <div class="form-row mb-1">
                 <div class="col-sm-1">
                     <select disabled name="psp_3" class="form-control">
-                        <option selected>----</option>
+                        <option></option>
                         {{$temp = $project->psp_3 ?? ''}}
                         <option value="1" {{ $temp == 1 ? 'selected' : '' }}>Yes</option>
                         <option value="2" {{ $temp == 2 ? 'selected' : '' }}>No</option>
@@ -47,7 +47,7 @@
             <div class="form-row mb-1">
                 <div class="col-sm-1">
                     <select disabled name="psp_4" class="form-control">
-                        <option selected>----</option>
+                        <option></option>
                         {{$temp = $project->psp_4 ?? ''}}
                         <option value="1" {{ $temp == 1 ? 'selected' : '' }}>Yes</option>
                         <option value="2" {{ $temp == 2 ? 'selected' : '' }}>No</option>
@@ -62,7 +62,7 @@
             <div class="form-row mb-1">
                 <div class="col-sm-1">
                     <select disabled name="psp_5" class="form-control">
-                        <option selected>----</option>
+                        <option></option>
                         {{$temp = $project->psp_5 ?? ''}}
                         <option value="1" {{ $temp == 1 ? 'selected' : '' }}>Yes</option>
                         <option value="2" {{ $temp == 2 ? 'selected' : '' }}>No</option>

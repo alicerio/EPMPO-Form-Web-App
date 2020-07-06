@@ -15,7 +15,6 @@
     </label>
     <textarea disabled name="relationship_description"
         class="form-control">{{ $project->relationship_description ?? ''}}</textarea>
-
     <label>
         Need and Purpose:
     </label>
@@ -27,12 +26,12 @@
     <textarea disabled name="agency_comments" class="form-control">{{ $project->agency_comments ?? '' }}</textarea value="{{ $project->form ?? ''}}">
 
     <label>
-        <input type="checkbox" name="hwrw_funds_request" autocomplete="off" {{$project->hwrw_funds_request ?? '' == true ? 'checked' : '' }} disabled>
+        <input id = "hwrw_funds_request"type="checkbox" name="hwrw_funds_request" autocomplete="off" {{$project->hwrw_funds_request ?? '' == true ? 'checked' : '' }} disabled>
         Requesting Highway/Roadway funds for this project/program (FHWA,State and/or Local Funds) 
     </label>
 
     <label>
-        <input type="checkbox" name="transit_funds_request" autocomplete="off" {{ $project->transit_funds_request ?? '' == true ? 'checked' : '' }} disabled>
+        <input id = "transit_funds_request" type="checkbox" name="transit_funds_request" autocomplete="off" {{ $project->transit_funds_request ?? '' == true ? 'checked' : '' }} disabled>
         Requesting Transit funds for his project/program (FTA, State and/or Local Funds) 
     </label>
     <br>
@@ -57,7 +56,7 @@
                 Network Year
             </label>
             <select disabled name="network_year" class="form-control">
-                <option>----</option>
+                <option></option>
                 {{$temp = $project->network_year ?? ''}}
                 <option value="2020" {{ $temp == 2020 ? 'selected' : ''}}>2020</option>
                 <option value="2030" {{ $temp == 2030 ? 'selected' : ''}}>2030</option>
@@ -70,7 +69,7 @@
                 Type of Project
             </label>
             <select disabled name="type" class="form-control">
-                <option>----</option>
+                <option></option>
                 {{$temp = $project->type ?? ''}}
                 <option value="1" {{ $temp == 1 ? 'selected' : '' }}>Additional Lanes</option>
                 <option value="2" {{ $temp == 2 ? 'selected' : '' }}>Aesthetics</option>
@@ -117,7 +116,7 @@
                 Fedearl Functional Classificaiton (<a href="https://www.txdot.gov/apps/statewide_mapping/StatewidePlanningMap.html" target="_blank">Texas</a>, <a href="http://www.elpasompo.org/civicax/filebank/blobdload.aspx?BlobID=23410" target="_blank">New Mexico</a>):
             </label>
             <select disabled name="classification" class="form-control">
-                <option>----</option>
+                <option></option>
                 {{$temp = $project->classification ?? ''}}
                 <option value="1" {{ $temp == 1 ? 'selected' : '' }}>Interstate</option>
                 <option value="2" {{ $temp == 2 ? 'selected' : '' }}>Freeway/Expressway</option>
@@ -144,7 +143,7 @@
                 DOT District:
             </label>
             <select disabled name="district" class="form-control">
-                <option>----</option>
+                <option></option>
                 {{$temp = $project->district ?? ''}}
                 <option value="1" {{ $temp == 1 ? 'selected' : '' }}>TX Dist.24</option>
                 <option value="2" {{ $temp == 2 ? 'selected' : '' }}>NM Dist. 1</option>
@@ -165,7 +164,7 @@
                 County:
             </label>
             <select disabled name="county" class="form-control">
-                <option>----</option>
+                <option></option>
                 {{$temp = $project->county ?? ''}}
                 <option value="1" {{ $temp == 1 ? 'selected' : '' }}>El Paso</option>
                 <option value="2" {{ $temp == 2 ? 'selected' : '' }}>Doña Ana</option>
@@ -186,7 +185,7 @@
                 Incorporated City:
             </label>
             <select disabled name="incorporated_city" class="form-control">
-                <option>----</option>
+                <option></option>
                 {{$temp = $project->incorporated_city ?? ''}}
                 <option value="1" {{ $temp == 1 ? 'selected' : '' }}>Anthony TX</option>
                 <option value="2" {{ $temp == 2 ? 'selected' : '' }}>Anthony NM</option>

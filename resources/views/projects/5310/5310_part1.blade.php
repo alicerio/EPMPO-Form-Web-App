@@ -77,7 +77,7 @@
                     Network Year
                 </label>
                 <select disabled name="network_year" class="form-control">
-                    <option>----</option>
+                    <option></option>
                     {{$temp = $project->network_year ?? ''}}
                     <option value="2020" {{ $temp == 2020 ? 'selected' : ''}}>2020</option>
                     <option value="2030" {{ $temp == 2030 ? 'selected' : ''}}>2030</option>

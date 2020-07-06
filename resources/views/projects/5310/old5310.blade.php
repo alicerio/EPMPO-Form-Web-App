@@ -61,7 +61,7 @@
                                     Network Year
                                 </label>
                                 <select name="network_year" class="form-control">
-                                    <option>----</option>
+                                    <option></option>
                                     <option value="2020">2020</option>
                                     <option value="2030">2030</option>
                                     <option value="2040">2040</option>
@@ -76,7 +76,7 @@
                         <div class="form-row mb-1">
                             <div class="col-sm-1">
                                 <select name="psp_1" class="form-control">
-                                    <option selected>----</option>
+                                    <option></option>
                                     <option value="1">Yes</option>
                                     <option value="2">No</option>
                                 </select>
@@ -90,7 +90,7 @@
                         <div class="form-row mb-1">
                             <div class="col-sm-1">
                                 <select name="psp_2" class="form-control">
-                                    <option selected>----</option>
+                                    <option></option>
                                     <option value="1">Yes</option>
                                     <option value="2">No</option>
                                 </select>
@@ -104,7 +104,7 @@
                         <div class="form-row mb-1">
                             <div class="col-sm-1">
                                 <select name="psp_3" class="form-control">
-                                    <option selected>----</option>
+                                    <option></option>
                                     <option value="1">Yes</option>
                                     <option value="2">No</option>
                                 </select>
@@ -117,7 +117,7 @@
                         <div class="form-row mb-1">
                             <div class="col-sm-1">
                                 <select name="psp_4" class="form-control">
-                                    <option selected>----</option>
+                                    <option></option>
                                     <option value="1">Yes</option>
                                     <option value="2">No</option>
                                 </select>
@@ -131,7 +131,7 @@
                         <div class="form-row mb-1">
                             <div class="col-sm-1">
                                 <select name="psp_5" class="form-control">
-                                    <option selected>----</option>
+                                    <option></option>
                                     <option value="1">Yes</option>
                                     <option value="2">No</option>
                                 </select>
@@ -186,7 +186,7 @@
                                     </div> 
                                     <div class="col-sm-2">
                                         <select name="strategy_1" class="form-control" onchange="displayBox(this.name)">
-                                            <option selected>----</option>
+                                            <option></option>
                                             <option value="1">Yes</option>
                                             <option value="2">No</option>
                                         </select>
@@ -199,7 +199,7 @@
                                     </div> 
                                     <div class="col-sm-2">
                                         <select name="strategy_2" class="form-control" onchange="displayBox(this.name)">
-                                            <option selected>----</option>
+                                            <option></option>
                                             <option value="1">Yes</option>
                                             <option value="2">No</option>
                                         </select>
@@ -212,7 +212,7 @@
                                     </div>
                                     <div class="col-sm-2">
                                         <select name="strategy_3" class="form-control" onchange="displayBox(this.name)">
-                                            <option selected>----</option>
+                                            <option></option>
                                             <option value="1">Yes</option>
                                             <option value="2">No</option>
                                         </select>
@@ -228,7 +228,7 @@
                                     </div>   
                                     <div class="col-sm-2">
                                         <select name="strategy_4" class="form-control" onchange="displayBox(this.name)">
-                                            <option selected>----</option>
+                                            <option></option>
                                             <option value="1">Yes</option>
                                             <option value="2">No</option>
                                         </select>
@@ -241,7 +241,7 @@
                                     </div>    
                                     <div class="col-sm-2">
                                         <select name="strategy_5" class="form-control">
-                                            <option selected>----</option>
+                                            <option></option>
                                             <option value="1">Yes</option>
                                             <option value="2">No</option>
                                         </select>
@@ -253,7 +253,7 @@
                                     </div> 
                                     <div class="col-sm-2">
                                         <select name="strategy_6" class="form-control">
-                                            <option selected>----</option>
+                                            <option></option>
                                             <option value="1">Yes</option>
                                             <option value="2">No</option>
                                         </select>

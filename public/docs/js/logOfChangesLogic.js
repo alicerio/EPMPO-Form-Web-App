@@ -7,7 +7,9 @@ function displayChanges(log) {
     try {
         for (item in log) {
             //ignore meta data
-            if (item != "id" && item != "parent_id" && item != "updated_at" && item != "voc" && item != "created_at" && item != "status") {
+            if (item != "id" && item != "parent_id" && item != "updated_at" && 
+                item != "voc" && item != "created_at" && item != "status"
+                && item != "author") {
                 console.log(item);
                 document.getElementsByName(item)[0].style.backgroundColor = "#66ccff";
                 document.getElementsByName(item)[0].style.outlineStyle = "solid";
