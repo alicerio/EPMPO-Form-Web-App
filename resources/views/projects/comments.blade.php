@@ -16,11 +16,30 @@
     <form action="{{ route('projects.update', $project->id) }}" method="POST">
         @csrf
         @method('PATCH')
-        <div class="row" style="display: none">
-            <div class="col-md-12">
-                @include('projects.part1')
+        @if($project->type == "TASA")
+            <div class="row" style="display: none">
+                <div class="col-md-12">
+                    @include('projects.part1')
+                    @include('projects.part2')
+                    @include('projects.part3')
+                    @include('projects.part4')
+                    @include('projects.part5')
+                    @include('projects.part6Edit')
+                    @include('projects.part7')
+                </div>
             </div>
-        </div>
+        @else
+        <div class="row" style="display: none">
+                <div class="col-md-12">
+                    @include('projects/5310.5310_part1')
+                    @include('projects/5310.5310_part2')                    
+                    @include('projects/5310.5310_part3')
+                    @include('projects/5310.5310_part4')
+                    @include('projects/5310.5310_part5_edit')
+                    @include('projects/5310.5310_part6')
+                </div>
+            </div>
+        @endif
         <div class="card">
             <div class="card-header">
                 <h5 class="float-left">Project: {{ $project->name }}</h5>

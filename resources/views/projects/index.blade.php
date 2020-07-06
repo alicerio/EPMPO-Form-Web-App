@@ -32,7 +32,7 @@
                     <tr>
                         <th scope="col">Project</th>
                         <th scope="col">Agency</th>
-                        <th scope="col">Name</th>
+                        <th scope="col">Creator</th>
                         <th scope="col">Status</th>
                         <th scope="col">Project Type</th>
                         <th scole="col">editor</th>

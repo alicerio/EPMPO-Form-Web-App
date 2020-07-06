@@ -372,7 +372,7 @@ class ProjectController extends Controller
         } else {
             return view('projects/5310.edit2', compact('project'));
         }*/
-        return redirect(route('projects.revisions', compact('project')));
+        return redirect(route('projects.index', compact('project')));
     }
     /*
         Here we are filtering all the projects on the database
@@ -540,7 +540,7 @@ class ProjectController extends Controller
             $newProject->author = auth()->user()->name;
             $newProject->save();
             return redirect(route('projects.index'));
-            //return redirect(route('projects.revisions', compact('newProject')));
+            //return redirect(route('projects.revisions', compact('newid')));
         }
 
 
@@ -861,7 +861,7 @@ class ProjectController extends Controller
         } else {
             return view('projects/5310.edit2', compact('project'));
         }*/
-        return redirect(route('projects.revisions', compact('project')));
+        return redirect(route('projects.index', compact('project')));
     }
 
     /**

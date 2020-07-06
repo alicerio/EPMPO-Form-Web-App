@@ -13,7 +13,7 @@
                     No projects have been submitted
               </div>
             @else
-                <h3 class="float-left">Project: {{ $projects[0]->name }}</h3>
+                <h3 class="float-left">Project: {{ $projects[count($projects) - 1]->name }}</h3>
                 <h3 class="float-right">Status: {{ $statuses[$projects[count($projects) - 1]->status] }}</h3>
                 <table class="table table-bordered">
                     <thead>
