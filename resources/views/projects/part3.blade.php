@@ -1,5 +1,6 @@
 <div class="card">
     <h3>Project Selection Process</h3>
+    <a href="http://www.elpasompo.org/civicax/filebank/blobdload.aspx?BlobID=23410"> Click here for Project Selection Process diagram and presentation (PDF) </a>
     <div class="form-row mb-1">
         <div class="col-sm-1">
             <select disabled name="psp_1" class="form-control">
@@ -84,7 +85,7 @@
             </select>
         </div>
         <div class="col">
-            Is this project part of TPB resolution for a Comprehensive Mobility Plan (CMP)?asdads
+            Is this project part of TPB resolution for a Comprehensive Mobility Plan (CMP)?
         </div>
     </div>
     <br>
@@ -94,7 +95,8 @@
         <div class="card-body">
             <div class="form-row mb-1 justify-content-center">
                 <div class="col">
-                    <h3><a href="https://www.fhwa.dot.gov/tpm/about/goals.cfm" target="_blank">National Goals</a></h3>
+                    <h3>National Goals</h3>
+                    <h6><a href="https://www.fhwa.dot.gov/tpm/about/goals.cfm" target="_blank">Helpful Link</a></h6>
                     <label>
                         <input type="checkbox" name="goal_1" onclick="toggleTA(this.name);" autocomplete="off"
                             {{ $project->goal_1 ?? '' == true ? 'checked' : '' }} disabled>
@@ -147,8 +149,9 @@
             </div>
             <div class="col">
                 <div class="required_cmp">
-                    <h3><a href="http://www.elpasompo.org/civicax/filebank/blobdload.aspx?BlobID=23375"
-                            target="_blank">Congestion Management Project Strategies</a></h3>
+                    <h3>Congestion Management Process Strategies</h3>
+                    <h6><a href="http://www.elpasompo.org/civicax/filebank/blobdload.aspx?BlobID=23375"
+                            target="_blank">Helpful Link</a></h6>
                     <div class="form-row mb-1">
                         <div class="col">
                             1. Is the project exempt under 40CFR 93.126?
@@ -182,7 +185,7 @@
                     </div>
                     <div class="form-row mb-1">
                         <div class="col">
-                            2. Project addressing congestion?
+                            2. Is the project addressing congestion?
                             <br>
                             If “yes”, please provide a quantitative analysis if existing for use in CMP.
                             <br>
@@ -203,7 +206,7 @@
                     </div>
                     <div class="form-row mb-1">
                         <div class="col">
-                            3. Project adds roadway capacity.
+                            3. Does the project add roadway capacity?
                             <br>
                             Instructions: Significant SOV capacity-adding projects impact regional or corridor travel
                             patterns.
@@ -224,7 +227,7 @@
                             </select>
                         </div>
                     </div>
-                    <p>If the answer is “Yes” for either question(s) 2 or 3 please answer the questions below </p>
+                    <p>If the answer is “Yes” for either question(s) 2 or 3 please answer the questions below. </p>
                     <div class="form-row mb-1">
                         <div class="col">
                             4. Are there other congestion mitigation projects (e.g., transportation demand management,
@@ -377,7 +380,7 @@
                             <input type="text" name="tdc_amount_requested" class="form-control" autocomplete="off"
                                 value="{{ $project->tdc_amount_requested ?? '' }}" disabled><br>
 
-                            <h4>Project Type:</h4>
+                            <h5>Project Type:</h5>
 
                             <label>
                                 <input type="checkbox" name="type_capital" autocomplete="off"

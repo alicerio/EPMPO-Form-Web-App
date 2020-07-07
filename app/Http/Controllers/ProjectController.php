@@ -305,7 +305,7 @@ class ProjectController extends Controller
         $project->funding_local_bus = request('funding_local_bus');
         $project->funding_local_beyond_bus = request('funding_local_beyond_bus');
         $project->funding_total_bus = request('funding_total_bus');
-        $project->funding_tdc_bus = request('funding_tdc_vehicles');
+        $project->funding_tdc_bus = request('funding_tdc_bus');
         $project->funding_federal_bus_total = request('funding_federal_bus_total') == '----' ? null : request('funding_federal_bus_total');
         $project->funding_local_bus_total = request('funding_local_bus_total') == '----' ? null : request('funding_local_bus_total');
         $project->funding_local_beyond_bus_total = request('funding_local_beyond_bus_total') == '----' ? null : request('funding_local_beyond_bus_total');
@@ -787,7 +787,7 @@ class ProjectController extends Controller
         $project->funding_local_bus = request('funding_local_bus');
         $project->funding_local_beyond_bus = request('funding_local_beyond_bus');
         $project->funding_total_bus = request('funding_total_bus');
-        $project->funding_tdc_bus = request('funding_tdc_vehicles');
+        $project->funding_tdc_bus = request('funding_tdc_bus');
         $project->funding_federal_bus_total = request('funding_federal_bus_total') == '----' ? null : request('funding_federal_bus_total');
         $project->funding_local_bus_total = request('funding_local_bus_total') == '----' ? null : request('funding_local_bus_total');
         $project->funding_local_beyond_bus_total = request('funding_local_beyond_bus_total') == '----' ? null : request('funding_local_beyond_bus_total');

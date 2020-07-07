@@ -2,12 +2,25 @@
     <h4><b>Project Readiness Elements:</b></h4>
     <p>"Overall" Estimate of Preliminary Engineering (PE) Examples include: Project Initiation/Planning,
         Initial Design, Environmental Document, PS&E, etc.</p>
-
-
     <div class="card-header">
         <div class="form-row">
             <div class="col-sm-3">
                 Element
+            </div>
+            <div class="col-sm-2">
+                Est. Start Date
+            </div>
+            <div class="col-sm-2">
+                Est. End Date
+            </div>
+            <div class="col-sm-1">
+                Progress
+            </div>
+            <div class="col-sm-2">
+                Resp. Agency
+            </div>
+            <div class="col-sm-2">
+                Comments
             </div>
             <div class="card-body">
                 {{-- Schematic --}}
