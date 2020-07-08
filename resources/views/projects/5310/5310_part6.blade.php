@@ -1,25 +1,25 @@
 <div class="card">
     <div class="card-body">
-        <h3>Contact information</h3>
+        <h3>Contact information <i class="fa fa-asterisk" style="font-size:10px;color:red"></i></h3>
         <div class="card">
             <div class="card-header">
                 <div class="form-row">
                     <div class="col-sm-2">
                     </div>
                     <div class="col-sm-2">
-                        Name <i class="fa fa-asterisk" style="font-size:10px;color:red"></i>
+                        Name 
                     </div>
                     <div class="col-sm-2">
-                        Phone Number <i class="fa fa-asterisk" style="font-size:10px;color:red"></i>
+                        Phone Number 
                     </div>
                     <div class="col-sm-2">
-                        eMail <i class="fa fa-asterisk" style="font-size:10px;color:red"></i>
+                        eMail 
                     </div>
                     <div class="col-sm-2">
-                        Agency <i class="fa fa-asterisk" style="font-size:10px;color:red"></i>
+                        Agency 
                     </div>
                     <div class="col-sm-2">
-                        Title <i class="fa fa-asterisk" style="font-size:10px;color:red"></i>
+                        Title 
                     </div>
                 </div>
             </div>
@@ -76,7 +76,7 @@
             *By signing this Project Request Form you certify that the project Description and limits are within the scope of work of the project.
         </p>
         <p>*Please fill out this form entirely, and sign (digital signature). If "Signed By" field is blank, the form will not be accepted.</p>
-        <h4>Signed By</h4>
+        <h4>Signed By <i class="fa fa-asterisk" style="font-size:10px;color:red"></i></h4>
         @auth
             @if(auth()->user()->type == 1)
                 <div class="form-group">
