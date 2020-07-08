@@ -21,14 +21,14 @@
   <div class="row">
     <div class="col-10" id="map"></div>
     <div style="margin-top:1%" class="col-2">
-      <button id="queryCrashesBtn" type='button' class="btn btn-info" title="Get Crashes that within 50 meters of lines"
+      <button id="queryCrashesBtn" type='button' class="btn btn-info" title="Get crashes within 50 meters."
         onclick="point_drawer('crashes')">Query Crashes</button>
-      <button id="queryBridgesBtn" type='button' class="btn btn-info" title="Get Crashes that within 50 meters of lines"
+      <button id="queryBridgesBtn" type='button' class="btn btn-info" title="Get bridges within 50 meters."
         onclick="point_drawer('bridges')">Query Bridges</button>
       <button id="queryPavementsBtn" type='button' class="btn btn-info"
-        title="Display pavements that intersect with lines drawn" onclick="lineDrawer()">Query Pavements</button>
+        title="Display pavements that intersect with lines drawn." onclick="lineDrawer()">Query Pavements</button>
       <button id="clearQueryBtn" type='button' class="btn btn-info" title="Clear map" onclick="clearMetadata(); 
-       return confirm('Are you sure you want to delete the points?')">
+       return confirm('Are you sure you want to clear the map data?')">
         Clear</button>
     </div>
   </div>

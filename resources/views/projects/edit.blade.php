@@ -1,24 +1,33 @@
 @extends('layouts.app')
 @php
-    $currentUser = auth()->user()->type  //  Store current user 
+$currentUser = auth()->user()->type // Store current user
 @endphp
 <script>
     var project = <?php echo json_encode($project);?>; 
     var currentUser = <?php echo json_encode($currentUser);?>;  // get current user
     console.log(project.status);
     window.onload = function() {
+        //default
         show_edit_ViewMap();
+    //helps in hiding questions 4 to 10
+        display4To10("strategy_2");
+        display4To10("strategy_3");
+      // Helps in hiding options
+      for(let i =1; i <7; i++){
+        displayBox("strategy_"+i);
+      }
+      //special cases depending on status
         if(project.status == 1){
             set_required();  
             form1_setView();
         }
         else if(project.status == 3){
-            console.log("aqui");
             make_project_readonly();
         }else{
             form1_setView();
         }
 
+        // admin
         if(currentUser == 1){
             remove_readonly("signed_textarea");
         }
@@ -69,10 +78,12 @@
             @include('projects.buttons_edit')
             @auth
             @if(auth()->user()->type != 2)
-                <button class="btn btn-info" rows = "5" id="toggleCommentsButton" type="button">Show Comments</button>
-                <textarea name="comments" id="commentS" style="display:none;" class="form-control" rows="5" placeholder="Comments" readonly>{{$project->comments ?? '' }}</textarea>
+            <button class="btn btn-info" rows="5" id="toggleCommentsButton" type="button">Show Comments</button>
+            <textarea name="comments" id="commentS" style="display:none;" class="form-control" rows="5"
+                placeholder="Comments" readonly>{{$project->comments ?? '' }}</textarea>
             @else
-                <textarea name="comments" id="commentS" style="display:none;" class="form-control" rows="5" placeholder="Comments" readonly>{{$project->comments ?? '' }}</textarea>
+            <textarea name="comments" id="commentS" style="display:none;" class="form-control" rows="5"
+                placeholder="Comments" readonly>{{$project->comments ?? '' }}</textarea>
             @endif
             @endauth
         </div>

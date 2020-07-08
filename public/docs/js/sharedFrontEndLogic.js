@@ -27,4 +27,29 @@ function remove_readonly(element){
     $("#"+element).prop("readonly",false)
 }
 
+function display4To10(name){
+    if($('select[name="'+name +'"]').val() == 1) {
+        $('#4To10Holder').attr("hidden",false);
+    }else{
+        $('#4To10Holder').attr("hidden",true);
+    }
+}
 
+const toggleTA = (name) => {
+    if($('input[name="'+ name +'"]').is(':checked')) {
+        console.log('checked');
+        $('textarea[name="description_'+ name +'"]').show();
+    }else{
+        console.log('not checked');
+        $('textarea[name="description_'+ name +'"]').hide();
+    }
+};
+
+const displayBox = (name) => {
+    if($('select[name="'+name +'"]').val() == 1) {
+        $('textarea[name="description_' + name +'"]').show();
+    }
+    else {
+        $('textarea[name="description_' + name +'"]').hide();
+    }
+};

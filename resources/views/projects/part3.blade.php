@@ -211,7 +211,7 @@
                                 placeholder="Please provide analysis from corridor study or similar study that will show the project will address congestion.">{{ $project->description_strategy_2 ?? '' }}</textarea>
                         </div>
                         <div class="col-sm-2">
-                            <select disabled name="strategy_2" class="form-control" onchange="displayBox(this.name);">
+                            <select disabled name="strategy_2" class="form-control" onchange="displayBox(this.name); display4To10(this.name);">
                                 <option></option>
                                 {{$temp = $project->strategy_2 ?? ''}}
                                 <option value="1" {{ $temp == 1 ? 'selected' : '' }}>Yes</option>
@@ -234,7 +234,7 @@
                                 placeholder="Please explain.">{{ $project->description_strategy_3 ?? '' }}</textarea>
                         </div>
                         <div class="col-sm-2">
-                            <select disabled name="strategy_3" class="form-control" onchange="displayBox(this.name);">
+                            <select disabled name="strategy_3" class="form-control" onchange="displayBox(this.name);display4To10(this.name);">
                                 <option></option>
                                 {{$temp = $project->strategy_3 ?? ''}}
                                 <option value="1" {{ $temp == 1 ? 'selected' : '' }}>Yes</option>
@@ -242,6 +242,7 @@
                             </select>
                         </div>
                     </div>
+                    <div id="4To10Holder" hidden>
                     <p>If the answer is “Yes” for either question(s) 2 or 3 please answer the questions below </p>
                     <div class="form-row mb-1">
                         <div class="col">
@@ -344,6 +345,7 @@
                     </p>
                     <textarea name="description_strategy_10" class="form-control"
                         style="width: 22rem;">{{ $project->description_strategy_10 ?? '' }}</textarea>
+                </div>
                 </div>
                 <!-------->
                 <br>
@@ -449,26 +451,3 @@
         </div>
     </div>
 </div>
-
-<script>
-    const toggleTA = (name) => {
-        if($('input[name="'+ name +'"]').is(':checked')) {
-            console.log('checked');
-            $('textarea[name="description_'+ name +'"]').show();
-        }else{
-            console.log('not checked');
-            $('textarea[name="description_'+ name +'"]').hide();
-        }
-    };
-</script>
-
-<script>
-    const displayBox = (name) => {
-        if($('select[name="'+name +'"]').val() == 1) {
-            $('textarea[name="description_' + name +'"]').show();
-        }
-        else {
-            $('textarea[name="description_' + name +'"]').hide();
-        }
-    };
-</script>
