@@ -53,7 +53,7 @@
                     R:Utl
                 </label><br>
             </div>
-            <div class="col">
+            <div class="col" id = "YOE_sectionHolder">
                 <h3>YOE and Total Project Cost Information</h3>
                 <p>**All Costs should account for inflation within TIP years.
                     Beyond TIP years inflation will be applied.
@@ -213,7 +213,8 @@
                 </select>
             </div>
             <div class="col">
-                Is the sponsor paying for 100% of PE?
+                Is the sponsor paying for 100% of PE? <i class="fa fa-asterisk"
+                style="font-size:10px;color:red"></i>
             </div>
         </div>
 
@@ -226,7 +227,8 @@
                 </select>
             </div>
             <div class="col">
-                Is this sponsor paying for 100% of the ROW and utility relocation?
+                Is this sponsor paying for 100% of the ROW and utility relocation?<i class="fa fa-asterisk"
+                style="font-size:10px;color:red"></i>
             </div>
         </div>
 
@@ -239,9 +241,10 @@
                 </select>
             </div>
             <div class="col">
-                Is this decision making/governing body committed to the local/state share (match)?
+                Is this decision making/governing body committed to the local/state share (match)? <i class="fa fa-asterisk"
+                style="font-size:10px;color:red"></i>
                 <br>
-                Attach documentation. Eg. Resolution, Financial Plan, etc.
+                Attach documentation. Eg. Resolution, Financial Plan, etc. 
             </div>
         </div>
 
@@ -254,7 +257,8 @@
                 </select>
             </div>
             <div class="col">
-                Sponsor's investment to construction cost. (Excluding required local/state share)
+                Sponsor's investment to construction cost. (Excluding required local/state share)<i class="fa fa-asterisk"
+                style="font-size:10px;color:red"></i>
             </div>
         </div>
 

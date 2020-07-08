@@ -1,7 +1,8 @@
 <div class="card">
     <div class="card-body">
         {{--Contact Information--}}
-        <h3>Contact Information</h3>
+        <h3>Contact Information <i class="fa fa-asterisk"
+            style="font-size:10px;color:red"></i></h3>
         <div class="card">
             <div class="card-header">
                 <div class="form-row">
@@ -139,7 +140,8 @@
         <p>*Please fill out this form entirely, and sign (digital signature). If "Signed By" field
             is
             blank, the form will not be accepted.</p>
-        <h4>Signed By</h4>
+        <h4>Signed By <i class="fa fa-asterisk"
+            style="font-size:10px;color:red"></i></h4>
         @auth
         @if(auth()->user()->type == 1)
         <div class="form-group">
