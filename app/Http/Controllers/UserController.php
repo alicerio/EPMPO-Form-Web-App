@@ -83,4 +83,10 @@ class UserController extends Controller
         $user->delete();
         return redirect(route('users.index'));
     }
+
+    public function editPassword(Request $request, User $user){
+        $user->password = \Hash::make(request('password'));
+        return view('users.editPassword',compact('user'));
+    }
+
 }

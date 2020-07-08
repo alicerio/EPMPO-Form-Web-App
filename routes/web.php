@@ -55,6 +55,8 @@ Route::get('/test', function(){
 
 Route::get('projects/editInfo/{project}', 'ProjectController@editInfo')->name('projects.editInfo');
 
+Route::get('users/editPassword/{user}', 'UserController@editPassword')->name('users.editPassword');
+
 //Route::get('projects/comments/{project}', 'ProjectController@show_Comment')->name('projects.project_comments');
 
 
