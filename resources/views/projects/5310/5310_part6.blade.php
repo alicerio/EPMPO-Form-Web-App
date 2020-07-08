@@ -56,16 +56,16 @@
         </div>
         <div class="form-row">
             <p>Files Attached&nbsp;</p>
-            <button class="btn btn-primary mt-1 float-right">
+            <button class="btn btn-primary mt-1 float-right" type="button">
                 Add File
             </button>
-            <button class="btn btn-primary mt-1 float-right">
+            <button class="btn btn-primary mt-1 float-right" type="button">
                 Open File
             </button>
-            <button class="btn btn-primary mt-1 float-right">
+            <button class="btn btn-primary mt-1 float-right" type="button">
                 Remove File
             </button>
-            <button class="btn btn-primary mt-1 float-right">
+            <button class="btn btn-primary mt-1 float-right" type="button">
                 Show Attachment Name and Size
             </button>
         </div>

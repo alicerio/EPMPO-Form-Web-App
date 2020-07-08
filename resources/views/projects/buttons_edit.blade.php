@@ -27,11 +27,11 @@ Depending what state or status you are in, the front end changes.
 
     @if($project->status ==3 && auth()->user()->type == 2 )
     <select id="select_Action" style='height:40px;margin-top:1%; visibility:hidden' name="status">
-        <option value="4">Decline</option>
+        <option value="4">Return for Revision</option>
 
     </select>
     <button class="btn btn-danger"
-        onclick="return confirm('Are you sure you want to deny this Approved form?');">Deny</button>
+        onclick="return confirm('Are you sure you want to return this Approved form?');">Return for Revision</button>
     @endif
 
 

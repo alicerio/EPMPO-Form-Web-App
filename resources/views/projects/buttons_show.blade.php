@@ -14,7 +14,7 @@
         <option value="{{ $project->status }}" selected>---</option>
         @if(($project->status == 2 || $project->status == 3))
         <option value="3">Approve</option>
-        <option value="4">Decline</option>
+        <option value="4">Return for Revision</option>
         @endif
     </select>
     <button id="button_text_changer" class="btn btn-primary mx-1" type="submit"> --- </button>
