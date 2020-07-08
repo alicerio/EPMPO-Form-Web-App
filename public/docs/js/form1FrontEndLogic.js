@@ -58,8 +58,8 @@ function project_funding_table() {
     document.getElementById("state_total").value = state_sum;
     document.getElementById("local_total").value = local_sum;
     document.getElementById("local_beyond_total").value = local_cont_sum;
-    document.getElementById("total_total").value =  federal_sum +state_sum + local_sum + local_cont_sum;;
-    document.getElementById("yoe_check").value = federal_sum +state_sum + local_sum + local_cont_sum;
+    document.getElementById("total_total").value = federal_sum + state_sum + local_sum + local_cont_sum;;
+    document.getElementById("yoe_check").value = federal_sum + state_sum + local_sum + local_cont_sum;
 
     rowSumMaster();
 }
@@ -85,7 +85,7 @@ function rowSum(idName, index) {
         let h = $(this).val();
         if (parseInt($(this).val()) > 0 && $(this).attr("name") != "funding_total[]" && $(this).attr("name") != "funding_category[]") {
             h = parseInt($(this).val());
-            console.log(h + " at " + $(this).attr("name") );
+            console.log(h + " at " + $(this).attr("name"));
             rowTot += h;
         }
     })
@@ -156,28 +156,29 @@ function form1_setView() {
     document.getElementById("attachments_textarea").readOnly = true;
 }
 
-function set_required(){
+function set_required() {
     console.log("this ran");
-    $("#showHolder :input").prop('required',true); // Everything is required
-    $("#showHolder :checkbox").prop('required',false); // Every checkbox is not required
+    $("#showHolder :input").prop('required', true); // Everything is required
+    $("#showHolder :checkbox").prop('required', false); // Every checkbox is not required
     //optionals
-    $("#part4_inputs :input").prop('required',false); // make optional
-    //To fix error "An invalid form control with name = "" is not focusable"
-    $("#description_goal_1").prop('required',false); // make optional
-    $("#description_goal_2").prop('required',false); // make optional
-    $("#description_goal_3").prop('required',false); // make optional
-    $("#description_goal_4").prop('required',false); // make optional
-    $("#description_goal_5").prop('required',false); // make optional
-    $("#description_goal_6").prop('required',false); // make optional
-
-    $("#description_strategy_1").prop('required',false); // make optional
-    $("#description_strategy_2").prop('required',false); // make optional
-    $("#description_strategy_3").prop('required',false); // make optional
-    $("#description_strategy_4").prop('required',false); // make optional
-    $("#description_strategy_5").prop('required',false); // make optional
-    $("#description_strategy_6").prop('required',false); // make optional
-
+    $("#part4_inputs :input").prop('required', false); // make optional
+    $("#YOE_sectionHolder :input").prop('required', false); // make optional
+    $("#CMAQ_sectionHolder :input").prop('required', false); // make optional
+    $("#Transit_sectionHolder :input").prop('required', false); // make optional
     
+    
+    //To fix error "An invalid form control with name = "" is not focusable"
+    $("#description_goal_1").prop('required', false); // make optional
+    $("#description_goal_2").prop('required', false); // make optional
+    $("#description_goal_3").prop('required', false); // make optional
+    $("#description_goal_4").prop('required', false); // make optional
+    $("#description_goal_5").prop('required', false); // make optional
+    $("#description_goal_6").prop('required', false); // make optional
 
-  
+    $("#description_strategy_1").prop('required', false); // make optional
+    $("#description_strategy_2").prop('required', false); // make optional
+    $("#description_strategy_3").prop('required', false); // make optional
+    $("#description_strategy_4").prop('required', false); // make optional
+    $("#description_strategy_5").prop('required', false); // make optional
+    $("#description_strategy_6").prop('required', false); // make optional
 }

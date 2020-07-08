@@ -33,17 +33,17 @@
         <input type="text" class="form-control" name="name" value="{{ $project->name ?? ''}}" disabled>
         
         <label>
-            Description
+            Description <i class="fa fa-asterisk" style="font-size:10px;color:red"></i>
         </label>
         <input type="text" class="form-control" name="description" value="{{ $project->description ?? ''}}" disabled>
 
         <label>
-            Limit From
+            Limit From <i class="fa fa-asterisk" style="font-size:10px;color:red"></i>
         </label>
         <input type="text" class="form-control" name="limit_from" value="{{ $project->limit_from ?? ''}}" disabled>
 
         <label>
-            Limit To
+            Limit To <i class="fa fa-asterisk" style="font-size:10px;color:red"></i>
         </label>
         <input type="text" class="form-control" name="limit_to" value="{{ $project->limit_to ?? ''}}" disabled>
         <button class="btn btn-info" id='toggleMapButton' type="button">Draw Project limit and query data</button>

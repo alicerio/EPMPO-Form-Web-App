@@ -11,17 +11,17 @@
 
     <label>
         Describe the relationship of this project to the definition of Regionally Significant Roadway or
-        exempt projects:
+        exempt projects: <i class="fa fa-asterisk" style="font-size:10px;color:red"></i>
     </label>
     <textarea disabled name="relationship_description"
         class="form-control">{{ $project->relationship_description ?? ''}}</textarea>
     <label>
-        Need and Purpose:
+        Need and Purpose: <i class="fa fa-asterisk" style="font-size:10px;color:red"></i>
     </label>
     <textarea disabled name="need_purpose" class="form-control">{{ $project->need_purpose ?? '' }}</textarea>
 
     <label>
-        Agency Comments:
+        Agency Comments: <i class="fa fa-asterisk" style="font-size:10px;color:red"></i>
     </label>
     <textarea disabled name="agency_comments" class="form-control">{{ $project->agency_comments ?? '' }}</textarea value="{{ $project->form ?? ''}}">
 
@@ -38,13 +38,13 @@
     <div class="form-row">
         <div class="col">
             <label class="font-weight-bold">
-                Federal Fiscal Year(FY):
+                Federal Fiscal Year(FY): <i class="fa fa-asterisk" style="font-size:10px;color:red"></i>
             </label>
             <input type="number" name="fiscal_year" class="form-control" autocomplete="off" value="{{ $project->fiscal_year ?? '' }}" disabled>
         </div>
         <div class="col">
             <label>
-                Highway/Roadway Name:
+                Highway/Roadway Name: <i class="fa fa-asterisk" style="font-size:10px;color:red"></i>
             </label>
             <input type="text" name="hwrw_name" class="form-control" autocomplete="off" value="{{ $project->hwrw_name ?? ''}}" disabled>
         </div>
@@ -53,7 +53,7 @@
     <div class="form-row">
         <div class="col">
             <label>
-                Network Year
+                Network Year <i class="fa fa-asterisk" style="font-size:10px;color:red"></i>
             </label>
             <select disabled name="network_year" class="form-control">
                 <option></option>
@@ -66,7 +66,7 @@
         </div>
         <div class="col">
             <label>
-                Type of Project
+                Type of Project <i class="fa fa-asterisk" style="font-size:10px;color:red"></i>
             </label>
             <select disabled name="type" class="form-control">
                 <option></option>
@@ -113,7 +113,7 @@
         </div>
         <div class="col">
             <label>
-                Federal Functional Classificaiton (<a href="https://www.txdot.gov/apps/statewide_mapping/StatewidePlanningMap.html" target="_blank">Texas</a>, <a href="http://www.elpasompo.org/civicax/filebank/blobdload.aspx?BlobID=23410" target="_blank">New Mexico</a>):
+                Federal Functional Classificaiton (<a href="https://www.txdot.gov/apps/statewide_mapping/StatewidePlanningMap.html" target="_blank">Texas</a>, <a href="http://www.elpasompo.org/civicax/filebank/blobdload.aspx?BlobID=23410" target="_blank">New Mexico</a>): <i class="fa fa-asterisk" style="font-size:10px;color:red"></i>
             </label>
             <select disabled name="classification" class="form-control">
                 <option></option>
@@ -134,13 +134,13 @@
     <div class="form-row">
         <div class="col">
             <label>
-                Number of Existing Lanes
+                Number of Existing Lanes <i class="fa fa-asterisk" style="font-size:10px;color:red"></i>
             </label>
             <input type="number" name="existing_lanes" class="form-control" autocomplete="off" value="{{ $project->existing_lanes  ?? ''}}" disabled>
         </div>
         <div class="col">
             <label>
-                DOT District:
+                DOT District: <i class="fa fa-asterisk" style="font-size:10px;color:red"></i>
             </label>
             <select disabled name="district" class="form-control">
                 <option></option>
@@ -155,13 +155,13 @@
     <div class="form-row">
         <div class="col">
             <label>
-                Number of Projected Lanes:
+                Number of Projected Lanes: <i class="fa fa-asterisk" style="font-size:10px;color:red"></i>
             </label>
             <input type="number" name="projected_lanes" class="form-control" autocomplete="off" value="{{ $project->projected_lanes  ?? ''}}" disabled>
         </div>
         <div class="col">
             <label>
-                County:
+                County: <i class="fa fa-asterisk" style="font-size:10px;color:red"></i>
             </label>
             <select disabled name="county" class="form-control">
                 <option></option>
@@ -176,13 +176,13 @@
     <div class="form-row">
         <div class="col">
             <label>
-                Number of Miles:
+                Number of Miles: <i class="fa fa-asterisk" style="font-size:10px;color:red"></i>
             </label>
             <input type="number" name="miles" class="form-control" autocomplete="off" value="{{ $project->miles  ?? ''}}" disabled>
         </div>
         <div class="col">
             <label>
-                Incorporated City:
+                Incorporated City: <i class="fa fa-asterisk" style="font-size:10px;color:red"></i>
             </label>
             <select disabled name="incorporated_city" class="form-control">
                 <option></option>
@@ -207,7 +207,7 @@
         </div>
         <div class="col">
             <label>
-                Sponsor Entity:
+                Sponsor Entity: <i class="fa fa-asterisk" style="font-size:10px;color:red"></i>
             </label>
         <input type="text" name="sponsor_entity" class="form-control" autocomplete="off" value="{{ $project->sponsor_entity ?? '' }}" disabled>
         </div>
