@@ -5,7 +5,7 @@
     <div class="row">
         <div class="col-md-12">
             <div class="card">
-                <div class="card-header">Edit User</div>
+                <div class="card-header"><b>Edit User</b></div>
                 <div class="card-body">
                     <form action="{{ route('users.update', $user->id) }}" method="POST">
                         @csrf
