@@ -1,5 +1,5 @@
 <div class="card">
-    <div class="card-body">
+    <div class="card-body" id = "project_funding_holder">
         <h3>Project Funding</h3>
         <label>
             <input disabled type="checkbox" name="mpo_funds" autocomplete="off"

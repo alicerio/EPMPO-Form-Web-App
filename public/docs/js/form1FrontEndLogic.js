@@ -172,8 +172,8 @@ function set_required(required) {
         $("#YOE_sectionHolder :input").prop('required', false); // make optional
         $("#CMAQ_sectionHolder :input").prop('required', false); // make optional
         $("#Transit_sectionHolder :input").prop('required', false); // make optional
-        
-        
+        $("#project_funding_holder :input").prop('required', false); // make optional
+               
         //To fix error "An invalid form control with name = "" is not focusable"
         $("#description_goal_1").prop('required', false); // make optional
         $("#description_goal_2").prop('required', false); // make optional
