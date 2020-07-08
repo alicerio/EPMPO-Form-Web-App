@@ -27,8 +27,8 @@
                 No projects have been submitted
             </div>
             @else
-            <table class="table table-bordered">
-                <thead>
+            <table class="table table-bordered table-hover">
+                <thead  class="thead-light">
                     <tr>
                         <th scope="col">Project</th>
                         <th scope="col">Agency</th>

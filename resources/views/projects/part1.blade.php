@@ -1,6 +1,4 @@
 <head>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
-    <script src="https://cdn.rawgit.com/bjornharrtell/jsts/gh-pages/1.4.0/jsts.min.js"></script>
     <script src="{{ asset('docs/js/map_resources/map.js')}}"></script>
     <script src="{{ asset('docs/js/map_resources/line_test.js')}}"></script>
     <script src="{{ asset('docs/js/map_resources/point_test.js')}}"></script>
@@ -30,10 +28,10 @@
         <input id="scj" type="text" class="form-control" name="csj_cn" value="{{ $project->csj_cn ?? ''}}" readonly>
 
         <label>
-            Name
+            Name  <i class="fa fa-asterisk" style="font-size:10px;color:red"></i>
         </label>
         <input type="text" class="form-control" name="name" value="{{ $project->name ?? ''}}" disabled>
-
+        
         <label>
             Description
         </label>

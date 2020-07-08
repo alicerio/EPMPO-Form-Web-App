@@ -4,8 +4,8 @@
 <div class="container">
     <div class="row">
         <div class="col-md-8">
-            <table class="table table-bordered">
-                <thead>
+            <table class="table table-bordered  table-hover">
+                <thead class="thead-light">
                   <tr>
                     <th scope="col">Name</th>
                     <th scope="col">Email</th>
@@ -47,8 +47,8 @@
         </div>
         <div class="col-md-4">
           <div class="card">
-            <div class="card-header">
-              New User
+            <div class="card-header bg-light">
+              <b>New User</b>
             </div>
             <div class="card-body">
               <form method="POST" action="{{ route('users.store') }}">

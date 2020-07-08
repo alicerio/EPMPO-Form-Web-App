@@ -15,8 +15,8 @@
             @else
                 <h3 class="float-left">Project: {{ $projects[count($projects) - 1]->name }}</h3>
                 <h3 class="float-right">Status: {{ $statuses[$projects[count($projects) - 1]->status] }}</h3>
-                <table class="table table-bordered">
-                    <thead>
+                <table class="table table-bordered table-hover">
+                    <thead  class="thead-light">
                         <tr>
                             <th scope="col">Title</th>
                             <th scope="col">Submitted</th>

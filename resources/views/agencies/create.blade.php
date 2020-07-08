@@ -6,7 +6,7 @@
         <div class="col-md-12">
             <div class="card">
                 <div class="card-header">
-                    New Agency
+                    <b>New Agency</b>
                 </div>
                 <div class="card-body">
                     <form action="{{ route('agencies.store') }}" method="POST">

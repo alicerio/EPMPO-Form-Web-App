@@ -9,14 +9,15 @@
             </a>
         </div>
         <div style="padding-top: 5%;"></div>
-        <div class="col-md-12">
+        <div class="col-2"></div>
+        <div class="col-md-8">
             @if(count($agencies) == 0)
                 <div class="alert alert-secondary text-center" role="alert">
                     No agencies have been submitted
               </div>
             @else
-                <table class="table table-bordered text-center">
-                    <thead>
+                <table class="table table-bordered text-center  table-hover">
+                    <thead class = "thead-light">
                         <tr>
                             <th class ="col-md-10"scope="col">Name</th>
                             {{-- <th scope="col">Edit</th> --}}
@@ -51,6 +52,7 @@
                 </table>
             @endif
         </div>
+        <div class="col-2"></div>
     </div>
 </div>
 @endsection
