@@ -3,11 +3,19 @@
     //--  Store current user --
     $currentUser = auth()->user()->type
 @endphp
+
 <script type="text/javascript">
     var project = <?php echo json_encode($project);?>; 
     var currentUser = <?php echo json_encode($currentUser);?>;  // get current user
     window.onload = function() {
         show_edit_ViewMap();
+        //helps in hiding questions 4 to 10
+        display4To10("strategy_2");
+        display4To10("strategy_3");
+        // Helps in hiding options
+        for(let i =1; i <7; i++){
+            displayBox("strategy_"+i);
+        }
         if(project.status == 3){
             make_project_readonly();
         }

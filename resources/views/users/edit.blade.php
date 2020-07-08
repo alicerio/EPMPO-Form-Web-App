@@ -10,7 +10,6 @@
                     <form action="{{ route('users.update', $user->id) }}" method="POST">
                         @csrf
                         @method('PATCH')
-
                         <label>
                             Name
                         </label>
@@ -40,7 +39,7 @@
                             Password
                         </label>
                         {{-- FIX: empty password overwrites current password --}}
-                        <input type="password" name="password" class="form-control">
+                        <input type="password" name="password" class="form-control" value="{{ $user->password }}">
 
                         <button class="btn btn-primary mt-1 float-right">Update</button>
                     </form>
