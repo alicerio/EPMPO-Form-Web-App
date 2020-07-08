@@ -77,11 +77,11 @@
                 <option value="4" {{ $temp == 4 ? 'selected' : '' }}>Bus Purchase</option>
                 <option value="5" {{ $temp == 5 ? 'selected' : '' }}>Bus Service</option>
                 <option value="6" {{ $temp == 6 ? 'selected' : '' }}>Enhancements</option>
-                <option value="7" {{ $temp == 7 ? 'selected' : '' }}>inter-modal</option>
+                <option value="7" {{ $temp == 7 ? 'selected' : '' }}>Inter-modal</option>
                 <option value="8" {{ $temp == 8 ? 'selected' : '' }}>ITS</option>
                 <option value="9" {{ $temp == 9 ? 'selected' : '' }}>Multi-modal</option>
                 <option value="10" {{ $temp == 10 ? 'selected' : '' }}>New Road</option>
-                <option value="11" {{ $temp == 11 ? 'selected' : '' }}>pedestrian</option>
+                <option value="11" {{ $temp == 11 ? 'selected' : '' }}>Pedestrian</option>
                 <option value="12" {{ $temp == 12 ? 'selected' : '' }}>Plan</option>
                 <option value="13" {{ $temp == 13 ? 'selected' : '' }}>Port of Entry</option>
                 <option value="14" {{ $temp == 14 ? 'selected' : '' }}>Program</option>
@@ -91,7 +91,7 @@
                 <option value="18" {{ $temp == 18 ? 'selected' : '' }}>Study</option>
                 <option value="19" {{ $temp == 19 ? 'selected' : '' }}>Transit</option>
                 <option value="20" {{ $temp == 20 ? 'selected' : '' }}>Transit Terminal</option>
-                <option value="21" {{ $temp == 21 ? 'selected' : '' }}>Other, Specify</option>
+                <option value="21" {{ $temp == 21 ? 'selected' : '' }}>Other, specify</option>
                 </select>
         </div>
     </div>
@@ -113,7 +113,7 @@
         </div>
         <div class="col">
             <label>
-                Fedearl Functional Classificaiton (<a href="https://www.txdot.gov/apps/statewide_mapping/StatewidePlanningMap.html" target="_blank">Texas</a>, <a href="http://www.elpasompo.org/civicax/filebank/blobdload.aspx?BlobID=23410" target="_blank">New Mexico</a>):
+                Federal Functional Classificaiton (<a href="https://www.txdot.gov/apps/statewide_mapping/StatewidePlanningMap.html" target="_blank">Texas</a>, <a href="http://www.elpasompo.org/civicax/filebank/blobdload.aspx?BlobID=23410" target="_blank">New Mexico</a>):
             </label>
             <select disabled name="classification" class="form-control">
                 <option></option>
@@ -212,6 +212,4 @@
         <input type="text" name="sponsor_entity" class="form-control" autocomplete="off" value="{{ $project->sponsor_entity ?? '' }}" disabled>
         </div>
     </div>
-
-    <a href="http://www.elpasompo.org/civicax/filebank/blobdload.aspx?BlobID=23410"> Click here for Project Selection Process diagram and presentation (PDF) </a>
 </div>

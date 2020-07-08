@@ -1,7 +1,7 @@
 {{--Project Funding--}}
 <h3>Project Funding</h3>
 <label>
-    <input type="checkbox" name="mpo_funds" autocomplete="off" {{ $project->mpo_funds ?? ''== true ? 'checked' : '' }}>
+    <input disabled type="checkbox" name="mpo_funds" autocomplete="off" {{ $project->mpo_funds ?? ''== true ? 'checked' : '' }}>
     Requesting MPO Funds (For long range planning, beyond TIP years, funding category may not be identified, MPO will
     make final recommendation)
 </label><br>

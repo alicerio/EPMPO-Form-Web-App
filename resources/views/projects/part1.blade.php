@@ -15,7 +15,7 @@
 </head>
 <div class="card">
     <div class="card-header">
-        Electornic Project Request Form (ePRF)
+        Electronic Project Request Form (ePRF)
     </div>
     <div id="required" class="card-body">
         <input id="project_type" type="hidden" class="form-control" name="project_type" value="{{ $project->project_type ?? 'TASA' }}" readonly>
