@@ -7,19 +7,19 @@
                     <div class="col-sm-2">
                     </div>
                     <div class="col-sm-2">
-                        Name
+                        Name <i class="fa fa-asterisk" style="font-size:10px;color:red"></i>
                     </div>
                     <div class="col-sm-2">
-                        Phone Number
+                        Phone Number <i class="fa fa-asterisk" style="font-size:10px;color:red"></i>
                     </div>
                     <div class="col-sm-2">
-                        eMail
+                        eMail <i class="fa fa-asterisk" style="font-size:10px;color:red"></i>
                     </div>
                     <div class="col-sm-2">
-                        Agency
+                        Agency <i class="fa fa-asterisk" style="font-size:10px;color:red"></i>
                     </div>
                     <div class="col-sm-2">
-                        Title
+                        Title <i class="fa fa-asterisk" style="font-size:10px;color:red"></i>
                     </div>
                 </div>
             </div>

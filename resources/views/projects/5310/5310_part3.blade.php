@@ -75,7 +75,7 @@
                             non-motorized crashes and source of data. 
                             Distinguish between road diets for bicycle lanes and parking. 
                             Is this project consistent with MPO documents, project agreements and environmental
-                            documents, El Paso MPO Travel Demand Model (TDM)?
+                            documents, El Paso MPO Travel Demand Model (TDM)? <i class="fa fa-asterisk" style="font-size:10px;color:red"></i>
                             <h6><a href="http://www.elpasompo.org/scroll_bar_area/conformity_/transportation_conformity_report_2015_naaqs_appendices.htm"
                                     target="_blank">Helpful link (TDM Shapefile Appendix H): </a></h6>
                             <textarea id="description_strategy_1" name="description_strategy_1" class="form-control"
@@ -115,6 +115,7 @@
                             <br>
                             Instructions: Please provide analysis from corridor study or similar study that will show
                             the project will address congestion.
+                            <i class="fa fa-asterisk" style="font-size:10px;color:red"></i>
                             <textarea id="description_strategy_2" name="description_strategy_2" class="form-control"
                                 style="width: 22rem;{{ $project->strategy_2 ?? '' == 1 ? '' : 'display: none;' }}"
                                 placeholder="Please provide analysis from corridor study or similar study that will show the project will address congestion.">{{ $project->description_strategy_2 ?? '' }}</textarea>
@@ -138,6 +139,7 @@
                             to add additional through lanes on an existing highway,
                             major roadway reconstruction, adding capacity to a corridor by improving many related
                             intersections.
+                            <i class="fa fa-asterisk" style="font-size:10px;color:red"></i>
                             <textarea id="description_strategy_3" name="description_strategy_3" class="form-control"
                                 style="width: 22rem;{{ $project->strategy_3 ?? '' == 1 ? '' : 'display: none;' }}"
                                 placeholder="Please explain.">{{ $project->description_strategy_3 ?? '' }}</textarea>
@@ -256,7 +258,8 @@
                         style="width: 22rem;">{{ $project->description_strategy_10 ?? '' }}</textarea>
             </div>
             Projects will be examined at the corridor level to determine multimodal needs. Which best describes this
-            projects. <a href="http://www.elpasompo.org/civicax/filebank/blobdload.aspx?BlobID=23409"
+            projects. <i class="fa fa-asterisk" style="font-size:10px;color:red"></i>
+            <a href="http://www.elpasompo.org/civicax/filebank/blobdload.aspx?BlobID=23409"
                 target="_blank">Block System:</a><br>
             <label><input type="radio" name="block_system" value="1"
                     {{ $project->block_system ?? '' == 1 ? 'checked' : '' }}> Within Community</label autocomplete="off"
@@ -273,6 +276,7 @@
         </div>
         <hr>
         Have the above dates been reviewed by TXDOT or NMDOT?
+        <i class="fa fa-asterisk" style="font-size:10px;color:red"></i>
         <label><input type="radio" name="reviewed_dates" value="1"
                 {{ $project->reviewed_dates ?? '' == 1 ? 'checked' : '' }}> Yes</label autocomplete="off" disabled>
         <label><input type="radio" name="reviewed_dates" value="2"

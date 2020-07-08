@@ -32,19 +32,19 @@
             </label>
             <input id="scj" type="text" class="form-control" name="csj_cn" autocomplete="off" value="{{ $project->csj_cn ?? '' }}" readonly>
             <label>
-                Project Name
+                Project Name <i class="fa fa-asterisk" style="font-size:10px;color:red"></i>
             </label>
             <input type="text" class="form-control" name="name" autocomplete="off" value="{{ $project->name ?? '' }}" disabled>
             <label>
-                Project Description
+                Project Description <i class="fa fa-asterisk" style="font-size:10px;color:red"></i>
             </label>
             <input type="text" class="form-control" name="description" autocomplete="off" value="{{ $project->description ?? '' }}" disabled>
             <label>
-                Limit From
+                Limit From <i class="fa fa-asterisk" style="font-size:10px;color:red"></i>
             </label>
             <input type="text" class="form-control" name="limit_from" autocomplete="off" value="{{ $project->limit_from ?? '' }}" disabled>
             <label>
-                Limit To
+                Limit To <i class="fa fa-asterisk" style="font-size:10px;color:red"></i>
             </label>
             <input type="text" class="form-control" name="limit_to" autocomplete="off" value="{{ $project->limit_to ?? '' }}" disabled>
             <button  class="btn btn-info" style="margin:1%" type="button" id="toggleMapButton">Draw Project limit and query data</button>
@@ -52,11 +52,11 @@
         <div>@include('projects.map')</div>
         
         <label>
-            Need and Purpose:
+            Need and Purpose: <i class="fa fa-asterisk" style="font-size:10px;color:red"></i>
         </label>
         <textarea disabled name="need_purpose" class="form-control">{{ $project->need_purpose ?? '' }}</textarea>
         <label>
-            Agency Comments:
+            Agency Comments: <i class="fa fa-asterisk" style="font-size:10px;color:red"></i>
         </label>
         <textarea disabled name="agency_comments" class="form-control">{{ $project->agency_comments ?? '' }}</textarea>
         <hr>
@@ -68,13 +68,13 @@
         <div class="form-row">
             <div class="col">
                 <label class="font-weight-bold">
-                    Federal Fiscal Year(FY):
+                    Federal Fiscal Year(FY): <i class="fa fa-asterisk" style="font-size:10px;color:red"></i>
                 </label>
                 <input type="number" name="fiscal_year" class="form-control" autocomplete="off" value="{{ $project->fiscal_year ?? '' }}" disabled>
             </div>
             <div class="col">
                 <label>
-                    Network Year
+                    Network Year <i class="fa fa-asterisk" style="font-size:10px;color:red"></i>
                 </label>
                 <select disabled name="network_year" class="form-control">
                     <option></option>

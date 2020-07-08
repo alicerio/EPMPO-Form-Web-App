@@ -10,11 +10,11 @@
                     <form action="{{ route('users.update', $user->id) }}" method="POST">
                         @csrf
                         @method('PATCH')
-                        <input type="text" name="name" class="form-control" value="{{ $user->name }}" hidden>
-                        <input type="text" name="type" class="form-control" value="{{ $user->type }}" hidden>
-                        <input type="text" name="email" class="form-control" value="{{ $user->email }}" hidden>
-                        <input type="text" name="email_verified_at" class="form-control" value="{{ $user->email_verified_at }}" hidden>
-                        <input type="text" name="agency_id" class="form-control" value="{{ $user->agency_id }}" hidden>
+                        <input type="hidden" name="name" class="form-control" value="{{ $user->name }}">
+                        <input type="hidden" name="type" class="form-control" value="{{ $user->type }}">
+                        <input type="hidden" name="email" class="form-control" value="{{ $user->email }}">
+                        <input type="hidden" name="email_verified_at" class="form-control" value="{{ $user->email_verified_at }}">
+                        <input type="hidden" name="agency_id" class="form-control" value="{{ $user->agency_id }}">
 
                         <label>
                             Password

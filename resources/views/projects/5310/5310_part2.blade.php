@@ -13,6 +13,7 @@
                 <div class="col">
                     Will this project achieve goals as identified in the Regional Transportation Plan?
                     If yes, please provide attachment with supporting information:
+                    <i class="fa fa-asterisk" style="font-size:10px;color:red"></i>
                 </div>
             </div>
             <div class="form-row mb-1">
@@ -27,6 +28,7 @@
                 <div class="col">
                     Is this project from an updated comprehensive plan, thoroughfare plan, feasibility or corridor study? 
                     If yes, please provide link or attachment: How does this project address congestion, mobility, accessibility, and reliability of NHS?
+                    <i class="fa fa-asterisk" style="font-size:10px;color:red"></i>
                 </div>
             </div>
 
@@ -41,6 +43,7 @@
                 </div>
                 <div class="col">
                     Is this project part of TPB resolution for a Comprehensive Mobility Plan (CMP)?
+                    <i class="fa fa-asterisk" style="font-size:10px;color:red"></i>
                 </div>            
             </div>
 
@@ -56,6 +59,7 @@
                 <div class="col">
                     Is this decision making/governing body committed to the local/state share (match)? 
                     Attach documentation. E.g. Resolution, Financial Plan, etc.
+                    <i class="fa fa-asterisk" style="font-size:10px;color:red"></i>
                 </div>            
             </div>
 
@@ -69,7 +73,7 @@
                     </select>
                 </div>
                 <div class="col">
-                    Sponsor's investment to construction cost. (Excluding required local/state share)
+                    Sponsor's investment to construction cost. (Excluding required local/state share)<i class="fa fa-asterisk" style="font-size:10px;color:red"></i>
                 </div>            
             </div>
         </div>
