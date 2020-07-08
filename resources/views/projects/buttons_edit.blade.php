@@ -5,11 +5,11 @@ Depending what state or status you are in, the front end changes.
 <div class="row col-12">
     @include('projects.buttons_shared')
     @if($project->status !=3)
-    <select id="select_Action" style='height:40px;margin-top:1%;' class="mx-1"
-        onchange="changeButtonText('select_Action','button_text_changer')" name="status" class="form-control"
+    <select onchange="set_required_helper($('#'+this.id + ' option:selected').text()); changeButtonText('select_Action','button_text_changer');" id="select_Action" style='height:40px;margin-top:1%;' class="mx-1"
+        name="status" class="form-control"
         autocomplete="off">
-
-        <option value="{{ $project->status }}" selected>Save Progress</option>
+        <option></option>
+        <option value="{{ $project->status }}">Save Progress</option>
 
         {{-- Project is in progress --}}
         @if($project->status == 0 || $project->status == 4)

@@ -155,30 +155,49 @@ function form1_setView() {
     document.getElementById("signed_textarea").readOnly = true;
     document.getElementById("attachments_textarea").readOnly = true;
 }
-
-function set_required() {
-    console.log("this ran");
-    $("#showHolder :input").prop('required', true); // Everything is required
-    $("#showHolder :checkbox").prop('required', false); // Every checkbox is not required
-    //optionals
-    $("#part4_inputs :input").prop('required', false); // make optional
-    $("#YOE_sectionHolder :input").prop('required', false); // make optional
-    $("#CMAQ_sectionHolder :input").prop('required', false); // make optional
-    $("#Transit_sectionHolder :input").prop('required', false); // make optional
+/** 
+ * This function checks the state of the project
+ * If the project is about to be "signed off" by submitor then this function checks
+ * makes fields become require since it is about to be submitted.
+ * 
+ * IF the project is "not signed off" then it is being saved, so we do not
+ * need the inputs to be required since we are only saving the progress
+*/
+function set_required(required) {
+    if(required == true){
+        $("#showHolder :input").prop('required', true); // Everything is required
+        $("#showHolder :checkbox").prop('required', false); // Every checkbox is not required
+        //optionals
+        $("#part4_inputs :input").prop('required', false); // make optional
+        $("#YOE_sectionHolder :input").prop('required', false); // make optional
+        $("#CMAQ_sectionHolder :input").prop('required', false); // make optional
+        $("#Transit_sectionHolder :input").prop('required', false); // make optional
+        
+        
+        //To fix error "An invalid form control with name = "" is not focusable"
+        $("#description_goal_1").prop('required', false); // make optional
+        $("#description_goal_2").prop('required', false); // make optional
+        $("#description_goal_3").prop('required', false); // make optional
+        $("#description_goal_4").prop('required', false); // make optional
+        $("#description_goal_5").prop('required', false); // make optional
+        $("#description_goal_6").prop('required', false); // make optional
     
-    
-    //To fix error "An invalid form control with name = "" is not focusable"
-    $("#description_goal_1").prop('required', false); // make optional
-    $("#description_goal_2").prop('required', false); // make optional
-    $("#description_goal_3").prop('required', false); // make optional
-    $("#description_goal_4").prop('required', false); // make optional
-    $("#description_goal_5").prop('required', false); // make optional
-    $("#description_goal_6").prop('required', false); // make optional
+        $("#description_strategy_1").prop('required', false); // make optional
+        $("#description_strategy_2").prop('required', false); // make optional
+        $("#description_strategy_3").prop('required', false); // make optional
+        $("#description_strategy_4").prop('required', false); // make optional
+        $("#description_strategy_5").prop('required', false); // make optional
+        $("#description_strategy_6").prop('required', false); // make optional
+    }else{
+        $("#showHolder :input").prop('required', false);
+    }
 
-    $("#description_strategy_1").prop('required', false); // make optional
-    $("#description_strategy_2").prop('required', false); // make optional
-    $("#description_strategy_3").prop('required', false); // make optional
-    $("#description_strategy_4").prop('required', false); // make optional
-    $("#description_strategy_5").prop('required', false); // make optional
-    $("#description_strategy_6").prop('required', false); // make optional
+}
+
+function set_required_helper(id){
+    if(id == "Save Progress"){
+        set_required(false);
+    }else {
+        set_required(true);
+    }
 }
