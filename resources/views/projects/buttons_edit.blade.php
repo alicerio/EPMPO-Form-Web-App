@@ -51,6 +51,14 @@ select_Action is very special:
     @endif
 
 
+
+    <button onclick="toggleComment()" class="btn btn-info" rows="5" id="toggleCommentsButton" type="button">Show Comments</button>
+    <textarea name="comments" id="commentS" style="display:none;" class="form-control" rows="5"
+        placeholder="Comments" readonly>{{$project->comments ?? '' }}</textarea>
+
+
+
+
 </div>
 <style>
     #show_anchor1,

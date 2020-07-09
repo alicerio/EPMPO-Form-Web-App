@@ -61,8 +61,8 @@ const displayBox = (name) => {
  * This allows the user to save, without this the user would have to fill
  * ALL required fields when saving. 
  */
-function set_required(required,project_type) {
-    if(project_type == 'TASA' || project_type == '5310'){
+function set_required(required, project_type) {
+    if (project_type == 'TASA' || project_type == '5310') {
         if (required == true) {
             $("#showHolder :input").prop('required', true); // Everything is required
             $("#showHolder :checkbox").prop('required', false); // Every checkbox is not required
@@ -73,11 +73,11 @@ function set_required(required,project_type) {
                 $("#CMAQ_sectionHolder :input").prop('required', false); // make optional
                 $("#Transit_sectionHolder :input").prop('required', false); // make optional
                 $("#project_funding_section :input").prop('required', false); // make optional
-            }else if(project_type == '5310'){
+            } else if (project_type == '5310') {
                 $("#transit_only :input").prop('required', false);
-                $("#funding :input").prop('required', false);    
+                $("#funding :input").prop('required', false);
             }
-    
+
             //To fix error "An invalid form control with name = "" is not focusable"
             $("#description_goal_1").prop('required', false); // make optional
             $("#description_goal_2").prop('required', false); // make optional
@@ -85,11 +85,11 @@ function set_required(required,project_type) {
             $("#description_goal_4").prop('required', false); // make optional
             $("#description_goal_5").prop('required', false); // make optional
             $("#description_goal_6").prop('required', false); // make optional
-    
+
             $("#strategy_4").prop('required', false); // make optional
             $("#strategy_5").prop('required', false); // make optional
             $("#strategy_6").prop('required', false); // make optional
-    
+
             $("#description_strategy_1").prop('required', false); // make optional
             $("#description_strategy_2").prop('required', false); // make optional
             $("#description_strategy_3").prop('required', false); // make optional
@@ -100,17 +100,22 @@ function set_required(required,project_type) {
             $("#description_strategy_8").prop('required', false); // make optional
             $("#description_strategy_9").prop('required', false); // make optional
             $("#description_strategy_10").prop('required', false); // make optional
-        } else if(required == false){
+        } else if (required == false) {
             $("#showHolder :input").prop('required', false); // Everything is required
         }
     }
 
 }
 
-function set_required_helper(id,project_type) {
+function set_required_helper(id, project_type) {
     if (id == 'Save Progress') {
-        set_required(false,project_type);
+        set_required(false, project_type);
     } else {
-        set_required(true,project_type);
+        set_required(true, project_type);
     }
+}
+
+
+function toggleComment() {
+    $("#commentS").toggle('slow', function () {});
 }

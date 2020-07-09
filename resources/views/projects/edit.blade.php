@@ -75,16 +75,6 @@ $currentUser = auth()->user()->type // Store current user
         </div>
         <div id="buttonHolder">
             @include('projects.buttons_edit')
-            @auth
-            @if(auth()->user()->type != 2)
-            <button class="btn btn-info" rows="5" id="toggleCommentsButton" type="button">Show Comments</button>
-            <textarea name="comments" id="commentS" style="display:none;" class="form-control" rows="5"
-                placeholder="Comments" readonly>{{$project->comments ?? '' }}</textarea>
-            @else
-            <textarea name="comments" id="commentS" style="display:none;" class="form-control" rows="5"
-                placeholder="Comments" readonly>{{$project->comments ?? '' }}</textarea>
-            @endif
-            @endauth
         </div>
     </form>
 </div>
@@ -113,12 +103,4 @@ $currentUser = auth()->user()->type // Store current user
 <script src="{{ asset('docs/js/logOfChangesLogic.js')}}"></script>
 <script src="{{ asset('docs/js/form1FrontEndLogic.js')}}"></script>
 <script src="{{ asset('docs/js/sharedFrontEndLogic.js')}}"></script>
-<script>
-    $(document).ready(function() {
-    $("#toggleCommentsButton").click(function(){
-       $("#commentS").toggle( 'slow', function(){
-       });
-    });
- });
-</script>
 @endsection

@@ -95,12 +95,5 @@
 <script src="{{ asset('docs/js/form2FrontEndLogic.js')}}"></script>
 <script src="{{ asset('docs/js/sharedFrontEndLogic.js')}}"></script>
 
-<script>
-    $(document).ready(function() {
-    $("#toggleCommentsButton").click(function(){
-       $("#commentS").toggle( 'slow', function(){
-       });
-    });
- });
-</script> 
+
 @endsection
