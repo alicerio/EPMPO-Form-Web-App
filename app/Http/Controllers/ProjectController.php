@@ -872,7 +872,7 @@ class ProjectController extends Controller
      */
     public function destroy(Project $project)
     {
-        $project->delete();
+        $project::where('name',$project->name)->delete();
         return redirect(route('projects.index'));
     }
 
