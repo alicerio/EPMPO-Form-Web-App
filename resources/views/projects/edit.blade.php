@@ -10,8 +10,7 @@ $currentUser = auth()->user()->type // Store current user
         //default
         show_edit_ViewMap();
     //helps in hiding questions 4 to 10
-        display4To10("strategy_2");
-        display4To10("strategy_3");
+        display4To10();
       // Helps in hiding options
       for(let i =1; i <7; i++){
         displayBox("strategy_"+i);

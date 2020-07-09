@@ -85,7 +85,6 @@ function rowSum(idName, index) {
         let h = $(this).val();
         if (parseInt($(this).val()) > 0 && $(this).attr("name") != "funding_total[]" && $(this).attr("name") != "funding_category[]") {
             h = parseInt($(this).val());
-            console.log(h + " at " + $(this).attr("name"));
             rowTot += h;
         }
     })
@@ -175,10 +174,19 @@ function set_required() {
     $("#description_goal_5").prop('required', false); // make optional
     $("#description_goal_6").prop('required', false); // make optional
 
+    $("#strategy_4").prop('required', false); // make optional
+    $("#strategy_5").prop('required', false); // make optional
+    $("#strategy_6").prop('required', false); // make optional
+
     $("#description_strategy_1").prop('required', false); // make optional
     $("#description_strategy_2").prop('required', false); // make optional
     $("#description_strategy_3").prop('required', false); // make optional
     $("#description_strategy_4").prop('required', false); // make optional
     $("#description_strategy_5").prop('required', false); // make optional
     $("#description_strategy_6").prop('required', false); // make optional
+    $("#description_strategy_7").prop('required', false); // make optional
+    $("#description_strategy_8").prop('required', false); // make optional
+    $("#description_strategy_9").prop('required', false); // make optional
+    $("#description_strategy_10").prop('required', false); // make optional
+
 }

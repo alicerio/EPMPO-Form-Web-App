@@ -75,7 +75,7 @@
                     </div>
                 </div>
                 <button onclick = "addRow_1()" class="btn btn-primary" type="button">Add Funding</button>
-                <button class="btn btn-primary" type="button">Remove Funding</button>
+                <button onclick= "deleteRow_1()" class="btn btn-primary" type="button">Remove Funding</button>
             </div>
         </div>
         <br>
@@ -149,7 +149,7 @@
                     </div>
                 </div>
                 <button onclick = "addRow_2()" class="btn btn-primary" type="button">Add Funding</button>
-                <button class="btn btn-primary" type="button">Remove Funding</button>
+                <button onclick= "deleteRow_2()" class="btn btn-primary" type="button">Remove Funding</button>
             </div>
         </div>
         <br>
@@ -213,7 +213,7 @@
                     </table>
                 </div>
                 <button onclick = "addRow_3()" class="btn btn-primary" type="button">Add Funding</button>
-                <button class="btn btn-primary" type="button">Remove Funding</button>
+                <button onclick= "deleteRow_3()" class="btn btn-primary" type="button">Remove Funding</button>
             </div>
         </div>
     </div>

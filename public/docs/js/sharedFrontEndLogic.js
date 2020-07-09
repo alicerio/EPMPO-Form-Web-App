@@ -27,8 +27,8 @@ function remove_readonly(element){
     $("#"+element).prop("readonly",false)
 }
 
-function display4To10(name){
-    if($('select[name="'+name +'"]').val() == 1) {
+function display4To10(){
+    if($('select[name="'+"strategy_2" +'"]').val() == 1 || $('select[name="'+"strategy_3" +'"]').val() == 1) {
         $('#4To10Holder').attr("hidden",false);
     }else{
         $('#4To10Holder').attr("hidden",true);

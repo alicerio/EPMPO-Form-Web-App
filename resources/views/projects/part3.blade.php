@@ -275,7 +275,7 @@
                                     placeholder="If yes, identify the project name(s), state project identification number (CSJ number), and MPO ID.">{{ $project->description_strategy_4 ?? '' }}</textarea>
                             </div>
                             <div class="col-sm-2">
-                                <select disabled name="strategy_4" class="form-control"
+                                <select disabled name="strategy_4" id="strategy_4" class="form-control"
                                     onchange="displayBox(this.name);">
                                     <option></option>
                                     {{$temp = $project->strategy_4 ?? ''}}
@@ -297,7 +297,7 @@
                                     style="width: 22rem;{{ $project->strategy_5 ?? '' == 1 ? '' : 'display: none;' }}">{{ $project->description_strategy_5 ?? '' }}</textarea>
                             </div>
                             <div class="col-sm-2">
-                                <select disabled name="strategy_5" class="form-control"
+                                <select disabled name="strategy_5" id="strategy_5" class="form-control"
                                     onchange="displayBox(this.name);">
                                     <option></option>
                                     {{$temp = $project->strategy_5 ?? ''}}
@@ -318,7 +318,7 @@
                                     style="width: 22rem;{{ $project->strategy_6 ?? '' == 1 ? '' : 'display: none;' }}">{{ $project->description_strategy_6 ?? '' }}</textarea>
                             </div>
                             <div class="col-sm-2">
-                                <select disabled name="strategy_6" class="form-control"
+                                <select disabled name="strategy_6" id="strategy_6" class="form-control"
                                     onchange="displayBox(this.name);">
                                     <option></option>
                                     {{$temp = $project->strategy_6 ?? ''}}
@@ -356,7 +356,7 @@
                         </p>
                         <h6><a href="http://www.elpasompo.org/other/congestion_management_process_/default.htm"
                                 target="_blank">Helpful link</a></h6>
-                        <textarea name="description_strategy_8" class="form-control"
+                        <textarea id="description_strategy_8" name="description_strategy_8" class="form-control"
                             style="width: 22rem;">{{ $project->description_strategy_8 ?? '' }}</textarea>
                         <p>9. What are the specific congestion reduction impacts of the implemented strategies?
                             <br>
@@ -364,7 +364,7 @@
                             benefits
                             in terms of specific CMP performance measures when possible.
                         </p>
-                        <textarea name="description_strategy_9" class="form-control"
+                        <textarea id="description_strategy_9" name="description_strategy_9" class="form-control"
                             style="width: 22rem;">{{ $project->description_strategy_9 ?? '' }}</textarea>
                         <p>10. If not implementing a congestion mitigation strategy as part of the project, please
                             explain
@@ -373,7 +373,7 @@
                             Instructions: Include an explanation that highlights the reason why no congestion mitigation
                             strategies are feasible or warranted as part of the project.
                         </p>
-                        <textarea name="description_strategy_10" class="form-control"
+                        <textarea id="description_strategy_10" name="description_strategy_10" class="form-control"
                             style="width: 22rem;">{{ $project->description_strategy_10 ?? '' }}</textarea>
                     </div>
                 </div>

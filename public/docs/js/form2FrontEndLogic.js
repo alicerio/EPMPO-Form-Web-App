@@ -72,13 +72,6 @@ function rowSum_1(idName, index) {
     }
     $("#" + totId).attr("value",rowTot);
 }
-
-function deleteRow() {
-    var table = document.getElementById("fundingVehiclesTable");
-    table.deleteRow(table.rows.length - 1);
-    console.log(table.rows.length);
-}
-
 function addRow_1() {
     var table = document.getElementById("fundingVehiclesTable");
     var row = table.insertRow(table.rows.length);
@@ -291,6 +284,24 @@ function addRow_3() {
     inputId.setAttribute('id',newIdTotal);
 }
 
+function deleteRow_1() {
+    var table = document.getElementById("fundingVehiclesTable");
+    table.deleteRow(table.rows.length - 1);
+    console.log(table.rows.length);
+}
+
+function deleteRow_2() {
+    var table = document.getElementById("fundingBusTable");
+    table.deleteRow(table.rows.length - 1);
+    console.log(table.rows.length);
+}
+
+function deleteRow_3() {
+    var table = document.getElementById("fundingOperationsTable");
+    table.deleteRow(table.rows.length - 1);
+    console.log(table.rows.length);
+}
+
 function form2_setView() {
     $(":input").prop("disabled", false); // enables everything
 
@@ -322,11 +333,34 @@ function form2_setView() {
 }
 
 function set_required(){
-    console.log("this ran");
-    $("#required :input").prop('required',true);
-    $("#required_psp :input").prop('required',true);
-    $("#required_cmp :input").prop('required',true);
-    $("#required_contact :input").prop('required',true);
+    console.log("set required ran");
+    $("#showHolder :input").prop('required', true); // Everything is required
+    $("#showHolder :checkbox").prop('required', false); // Every checkbox is not required
 
+    $("#transit_only :input").prop('required', false);
+    $("#funding :input").prop('required', false);
+
+    //To fix error "An invalid form control with name = "" is not focusable"
+    $("#description_goal_1").prop('required', false); // make optional
+    $("#description_goal_2").prop('required', false); // make optional
+    $("#description_goal_3").prop('required', false); // make optional
+    $("#description_goal_4").prop('required', false); // make optional
+    $("#description_goal_5").prop('required', false); // make optional
+    $("#description_goal_6").prop('required', false); // make optional
+
+    $("#strategy_4").prop('required', false); // make optional
+    $("#strategy_5").prop('required', false); // make optional
+    $("#strategy_6").prop('required', false); // make optional
+
+    $("#description_strategy_1").prop('required', false); // make optional
+    $("#description_strategy_2").prop('required', false); // make optional
+    $("#description_strategy_3").prop('required', false); // make optional
+    $("#description_strategy_4").prop('required', false); // make optional
+    $("#description_strategy_5").prop('required', false); // make optional
+    $("#description_strategy_6").prop('required', false); // make optional
+    $("#description_strategy_7").prop('required', false); // make optional
+    $("#description_strategy_8").prop('required', false); // make optional
+    $("#description_strategy_9").prop('required', false); // make optional
+    $("#description_strategy_10").prop('required', false); // make optional
 }
 
