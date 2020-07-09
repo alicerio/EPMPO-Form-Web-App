@@ -82,7 +82,7 @@ function filterCrashes(circlesCordinates) {
 
     //get all points
     $.get(php_handler, data_for_php, function (data) {
-        console.log(data);
+      //  console.log(data);
 
 
         for (index in data.shape_arr) {
@@ -125,7 +125,7 @@ function filterCrashes(circlesCordinates) {
                 filter_crashes.push(pointC);
             }
         }
-        console.log(filter_crashes);
+       // console.log(filter_crashes);
 
         crashes(circlesCordinates, filter_crashes);
     });
@@ -281,7 +281,7 @@ function crashes(circlesCordinates, filterCrashes) {
     //document.getElementById("pm18DrivingText").innerHTML = pm18data.dtot;
     //  document.getElementById("pm18DrivingText").innerHTML = pm18data.dtot;
 
-    console.log(crashesData);
+   // console.log(crashesData);
 }
 
 //filters possible points, this will help eliminate excess of points
@@ -305,7 +305,7 @@ function filterBridges(circlesCordinates) {
     };
     //get all points
     $.get(php_handler, data_for_php, function (data) {
-        console.log(data);
+       // console.log(data);
 
         for (index in data.shape_arr) {
             holder = [];
@@ -331,13 +331,13 @@ function filterBridges(circlesCordinates) {
                 filter_bridges.push(pointC);
             }
         }
-        console.log(filter_bridges);
+        //console.log(filter_bridges);
         bridges(circlesCordinates, filter_bridges);
     });
 }
 function bridges(circlesCordinates, filterBridges) {
     //holds all info displayed on statistics
-    console.log('inside bridges');
+  //  console.log('inside bridges');
     var nonRepeatedPoints = [];
     let image = "../../docs/images/small_blue_pin.png";
     for (j in circlesCordinates[0]) {
@@ -407,7 +407,8 @@ function bridges(circlesCordinates, filterBridges) {
     //document.getElementById("pm18DrivingText").innerHTML = pm18data.dtot;
     //  document.getElementById("pm18DrivingText").innerHTML = pm18data.dtot;
 
-    console.log(bridgeData);
+   //
+   // console.log(bridgeData);
 }
 //checks if given point belongs to given circle
 function isInsideCircle(x, y, circlex, circley, r) {

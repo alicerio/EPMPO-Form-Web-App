@@ -12,12 +12,17 @@ select_Action is very special:
            a project JS variable already exists.
            This is to help JS know current project
         */
+       console.log(project);
         let project_type = project.project_type; 
+
     </script>
     @include('projects.buttons_shared')
+    <?php
+        
+    ?>
     @if($project->status !=3)
     <select id="select_Action" style='height:40px;margin-top:1%;' class="mx-1"
-        onchange="set_required_helper($('#'+this.id+ ' option:selected').text(),project_type ); changeButtonText('select_Action','button_text_changer')" name="status" class="form-control"
+        onchange="set_required_helper($('#'+this.id+ ' option:selected').text(),'{{$project->project_type}}' ); changeButtonText('select_Action','button_text_changer')" name="status" class="form-control"
         autocomplete="off">
 
         <option value="{{ $project->status }}" selected>Save Progress</option>
