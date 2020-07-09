@@ -1,12 +1,23 @@
 <!-- 
 We took advantage of the blade programming style.
 Depending what state or status you are in, the front end changes.
+
+select_Action is very special: 
+    - toggles states
+    - toggles required fields
 -->
 <div class="row col-12">
+    <script>
+        /* don't forget that when we import buttons_edit
+           a project JS variable already exists.
+           This is to help JS know current project
+        */
+        let project_type = project.project_type; 
+    </script>
     @include('projects.buttons_shared')
     @if($project->status !=3)
     <select id="select_Action" style='height:40px;margin-top:1%;' class="mx-1"
-        onchange="set_required_helper($('#'+this.id+ ' option:selected').text()); changeButtonText('select_Action','button_text_changer')" name="status" class="form-control"
+        onchange="set_required_helper($('#'+this.id+ ' option:selected').text(),project_type ); changeButtonText('select_Action','button_text_changer')" name="status" class="form-control"
         autocomplete="off">
 
         <option value="{{ $project->status }}" selected>Save Progress</option>
