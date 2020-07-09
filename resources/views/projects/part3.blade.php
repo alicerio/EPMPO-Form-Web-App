@@ -240,15 +240,6 @@
                             </div>
                         </div>
                     </div>
-                        <div class="col-sm-2">
-                            <select disabled name="strategy_2" class="form-control"
-                                onchange="displayBox(this.name); display4To10(this.name);">
-                                <option></option>
-                                {{$temp = $project->strategy_2 ?? ''}}
-                                <option value="1" {{ $temp == 1 ? 'selected' : '' }}>Yes</option>
-                                <option value="2" {{ $temp == 2 ? 'selected' : '' }}>No</option>
-                            </select>
-                        </div>
                     </div>
                     <div class="form-row mb-1">
                         <div class="col">
