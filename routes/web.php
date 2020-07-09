@@ -59,6 +59,7 @@ Route::get('users/editPassword/{user}', 'UserController@editPassword')->name('us
 
 //Route::get('projects/comments/{project}', 'ProjectController@show_Comment')->name('projects.project_comments');
 
+//Route::delete('projects/destroyNonSubmissions/{project}', 'ProjectController@destroyNonSubmissions')->name('projects.destroyNonSubmissions');
 
 // For demo purposes
 Route::get('/map', function(){

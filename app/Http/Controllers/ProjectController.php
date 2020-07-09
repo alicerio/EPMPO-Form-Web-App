@@ -872,10 +872,17 @@ class ProjectController extends Controller
      */
     public function destroy(Project $project)
     {
-        $project::where('name',$project->name)->delete();
+        $project->delete();
+        $project::where('parent_id',$project->id)->delete();
         return redirect(route('projects.index'));
     }
 
+    /*
+    public function destroyNonSubmissions(Project $project)
+    {
+        $project::where('name',$project->name && 'status' != 2)->delete();
+        return redirect(route('projects.index'));
+    }*/
 
     /**
      * Update the specified resource MPO ID in storage.
