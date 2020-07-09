@@ -305,7 +305,7 @@ function form2_setView() {
     //Make readonly
 
     document.getElementById("mpo_id").readOnly = true;
-    document.getElementById("signed_textarea").readOnly = true;
+    //document.getElementById("signed_textarea").readOnly = true;
     document.getElementById("attachments_textarea").readOnly = true;
     document.getElementById("federal_vehicles_total").readOnly = true;
     document.getElementById("local_vehicles_total").readOnly = true;

@@ -151,7 +151,7 @@ function form1_setView() {
     document.getElementById("local_total").readOnly = true;
     document.getElementById("local_beyond_total").readOnly = true;
     document.getElementById("total_total").readOnly = true;
-    document.getElementById("signed_textarea").readOnly = true;
+    //document.getElementById("signed_textarea").readOnly = true;
     document.getElementById("attachments_textarea").readOnly = true;
 }
 

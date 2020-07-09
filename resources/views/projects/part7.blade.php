@@ -142,19 +142,17 @@
             blank, the form will not be accepted.</p>
         <h4>Signed By <i class="fa fa-asterisk"
             style="font-size:10px;color:red"></i></h4>
-        @auth
-        @if(auth()->user()->type == 1)
-        <div class="form-group">
-            <textarea class="form-control" id="signed_textarea" name="signature" rows="2"
-                disabled> {{ $project->signature ?? '' }}</textarea>
-        </div>
-        @else
-        <div class="form-group">
-            <textarea class="form-control" id="signed_textarea" name="signature"
-                title="Only a submitter can sign this form." rows="2"
-                disabled>   {{ $project->signature ?? ''  }} </textarea>
-        </div>
-        @endif
+            @auth
+            @if(auth()->user()->type == 1)
+                <div class="form-group">
+                    <input type="text" name="signature" class="form-control" value="{{ $project->signature ?? ''  }}" disabled>
+
+                </div>
+            @else
+                <div class="form-group">
+                    <input type="text" name="signature" class="form-control" title="Only a Submitter can sign" value="{{ $project->signature ?? ''  }}" readonly>
+                </div>
+            @endif                            
         @endauth
         <p>Save your form before signing, all fields will be locked after signature is provided.</p>
         <br>
