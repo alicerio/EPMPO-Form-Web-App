@@ -38,14 +38,14 @@ function project_funding_table() {
     var inputValues = $('#project_funding :input').map(function () {
         let h = ""; //holder
         let idH = "";
-
+        console.log(h);
         h = $(this).val();
 
         //remove $ sign
         if (h.charAt(0) == "$") {
             h = h.substring(1);
-            h = parseInt(h);
         }
+        
 
         /**
          * We use substring to remove the numbers from the id
@@ -55,11 +55,13 @@ function project_funding_table() {
          */
         idH = $(this).attr("id"); // hold id
         try {
+            h = parseInt(h.replace(/,/g, '')); // removes commas and parses to int
+
             if (isNaN(h) == false && h >= 0 && idH.length >= 1) { //check that value is valid
+                h = parseInt(h);
                 if (idH.substring(0, 7) == "federal") {
                     if (h >= 0) {
                         federal_sum += h;
-                        console.log(federal_sum);
                     }
                 } else if (idH.substring(0, 5) == "state") {
                     if (h >= 0) {
@@ -86,12 +88,12 @@ function project_funding_table() {
     local_sum = parseInt(local_sum);
     local_cont_sum = parseInt(local_cont_sum);
     //send to front end
-    document.getElementById("federal_total").value = "$" + federal_sum.toString();
-    document.getElementById("state_total").value = "$" + state_sum.toString();
-    document.getElementById("local_total").value = "$" + local_sum.toString();
-    document.getElementById("local_beyond_total").value = "$" + local_cont_sum.toString();
-    document.getElementById("total_total").value = "$" + parseInt(federal_sum + state_sum + local_sum + local_cont_sum);
-    document.getElementById("yoe_check").value = "$" + parseInt(federal_sum + state_sum + local_sum + local_cont_sum);
+    document.getElementById("federal_total").value = "$" + commafy(federal_sum);
+    document.getElementById("state_total").value = "$" + commafy(state_sum);
+    document.getElementById("local_total").value = "$" + commafy(local_sum);
+    document.getElementById("local_beyond_total").value = "$" + commafy(local_cont_sum);
+    document.getElementById("total_total").value = "$" + commafy(parseInt(federal_sum + state_sum + local_sum + local_cont_sum));
+    document.getElementById("yoe_check").value = "$" + commafy(parseInt(federal_sum + state_sum + local_sum + local_cont_sum));
 
     rowSumMaster();
 }
@@ -119,7 +121,8 @@ function rowSum(idName, index) {
         if (h.charAt(0) == "$") {
             h = h.substring(1);
         }
-        h = parseInt(h);
+        h = parseInt(h.replace(/,/g, '')); // removes commas and parses to int
+
         if (h > 0 && $(this).attr("name") != "funding_total[]" && $(this).attr("name") != "funding_category[]" && isNaN(h) == false) {
             rowTot += h;
         }
@@ -130,7 +133,7 @@ function rowSum(idName, index) {
         index++;
         totId = "pftpg1_tot" + index;
     }
-    $("#" + totId).attr("value", '$' + rowTot.toString());
+    $("#" + totId).attr("value", '$' + commafy(rowTot));
 }
 
 function deleteRow() {

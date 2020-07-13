@@ -126,6 +126,20 @@ function addMoneySign(element, id){
     }else if(element.charAt(0) == "$"){
         // do nothing 
     }else{
-        document.getElementById(id).value = "$"+element;
+        document.getElementById(id).value = "$"+commafy(element);
     }
 }
+
+// Adds commas to integers
+function commafy(num) {
+    console.log(num);
+    var str = num.toString().split('.');
+    if (str[0].length >= 4) {
+        str[0] = str[0].replace(/(\d)(?=(\d{3})+$)/g, '$1,');
+    }
+    if (str[1] && str[1].length >= 4) {
+        str[1] = str[1].replace(/(\d{3})/g, '$1 ');
+    }
+    return str.join('.');
+}
+
