@@ -288,26 +288,28 @@
                     {{ $project->block_system ?? '' == 4 ? 'checked' : '' }}> Region to region</label autocomplete="off"
                 disabled>
             </div>
-            <div class="row">
-                <p>Have the above dates been reviewed by TXDOT or NMDOT? <i class="fa fa-asterisk" style="font-size:10px;color:red"></i></p>
-                <label><input type="radio" name="reviewed_dates" value="1"
-                        {{ $project->reviewed_dates ?? '' == 1 ? 'checked' : '' }}> Yes</label autocomplete="off" disabled></label>
-                <label><input type="radio" name="reviewed_dates" value="2"
-                        {{ $project->reviewed_dates ?? '' == 2 ? 'checked' : '' }}> No</label autocomplete="off" disabled></label>
-                <label><input type="radio" name="reviewed_dates" value="3"
-                        {{ $project->reviewed_dates ?? '' == 3 ? 'checked' : '' }}> N/A</label autocomplete="off" disabled></label>
-                <div class="col-sm-2">
-                    <label>Date Reviewed</label>
-                    <input type="date" name="date_reviewed" class="form-control" autocomplete="off" value="{{ $project->date_reviewed ?? ''}}" disabled>
+            <div class="form-row mb-1">
+                <div class="col-sm-3">
+                    <p>Have the above dates been reviewed by TXDOT or NMDOT? <i class="fa fa-asterisk" style="font-size:10px;color:red"></i></p>
+                    <label><input type="radio" name="reviewed_dates" value="1"
+                            {{ $project->reviewed_dates ?? '' == 1 ? 'checked' : '' }}> Yes</label autocomplete="off" disabled></label>
+                    <label><input type="radio" name="reviewed_dates" value="2"
+                            {{ $project->reviewed_dates ?? '' == 2 ? 'checked' : '' }}> No</label autocomplete="off" disabled></label>
+                    <label><input type="radio" name="reviewed_dates" value="3"
+                            {{ $project->reviewed_dates ?? '' == 3 ? 'checked' : '' }}> N/A</label autocomplete="off" disabled></label>
                 </div>
-                <div class="col-sm-2">
+                <div class="col-sm-3">
+                    <label for="date_reviewed">Date Reviewed</label>
+                    <input type="date" name="date_reviewed" class="form-control" autocomplete="off" value="{{ $project->date_reviewed ?? ''}}"
+                        disabled>
+                </div>
+                <div class="col-sm-3">
                     <label>Reviewed By</label>
                     <input type="text" name="reviewed_by" class="form-control" autocomplete="off" value="{{ $project->reviewed_by ?? ''}}" disabled>
                 </div>
-                <div class="col-sm-2">
+                <div class="col-sm-3">
                     <label>Agency</label>
                     <input type="text" name="reviewed_agency" class="form-control" autocomplete="off" value="{{ $project->reviewed_agency ?? ''}}" disabled>
                 </div>
-                <br>
             </div>
 </div>

@@ -27,8 +27,7 @@
         onclick="point_drawer('bridges')">Query Bridges</button>
       <button id="queryPavementsBtn" type='button' class="btn btn-info"
         title="Display pavements that intersect with lines drawn." onclick="lineDrawer()">Query Pavements</button>
-      <button id="clearQueryBtn" type='button' class="btn btn-info" title="Clear map" onclick="clearMetadata(); 
-       return confirm('Are you sure you want to clear the map data?')">
+      <button id="clearQueryBtn" type='button' class="btn btn-info" title="Clear map" onclick="clearMap()">
         Clear</button>
     </div>
   </div>
