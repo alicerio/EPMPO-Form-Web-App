@@ -1,10 +1,10 @@
 <div class="card">
     <h3>Project Selection Process</h3>
-    <a href="http://www.elpasompo.org/civicax/filebank/blobdload.aspx?BlobID=23410"> Click here for Project Selection
+    <a href="http://www.elpasompo.org/civicax/filebank/blobdload.aspx?BlobID=23410" target="_blank"> Click here for Project Selection
         Process diagram and presentation (PDF) </a>
     <div class="form-row mb-1">
         <div class="col-sm-1">
-            <select disabled name="psp_1" class="form-control">
+            <select disabled name="psp_1" class="form-control" onchange="displayBox(this.name);">
                 <option></option>
                 {{$temp = $project->psp_1 ?? ''}}
                 <option value="1" {{ $temp == 1  ? 'selected' : '' }}>Yes</option>
@@ -15,12 +15,15 @@
             Will this project achieve a significant reduction in traffic fatalities or serious injuries? If yes,
             please provide link or attachment with supporting data <i class="fa fa-asterisk"
                 style="font-size:10px;color:red"></i>
+                <textarea id="description_psp_1" name="description_psp_1" class="form-control"
+                style="width: 30rem;{{ $project->psp_1 ?? '' == 1 ? '' : 'display: none;' }}"
+                placeholder="Please provide link or attachment.">{{ $project->description_psp_1 ?? '' }}</textarea>
         </div>
     </div>
 
     <div class="form-row mb-1">
         <div class="col-sm-1">
-            <select disabled name="psp_2" class="form-control">
+            <select disabled name="psp_2" class="form-control" onchange="displayBox(this.name);">
                 <option></option>
                 {{$temp = $project->psp_2 ?? ''}}
                 <option value="1" {{ $temp == 1 ? 'selected' : '' }}>Yes</option>
@@ -31,52 +34,57 @@
             Is this project from an updated comprehensive plan, thoroughfare plan, feasibility or corridor
             study? If yes, please provide link or attachment: Excerpt from corridor plan attached (too large to
             attach whole document) <i class="fa fa-asterisk" style="font-size:10px;color:red"></i>
+            <textarea id="description_psp_2" name="description_psp_2" class="form-control"
+                    style="width: 30rem;{{ $project->psp_2 ?? '' == 1 ? '' : 'display: none;' }}"
+                    placeholder="Please provide link or attachment.">{{ $project->description_psp_2 ?? '' }}</textarea>
         </div>
     </div>
 
     <div class="form-row mb-1">
         <div class="col-sm-1">
-            <select disabled name="psp_3" class="form-control">
+            <select disabled name="psp_3" class="form-control" onchange="displayBox(this.name);">
                 <option></option>
                 {{$temp = $project->psp_3 ?? ''}}
-                <option value="1" {{ $temp == 1 ? 'selected' : '' }}>Yes</option>
-                <option value="2" {{ $temp == 2 ? 'selected' : '' }}>No</option>
+                <option value="2" {{ $temp == 2 ? 'selected' : '' }}>Yes</option>
+                <option value="1" {{ $temp == 1 ? 'selected' : '' }}>No</option>
             </select>
         </div>
         <div class="col">
-            Is this project on the National Highway System NHS?<i class="fa fa-asterisk"
+            Is this project on the National Highway System NHS?<br>
+            If not, please describe the project's relationship to the NHS (for example: it connects to or runs parallel to):<i class="fa fa-asterisk"
                 style="font-size:10px;color:red"></i>
+                <textarea id="description_psp_3" name="description_psp_3" class="form-control"
+                    style="width: 30rem;{{ $project->psp_3 ?? '' == 1 ? '' : 'display: none;' }}"
+                    placeholder="Please describe the project's relationship to the NHS.">{{ $project->description_psp_3 ?? '' }}</textarea>
         </div>
     </div>
 
     <div class="form-row mb-1">
         <div class="col-sm-1">
-            <select disabled name="psp_4" class="form-control">
-                <option></option>
-                {{$temp = $project->psp_4 ?? ''}}
-                <option value="1" {{ $temp == 1  ? 'selected' : '' }}>Yes</option>
-                <option value="2" {{ $temp == 2  ? 'selected' : '' }}>No</option>
-            </select>
         </div>
         <div class="col">
-            Will this project achieve a significant reduction in traffic fatalities or serious injuries? If yes,
-            please provide link or attachment with supporting data <i class="fa fa-asterisk"
-                style="font-size:10px;color:red"></i>
+            How does this project address congestion, mobility, accessibility, and reliability of NHS?
+            <i class="fa fa-asterisk" style="font-size:10px;color:red"></i>
+            <textarea name="description_psp_4" class="form-control" style="width: 30rem;"
+            placeholder="Explain.">{{ $project->description_psp_4 ?? '' }}</textarea>
         </div>
     </div>
 
     <div class="form-row mb-1">
         <div class="col-sm-1">
-            <select disabled name="psp_5" class="form-control">
+            <select disabled name="psp_5" class="form-control" onchange="displayBox(this.name);">
                 <option></option>
                 {{$temp = $project->psp_5 ?? ''}}
-                <option value="1" {{ $temp == 1  ? 'selected' : '' }}>Yes</option>
-                <option value="2" {{ $temp == 2  ? 'selected' : '' }}>No</option>
+                <option value="2" {{ $temp == 2  ? 'selected' : '' }}>Yes</option>
+                <option value="1" {{ $temp == 1  ? 'selected' : '' }}>No</option>
             </select>
         </div>
         <div class="col">
             Is this project part of TPB resolution for the Active Transportation System? <i class="fa fa-asterisk"
-                style="font-size:10px;color:red"></i>
+                style="font-size:10px;color:red"></i><a href="http://www.elpasompo.org/civicax/filebank/blobdload.aspx?BlobID=23376" target="_blank">Active Transportation Plan (ATS)</a>
+                <textarea id="description_psp_5" name="description_psp_5" class="form-control"
+                    style="width: 30rem;{{ $project->psp_5 ?? '' == 1 ? '' : 'display: none;' }}"
+                    placeholder="Describe the project's relationship to the ATS:">{{ $project->description_psp_5 ?? '' }}</textarea>
         </div>
     </div>
 
@@ -482,20 +490,6 @@
                         {{ $project->block_system ?? '' == 4 ? 'checked' : '' }}> Region to region</label
                     autocomplete="off" disabled>
             </div>
-      
-
-        <hr>
-
-        <label>Have the above dates been reviewed by TXDOT or NMDOT? <i class="fa fa-asterisk"
-                style="font-size:10px;color:red"></i></label>
-        <div class="row">
-            <label><input class= "mx-1" type="radio" name="reviewed_dates" value="1"
-                    {{ $project->reviewed_dates ?? '' == 1 ? 'checked' : '' }}> Yes</label autocomplete="off" disabled>
-            <label><input class= "mx-1" type="radio" name="reviewed_dates" value="2"
-                    {{ $project->reviewed_dates ?? '' == 2 ? 'checked' : '' }}> No</label autocomplete="off" disabled>
-            <label><input class= "mx-1" type="radio" name="reviewed_dates" value="3"
-                    {{ $project->reviewed_dates ?? '' == 3 ? 'checked' : '' }}> N/A</label autocomplete="off" disabled>
-        </div>
     </div>
     </div>
 </div>

@@ -15,6 +15,9 @@
         for(let i =1; i <7; i++){
             displayBox("strategy_"+i);
         }
+        for(let j = 1; j < 6; j++){
+            displayBox("psp_"+j);
+        }
         if(project.status == 1){
             set_required();  
             form2_setView();

@@ -43,9 +43,9 @@ class CreateProjectsTable extends Migration
             $table->boolean('capacity_project')->nullable();
 
             $table->tinyInteger('classification')->nullable();
-            $table->tinyInteger('existing_lanes')->nullable();
+            $table->Integer('existing_lanes')->nullable();
             $table->tinyInteger('district')->nullable();
-            $table->tinyInteger('projected_lanes')->nullable();
+            $table->Integer('projected_lanes')->nullable();
             $table->text('miles')->nullable();
             $table->tinyInteger('county')->nullable();
             $table->tinyInteger('incorporated_city')->nullable();
@@ -57,6 +57,13 @@ class CreateProjectsTable extends Migration
             $table->boolean('psp_4')->nullable();
             $table->boolean('psp_5')->nullable();
             $table->boolean('psp_6')->nullable();
+            $table->tinyInteger('psp_amount')->nullable();
+
+            $table->text('description_psp_1')->nullable();
+            $table->text('description_psp_2')->nullable();
+            $table->text('description_psp_3')->nullable();
+            $table->text('description_psp_4')->nullable();
+            $table->text('description_psp_5')->nullable();
 
             $table->boolean('goal_1')->nullable();
             $table->boolean('goal_2')->nullable();
@@ -113,6 +120,9 @@ class CreateProjectsTable extends Migration
             $table->tinyInteger('reviewed_dates')->nullable(); // F2
 
             // Page 3
+            $table->tinyInteger('progress')->nullable();
+            $table->text('progress_explain')->nullable();
+
             $table->date('schematic_start_date')->nullable();
             $table->date('schematic_end_date')->nullable();
             $table->tinyInteger('schematic_progress')->nullable();
@@ -231,11 +241,11 @@ class CreateProjectsTable extends Migration
             $table->boolean('reviewed_no')->nullable();
             $table->boolean('reviewed_na')->nullable();
             $table->date('date_reviewed')->nullable();
+            $table->text('reviewed_by')->nullable();
+            $table->text('reviewed_agency')->nullable();
 
             // Project Phases
-
             $table->boolean('fta_transfer')->nullable();
-            // F2
             $table->boolean('capital')->nullable();
             $table->boolean('operations')->nullable();
 
@@ -248,19 +258,17 @@ class CreateProjectsTable extends Migration
             $table->boolean('acq')->nullable();
             $table->boolean('utl')->nullable();
 
-            $table->Integer('subtotal_amount')->nullable();
-            $table->Integer('non_construction_amount')->nullable();
-            $table->Integer('construction_amount')->nullable();
-            $table->Integer('ce_amount')->nullable();
-            $table->Integer('contingencies_amount')->nullable();
-            $table->Integer('change_order_amount')->nullable();
-            $table->Integer('PE_amount')->nullable();
-            $table->Integer('indirects_amount')->nullable();
-            $table->Integer('ROW_amount')->nullable();
-            $table->Integer('transfer_amount')->nullable();
-            $table->Integer('total_amount')->nullable();
-
-            // Page 4
+            $table->text('subtotal_amount')->nullable();
+            $table->text('non_construction_amount')->nullable();
+            $table->text('construction_amount')->nullable();
+            $table->text('ce_amount')->nullable();
+            $table->text('contingencies_amount')->nullable();
+            $table->text('change_order_amount')->nullable();
+            $table->text('PE_amount')->nullable();
+            $table->text('indirects_amount')->nullable();
+            $table->text('ROW_amount')->nullable();
+            $table->text('transfer_amount')->nullable();
+            $table->text('total_amount')->nullable();
 
             $table->tinyInteger('costs_1')->nullable();
             $table->tinyInteger('costs_2')->nullable();
@@ -277,49 +285,49 @@ class CreateProjectsTable extends Migration
             $table->json('funding_local_beyond')->nullable();
             $table->json('funding_total')->nullable();
 
-            $table->Integer('funding_federal_result')->nullable();
-            $table->Integer('funding_state_result')->nullable();
-            $table->Integer('funding_local_result')->nullable();
-            $table->Integer('funding_local_beyond_result')->nullable();
-            $table->Integer('funding_total_result')->nullable();
+            $table->text('funding_federal_result')->nullable();
+            $table->text('funding_state_result')->nullable();
+            $table->text('funding_local_result')->nullable();
+            $table->text('funding_local_beyond_result')->nullable();
+            $table->text('funding_total_result')->nullable();
 
             $table->boolean('mpo_funds_2')->nullable();
-            $table->Integer('yoe_cost_vehicles')->nullable();
+            $table->text('yoe_cost_vehicles')->nullable();
             $table->json('funding_category_vehicles')->nullable();
             $table->json('funding_federal_vehicles')->nullable();
             $table->json('funding_local_vehicles')->nullable();
             $table->json('funding_local_beyond_vehicles')->nullable();
             $table->json('funding_total_vehicles')->nullable();
             $table->json('funding_tdc_vehicles')->nullable();
-            $table->Integer('funding_federal_vehicles_total')->nullable();
-            $table->Integer('funding_local_vehicles_total')->nullable();
-            $table->Integer('funding_local_beyond_vehicles_total')->nullable();
-            $table->Integer('funding_total_vehicles_total')->nullable();
-            $table->Integer('funding_tdc_vehicles_total')->nullable();
+            $table->text('funding_federal_vehicles_total')->nullable();
+            $table->text('funding_local_vehicles_total')->nullable();
+            $table->text('funding_local_beyond_vehicles_total')->nullable();
+            $table->text('funding_total_vehicles_total')->nullable();
+            $table->text('funding_tdc_vehicles_total')->nullable();
 
-            $table->Integer('yoe_cost_bus')->nullable();
+            $table->text('yoe_cost_bus')->nullable();
             $table->json('funding_category_bus')->nullable();
             $table->json('funding_federal_bus')->nullable();
             $table->json('funding_local_bus')->nullable();
             $table->json('funding_local_beyond_bus')->nullable();
             $table->json('funding_total_bus')->nullable();
             $table->json('funding_tdc_bus')->nullable();
-            $table->Integer('funding_federal_bus_total')->nullable();
-            $table->Integer('funding_local_bus_total')->nullable();
-            $table->Integer('funding_local_beyond_bus_total')->nullable();
-            $table->Integer('funding_total_bus_total')->nullable();
-            $table->Integer('funding_tdc_bus_total')->nullable();
+            $table->text('funding_federal_bus_total')->nullable();
+            $table->text('funding_local_bus_total')->nullable();
+            $table->text('funding_local_beyond_bus_total')->nullable();
+            $table->text('funding_total_bus_total')->nullable();
+            $table->text('funding_tdc_bus_total')->nullable();
 
-            $table->Integer('yoe_cost_operations')->nullable();
+            $table->text('yoe_cost_operations')->nullable();
             $table->json('funding_category_operations')->nullable();
             $table->json('funding_federal_operations')->nullable();
             $table->json('funding_local_operations')->nullable();
             $table->json('funding_local_beyond_operations')->nullable();
             $table->json('funding_total_operations')->nullable();
-            $table->Integer('funding_federal_operations_total')->nullable();
-            $table->Integer('funding_local_operations_total')->nullable();
-            $table->Integer('funding_local_beyond_operations_total')->nullable();
-            $table->Integer('funding_total_operations_total')->nullable();
+            $table->text('funding_federal_operations_total')->nullable();
+            $table->text('funding_local_operations_total')->nullable();
+            $table->text('funding_local_beyond_operations_total')->nullable();
+            $table->text('funding_total_operations_total')->nullable();
 
             $table->text('local_pm_name')->nullable();
             $table->text('local_pm_phone')->nullable();
