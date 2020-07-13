@@ -6,6 +6,12 @@
     window.onload = function() {
         make_project_readonly();
         show_edit_ViewMap();
+        for(let i =1; i <7; i++){
+            displayBox("strategy_"+i);
+        }
+        for(let j = 1; j < 6; j++){
+            displayBox("psp_"+j);
+        }
       //  form2_setView(); //og code 
     };
 </script>

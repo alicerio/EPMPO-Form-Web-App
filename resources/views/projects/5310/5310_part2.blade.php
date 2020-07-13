@@ -84,7 +84,7 @@
             </div>
 
             <div class="form-row mb-1">
-                <div class="col-sm-1">
+                <div class="col-sm-2">
                     <select disabled name="psp_amount" class="form-control">
                         <option></option>
                         {{$temp = $project->psp_amount ?? ''}}

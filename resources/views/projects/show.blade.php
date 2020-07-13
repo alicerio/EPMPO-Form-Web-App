@@ -7,6 +7,13 @@
     window.onload = function() {
         make_project_readonly();
         show_edit_ViewMap();
+      // Helps in hiding options
+      for(let i =1; i <7; i++){
+        displayBox("strategy_"+i);
+      }
+      for(let j = 1; j < 7; j++){
+            displayBox("psp_"+j);
+        }
     };
   
 </script>

@@ -43,9 +43,9 @@ class CreateProjectsTable extends Migration
             $table->boolean('capacity_project')->nullable();
 
             $table->tinyInteger('classification')->nullable();
-            $table->tinyInteger('existing_lanes')->nullable();
+            $table->Integer('existing_lanes')->nullable();
             $table->tinyInteger('district')->nullable();
-            $table->tinyInteger('projected_lanes')->nullable();
+            $table->Integer('projected_lanes')->nullable();
             $table->text('miles')->nullable();
             $table->tinyInteger('county')->nullable();
             $table->tinyInteger('incorporated_city')->nullable();

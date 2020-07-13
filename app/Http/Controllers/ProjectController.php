@@ -100,6 +100,7 @@ class ProjectController extends Controller
         $project->psp_4 = request('psp_4') == '----' ? null : request('psp_4');
         $project->psp_5 = request('psp_5') == '----' ? null : request('psp_5');
         $project->psp_6 = request('psp_6') == '----' ? null : request('psp_6');
+        $project->psp_amount = request('psp_amount') == '----' ? null : request('psp_amount');
         $project->description_psp_1 = request('description_psp_1');
         $project->description_psp_2 = request('description_psp_2');
         $project->description_psp_3 = request('description_psp_3');
@@ -593,6 +594,7 @@ class ProjectController extends Controller
         $project->psp_4 = request('psp_4') == '----' ? null : request('psp_4');
         $project->psp_5 = request('psp_5') == '----' ? null : request('psp_5');
         $project->psp_6 = request('psp_6') == '----' ? null : request('psp_6');
+        $project->psp_amount = request('psp_amount') == '----' ? null : request('psp_amount');
         $project->description_psp_1 = request('description_psp_1');
         $project->description_psp_2 = request('description_psp_2');
         $project->description_psp_3 = request('description_psp_3');
