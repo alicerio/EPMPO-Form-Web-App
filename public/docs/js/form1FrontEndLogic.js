@@ -11,19 +11,21 @@ function yoe_table() {
             h = h.substring(1);
         }
 
-        try{
+        try {
             h = parseInt(h.replace(/,/g, '')); // removes commas and parses to int
+            console.log("^^^^^^^^^^^^^^^");
             console.log(h);
-            if (isNaN(h) != true && h >= 0 && idH.length>0) { //check that value is valid
+            if (isNaN(h) != true && h >= 0 && idH.length > 0) { //check that value is valid
                 h = parseInt($(this).val()); //convert text to int
-                console.log(h);
                 console.log(idH);
-                if ($(this).attr("id") == "yoe_cs_1" || $(this).attr("id") == "yoe_cs_2" ||
-                    $(this).attr("id") == "yoe_cs_3" || $(this).attr("id") == "yoe_cs_4" ||
-                    $(this).attr("id") == "yoe_cs_5") {
-    
+                if (idH == "yoe_cs_1" || idH == "yoe_cs_2" ||
+                    idH == "yoe_cs_3" || idH == "yoe_cs_4" ||
+                    idH == "yoe_cs_5") {
+                    console.log(h);
                     if (h >= 0) {
+                        console.log(cs_sum);
                         cs_sum += h;
+                        console.log(cs_sum);                 
                     }
                 }
                 if (type != "button" && type != "submit") {
@@ -32,10 +34,10 @@ function yoe_table() {
                     }
                 }
             }
-        }catch{
+        } catch {
             console.log("something happen");
         }
-       
+
     })
 
     document.getElementById("tot_yoe").value = "$" + commafy(sum);
