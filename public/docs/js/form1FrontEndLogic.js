@@ -13,19 +13,12 @@ function yoe_table() {
 
         try {
             h = parseInt(h.replace(/,/g, '')); // removes commas and parses to int
-            console.log("^^^^^^^^^^^^^^^");
-            console.log(h);
-            if (isNaN(h) != true && h >= 0 && idH.length > 0) { //check that value is valid
-                h = parseInt($(this).val()); //convert text to int
-                console.log(idH);
+            if (h != null && isNaN(h) != true && h >= 0 && idH.length > 0) { //check that value is valid
                 if (idH == "yoe_cs_1" || idH == "yoe_cs_2" ||
                     idH == "yoe_cs_3" || idH == "yoe_cs_4" ||
                     idH == "yoe_cs_5") {
-                    console.log(h);
                     if (h >= 0) {
-                        console.log(cs_sum);
-                        cs_sum += h;
-                        console.log(cs_sum);                 
+                        cs_sum += h;              
                     }
                 }
                 if (type != "button" && type != "submit") {
@@ -35,7 +28,7 @@ function yoe_table() {
                 }
             }
         } catch {
-            console.log("something happen");
+            //ignore
         }
 
     })
