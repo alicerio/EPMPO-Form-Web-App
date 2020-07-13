@@ -119,3 +119,13 @@ function set_required_helper(id, project_type) {
 function toggleComment() {
     $("#commentS").toggle('slow', function () {});
 }
+
+function addMoneySign(element, id){
+    if(element == ""){
+        document.getElementById(id).value = "$0";
+    }else if(element.charAt(0) == "$"){
+        // do nothing 
+    }else{
+        document.getElementById(id).value = "$"+element;
+    }
+}

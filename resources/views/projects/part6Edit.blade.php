@@ -9,7 +9,7 @@
         make final recommendation)
     </label><br>
     <label>
-        <input type="number" name="yoe_cost" id="yoe_check" autocomplete="off" value="{{ $project->yoe_cost ?? ''}}"
+        <input  type="text" onchange="addMoneySign(this.value, this.id)" name="yoe_cost" id="yoe_check" autocomplete="off" value="{{ $project->yoe_cost ?? ''}}"
             readonly>
         YOE Cost
     </label><br>
@@ -44,17 +44,17 @@
                         @if ($project->funding_federal != null)
                         @foreach($project->funding_federal ?? '' as $index => $categories)
                         <tr id='pfrow' class="pftpg1">
-                            <td><input type="text" name="funding_category[]" class="form-control"
+                            <td><input onchange="addMoneySign(this.value, this.id)" type="text" name="funding_category[]" class="form-control"
                                     value="{{$project->funding_category[$index]}}"></td>
-                            <td><input id="federal" type="number" name="funding_federal[]" class="form-control"
+                            <td><input id="federal" onchange="addMoneySign(this.value, this.id)" type="text" name="funding_federal[]" class="form-control"
                                     value="{{$project->funding_federal[$index]}}"></td>
-                            <td><input id="state" type="number" name="funding_state[]" class="form-control"
+                            <td><input id="state"  onchange="addMoneySign(this.value, this.id)" type="text" name="funding_state[]" class="form-control"
                                     value="{{$project->funding_state[$index]}}"></td>
-                            <td><input id="local" type="number" name="funding_local[]" class="form-control"
+                            <td><input id="local" onchange="addMoneySign(this.value, this.id)" type="text" name="funding_local[]" class="form-control"
                                     value="{{$project->funding_local[$index]}}"></td>
-                            <td><input id="local_cont" type="number" name="funding_local_beyond[]" class="form-control"
+                            <td><input id="local_cont" onchange="addMoneySign(this.value, this.id)" type="text" name="funding_local_beyond[]" class="form-control"
                                     value="{{$project->funding_local_beyond[$index]}}"></td>
-                            <td><input type="number" name="funding_total[]" id="pftpg1_tot0" class="form-control"
+                            <td><input onchange="addMoneySign(this.value, this.id)" type="text" name="funding_total[]" id="pftpg1_tot0" class="form-control"
                                     value="{{$project->funding_total[$index]}}" readonly>
                             </td>
                         </tr>
@@ -68,23 +68,23 @@
                     Total Funding By Share
                 </div>
                 <div class="col-sm-2">
-                    <input type="number" name="funding_federal_result" id="federal_total" class="form-control"
+                    <input type="string" name="funding_federal_result" id="federal_total" class="form-control"
                         value="{{ $project->funding_federal_result ?? '' }}" readonly>
                 </div>
                 <div class="col-sm-2">
-                    <input type="number" name="funding_state_result" id="state_total" class="form-control"
+                    <input type="string" name="funding_state_result" id="state_total" class="form-control"
                         value="{{ $project->funding_state_result ?? ''}}" readonly>
                 </div>
                 <div class="col-sm-2">
-                    <input type="number" name="funding_local_result" id="local_total" class="form-control"
+                    <input type="string" name="funding_local_result" id="local_total" class="form-control"
                         value="{{ $project->funding_local_result ?? '' }}" readonly>
                 </div>
                 <div class="col-sm-2">
-                    <input type="number" name="funding_local_beyond_result" id="local_beyond_total" class="form-control"
+                    <input type="string" name="funding_local_beyond_result" id="local_beyond_total" class="form-control"
                         value="{{ $project->funding_local_beyond_result ?? ''}}" readonly>
                 </div>
                 <div class="col-sm-2">
-                    <input type="number" name="funding_total_result" id="total_total" class="form-control"
+                    <input type="string" name="funding_total_result" id="total_total" class="form-control"
                         value="{{ $project->funding_total_result ?? '' }}" readonly>
                 </div>
             </div>
