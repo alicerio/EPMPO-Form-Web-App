@@ -119,3 +119,10 @@ function set_required_helper(id, project_type) {
 function toggleComment() {
     $("#commentS").toggle('slow', function () {});
 }
+
+function clearMap() {
+    var result = confirm('Are you sure you want to clear the map data?');
+    if (result) {
+        clearMetadata();
+    }
+}
