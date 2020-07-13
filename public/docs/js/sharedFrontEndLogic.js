@@ -37,10 +37,8 @@ function display4To10() {
 
 const toggleTA = (name) => {
     if ($('input[name="' + name + '"]').is(':checked')) {
-        console.log('checked');
         $('textarea[name="description_' + name + '"]').show();
     } else {
-        console.log('not checked');
         $('textarea[name="description_' + name + '"]').hide();
     }
 };
@@ -132,7 +130,6 @@ function addMoneySign(element, id){
 
 // Adds commas to integers
 function commafy(num) {
-    console.log(num);
     var str = num.toString().split('.');
     if (str[0].length >= 4) {
         str[0] = str[0].replace(/(\d)(?=(\d{3})+$)/g, '$1,');

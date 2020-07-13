@@ -2,31 +2,44 @@ function yoe_table() {
     let sum = 0;
     let cs_sum = 0; //construction subtotal sum
     var inputValues = $('#Yoe_cost :input').map(function () { //iterates given div
-        let h = ""; //holder
+        let h = $(this).val(); //holder
         var type = $(this).prop("type");
+        let idH = $(this).attr("id"); // hold id
+
         //remove $ sign
         if (h.charAt(0) == "$") {
             h = h.substring(1);
         }
-        h = parseInt($(this).val()); //convert text to int
 
-        if ($(this).attr("id") == "yoe_cs_1" || $(this).attr("id") == "yoe_cs_2" ||
-            $(this).attr("id") == "yoe_cs_3" || $(this).attr("id") == "yoe_cs_4" ||
-            $(this).attr("id") == "yoe_cs_5") {
-
-            if (h >= 0) {
-                cs_sum += h;
+        try{
+            h = parseInt(h.replace(/,/g, '')); // removes commas and parses to int
+            console.log(h);
+            if (isNaN(h) != true && h >= 0 && idH.length>0) { //check that value is valid
+                h = parseInt($(this).val()); //convert text to int
+                console.log(h);
+                console.log(idH);
+                if ($(this).attr("id") == "yoe_cs_1" || $(this).attr("id") == "yoe_cs_2" ||
+                    $(this).attr("id") == "yoe_cs_3" || $(this).attr("id") == "yoe_cs_4" ||
+                    $(this).attr("id") == "yoe_cs_5") {
+    
+                    if (h >= 0) {
+                        cs_sum += h;
+                    }
+                }
+                if (type != "button" && type != "submit") {
+                    if (h >= 0) {
+                        sum += h;
+                    }
+                }
             }
+        }catch{
+            console.log("something happen");
         }
-        if (type != "button" && type != "submit") {
-            if (h >= 0) {
-                sum += h;
-            }
-        }
+       
     })
 
-    document.getElementById("tot_yoe").value = sum;
-    document.getElementById("yoe_cs_tot").value = cs_sum;
+    document.getElementById("tot_yoe").value = "$" + commafy(sum);
+    document.getElementById("yoe_cs_tot").value = "$" + commafy(cs_sum);
 }
 
 function project_funding_table() {
@@ -45,7 +58,7 @@ function project_funding_table() {
         if (h.charAt(0) == "$") {
             h = h.substring(1);
         }
-        
+
 
         /**
          * We use substring to remove the numbers from the id

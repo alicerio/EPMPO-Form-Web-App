@@ -80,7 +80,7 @@
                                 Construction Subtotal
                             </div>
                             <div class="col-sm-6">
-                                <input id="yoe_cs_tot" type="number" name="subtotal_amount"
+                                <input id="yoe_cs_tot" type="text" name="subtotal_amount"
                                     title="Sumation of first five(5) categories." class="form-control"
                                     value="{{ $project->subtotal_amount  ?? '' }}" disabled>
                             </div>
@@ -92,7 +92,7 @@
                                     Non-Construction Project
                                 </div>
                                 <div class="col-sm-6">
-                                    <input onchange="yoe_table()" id="yoe_cs_1" type="number"
+                                    <input onchange="yoe_table();addMoneySign(this.value, this.id)" id="yoe_cs_1" type="text"
                                         name="non_construction_amount" class="form-control"
                                         value="{{ $project->non_construction_amount  ?? '' }}" disabled>
                                 </div>
@@ -103,7 +103,7 @@
                                     Construction
                                 </div>
                                 <div class="col-sm-6">
-                                    <input onchange="yoe_table()" id="yoe_cs_2" type="number" name="construction_amount"
+                                    <input onchange="yoe_table();addMoneySign(this.value, this.id)" id="yoe_cs_2" type="text" name="construction_amount"
                                         class="form-control" value="{{ $project->construction_amount  ?? ''}}" disabled>
                                 </div>
                             </div>
@@ -113,7 +113,7 @@
                                     Construction Engineering (CE)
                                 </div>
                                 <div class="col-sm-6">
-                                    <input onchange="yoe_table()" id="yoe_cs_3" type="number" name="ce_amount"
+                                    <input onchange="yoe_table();addMoneySign(this.value, this.id)" id="yoe_cs_3" type="text" name="ce_amount"
                                         class="form-control" value="{{ $project->ce_amount  ?? '' }}" disabled>
                                 </div>
                             </div>
@@ -123,7 +123,7 @@
                                     Contingencies
                                 </div>
                                 <div class="col-sm-6">
-                                    <input onchange="yoe_table()" id="yoe_cs_4" type="number"
+                                    <input onchange="yoe_table();addMoneySign(this.value, this.id)" id="yoe_cs_4" type="text"
                                         name="contingencies_amount" class="form-control"
                                         value="{{ $project->contingencies_amount  ?? ''}}" disabled>
                                 </div>
@@ -134,7 +134,7 @@
                                     Potential Change Order
                                 </div>
                                 <div class="col-sm-6">
-                                    <input onchange="yoe_table()" id="yoe_cs_5" type="number" name="change_order_amount"
+                                    <input onchange="yoe_table();addMoneySign(this.value, this.id)" id="yoe_cs_5" type="text" name="change_order_amount"
                                         class="form-control" value="{{ $project->change_order_amount  ?? ''}}" disabled>
                                 </div>
                             </div>
@@ -146,7 +146,7 @@
                                     (Check mark PE phase to enable, if applicable)
                                 </div>
                                 <div class="col-sm-6">
-                                    <input onchange="yoe_table()" type="number" name="PE_amount" class="form-control"
+                                    <input onchange="yoe_table();addMoneySign(this.value, this.id)" type="text" id = "PE_amount" name="PE_amount" class="form-control"
                                         value="{{ $project->change_order_amount  ?? ''}}" disabled>
                                 </div>
                             </div>
@@ -156,7 +156,7 @@
                                     Indirects
                                 </div>
                                 <div class="col-sm-6">
-                                    <input onchange="yoe_table()" type="number" name="indirects_amount"
+                                    <input onchange="yoe_table();addMoneySign(this.value, this.id)" id = "indirects_amount"  type="text" name="indirects_amount"
                                         class="form-control" value="{{ $project->indirects_amount  ?? '' }}" disabled>
                                 </div>
                             </div>
@@ -168,7 +168,7 @@
                                     (Acq+Utl; Check mark R phase to enable, if applicable)
                                 </div>
                                 <div class="col-sm-6">
-                                    <input onchange="yoe_table()" type="number" name="ROW_amount" class="form-control"
+                                    <input onchange="yoe_table();addMoneySign(this.value, this.id)" type="text" id = "ROW_amount" name="ROW_amount" class="form-control"
                                         value="{{ $project->ROW_amount  ?? ''}}" disabled>
                                 </div>
                             </div>
@@ -180,7 +180,7 @@
                                     (Check mark T to enable, if applicable)
                                 </div>
                                 <div class="col-sm-6">
-                                    <input onchange="yoe_table()" type="number" name="transfer_amount"
+                                    <input onchange="yoe_table();addMoneySign(this.value, this.id)"  id = "transfer_amount" type="text" name="transfer_amount"
                                         class="form-control" value="{{ $project->transfer_amount  ?? '' }}" disabled>
                                 </div>
                             </div>
@@ -194,7 +194,7 @@
                                 Total Project Cost
                             </div>
                             <div class="col-sm-6">
-                                <input id="tot_yoe" type="number" name="total_amount" title="Sumation of all fields."
+                                <input id="tot_yoe" type="text" name="total_amount" title="Sumation of all fields."
                                     class="form-control" value="{{ $project->total_amount  ?? '' }}" disabled>
                             </div>
                         </div>
