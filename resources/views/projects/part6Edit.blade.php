@@ -41,7 +41,7 @@
             <div id="project_funding">
                 <div class="form-row mb-1">
                     <table id="projectFundingTablePg1" onchange="project_funding_table();">
-                        @if ($project->funding_federal != null)
+                        @if ($project->funding_federal ?? '' != null)
                         @foreach($project->funding_federal ?? '' as $index => $categories)
                         <tr id='pfrow' class="pftpg1">
                             <td><input onchange="addMoneySign(this.value, this.id)" type="text" name="funding_category[]" class="form-control"
