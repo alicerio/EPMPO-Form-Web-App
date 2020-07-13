@@ -100,6 +100,11 @@ class ProjectController extends Controller
         $project->psp_4 = request('psp_4') == '----' ? null : request('psp_4');
         $project->psp_5 = request('psp_5') == '----' ? null : request('psp_5');
         $project->psp_6 = request('psp_6') == '----' ? null : request('psp_6');
+        $project->description_psp_1 = request('description_psp_1');
+        $project->description_psp_2 = request('description_psp_2');
+        $project->description_psp_3 = request('description_psp_3');
+        $project->description_psp_4 = request('description_psp_4');
+        $project->description_psp_5 = request('description_psp_5');
         $project->goal_1 = request('goal_1') == 'on' ? true : false;
         $project->goal_2 = request('goal_2') == 'on' ? true : false;
         $project->goal_3 = request('goal_3') == 'on' ? true : false;
@@ -243,6 +248,8 @@ class ProjectController extends Controller
         $project->reviewed_no = request('reviewed_no') == 'on' ? 1 : null;
         $project->reviewed_na = request('reviewed_na') == 'on' ? 1 : null;
         $project->date_reviewed = request('date_reviewed');
+        $project->reviewed_by = request('reviewed_by');
+        $project->reviewed_agency = request('reviewed_agency');
         $project->fta_transfer = request('fta_transfer') == 'on' ? 1 : null;
         $project->capital = request('capital') == 'on' ? 1 : null;
         $project->operations = request('operations') == 'on' ? 1 : null;
@@ -254,23 +261,23 @@ class ProjectController extends Controller
         $project->r = request('r') == 'on' ? 1 : null;
         $project->acq = request('acq') == 'on' ? 1 : null;
         $project->utl = request('utl') == 'on' ? 1 : null;
-        $project->subtotal_amount = request('subtotal_amount') == '----' ? null : request('subtotal_amount');
-        $project->non_construction_amount = request('non_construction_amount') == '----' ? null : request('non_construction_amount');
-        $project->construction_amount = request('construction_amount') == '----' ? null : request('construction_amount');
-        $project->ce_amount = request('ce_amount') == '----' ? null : request('ce_amount');
-        $project->contingencies_amount = request('contingencies_amount') == '----' ? null : request('contingencies_amount');
-        $project->change_order_amount = request('change_order_amount') == '----' ? null : request('change_order_amount');
-        $project->PE_amount = request('PE_amount') == '----' ? null : request('PE_amount');
-        $project->indirects_amount = request('indirects_amount') == '----' ? null : request('indirects_amount');
-        $project->ROW_amount = request('ROW_amount') == '----' ? null : request('ROW_amount');
-        $project->transfer_amount = request('transfer_amount') == '----' ? null : request('transfer_amount');
-        $project->total_amount = request('total_amount') == '----' ? null : request('total_amount');
+        $project->subtotal_amount = request('subtotal_amount');
+        $project->non_construction_amount = request('non_construction_amount');
+        $project->construction_amount = request('construction_amount');
+        $project->ce_amount = request('ce_amount');
+        $project->contingencies_amount = request('contingencies_amount');
+        $project->change_order_amount = request('change_order_amount');
+        $project->PE_amount = request('PE_amount');
+        $project->indirects_amount = request('indirects_amount');
+        $project->ROW_amount = request('ROW_amount');
+        $project->transfer_amount = request('transfer_amount');
+        $project->total_amount = request('total_amount');
         $project->costs_1 = request('costs_1') == '----' ? null : request('costs_1');
         $project->costs_2 = request('costs_2') == '----' ? null : request('costs_2');
         $project->costs_3 = request('costs_3') == '----' ? null : request('costs_3');
         $project->costs_4 = request('costs_4') == '----' ? null : request('costs_4');
         $project->mpo_funds = request('mpo_funds') == 'on' ? 1 : null;
-        $project->yoe_cost = request('yoe_cost') == '----' ? null : request('yoe_cost');
+        $project->yoe_cost = request('yoe_cost');
         
         $project->funding_category = request('funding_category');
         $project->funding_federal = request('funding_federal');
@@ -279,13 +286,13 @@ class ProjectController extends Controller
         $project->funding_local_beyond = request('funding_local_beyond');
         $project->funding_total = request('funding_total');
 
-        $project->funding_federal_result = request('funding_federal_result') == '----' ? null : request('funding_federal_result');
-        $project->funding_state_result = request('funding_state_result') == '----' ? null : request('funding_state_result');
-        $project->funding_local_result = request('funding_local_result') == '----' ? null : request('funding_local_result');
-        $project->funding_local_beyond_result = request('funding_local_beyond_result') == '----' ? null : request('funding_local_beyond_result');
-        $project->funding_total_result = request('funding_total_result') == '----' ? null : request('funding_total_result');
+        $project->funding_federal_result = request('funding_federal_result');
+        $project->funding_state_result = request('funding_state_result');
+        $project->funding_local_result = request('funding_local_result');
+        $project->funding_local_beyond_result = request('funding_local_beyond_result');
+        $project->funding_total_result = request('funding_total_result');
         $project->mpo_funds_2 = request('mpo_funds_2') == 'on' ? 1 : null;
-        $project->yoe_cost_vehicles = request('yoe_cost_vehicles') == '----' ? null : request('yoe_cost_vehicles');
+        $project->yoe_cost_vehicles = request('yoe_cost_vehicles');
 
         $project->funding_category_vehicles = request('funding_category_vehicles');
         $project->funding_federal_vehicles = request('funding_federal_vehicles');
@@ -294,33 +301,37 @@ class ProjectController extends Controller
         $project->funding_total_vehicles = request('funding_total_vehicles');
         $project->funding_tdc_vehicles = request('funding_tdc_vehicles');
 
-        $project->funding_federal_vehicles_total = request('funding_federal_vehicles_total') == '----' ? null : request('funding_federal_vehicles_total');
-        $project->funding_local_vehicles_total = request('funding_local_vehicles_total') == '----' ? null : request('funding_local_vehicles_total');
-        $project->funding_local_beyond_vehicles_total = request('funding_local_beyond_vehicles_total') == '----' ? null : request('funding_local_beyond_vehicles_total');
-        $project->funding_total_vehicles_total = request('funding_total_vehicles_total') == '----' ? null : request('funding_total_vehicles_total');
-        $project->funding_tdc_vehicles_total = request('funding_tdc_vehicles_total') == '----' ? null : request('funding_tdc_vehicles_total');
-        $project->yoe_cost_bus = request('yoe_cost_bus') == '----' ? null : request('yoe_cost_bus');
+        $project->funding_federal_vehicles_total = request('funding_federal_vehicles_total');
+        $project->funding_local_vehicles_total = request('funding_local_vehicles_total');
+        $project->funding_local_beyond_vehicles_total = request('funding_local_beyond_vehicles_total');
+        $project->funding_total_vehicles_total = request('funding_total_vehicles_total');
+        $project->funding_tdc_vehicles_total = request('funding_tdc_vehicles_total');
+
+        $project->yoe_cost_bus = request('yoe_cost_bus');
         $project->funding_category_bus = request('funding_category_bus');
         $project->funding_federal_bus = request('funding_federal_bus');
         $project->funding_local_bus = request('funding_local_bus');
         $project->funding_local_beyond_bus = request('funding_local_beyond_bus');
         $project->funding_total_bus = request('funding_total_bus');
         $project->funding_tdc_bus = request('funding_tdc_bus');
-        $project->funding_federal_bus_total = request('funding_federal_bus_total') == '----' ? null : request('funding_federal_bus_total');
-        $project->funding_local_bus_total = request('funding_local_bus_total') == '----' ? null : request('funding_local_bus_total');
-        $project->funding_local_beyond_bus_total = request('funding_local_beyond_bus_total') == '----' ? null : request('funding_local_beyond_bus_total');
-        $project->funding_total_bus_total = request('funding_total_bus_total') == '----' ? null : request('funding_total_bus_total');
-        $project->funding_tdc_bus_total = request('funding_tdc_bus_total') == '----' ? null : request('funding_tdc_bus_total');
-        $project->yoe_cost_operations = request('yoe_cost_operations') == '----' ? null : request('yoe_cost_operations');
+
+        $project->funding_federal_bus_total = request('funding_federal_bus_total');
+        $project->funding_local_bus_total = request('funding_local_bus_total');
+        $project->funding_local_beyond_bus_total = request('funding_local_beyond_bus_total');
+        $project->funding_total_bus_total = request('funding_total_bus_total');
+        $project->funding_tdc_bus_total = request('funding_tdc_bus_total');
+
+        $project->yoe_cost_operations = request('yoe_cost_operations');
         $project->funding_category_operations = request('funding_category_operations');
         $project->funding_federal_operations = request('funding_federal_operations');
         $project->funding_local_operations = request('funding_local_operations');
         $project->funding_local_beyond_operations = request('funding_local_beyond_operations');
         $project->funding_total_operations = request('funding_total_operations');
-        $project->funding_federal_operations_total = request('funding_federal_operations_total') == '----' ? null : request('funding_federal_operations_total');
-        $project->funding_local_operations_total = request('funding_local_operations_total') == '----' ? null : request('funding_local_operations_total');
-        $project->funding_local_beyond_operations_total = request('funding_local_beyond_operations_total') == '----' ? null : request('funding_local_beyond_operations_total');
-        $project->funding_total_operations_total = request('funding_total_operations_total') == '----' ? null : request('funding_total_operations_total');
+        $project->funding_federal_operations_total =request('funding_federal_operations_total');
+        $project->funding_local_operations_total = request('funding_local_operations_total');
+        $project->funding_local_beyond_operations_total = request('funding_local_beyond_operations_total');
+        $project->funding_total_operations_total = request('funding_total_operations_total');
+
         $project->local_pm_name = request('local_pm_name');
         $project->local_pm_phone = request('local_pm_phone');
         $project->local_pm_email = request('local_pm_email');
@@ -582,6 +593,11 @@ class ProjectController extends Controller
         $project->psp_4 = request('psp_4') == '----' ? null : request('psp_4');
         $project->psp_5 = request('psp_5') == '----' ? null : request('psp_5');
         $project->psp_6 = request('psp_6') == '----' ? null : request('psp_6');
+        $project->description_psp_1 = request('description_psp_1');
+        $project->description_psp_2 = request('description_psp_2');
+        $project->description_psp_3 = request('description_psp_3');
+        $project->description_psp_4 = request('description_psp_4');
+        $project->description_psp_5 = request('description_psp_5');
         $project->goal_1 = request('goal_1') == 'on' ? true : false;
         $project->goal_2 = request('goal_2') == 'on' ? true : false;
         $project->goal_3 = request('goal_3') == 'on' ? true : false;
@@ -725,6 +741,8 @@ class ProjectController extends Controller
         $project->reviewed_no = request('reviewed_no') == 'on' ? 1 : null;
         $project->reviewed_na = request('reviewed_na') == 'on' ? 1 : null;
         $project->date_reviewed = request('date_reviewed');
+        $project->reviewed_by = request('reviewed_by');
+        $project->reviewed_agency = request('reviewed_agency');
         $project->fta_transfer = request('fta_transfer') == 'on' ? 1 : null;
         $project->capital = request('capital') == 'on' ? 1 : null;
         $project->operations = request('operations') == 'on' ? 1 : null;
@@ -736,23 +754,23 @@ class ProjectController extends Controller
         $project->r = request('r') == 'on' ? 1 : null;
         $project->acq = request('acq') == 'on' ? 1 : null;
         $project->utl = request('utl') == 'on' ? 1 : null;
-        $project->subtotal_amount = request('subtotal_amount') == '----' ? null : request('subtotal_amount');
-        $project->non_construction_amount = request('non_construction_amount') == '----' ? null : request('non_construction_amount');
-        $project->construction_amount = request('construction_amount') == '----' ? null : request('construction_amount');
-        $project->ce_amount = request('ce_amount') == '----' ? null : request('ce_amount');
-        $project->contingencies_amount = request('contingencies_amount') == '----' ? null : request('contingencies_amount');
-        $project->change_order_amount = request('change_order_amount') == '----' ? null : request('change_order_amount');
-        $project->PE_amount = request('PE_amount') == '----' ? null : request('PE_amount');
-        $project->indirects_amount = request('indirects_amount') == '----' ? null : request('indirects_amount');
-        $project->ROW_amount = request('ROW_amount') == '----' ? null : request('ROW_amount');
-        $project->transfer_amount = request('transfer_amount') == '----' ? null : request('transfer_amount');
-        $project->total_amount = request('total_amount') == '----' ? null : request('total_amount');
+        $project->subtotal_amount = request('subtotal_amount');
+        $project->non_construction_amount = request('non_construction_amount');
+        $project->construction_amount = request('construction_amount');
+        $project->ce_amount = request('ce_amount');
+        $project->contingencies_amount = request('contingencies_amount');
+        $project->change_order_amount = request('change_order_amount');
+        $project->PE_amount = request('PE_amount');
+        $project->indirects_amount = request('indirects_amount');
+        $project->ROW_amount = request('ROW_amount');
+        $project->transfer_amount = request('transfer_amount');
+        $project->total_amount = request('total_amount');
         $project->costs_1 = request('costs_1') == '----' ? null : request('costs_1');
         $project->costs_2 = request('costs_2') == '----' ? null : request('costs_2');
         $project->costs_3 = request('costs_3') == '----' ? null : request('costs_3');
         $project->costs_4 = request('costs_4') == '----' ? null : request('costs_4');
         $project->mpo_funds = request('mpo_funds') == 'on' ? 1 : null;
-        $project->yoe_cost = request('yoe_cost') == '----' ? null : request('yoe_cost');
+        $project->yoe_cost = request('yoe_cost');
         
         $project->funding_category = request('funding_category');
         $project->funding_federal = request('funding_federal');
@@ -760,14 +778,14 @@ class ProjectController extends Controller
         $project->funding_local = request('funding_local');
         $project->funding_local_beyond = request('funding_local_beyond');
         $project->funding_total = request('funding_total');
-        
-        $project->funding_federal_result = request('funding_federal_result') == '----' ? null : request('funding_federal_result');
-        $project->funding_state_result = request('funding_state_result') == '----' ? null : request('funding_state_result');
-        $project->funding_local_result = request('funding_local_result') == '----' ? null : request('funding_local_result');
-        $project->funding_local_beyond_result = request('funding_local_beyond_result') == '----' ? null : request('funding_local_beyond_result');
-        $project->funding_total_result = request('funding_total_result') == '----' ? null : request('funding_total_result');
+
+        $project->funding_federal_result = request('funding_federal_result');
+        $project->funding_state_result = request('funding_state_result');
+        $project->funding_local_result = request('funding_local_result');
+        $project->funding_local_beyond_result = request('funding_local_beyond_result');
+        $project->funding_total_result = request('funding_total_result');
         $project->mpo_funds_2 = request('mpo_funds_2') == 'on' ? 1 : null;
-        $project->yoe_cost_vehicles = request('yoe_cost_vehicles') == '----' ? null : request('yoe_cost_vehicles');
+        $project->yoe_cost_vehicles = request('yoe_cost_vehicles');
 
         $project->funding_category_vehicles = request('funding_category_vehicles');
         $project->funding_federal_vehicles = request('funding_federal_vehicles');
@@ -776,33 +794,37 @@ class ProjectController extends Controller
         $project->funding_total_vehicles = request('funding_total_vehicles');
         $project->funding_tdc_vehicles = request('funding_tdc_vehicles');
 
-        $project->funding_federal_vehicles_total = request('funding_federal_vehicles_total') == '----' ? null : request('funding_federal_vehicles_total');
-        $project->funding_local_vehicles_total = request('funding_local_vehicles_total') == '----' ? null : request('funding_local_vehicles_total');
-        $project->funding_local_beyond_vehicles_total = request('funding_local_beyond_vehicles_total') == '----' ? null : request('funding_local_beyond_vehicles_total');
-        $project->funding_total_vehicles_total = request('funding_total_vehicles_total') == '----' ? null : request('funding_total_vehicles_total');
-        $project->funding_tdc_vehicles_total = request('funding_tdc_vehicles_total') == '----' ? null : request('funding_tdc_vehicles_total');
-        $project->yoe_cost_bus = request('yoe_cost_bus') == '----' ? null : request('yoe_cost_bus');
+        $project->funding_federal_vehicles_total = request('funding_federal_vehicles_total');
+        $project->funding_local_vehicles_total = request('funding_local_vehicles_total');
+        $project->funding_local_beyond_vehicles_total = request('funding_local_beyond_vehicles_total');
+        $project->funding_total_vehicles_total = request('funding_total_vehicles_total');
+        $project->funding_tdc_vehicles_total = request('funding_tdc_vehicles_total');
+
+        $project->yoe_cost_bus = request('yoe_cost_bus');
         $project->funding_category_bus = request('funding_category_bus');
         $project->funding_federal_bus = request('funding_federal_bus');
         $project->funding_local_bus = request('funding_local_bus');
         $project->funding_local_beyond_bus = request('funding_local_beyond_bus');
         $project->funding_total_bus = request('funding_total_bus');
         $project->funding_tdc_bus = request('funding_tdc_bus');
-        $project->funding_federal_bus_total = request('funding_federal_bus_total') == '----' ? null : request('funding_federal_bus_total');
-        $project->funding_local_bus_total = request('funding_local_bus_total') == '----' ? null : request('funding_local_bus_total');
-        $project->funding_local_beyond_bus_total = request('funding_local_beyond_bus_total') == '----' ? null : request('funding_local_beyond_bus_total');
-        $project->funding_total_bus_total = request('funding_total_bus_total') == '----' ? null : request('funding_total_bus_total');
-        $project->funding_tdc_bus_total = request('funding_tdc_bus_total') == '----' ? null : request('funding_tdc_bus_total');
-        $project->yoe_cost_operations = request('yoe_cost_operations') == '----' ? null : request('yoe_cost_operations');
+
+        $project->funding_federal_bus_total = request('funding_federal_bus_total');
+        $project->funding_local_bus_total = request('funding_local_bus_total');
+        $project->funding_local_beyond_bus_total = request('funding_local_beyond_bus_total');
+        $project->funding_total_bus_total = request('funding_total_bus_total');
+        $project->funding_tdc_bus_total = request('funding_tdc_bus_total');
+
+        $project->yoe_cost_operations = request('yoe_cost_operations');
         $project->funding_category_operations = request('funding_category_operations');
         $project->funding_federal_operations = request('funding_federal_operations');
         $project->funding_local_operations = request('funding_local_operations');
         $project->funding_local_beyond_operations = request('funding_local_beyond_operations');
         $project->funding_total_operations = request('funding_total_operations');
-        $project->funding_federal_operations_total = request('funding_federal_operations_total') == '----' ? null : request('funding_federal_operations_total');
-        $project->funding_local_operations_total = request('funding_local_operations_total') == '----' ? null : request('funding_local_operations_total');
-        $project->funding_local_beyond_operations_total = request('funding_local_beyond_operations_total') == '----' ? null : request('funding_local_beyond_operations_total');
-        $project->funding_total_operations_total = request('funding_total_operations_total') == '----' ? null : request('funding_total_operations_total');
+        $project->funding_federal_operations_total =request('funding_federal_operations_total');
+        $project->funding_local_operations_total = request('funding_local_operations_total');
+        $project->funding_local_beyond_operations_total = request('funding_local_beyond_operations_total');
+        $project->funding_total_operations_total = request('funding_total_operations_total');
+
         $project->local_pm_name = request('local_pm_name');
         $project->local_pm_phone = request('local_pm_phone');
         $project->local_pm_email = request('local_pm_email');

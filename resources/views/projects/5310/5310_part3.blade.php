@@ -269,6 +269,8 @@
                     <textarea id="description_strategy_10" name="description_strategy_10" class="form-control"
                         style="width: 22rem;">{{ $project->description_strategy_10 ?? '' }}</textarea>
             </div>
+            <hr>
+            <br>
             Projects will be examined at the corridor level to determine multimodal needs. Which best describes this
             projects. <i class="fa fa-asterisk" style="font-size:10px;color:red"></i>
             <a href="http://www.elpasompo.org/civicax/filebank/blobdload.aspx?BlobID=23409"
@@ -285,14 +287,27 @@
             <label><input type="radio" name="block_system" value="4"
                     {{ $project->block_system ?? '' == 4 ? 'checked' : '' }}> Region to region</label autocomplete="off"
                 disabled>
-        </div>
-        <hr>
-        Have the above dates been reviewed by TXDOT or NMDOT?
-        <i class="fa fa-asterisk" style="font-size:10px;color:red"></i>
-        <label><input type="radio" name="reviewed_dates" value="1"
-                {{ $project->reviewed_dates ?? '' == 1 ? 'checked' : '' }}> Yes</label autocomplete="off" disabled>
-        <label><input type="radio" name="reviewed_dates" value="2"
-                {{ $project->reviewed_dates ?? '' == 2 ? 'checked' : '' }}> No</label autocomplete="off" disabled>
-        <label><input type="radio" name="reviewed_dates" value="3"
-                {{ $project->reviewed_dates ?? '' == 3 ? 'checked' : '' }}> N/A</label autocomplete="off" disabled>
+            </div>
+            <div class="row">
+                <p>Have the above dates been reviewed by TXDOT or NMDOT? <i class="fa fa-asterisk" style="font-size:10px;color:red"></i></p>
+                <label><input type="radio" name="reviewed_dates" value="1"
+                        {{ $project->reviewed_dates ?? '' == 1 ? 'checked' : '' }}> Yes</label autocomplete="off" disabled></label>
+                <label><input type="radio" name="reviewed_dates" value="2"
+                        {{ $project->reviewed_dates ?? '' == 2 ? 'checked' : '' }}> No</label autocomplete="off" disabled></label>
+                <label><input type="radio" name="reviewed_dates" value="3"
+                        {{ $project->reviewed_dates ?? '' == 3 ? 'checked' : '' }}> N/A</label autocomplete="off" disabled></label>
+                <div class="col-sm-2">
+                    <label>Date Reviewed</label>
+                    <input type="date" name="date_reviewed" class="form-control" autocomplete="off" value="{{ $project->date_reviewed ?? ''}}" disabled>
+                </div>
+                <div class="col-sm-2">
+                    <label>Reviewed By</label>
+                    <input type="text" name="reviewed_by" class="form-control" autocomplete="off" value="{{ $project->reviewed_by ?? ''}}" disabled>
+                </div>
+                <div class="col-sm-2">
+                    <label>Agency</label>
+                    <input type="text" name="reviewed_agency" class="form-control" autocomplete="off" value="{{ $project->reviewed_agency ?? ''}}" disabled>
+                </div>
+                <br>
+            </div>
 </div>
