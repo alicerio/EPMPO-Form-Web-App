@@ -207,3 +207,4 @@ function form1_setView() {
     //document.getElementById("signed_textarea").readOnly = true;
     document.getElementById("attachments_textarea").readOnly = true;
 }
+

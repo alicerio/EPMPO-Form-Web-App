@@ -24,8 +24,8 @@ select_Action is very special:
     <select id="select_Action" style='height:40px;margin-top:1%;' class="mx-1"
         onchange="set_required_helper($('#'+this.id+ ' option:selected').text(),'{{$project->project_type}}' ); changeButtonText('select_Action','button_text_changer')" name="status" class="form-control"
         autocomplete="off">
-
-        <option value="{{ $project->status }}" selected>Save Progress</option>
+        <option></option>
+        <option value="{{ $project->status }}">Save Progress</option>
 
         {{-- Project is in progress --}}
         @if($project->status == 0 || $project->status == 4)
