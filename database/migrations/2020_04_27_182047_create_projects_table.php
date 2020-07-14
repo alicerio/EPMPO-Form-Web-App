@@ -276,7 +276,7 @@ class CreateProjectsTable extends Migration
             $table->tinyInteger('costs_4')->nullable();
 
             $table->boolean('mpo_funds')->nullable();
-            $table->Integer('yoe_cost')->nullable();
+            $table->text('yoe_cost')->nullable();
 
             $table->json('funding_category')->nullable();
             $table->json('funding_federal')->nullable();
