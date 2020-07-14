@@ -62,7 +62,7 @@
                     </div>
                 </div>
                 <div id="" class="form-row mb-1">
-                    <div class="col-sm-2">
+                    <div class="col-sm-3">
                         Total Funding By Share
                     </div>
                     <div class="col-sm-2">
@@ -74,7 +74,7 @@
                     <div class="col-sm-2">
                         <input type="text" name="funding_local_beyond_vehicles_total" id = "local_beyond_vehicles_total" class="form-control" value="{{ $project->funding_local_beyond_vehicles_total ?? '' }}" disabled>
                     </div>
-                    <div class="col-sm-2">
+                    <div class="col-sm-1">
                         <input type="text" name="funding_total_vehicles_total" id = "total_vehicles_total" class="form-control" value="{{ $project->funding_total_vehicles_total ?? '' }}" disabled>
                     </div>
                     <div class="col-sm-2">
@@ -171,7 +171,7 @@
         <div class="card">
             <div class="card-header">
                 <div class="form-row">
-                    <div class="col-sm-2">
+                    <div class="col-sm-4">
                         Operations
                     </div>
                     <div class="col-sm-2">
@@ -214,19 +214,21 @@
                 </div>
             
                 <div class="form-row mb-1">
-                    <table>
-                        <td>Total Funding By Share&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        </td>              
+                    <div class="col-sm-4">
+                        <td>Total Funding By Share
+                        </td></div>
+                        <div class="col-sm-2">
                         <td><input type="text" id="federal_operations_total" name="funding_federal_operations_total" class="form-control" value="{{ $project->funding_federal_operations_total ?? '' }}" disabled>
-                        </td>
+                        </td></div>
+                        <div class="col-sm-2">
                         <td><input type="text" id="local_operations_total" name="funding_local_operations_total" class="form-control" value="{{ $project->funding_local_operations_total ?? '' }}" disabled >
-                        </td>
+                        </td></div>
+                        <div class="col-sm-2">
                         <td><input type="text" id="local_beyond_operations_total" name="funding_local_beyond_operations_total" class="form-control" value="{{ $project->funding_local_beyond_operations_total ?? '' }}" disabled>
-                        </td>
+                        </td></div>
+                        <div class="col-sm-2">
                         <td><input type="text" id="total_operations_total" name="funding_total_operations_total" class="form-control" value="{{ $project->funding_total_operations_total ?? '' }}" disabled>
-                        </td>
-                    </table>
+                        </td></div>
                 </div>
                 <button onclick = "addRow_3()" class="btn btn-primary" type="button">Add Funding</button>
                 <button onclick= "deleteRow_3()" class="btn btn-primary" type="button">Remove Funding</button>

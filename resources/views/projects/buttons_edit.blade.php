@@ -1,7 +1,6 @@
 <!-- 
 We took advantage of the blade programming style.
 Depending what state or status you are in, the front end changes.
-
 select_Action is very special: 
     - toggles states
     - toggles required fields
@@ -14,7 +13,6 @@ select_Action is very special:
         */
        console.log(project);
         let project_type = project.project_type; 
-
     </script>
     @include('projects.buttons_shared')
     <?php
@@ -24,8 +22,8 @@ select_Action is very special:
     <select id="select_Action" style='height:40px;margin-top:1%;' class="mx-1"
         onchange="set_required_helper($('#'+this.id+ ' option:selected').text(),'{{$project->project_type}}' ); changeButtonText('select_Action','button_text_changer')" name="status" class="form-control"
         autocomplete="off">
-        <option></option>
-        <option value="{{ $project->status }}">Save Progress</option>
+
+        <option value="{{ $project->status }}" selected>Save Progress</option>
 
         {{-- Project is in progress --}}
         @if($project->status == 0 || $project->status == 4)
