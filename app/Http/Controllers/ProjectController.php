@@ -150,6 +150,8 @@ class ProjectController extends Controller
         $project->type_administration = request('type_administration') == 'on' ? 1 : null;
         $project->block_system = request('block_system');
         $project->reviewed_dates = request('reviewed_dates');
+        $project->progress = request('progress') == '----' ? null : request('progress');   
+        $project->progress_explain = request('progress_explain');     
         $project->schematic_start_date = request('schematic_start_date');
         $project->schematic_end_date = request('schematic_end_date');
         $project->schematic_progress = request('schematic_progress') == '----' ? null : request('schematic_progress');
@@ -644,6 +646,8 @@ class ProjectController extends Controller
         $project->type_administration = request('type_administration') == 'on' ? 1 : null;
         $project->block_system = request('block_system');
         $project->reviewed_dates = request('reviewed_dates');
+        $project->progress = request('progress') == '----' ? null : request('progress');   
+        $project->progress_explain = request('progress_explain');     
         $project->schematic_start_date = request('schematic_start_date');
         $project->schematic_end_date = request('schematic_end_date');
         $project->schematic_progress = request('schematic_progress') == '----' ? null : request('schematic_progress');

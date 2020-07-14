@@ -170,12 +170,12 @@ function addRow() {
 
 
 
-    cell1.innerHTML = '<input type="text" name="funding_category[]" class="form-control">';
+    cell1.innerHTML = '<input type="text" name="funding_category[]" size="32" class="form-control">';
     cell2.innerHTML = '<input onchange="project_funding_table();addMoneySign(this.value, this.id)" id=' + cell2Id + ' type="text" name="funding_federal[]" class="form-control">';
     cell3.innerHTML = '<input onchange="project_funding_table();addMoneySign(this.value, this.id)" id=' + cell3Id + ' type="text" name="funding_state[]" class="form-control">';
     cell4.innerHTML = '<input onchange="project_funding_table();addMoneySign(this.value, this.id)" id=' + cell4Id + ' type="text" name="funding_local[]" class="form-control">';
     cell5.innerHTML = '<input onchange="project_funding_table();addMoneySign(this.value, this.id)" id=' + cell5Id + ' type="text" name="funding_local_beyond[]" class="form-control">';
-    cell6.innerHTML = '<input type="text" name="funding_total[]" class="form-control" readonly>';
+    cell6.innerHTML = '<input type="text" name="funding_total[]" size="8" class="form-control" readonly>';
 
     let inputId = $(table.rows[table.rows.length - 1].cells[5]).find("input")[0];
     inputId.setAttribute('id', newIdTotal)
@@ -198,7 +198,7 @@ function form1_setView() {
     document.getElementById("yoe_cs_tot").readOnly = true;
     document.getElementById("tot_yoe").readOnly = true;
     document.getElementById("yoe_check").readOnly = true;
-    document.getElementById("pftpg1_tot0").readOnly = true;
+    //document.getElementById("pftpg1_tot0").readOnly = true;
     document.getElementById("federal_total").readOnly = true;
     document.getElementById("state_total").readOnly = true;
     document.getElementById("local_total").readOnly = true;

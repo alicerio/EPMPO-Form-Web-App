@@ -21,7 +21,7 @@
             </div>
             <div class="col">
                 <label>Explain (if necessary)</label>
-                <input type="text" class="form-control" name="progress_explain" value="{{ $project->progress_explain ?? ''}}" disabled>
+                <input id="progress_explain" type="text" class="form-control" name="progress_explain" value="{{ $project->progress_explain ?? ''}}" disabled>
             </div>
         </div>
     <div class="card-header">
@@ -938,7 +938,7 @@
                     </div>
                     <div class="col-sm-3">
                         <label for="date_reviewed">Date Reviewed</label>
-                        <input type="date" name="date_reviewed" class="form-control" autocomplete="off" value="{{ $project->date_reviewed ?? ''}}"
+                        <input id="dates" type="date" name="date_reviewed" class="form-control" autocomplete="off" value="{{ $project->date_reviewed ?? ''}}"
                             disabled>
                     </div>
                     <div class="col-sm-3">

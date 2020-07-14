@@ -6,13 +6,13 @@
             Requesting MPO Funds
         </label><br>
         <label>
-            <input type="number" name="yoe_cost_vehicles" id = "yoe_check_vehicles" autocomplete="off" value="{{ $project->yoe_cost_vehicles ?? '' }}" readonly>
+            <input type="text" onchange="addMoneySign(this.value, this.id)" name="yoe_cost_vehicles" id = "yoe_check_vehicles" autocomplete="off" value="{{ $project->yoe_cost_vehicles ?? '' }}" readonly>
             YOE Cost
         </label><br>
         <div class="card">
             <div class="card-header">
                 <div class="form-row">
-                    <div class="col-sm-2">
+                    <div class="col-sm-3">
                         Capital(Refurnishing of Vehicles & Soft.)
                     </div>
                     <div class="col-sm-2">
@@ -25,7 +25,7 @@
                         Local Contribution
                         Beyond Local Share
                     </div>
-                    <div class="col-sm-2">
+                    <div class="col-sm-1">
                         Total Share
                     </div>
                     <div class="col-sm-2">
@@ -36,24 +36,24 @@
             <div class="card-body">
                 <div id = "funding_vehicles">
                     <div class="form-row mb-1">
-                        <table id="fundingVehiclesTable">
-                            @if ($project->funding_federal_vehicles != null)
+                        <table id="fundingVehiclesTable" onchange="funding_vehicles_table();">
+                            @if ($project->funding_federal_vehicles ?? '' != null)
                             @foreach($project->funding_category_vehicles ?? '' as $index => $categories)                                         
                             <tr id="fvtrow" class="fvt1">   
-                                <td><input type="text" name="funding_category_vehicles[]" class="form-control" value="{{ $project->funding_category_vehicles[$index]}}">
+                                <td><input onchange="addMoneySign(this.value, this.id)" type="text" name="funding_category_vehicles[]" class="form-control" value="{{ $project->funding_category_vehicles[$index]}}">
                                 </td>
-                                <td><input onchange="funding_vehicles_table()" id="federal_vehicles" type="number" 
+                                <td><input id="federal_vehicles" onchange="addMoneySign(this.value, this.id)" type="text" 
                                     name="funding_federal_vehicles[]" class="form-control" value="{{ $project->funding_federal_vehicles[$index]}}">
                                 </td>
-                                <td><input onchange="funding_vehicles_table()" id = "local_vehicles" type="number" 
+                                <td><input id = "local_vehicles" onchange="addMoneySign(this.value, this.id)" type="text" 
                                     name="funding_local_vehicles[]" class="form-control" value="{{ $project->funding_local_vehicles[$index]}}">
                                 </td>
-                                <td><input onchange="funding_vehicles_table()" id = "local_beyond_vehicles" type="number" 
+                                <td><input id = "local_beyond_vehicles" onchange="addMoneySign(this.value, this.id)" type="text" 
                                     name="funding_local_beyond_vehicles[]" class="form-control"  value="{{ $project->funding_local_beyond_vehicles[$index]}}">
                                 </td>    
-                                <td><input type="number" name="funding_total_vehicles[]" id="fvt1_tot0" class="form-control" value="{{ $project->funding_total_vehicles[$index]}}" readonly>
+                                <td><input onchange="addMoneySign(this.value, this,id)" type="text" name="funding_total_vehicles[]" id="fvt1_tot1" class="form-control" value="{{ $project->funding_total_vehicles[$index]}}" readonly>
                                 </td>
-                                <td><input onchange="funding_vehicles_table()" id = "tdc_vehicles" type="number" name="funding_tdc_vehicles[]" class="form-control" value="{{ $project->funding_tdc_vehicles[$index]}}">
+                                <td><input id = "tdc_vehicles" onchange="addMoneySign(this.value, this.id)" type="text" name="funding_tdc_vehicles[]" class="form-control" value="{{ $project->funding_tdc_vehicles[$index]}}">
                                 </td>
                             </tr>
                             @endforeach
@@ -66,19 +66,19 @@
                         Total Funding By Share
                     </div>
                     <div class="col-sm-2">
-                        <input type="number" name="funding_federal_vehicles_total" id = "federal_vehicles_total" class="form-control" value="{{ $project->funding_federal_vehicles_total ?? '' }}" disabled>
+                        <input type="text" name="funding_federal_vehicles_total" id = "federal_vehicles_total" class="form-control" value="{{ $project->funding_federal_vehicles_total ?? '' }}" disabled>
                     </div>
                     <div class="col-sm-2">
-                        <input type="number" name="funding_local_vehicles_total" id = "local_vehicles_total" class="form-control" value="{{ $project->funding_local_vehicles_total ?? '' }}" disabled>
+                        <input type="text" name="funding_local_vehicles_total" id = "local_vehicles_total" class="form-control" value="{{ $project->funding_local_vehicles_total ?? '' }}" disabled>
                     </div>
                     <div class="col-sm-2">
-                        <input type="number" name="funding_local_beyond_vehicles_total" id = "local_beyond_vehicles_total" class="form-control" value="{{ $project->funding_local_beyond_vehicles_total ?? '' }}" disabled>
+                        <input type="text" name="funding_local_beyond_vehicles_total" id = "local_beyond_vehicles_total" class="form-control" value="{{ $project->funding_local_beyond_vehicles_total ?? '' }}" disabled>
                     </div>
                     <div class="col-sm-2">
-                        <input type="number" name="funding_total_vehicles_total" id = "total_vehicles_total" class="form-control" value="{{ $project->funding_total_vehicles_total ?? '' }}" disabled>
+                        <input type="text" name="funding_total_vehicles_total" id = "total_vehicles_total" class="form-control" value="{{ $project->funding_total_vehicles_total ?? '' }}" disabled>
                     </div>
                     <div class="col-sm-2">
-                        <input type="number" name="funding_tdc_vehicles_total" id = "tdc_vehicles_total" class="form-control" value="{{ $project->funding_tdc_vehicles_total ?? '' }}" disabled>
+                        <input type="text" name="funding_tdc_vehicles_total" id = "tdc_vehicles_total" class="form-control" value="{{ $project->funding_tdc_vehicles_total ?? '' }}" disabled>
                     </div>
                 </div>
                 <button onclick = "addRow_1()" class="btn btn-primary" type="button">Add Funding</button>
@@ -93,7 +93,7 @@
         <div class="card">
             <div class="card-header">
                 <div class="form-row">
-                    <div class="col-sm-2">
+                    <div class="col-sm-3">
                         Capital(New Bus Purchase)
                     </div>
                     <div class="col-sm-2">
@@ -106,7 +106,7 @@
                         Local Contribution
                         Beyond Local Share
                     </div>
-                    <div class="col-sm-2">
+                    <div class="col-sm-1">
                         Total Share
                     </div>
                     <div class="col-sm-2">
@@ -118,7 +118,7 @@
                 <div id = "funding_bus">
                     <div class="form-row mb-1">
                         <table id="fundingBusTable">
-                            @if ($project->funding_federal_bus != null)
+                            @if ($project->funding_federal_bus ?? '' != null)
                             @foreach($project->funding_federal_bus ?? '' as $index => $categories)                                         
                             <tr id="fbtrow" class="fbt1">   
                                 <td><input type="text" name="funding_category_bus[]" class="form-control" value="{{ $project->funding_category_bus[$index]}}">
@@ -194,7 +194,7 @@
                     <div class="form-row mb-1">
                         <table id="fundingOperationsTable">
                             <tr id="fotrow" class="fot1"> 
-                                @if ($project->funding_category_operations != null)
+                                @if ($project->funding_category_operations ?? '' != null)
                                 @foreach($project->funding_category_operations ?? '' as $index => $categories)                                         
                                 <td><input type="text" name="funding_category_operations[]" class="form-control" value="{{ $project->funding_category_operations[$index] }}">
                                 </td>

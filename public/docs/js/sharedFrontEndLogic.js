@@ -98,6 +98,16 @@ function set_required(required, project_type) {
             $("#description_strategy_8").prop('required', false); // make optional
             $("#description_strategy_9").prop('required', false); // make optional
             $("#description_strategy_10").prop('required', false); // make optional
+
+            $("#description_psp_1").prop('required', false); // make optional
+            $("#description_psp_2").prop('required', false); // make optional
+            $("#description_psp_3").prop('required', false); // make optional
+            $("#description_psp_4").prop('required', false); // make optional
+            $("#description_psp_5").prop('required', false); // make optional
+
+            $("#progress_explain").prop('required', false); // make optional
+            $("#dates").prop('required', false); // make optional
+
         } else if (required == false) {
             $("#showHolder :input").prop('required', false); // Everything is required
         }

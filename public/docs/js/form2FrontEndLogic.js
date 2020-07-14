@@ -7,8 +7,49 @@ function funding_vehicles_table() {
 
     var inputValues = $('#funding_vehicles :input').map(function () {
         let h = "";
-        h = parseInt($(this).val());
+        let idH = "";
+        h = $(this).val();
 
+        //remove $
+        if(h.charAt(0) == "$") {
+            h = h.substring(1);
+        }
+        /**
+         * We use substring to remove the numbers from the id
+         * We do this since the ids have the same start of name
+         */
+        idH = $(this).attr("id"); // hold id
+        try{
+            h = parseInt(h.replace(/,/g, '')); // Removes comas and parses to int.
+
+            if(isNaN(h) == false && h >= 0 && idH.length >= 1) {
+                //h = parseInt(h);
+                if(idH.substring(0,16) == "federal_vehicles") {
+                    if(h>=0) {
+                        federal_sum += h;
+                        total_sum += h;
+                    }
+                } else if(idH.substring(0,14) == "local_vehicles") {
+                    if(h>=0) {
+                        local_sum += h;
+                        total_sum += h;
+                    }
+                } else if(idH.substring(0,21) == "local_beyond_vehicles") {
+                    if(h>=0) {
+                        local_beyond_sum +=h
+                        total_sum += h;
+                    }
+                } else if(idH.substring(0,12) == "tdc_vehicles") {
+                    if(h>=0) {
+                        tdc_sum += h;
+                    }
+                }
+            }
+        } catch {
+            // skip
+        }
+    })
+/*
         if ($(this).attr("id") == "federal_vehicles") {
             if (h >= 0) {
                 federal_sum += h;
@@ -30,13 +71,31 @@ function funding_vehicles_table() {
                 tdc_sum += h;
             }
         }
-    })
-    document.getElementById("federal_vehicles_total").value = federal_sum;
-    document.getElementById("local_vehicles_total").value = local_sum;
-    document.getElementById("local_beyond_vehicles_total").value = local_beyond_sum;
-    document.getElementById("tdc_vehicles_total").value = tdc_sum;
-    document.getElementById("total_vehicles_total").value = total_sum;
-    document.getElementById("yoe_check_vehicles").value = total_sum;
+    })*/
+
+    // Assists in addition of totals
+    federal_sum = parseInt(federal_sum);
+    local_sum = parseInt(local_sum);
+    local_beyond_sum = parseInt(local_beyond_sum);
+    tdc_sum = parseInt(tdc_sum);
+
+    console.log("********");
+    console.log(federal_sum);
+    console.log(local_sum);
+    console.log(local_beyond_sum);
+    console.log(tdc_sum);
+    console.log(total_sum);
+
+
+    // Send to front
+    document.getElementById("federal_vehicles_total").value = "$" + commafy(federal_sum);
+    document.getElementById("local_vehicles_total").value = "$" + commafy(local_sum);
+    document.getElementById("local_beyond_vehicles_total").value = "$" + commafy(local_beyond_sum);
+    document.getElementById("tdc_vehicles_total").value = "$" + commafy(tdc_sum);
+    document.getElementById("total_vehicles_total").value = "$" + commafy(parseInt(federal_sum + local_sum + local_beyond_sum));
+    document.getElementById("yoe_check_vehicles").value = "$" + commafy(parseInt(federal_sum + local_sum + local_beyond_sum));
+
+
 
     rowSumMaster_1()
 }
@@ -56,18 +115,21 @@ function rowSum_1(idName, index) {
     let totId = "";
     var inputValues = $(toSearch).map(function () {
         let h = $(this).val();
-        if (parseInt($(this).val()) > 0 && $(this).attr("name") != "funding_total_vehicles[]" && $(this).attr("name") != "funding_category_vehicles[]" &&
+        //remove $
+        if(h.charAt(0) == "$") {
+            h=h.substring(1);
+        }
+        h = parseInt(h.replace(/,/g,''));
+
+        if (h>0 && $(this).attr("name") != "funding_total_vehicles[]" && $(this).attr("name") != "funding_category_vehicles[]" &&
             $(this).attr("name") != "funding_tdc_vehicles[]") {
-            h = parseInt($(this).val());
             rowTot += h;
         }
     })
-    if (index == 0) totId = 'fvt1_tot0';
-    else {
         index++;
         totId = "fvt1_tot" + index;
-    }
-    $("#" + totId).attr("value", rowTot);
+
+    $("#" + totId).attr("value","$" + commafy(rowTot));
 }
 
 function addRow_1() {
@@ -83,13 +145,18 @@ function addRow_1() {
 
     let newIdTotal = "fvt1_tot" + table.rows.length;
     row.setAttribute('id', 'fvtrow' + table.rows.length);
+    let cell2Id = "federal_vehicles" + table.rows.length;
+    let cell3Id = "local_vehicles" + table.rows.length;
+    let cell4Id = "local_beyond_vehicles" + table.rows.length;
+    let cell6Id = "tdc_vehicles" + table.rows.length;
 
-    cell1.innerHTML = '<input type="text" name="funding_category_vehicles[]" class="form-control">';
-    cell2.innerHTML = '<input onchange="funding_vehicles_table()" id="federal_vehicles" type="number" name="funding_federal_vehicles[]" class="form-control">';
-    cell3.innerHTML = '<input onchange="funding_vehicles_table()" id = "local_vehicles" type="number" name="funding_local_vehicles[]" class="form-control">';
-    cell4.innerHTML = '<input onchange="funding_vehicles_table()" id = "local_beyond_vehicles" type="number" name="funding_local_beyond_vehicles[]" class="form-control">';
-    cell5.innerHTML = '<input type="number" name="funding_total_vehicles[]" class="form-control" readonly>';
-    cell6.innerHTML = '<input onchange="funding_vehicles_table()" id = "tdc_vehicles" type="number" name="funding_tdc_vehicles[]" class="form-control">';
+
+    cell1.innerHTML = '<input type="text" name="funding_category_vehicles[]" size="32" class="form-control">';
+    cell2.innerHTML = '<input onchange="funding_vehicles_table();addMoneySign(this.value, this.id)" id=' + cell2Id + ' type="text" name="funding_federal_vehicles[]" class="form-control">';
+    cell3.innerHTML = '<input onchange="funding_vehicles_table();addMoneySign(this.value, this.id)" id=' + cell3Id + ' type="text" name="funding_local_vehicles[]" class="form-control">';
+    cell4.innerHTML = '<input onchange="funding_vehicles_table();addMoneySign(this.value, this.id)" id=' + cell4Id + ' type="text" name="funding_local_beyond_vehicles[]" class="form-control">';
+    cell5.innerHTML = '<input type="text" name="funding_total_vehicles[]" size="8" class="form-control" readonly>';
+    cell6.innerHTML = '<input onchange="funding_vehicles_table();addMoneySign(this.value, this.id)" id=' + cell6Id + ' type="text" name="funding_tdc_vehicles[]" class="form-control">';
 
     let inputId = $(table.rows[table.rows.length - 1].cells[4]).find("input")[0];
     inputId.setAttribute('id', newIdTotal);
@@ -180,11 +247,11 @@ function addRow_2() {
     let newIdTotal = "fbt1_tot" + table.rows.length;
     row.setAttribute('id', 'fbtrow' + table.rows.length);
 
-    cell1.innerHTML = '<input type="text" name="funding_category_bus[]" class="form-control">'
+    cell1.innerHTML = '<input type="text" name="funding_category_bus[]" size="32" class="form-control">'
     cell2.innerHTML = '<input onchange="funding_bus_table()" id = "federal_bus" type="number" name="funding_federal_bus[]" class="form-control">'
     cell3.innerHTML = '<input onchange="funding_bus_table()" id = "local_bus" type="number" name="funding_local_bus[]" class="form-control">'
     cell4.innerHTML = '<input onchange="funding_bus_table()" id = "local_beyond_bus" type="number" name="funding_local_beyond_bus[]" class="form-control">'
-    cell5.innerHTML = '<input type="number" name="funding_total_bus[]" class="form-control" readonly>'
+    cell5.innerHTML = '<input type="number" name="funding_total_bus[]" size="8" class="form-control" readonly>'
     cell6.innerHTML = '<input onchange="funding_bus_table()" id = "tdc_bus" type="number" name="funding_tdc_bus[]" class="form-control">'
     let inputId = $(table.rows[table.rows.length - 1].cells[4]).find("input")[0];
     inputId.setAttribute('id', newIdTotal);

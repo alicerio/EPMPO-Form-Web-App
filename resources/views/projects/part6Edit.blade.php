@@ -16,7 +16,7 @@
     <div class="card">
         <div class="card-header">
             <div class="form-row">
-                <div class="col-sm-2">
+                <div class="col-sm-3">
                     Funding Category
                 </div>
                 <div class="col-sm-2">
@@ -32,7 +32,7 @@
                     Local Contribution
                     Beyond Local Share
                 </div>
-                <div class="col-sm-2">
+                <div class="col-sm-1">
                     Total Share
                 </div>
             </div>
@@ -64,7 +64,7 @@
                 </div>
             </div>
             <div id="" class="form-row mb-1">
-                <div class="col-sm-2">
+                <div class="col-sm-3">
                     Total Funding By Share
                 </div>
                 <div class="col-sm-2">
@@ -83,7 +83,7 @@
                     <input type="string" name="funding_local_beyond_result" id="local_beyond_total" class="form-control"
                         value="{{ $project->funding_local_beyond_result ?? ''}}" readonly>
                 </div>
-                <div class="col-sm-2">
+                <div class="col-sm-1">
                     <input type="string" name="funding_total_result" id="total_total" class="form-control"
                         value="{{ $project->funding_total_result ?? '' }}" readonly>
                 </div>

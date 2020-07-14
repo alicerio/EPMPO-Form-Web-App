@@ -74,8 +74,8 @@
                         <input type="number" id="tdc_bus_total" name="funding_tdc_bus_total" class="form-control" value="{{ $project->funding_tdc_bus_total ?? '' }}" disabled>
                     </div>
                 </div>
-                <button onclick = "addRow_2()" class="btn btn-primary" type="button">Add Funding</button>
-                <button onclick= "deleteRow_2()" class="btn btn-primary" type="button">Remove Funding</button>
+                <button onclick = "addRow_1()" class="btn btn-primary" type="button">Add Funding</button>
+                <button onclick= "deleteRow_1()" class="btn btn-primary" type="button">Remove Funding</button>
             </div>
         </div>
         <br>
@@ -148,8 +148,8 @@
                         <input type="number" name="funding_tdc_vehicles_total" id = "tdc_vehicles_total" class="form-control" value="{{ $project->funding_tdc_vehicles_total ?? '' }}" disabled>
                     </div>
                 </div>
-                <button onclick = "addRow_1()" class="btn btn-primary" type="button">Add Funding</button>
-                <button onclick= "deleteRow_1()" class="btn btn-primary" type="button">Remove Funding</button>
+                <button onclick = "addRow_2()" class="btn btn-primary" type="button">Add Funding</button>
+                <button onclick= "deleteRow_2()" class="btn btn-primary" type="button">Remove Funding</button>
             </div>
         </div>
         <br>

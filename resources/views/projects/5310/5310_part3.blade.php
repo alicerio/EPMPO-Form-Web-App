@@ -300,7 +300,7 @@
                 </div>
                 <div class="col-sm-3">
                     <label for="date_reviewed">Date Reviewed</label>
-                    <input type="date" name="date_reviewed" class="form-control" autocomplete="off" value="{{ $project->date_reviewed ?? ''}}"
+                    <input id="dates" type="date" name="date_reviewed" class="form-control" autocomplete="off" value="{{ $project->date_reviewed ?? ''}}"
                         disabled>
                 </div>
                 <div class="col-sm-3">
