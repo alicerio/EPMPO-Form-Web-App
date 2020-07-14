@@ -192,19 +192,19 @@
             <div class="card-body">
                 <div id="funding_operations">
                     <div class="form-row mb-1">
-                        <table id="fundingOperationsTable">
+                        <table id="fundingOperationsTable" onchange="funding_operations_table()">
                             <tr id="fotrow" class="fot1"> 
                                 @if ($project->funding_category_operations != null)
                                 @foreach($project->funding_category_operations ?? '' as $index => $categories)                                         
-                                <td><input type="text" name="funding_category_operations[]" class="form-control" value="{{ $project->funding_category_operations[$index] }}">
+                                <td><input type="text" name="funding_category_operations[]" class="form-control">
                                 </td>
-                                <td><input onchange="funding_operations_table()" id = "federal_operations" type="number" name="funding_federal_operations[]" class="form-control" value="{{ $project->funding_federal_operations[$index] }}">
+                                <td><input onchange="addMoneySign(this.value, this.id)" id = "federal_operations" type="text" name="funding_federal_operations[]" class="form-control">
                                 </td>
-                                <td><input onchange="funding_operations_table()" id = "local_operations" type="number" name="funding_local_operations[]" class="form-control" value="{{ $project->funding_local_operations[$index] }}">
+                                <td><input onchange="addMoneySign(this.value, this.id)" id = "local_operations" type="text" name="funding_local_operations[]" class="form-control">
                                 </td>
-                                <td><input onchange="funding_operations_table()" id = "local_beyond_operations" type="number" name="funding_local_beyond_operations[]" class="form-control" value="{{ $project->funding_local_beyond_operations[$index]}}">
+                                <td><input onchange="addMoneySign(this.value, this.id)" id = "local_beyond_operations" type="text" name="funding_local_beyond_operations[]" class="form-control">
                                 </td>
-                                <td><input type="number" id="fot1_tot0" name="funding_total_operations[]" class="form-control" value="{{ $project->funding_total_operations[$index]}}" readonly>
+                                <td><input type="text" id="fot1_tot1" name="funding_total_operations[]" class="form-control"readonly>
                                 </td>
                             </tr>
                             @endforeach
