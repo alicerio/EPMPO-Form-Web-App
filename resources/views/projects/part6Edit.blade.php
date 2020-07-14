@@ -54,7 +54,7 @@
                                     value="{{$project->funding_local[$index]}}"></td>
                             <td><input id="local_cont" onchange="addMoneySign(this.value, this.id)" type="text" name="funding_local_beyond[]" class="form-control"
                                     value="{{$project->funding_local_beyond[$index]}}"></td>
-                            <td><input onchange="addMoneySign(this.value, this.id)" type="text" name="funding_total[]" id="pftpg1_tot0" class="form-control"
+                            <td><input onchange="addMoneySign(this.value, this.id)" type="text" name="funding_total[]" id="pftpg1_tot1" class="form-control"
                                     value="{{$project->funding_total[$index]}}" readonly>
                             </td>
                         </tr>
