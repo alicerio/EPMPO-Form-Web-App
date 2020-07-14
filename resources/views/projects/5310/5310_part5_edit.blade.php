@@ -140,7 +140,7 @@
                     </div>
                 </div>
                 <div class="form-row mb-1">
-                    <div class="col-sm-2">
+                    <div class="col-sm-3">
                         Total Funding By Share
                     </div>
                     <div class="col-sm-2">
@@ -152,7 +152,7 @@
                     <div class="col-sm-2">
                         <input type="text" id="local_beyond_bus_total" name="funding_local_beyond_bus_total" class="form-control" value="{{ $project->funding_local_beyond_bus_total ?? '' }}" disabled>
                     </div>
-                    <div class="col-sm-2">
+                    <div class="col-sm-1">
                         <input type="text" id="total_bus_total" name="funding_total_bus_total" class="form-control" value="{{ $project->funding_total_bus_total ?? '' }}" disabled>
                     </div>
                     <div class="col-sm-2">
@@ -165,7 +165,7 @@
         </div>
         <br>
         <label>
-            <input type="number" id="yoe_check_operations" name="yoe_cost_operations" autocomplete="off" value="{{ $project->yoe_cost_operations ?? '' }}" readonly>
+            <input type="text" id="yoe_check_operations" name="yoe_cost_operations" autocomplete="off" value="{{ $project->yoe_cost_operations ?? '' }}" readonly>
             YOE Cost
         </label><br>
         <div class="card">
@@ -194,17 +194,17 @@
                     <div class="form-row mb-1">
                         <table id="fundingOperationsTable" onchange="funding_operations_table()">
                             <tr id="fotrow" class="fot1"> 
-                                @if ($project->funding_category_operations ?? '' != null)
-                                @foreach($project->funding_category_operations ?? '' as $index => $categories)                                         
-                                <td><input type="text" name="funding_category_operations[]" class="form-control">
+                                @if ($project->funding_federal_operations ?? '' != null)
+                                @foreach($project->funding_federal_operations ?? '' as $index => $categories)                                         
+                                <td><input type="text" name="funding_category_operations[]" class="form-control" value="{{ $project->funding_category_operations[$index]}}">
                                 </td>
-                                <td><input onchange="addMoneySign(this.value, this.id)" id = "federal_operations" type="text" name="funding_federal_operations[]" class="form-control">
+                                <td><input onchange="addMoneySign(this.value, this.id)" id = "federal_operations" type="text" name="funding_federal_operations[]" class="form-control" value="{{ $project->funding_federal_operations[$index]}}">
                                 </td>
-                                <td><input onchange="addMoneySign(this.value, this.id)" id = "local_operations" type="text" name="funding_local_operations[]" class="form-control">
+                                <td><input onchange="addMoneySign(this.value, this.id)" id = "local_operations" type="text" name="funding_local_operations[]" class="form-control" value="{{ $project->funding_local_operations[$index]}}">
                                 </td>
-                                <td><input onchange="addMoneySign(this.value, this.id)" id = "local_beyond_operations" type="text" name="funding_local_beyond_operations[]" class="form-control">
+                                <td><input onchange="addMoneySign(this.value, this.id)" id = "local_beyond_operations" type="text" name="funding_local_beyond_operations[]" class="form-control" value="{{ $project->funding_local_beyond_operations[$index]}}">
                                 </td>
-                                <td><input type="text" id="fot1_tot1" name="funding_total_operations[]" class="form-control"readonly>
+                                <td><input type="text" id="fot1_tot1" name="funding_total_operations[]" class="form-control" value="{{ $project->funding_total_operations[$index]}}" readonly>
                                 </td>
                             </tr>
                             @endforeach
