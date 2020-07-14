@@ -37,10 +37,8 @@ function display4To10() {
 
 const toggleTA = (name) => {
     if ($('input[name="' + name + '"]').is(':checked')) {
-        console.log('checked');
         $('textarea[name="description_' + name + '"]').show();
     } else {
-        console.log('not checked');
         $('textarea[name="description_' + name + '"]').hide();
     }
 };
@@ -118,6 +116,28 @@ function set_required_helper(id, project_type) {
 
 function toggleComment() {
     $("#commentS").toggle('slow', function () {});
+}
+
+function addMoneySign(element, id){
+    if(element == ""){
+        document.getElementById(id).value = "$0";
+    }else if(element.charAt(0) == "$"){
+        // do nothing 
+    }else{
+        document.getElementById(id).value = "$"+commafy(element);
+    }
+}
+
+// Adds commas to integers
+function commafy(num) {
+    var str = num.toString().split('.');
+    if (str[0].length >= 4) {
+        str[0] = str[0].replace(/(\d)(?=(\d{3})+$)/g, '$1,');
+    }
+    if (str[1] && str[1].length >= 4) {
+        str[1] = str[1].replace(/(\d{3})/g, '$1 ');
+    }
+    return str.join('.');
 }
 
 function clearMap() {
