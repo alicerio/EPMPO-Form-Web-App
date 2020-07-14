@@ -359,7 +359,7 @@ function addRow_3() {
     let cell3Id = "local_operations" + table.rows.length;
     let cell4Id = "local_beyond_operations" + table.rows.length;
     
-    cell1.innerHTML = '<input type="text" name="funding_category_operations[]" class="form-control">'
+    cell1.innerHTML = '<input type="text" name="funding_category_operations[]" size="44" class="form-control">'
     cell2.innerHTML = '<input onchange="funding_operations_table(); addMoneySign(this.value, this.id)" id=' + cell2Id + ' type="text" name="funding_federal_operations[]" class="form-control">'
     cell3.innerHTML = '<input onchange="funding_operations_table(); addMoneySign(this.value, this.id)" id=' + cell3Id + ' type="text" name="funding_local_operations[]" class="form-control">'
     cell4.innerHTML = '<input onchange="funding_operations_table(); addMoneySign(this.value, this.id)" id=' + cell4Id + ' type="text" name="funding_local_beyond_operations[]" class="form-control">'
