@@ -87,7 +87,7 @@
         </div>
         <br>
         <label>
-            <input type="number" id="yoe_check_bus" name="yoe_cost_bus" autocomplete="off" value="{{ $project->yoe_cost_bus ?? '' }}" readonly>
+            <input type="string" id="yoe_check_bus" name="yoe_cost_bus" autocomplete="off" value="{{ $project->yoe_cost_bus ?? '' }}" readonly>
             YOE Cost
         </label><br>
         <div class="card">
@@ -117,21 +117,21 @@
             <div class="card-body">
                 <div id = "funding_bus">
                     <div class="form-row mb-1">
-                        <table id="fundingBusTable">
+                        <table id="fundingBusTable"  onchange="funding_bus_table();">
                             @if ($project->funding_federal_bus ?? '' != null)
                             @foreach($project->funding_federal_bus ?? '' as $index => $categories)                                         
                             <tr id="fbtrow" class="fbt1">   
                                 <td><input type="text" name="funding_category_bus[]" class="form-control" value="{{ $project->funding_category_bus[$index]}}">
                                 </td>                                            
-                                <td><input onchange="funding_bus_table()" id = "federal_bus" type="number" name="funding_federal_bus[]" class="form-control" value="{{ $project->funding_federal_bus[$index]}}">
+                                <td><input onchange="addMoneySign(this.value, this.id)" id = "federal_bus" type="text" name="funding_federal_bus[]" class="form-control" value="{{ $project->funding_federal_bus[$index]}}">
                                 </td>                                               
-                                <td><input onchange="funding_bus_table()" id = "local_bus" type="number" name="funding_local_bus[]" class="form-control" value="{{ $project->funding_local_bus[$index]}}">
+                                <td><input onchange="addMoneySign(this.value, this.id)" id = "local_bus" type="text" name="funding_local_bus[]" class="form-control" value="{{ $project->funding_local_bus[$index]}}">
                                 </td>                                                
-                                <td><input onchange="funding_bus_table()" id = "local_beyond_bus" type="number" name="funding_local_beyond_bus[]" class="form-control" value="{{ $project->funding_local_beyond_bus[$index]}}">
+                                <td><input onchange="addMoneySign(this.value, this.id)" id = "local_beyond_bus" type="text" name="funding_local_beyond_bus[]" class="form-control" value="{{ $project->funding_local_beyond_bus[$index]}}">
                                 </td>                                                
-                                <td><input type="number" id="fbt1_tot0" name="funding_total_bus[]" class="form-control" value="{{ $project->funding_total_bus[$index]}}" readonly>
+                                <td><input type="text" id="fbt1_tot1" name="funding_total_bus[]" class="form-control" value="{{ $project->funding_total_bus[$index]}}" readonly>
                                 </td>
-                                <td><input onchange="funding_bus_table()" id = "tdc_bus" type="number" name="funding_tdc_bus[]" class="form-control" value="{{ $project->funding_tdc_bus[$index]}}">
+                                <td><input onchange="addMoneySign(this.value, this.id)" id = "tdc_bus" type="text" name="funding_tdc_bus[]" class="form-control" value="{{ $project->funding_tdc_bus[$index]}}">
                                 </td>
                             </tr>
                             @endforeach
@@ -144,19 +144,19 @@
                         Total Funding By Share
                     </div>
                     <div class="col-sm-2">
-                        <input type="number" id = "federal_bus_total" name="funding_federal_bus_total" class="form-control" value="{{ $project->funding_federal_bus_total ?? '' }}" disabled>
+                        <input type="text" id = "federal_bus_total" name="funding_federal_bus_total" class="form-control" value="{{ $project->funding_federal_bus_total ?? '' }}" disabled>
                     </div>
                     <div class="col-sm-2">
-                        <input type="number" id="local_bus_total" name="funding_local_bus_total" class="form-control" value="{{ $project->funding_local_bus_total ?? '' }}" disabled>
+                        <input type="text" id="local_bus_total" name="funding_local_bus_total" class="form-control" value="{{ $project->funding_local_bus_total ?? '' }}" disabled>
                     </div>
                     <div class="col-sm-2">
-                        <input type="number" id="local_beyond_bus_total" name="funding_local_beyond_bus_total" class="form-control" value="{{ $project->funding_local_beyond_bus_total ?? '' }}" disabled>
+                        <input type="text" id="local_beyond_bus_total" name="funding_local_beyond_bus_total" class="form-control" value="{{ $project->funding_local_beyond_bus_total ?? '' }}" disabled>
                     </div>
                     <div class="col-sm-2">
-                        <input type="number" id="total_bus_total" name="funding_total_bus_total" class="form-control" value="{{ $project->funding_total_bus_total ?? '' }}" disabled>
+                        <input type="text" id="total_bus_total" name="funding_total_bus_total" class="form-control" value="{{ $project->funding_total_bus_total ?? '' }}" disabled>
                     </div>
                     <div class="col-sm-2">
-                        <input type="number" id="tdc_bus_total" name="funding_tdc_bus_total" class="form-control" value="{{ $project->funding_tdc_bus_total ?? '' }}" disabled>
+                        <input type="text" id="tdc_bus_total" name="funding_tdc_bus_total" class="form-control" value="{{ $project->funding_tdc_bus_total ?? '' }}" disabled>
                     </div>
                 </div>
                 <button onclick = "addRow_2()" class="btn btn-primary" type="button">Add Funding</button>
