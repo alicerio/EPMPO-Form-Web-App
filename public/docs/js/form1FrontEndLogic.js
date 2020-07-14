@@ -46,15 +46,12 @@ function project_funding_table() {
     var inputValues = $('#project_funding :input').map(function () {
         let h = ""; //holder
         let idH = "";
-        console.log(h);
         h = $(this).val();
 
         //remove $ sign
         if (h.charAt(0) == "$") {
             h = h.substring(1);
         }
-
-
         /**
          * We use substring to remove the numbers from the id
          * We do this since the ids have the same start of name
@@ -136,11 +133,15 @@ function rowSum(idName, index) {
         }
     })
     //get id
-    if (index == 0) totId = 'pftpg1_tot0';
-    else {
+  //  if (index == 0){ 
+     //   totId = 'pftpg1_tot';
+   //     console.log(totId);
+  //  }
+  //  else {
         index++;
         totId = "pftpg1_tot" + index;
-    }
+  //  }
+
     $("#" + totId).attr("value", '$' + commafy(rowTot));
 }
 
