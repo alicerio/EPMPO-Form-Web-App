@@ -20,7 +20,7 @@ $currentUser = auth()->user()->type // Store current user
         }
       //special cases depending on status
         if(project.status == 1){
-            set_required();  
+          //  set_required(true);  
             form1_setView();
         }
         else if(project.status == 3){

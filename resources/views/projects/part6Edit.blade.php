@@ -94,5 +94,5 @@
                 type="button">Remove Funding</button>
         </div>
     </div>
+    <br>
 </div>
-<br>

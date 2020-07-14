@@ -265,31 +265,46 @@ function funding_operations_table() {
 
     var inputValues = $('#funding_operations :input').map(function () {
         let h = "";
-        h = parseInt($(this).val());
+        let idH = "";
+        h = $(this).val();
 
-        if ($(this).attr("id") == "federal_operations") {
-            if (h >= 0) {
-                federal_sum += h;
-                total_sum += h
+        //remove $ sign
+        if (h.charAt(0) == "$") {
+            h = h.substring(1);
+        }
+        idH = $(this).attr("id"); // hold id
+
+        try {
+            h = parseInt(h.replace(/,/g, '')); // removes commas and parses to int
+            if (isNaN(h) == false && h >= 0 && idH.length >= 1) { //check that value is valid    
+                if (idH.substring(0, 18) == "federal_operations") {
+                    if (h >= 0) {
+                        federal_sum += h;
+                        total_sum += h
+                    }
+                } else if (idH.substring(0, 16) == "local_operations") {
+                    if (h >= 0) {
+                        local_sum += h;
+                        total_sum += h
+                    }
+                } else if (idH.substring(0, 23) == "local_beyond_operations") {
+                    if (h >= 0) {
+                        local_beyond_sum += h;
+                        total_sum += h
+                    }
+                }
+
             }
-        } else if ($(this).attr("id") == "local_operations") {
-            if (h >= 0) {
-                local_sum += h;
-                total_sum += h
-            }
-        } else if ($(this).attr("id") == "local_beyond_operations") {
-            if (h >= 0) {
-                local_beyond_sum += h;
-                total_sum += h
-            }
+        } catch {
+
         }
     })
 
-    document.getElementById("federal_operations_total").value = federal_sum;
-    document.getElementById("local_operations_total").value = local_sum;
-    document.getElementById("local_beyond_operations_total").value = local_beyond_sum;
-    document.getElementById("total_operations_total").value = total_sum;
-    document.getElementById("yoe_check_operations").value = total_sum;
+    document.getElementById("federal_operations_total").value = "$" + commafy(federal_sum);
+    document.getElementById("local_operations_total").value = "$" + commafy(local_sum);
+    document.getElementById("local_beyond_operations_total").value = "$" + commafy(local_beyond_sum);
+    document.getElementById("total_operations_total").value = "$" + commafy(total_sum);
+    document.getElementById("yoe_check_operations").value = "$" + commafy(total_sum);
 
     rowSumMaster_3()
 }
@@ -307,19 +322,25 @@ function rowSum_3(idName, index) {
     let toSearch = "#" + idName + ' :input';
     let rowTot = 0;
     let totId = "";
+
     var inputValues = $(toSearch).map(function () {
         let h = $(this).val();
-        if (parseInt($(this).val()) > 0 && $(this).attr("name") != "funding_total_operations[]" && $(this).attr("name") != "funding_category_operations[]") {
-            h = parseInt($(this).val());
+        
+        if (h.charAt(0) == "$") {
+            h = h.substring(1);
+        }
+        h = parseInt(h.replace(/,/g, '')); // removes commas and parses to int
+
+        if (h > 0 && $(this).attr("name") != "funding_total_operations[]" && $(this).attr("name") != "funding_category_operations[]") {
             rowTot += h;
         }
     })
-    if (index == 0) totId = 'fot1_tot0';
-    else {
+    // if (index == 0) totId = 'fot1_tot0';
+    // else {
         index++;
         totId = "fot1_tot" + index;
-    }
-    $("#" + totId).attr("value", rowTot);
+   // }
+    $("#" + totId).attr("value", "$" + commafy(rowTot));
 }
 
 function addRow_3() {
@@ -334,12 +355,16 @@ function addRow_3() {
 
     let newIdTotal = "fot1_tot" + table.rows.length;
     row.setAttribute('id', 'fotrow' + table.rows.length);
-
+    let cell2Id = "federal_operations" + table.rows.length;
+    let cell3Id = "local_operations" + table.rows.length;
+    let cell4Id = "local_beyond_operations" + table.rows.length;
+    
     cell1.innerHTML = '<input type="text" name="funding_category_operations[]" class="form-control">'
-    cell2.innerHTML = '<input onchange="funding_operations_table()" id = "federal_operations" type="number" name="funding_federal_operations[]" class="form-control">'
-    cell3.innerHTML = '<input onchange="funding_operations_table()" id = "local_operations" type="number" name="funding_local_operations[]" class="form-control">'
-    cell4.innerHTML = '<input onchange="funding_operations_table()" id = "local_beyond_operations" type="number" name="funding_local_beyond_operations[]" class="form-control">'
-    cell5.innerHTML = '<input type="number" name="funding_total_operations[]" class="form-control" readonly>'
+    cell2.innerHTML = '<input onchange="funding_operations_table(); addMoneySign(this.value, this.id)" id=' + cell2Id + ' type="text" name="funding_federal_operations[]" class="form-control">'
+    cell3.innerHTML = '<input onchange="funding_operations_table(); addMoneySign(this.value, this.id)" id=' + cell3Id + ' type="text" name="funding_local_operations[]" class="form-control">'
+    cell4.innerHTML = '<input onchange="funding_operations_table(); addMoneySign(this.value, this.id)" id=' + cell4Id + ' type="text" name="funding_local_beyond_operations[]" class="form-control">'
+    cell5.innerHTML = '<input type="text" name="funding_total_operations[]" class="form-control" readonly>'
+
     let inputId = $(table.rows[table.rows.length - 1].cells[4]).find("input")[0];
     inputId.setAttribute('id', newIdTotal);
 }
@@ -391,4 +416,3 @@ function form2_setView() {
     document.getElementById("local_beyond_operations_total").readOnly = true;
     document.getElementById("total_operations_total").readOnly = true;
 }
-

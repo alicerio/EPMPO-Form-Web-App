@@ -6,7 +6,7 @@
             Requesting MPO Funds
         </label><br>
         <label>
-            <input type="number" name="yoe_cost_vehicles" id = "yoe_check_vehicles" autocomplete="off" value="{{ $project->yoe_cost_vehicles ?? '' }}" disabled>
+            <input type="text" name="yoe_cost_vehicles" id = "yoe_check_vehicles" autocomplete="off" value="{{ $project->yoe_cost_vehicles ?? '' }}" readonly>
             YOE Cost
         </label><br>
         <div class="card">
@@ -80,7 +80,7 @@
         </div>
         <br>
         <label>
-            <input type="number" id="yoe_check_bus" name="yoe_cost_bus" autocomplete="off" value="{{ $project->yoe_cost_bus ?? '' }}" disabled>
+            <input type="text" id="yoe_check_bus" name="yoe_cost_bus" autocomplete="off" value="{{ $project->yoe_cost_bus ?? '' }}" disabled>
             YOE Cost
         </label><br>
         <div class="card">
@@ -154,7 +154,7 @@
         </div>
         <br>
         <label>
-            <input type="number" id="yoe_check_operations" name="yoe_cost_operations" autocomplete="off" value="{{ $project->yoe_cost_operations ?? '' }}" disabled>
+            <input type="text" id="yoe_check_operations" name="yoe_cost_operations" autocomplete="off" value="{{ $project->yoe_cost_operations ?? '' }}" disabled>
             YOE Cost
         </label><br>
         <div class="card">
@@ -181,17 +181,17 @@
             <div class="card-body">
                 <div id="funding_operations">
                     <div class="form-row mb-1">
-                        <table id="fundingOperationsTable">
+                        <table id="fundingOperationsTable" onchange="funding_operations_table()">
                             <tr id="fotrow" class="fot1"> 
                                 <td><input type="text" name="funding_category_operations[]" class="form-control">
                                 </td>
-                                <td><input onchange="funding_operations_table()" id = "federal_operations" type="number" name="funding_federal_operations[]" class="form-control">
+                                <td><input onchange="addMoneySign(this.value, this.id)" id = "federal_operations" type="text" name="funding_federal_operations[]" class="form-control">
                                 </td>
-                                <td><input onchange="funding_operations_table()" id = "local_operations" type="number" name="funding_local_operations[]" class="form-control">
+                                <td><input onchange="addMoneySign(this.value, this.id)" id = "local_operations" type="text" name="funding_local_operations[]" class="form-control">
                                 </td>
-                                <td><input onchange="funding_operations_table()" id = "local_beyond_operations" type="number" name="funding_local_beyond_operations[]" class="form-control">
+                                <td><input onchange="addMoneySign(this.value, this.id)" id = "local_beyond_operations" type="text" name="funding_local_beyond_operations[]" class="form-control">
                                 </td>
-                                <td><input type="number" id="fot1_tot0" name="funding_total_operations[]" class="form-control"readonly>
+                                <td><input type="text" id="fot1_tot1" name="funding_total_operations[]" class="form-control"readonly>
                                 </td>
                             </tr>
                         </table>
@@ -202,13 +202,13 @@
                         <td>Total Funding By Share&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                         </td>              
-                        <td><input type="number" id="federal_operations_total" name="funding_federal_operations_total" class="form-control" value="{{ $project->funding_federal_operations_total ?? '' }}" disabled>
+                        <td><input type="text" id="federal_operations_total" name="funding_federal_operations_total" class="form-control" value="{{ $project->funding_federal_operations_total ?? '' }}" readonly>
                         </td>
-                        <td><input type="number" id="local_operations_total" name="funding_local_operations_total" class="form-control" value="{{ $project->funding_local_operations_total ?? '' }}" disabled >
+                        <td><input type="text" id="local_operations_total" name="funding_local_operations_total" class="form-control" value="{{ $project->funding_local_operations_total ?? '' }}" readonly >
                         </td>
-                        <td><input type="number" id="local_beyond_operations_total" name="funding_local_beyond_operations_total" class="form-control" value="{{ $project->funding_local_beyond_operations_total ?? '' }}" disabled>
+                        <td><input type="text" id="local_beyond_operations_total" name="funding_local_beyond_operations_total" class="form-control" value="{{ $project->funding_local_beyond_operations_total ?? '' }}" readonly>
                         </td>
-                        <td><input type="number" id="total_operations_total" name="funding_total_operations_total" class="form-control" value="{{ $project->funding_total_operations_total ?? '' }}" disabled>
+                        <td><input type="text" id="total_operations_total" name="funding_total_operations_total" class="form-control" value="{{ $project->funding_total_operations_total ?? '' }}" readonly>
                         </td>
                     </table>
                 </div>
