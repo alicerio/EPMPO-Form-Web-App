@@ -129,7 +129,6 @@ function toggleComment() {
 }
 
 function addMoneySign(element, id){
-    console.log(element + " " + id);
     if(element == ""){
         document.getElementById(id).value = "$0";
     }else if(element.charAt(0) == "$"){

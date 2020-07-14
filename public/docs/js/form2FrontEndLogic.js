@@ -79,13 +79,6 @@ function funding_vehicles_table() {
     local_beyond_sum = parseInt(local_beyond_sum);
     tdc_sum = parseInt(tdc_sum);
 
-    console.log("********");
-    console.log(federal_sum);
-    console.log(local_sum);
-    console.log(local_beyond_sum);
-    console.log(tdc_sum);
-    console.log(total_sum);
-
 
     // Send to front
     document.getElementById("federal_vehicles_total").value = "$" + commafy(federal_sum);
