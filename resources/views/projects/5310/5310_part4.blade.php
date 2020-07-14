@@ -49,9 +49,8 @@
             </div>
             <div class="col">
                 <div class="card" style="width: 22rem;">
-                    <div class="card-body">
+                    <div class="card-body" id="transit_only">
                         <h5 class="card-title text-center">**Transit Only</h5>
-
                         <label>Apportionment Year</label>
                         <input type="text" name="appointment_year" class="form-control" autocomplete="off" value="{{ $project->appointment_year ?? '' }}" disabled>
                         <label>TDC Award Amount</label>

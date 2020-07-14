@@ -1,12 +1,28 @@
 <!-- 
 We took advantage of the blade programming style.
 Depending what state or status you are in, the front end changes.
+
+select_Action is very special: 
+    - toggles states
+    - toggles required fields
 -->
 <div class="row col-12">
+    <script>
+        /* don't forget that when we import buttons_edit
+           a project JS variable already exists.
+           This is to help JS know current project
+        */
+       console.log(project);
+        let project_type = project.project_type; 
+
+    </script>
     @include('projects.buttons_shared')
+    <?php
+        
+    ?>
     @if($project->status !=3)
-    <select onchange="set_required_helper($('#'+this.id + ' option:selected').text()); changeButtonText('select_Action','button_text_changer');" id="select_Action" style='height:40px;margin-top:1%;' class="mx-1"
-        name="status" class="form-control"
+    <select id="select_Action" style='height:40px;margin-top:1%;' class="mx-1"
+        onchange="set_required_helper($('#'+this.id+ ' option:selected').text(),'{{$project->project_type}}' ); changeButtonText('select_Action','button_text_changer')" name="status" class="form-control"
         autocomplete="off">
         <option></option>
         <option value="{{ $project->status }}">Save Progress</option>
@@ -33,6 +49,14 @@ Depending what state or status you are in, the front end changes.
     <button class="btn btn-danger"
         onclick="return confirm('Are you sure you want to return this Approved form?');">Return for Revision</button>
     @endif
+
+
+
+    <button onclick="toggleComment()" class="btn btn-info" rows="5" id="toggleCommentsButton" type="button">Show Comments</button>
+    <textarea name="comments" id="commentS" style="display:none;" class="form-control" rows="5"
+        placeholder="Comments" readonly>{{$project->comments ?? '' }}</textarea>
+
+
 
 
 </div>

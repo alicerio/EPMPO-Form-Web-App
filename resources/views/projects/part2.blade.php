@@ -146,7 +146,7 @@
                 <option></option>
                 {{$temp = $project->district ?? ''}}
                 <option value="1" {{ $temp == 1 ? 'selected' : '' }}>TX Dist.24</option>
-                <option value="2" {{ $temp == 2 ? 'selected' : '' }}>NM Dist. 1</option>
+                <option value="2" {{ $temp == 2 ? 'selected' : '' }}>NM Dist.1</option>
                 <option value="3" {{ $temp == 3 ? 'selected' : '' }}>NM Dist.2</option>
                 </select>
         </div>
@@ -178,7 +178,7 @@
             <label>
                 Number of Miles: <i class="fa fa-asterisk" style="font-size:10px;color:red"></i>
             </label>
-            <input type="number" name="miles" class="form-control" autocomplete="off" value="{{ $project->miles  ?? ''}}" disabled>
+            <input type="text" name="miles" class="form-control" autocomplete="off" value="{{ $project->miles  ?? ''}}" disabled>
         </div>
         <div class="col">
             <label>

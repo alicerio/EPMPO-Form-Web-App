@@ -1,7 +1,29 @@
 <div id = "part4_inputs" class="card">
+    <p>If your project is within the next 10 years, information on the Project Readiness Elements below is required.</p>
     <h4><b>Project Readiness Elements:</b></h4>
-    <p>"Overall" Estimate of Preliminary Engineering (PE) Examples include: Project Initiation/Planning,
+    <p>"Overall" Estimate of Preliminary Engineering (PE). <br> Examples include: Project Initiation/Planning,
         Initial Design, Environmental Document, PS&E, etc.</p>
+        <div class="form-row mb-1">
+            <div class="col-sm-1">
+                <select disabled name="progress" class="form-control">
+                    <option></option>
+                    {{$temp = $project->progress ?? ''}}
+                    <option value="1" {{ $temp == 1 ? 'selected' : '' }}>0%</option>
+                    <option value="2" {{ $temp == 2 ? 'selected' : '' }}>30%</option>
+                    <option value="3" {{ $temp == 3 ? 'selected' : '' }}>60%</option>
+                    <option value="4" {{ $temp == 4 ? 'selected' : '' }}>90%</option>
+                    <option value="5" {{ $temp == 5 ? 'selected' : '' }}>100%</option>
+                </select>
+            </div>
+            <div class="col">
+                Progress
+                <i class="fa fa-asterisk" style="font-size:10px;color:red"></i>
+            </div>
+            <div class="col">
+                <label>Explain (if necessary)</label>
+                <input type="text" class="form-control" name="progress_explain" value="{{ $project->progress_explain ?? ''}}" disabled>
+            </div>
+        </div>
     <div class="card-header">
         <div class="form-row">
             <div class="col-sm-3">
@@ -906,33 +928,26 @@
                 {{--Reviewed Dates--}}
                 <div class="form-row mb-1">
                     <div class="col-sm-3">
-                        Have the above dates been reviewed by TXDOT or NMDOT
+                        <p>Have the above dates been reviewed by TXDOT or NMDOT? <i class="fa fa-asterisk" style="font-size:10px;color:red"></i></p>
+                        <label><input type="radio" name="reviewed_dates" value="1"
+                                {{ $project->reviewed_dates ?? '' == 1 ? 'checked' : '' }}> Yes</label autocomplete="off" disabled></label>
+                        <label><input type="radio" name="reviewed_dates" value="2"
+                                {{ $project->reviewed_dates ?? '' == 2 ? 'checked' : '' }}> No</label autocomplete="off" disabled></label>
+                        <label><input type="radio" name="reviewed_dates" value="3"
+                                {{ $project->reviewed_dates ?? '' == 3 ? 'checked' : '' }}> N/A</label autocomplete="off" disabled></label>
                     </div>
-                    <div class="col-sm-2">
-                        <label>
-                            <input disabled type="checkbox" name="reviewed_yes" autocomplete="off"
-                                value="{{ $project->reviewed_yes ?? '' }}">
-                            Yes
-                        </label><br>
-                    </div>
-                    <div class="col-sm-2">
-                        <label>
-                            <input disabled type="checkbox" name="reviewed_no" autocomplete="off"
-                                value="{{ $project->reviewed_no ?? ''}}">
-                            No
-                        </label><br>
-                    </div>
-                    <div class="col-sm-2">
-                        <label>
-                            <input disabled type="checkbox" name="reviewed_na" autocomplete="off"
-                                value="{{ $project->reviewed_na ?? ''}}">
-                            N/A
-                        </label><br>
-                    </div>
-                    <div class="col-sm-2">
+                    <div class="col-sm-3">
                         <label for="date_reviewed">Date Reviewed</label>
-                        <input type="date" name="date_reviewed" autocomplete="off" value="{{ $project->date_reviewed ?? ''}}"
+                        <input type="date" name="date_reviewed" class="form-control" autocomplete="off" value="{{ $project->date_reviewed ?? ''}}"
                             disabled>
+                    </div>
+                    <div class="col-sm-3">
+                        <label>Reviewed By</label>
+                        <input type="text" name="reviewed_by" class="form-control" autocomplete="off" value="{{ $project->reviewed_by ?? ''}}" disabled>
+                    </div>
+                    <div class="col-sm-3">
+                        <label>Agency</label>
+                        <input type="text" name="reviewed_agency" class="form-control" autocomplete="off" value="{{ $project->reviewed_agency ?? ''}}" disabled>
                     </div>
                 </div>
             </div>

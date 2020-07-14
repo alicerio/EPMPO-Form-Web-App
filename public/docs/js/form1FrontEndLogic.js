@@ -2,27 +2,39 @@ function yoe_table() {
     let sum = 0;
     let cs_sum = 0; //construction subtotal sum
     var inputValues = $('#Yoe_cost :input').map(function () { //iterates given div
-        let h = ""; //holder
+        let h = $(this).val(); //holder
         var type = $(this).prop("type");
-        h = parseInt($(this).val()); //convert text to int
+        let idH = $(this).attr("id"); // hold id
 
-        if ($(this).attr("id") == "yoe_cs_1" || $(this).attr("id") == "yoe_cs_2" ||
-            $(this).attr("id") == "yoe_cs_3" || $(this).attr("id") == "yoe_cs_4" ||
-            $(this).attr("id") == "yoe_cs_5") {
-            // console.log( $(this).attr("id"));
-            if (h >= 0) {
-                cs_sum += h;
-            }
+        //remove $ sign
+        if (h.charAt(0) == "$") {
+            h = h.substring(1);
         }
-        if (type != "button" && type != "submit") {
-            if (h >= 0) {
-                sum += h;
+
+        try {
+            h = parseInt(h.replace(/,/g, '')); // removes commas and parses to int
+            if (h != null && isNaN(h) != true && h >= 0 && idH.length > 0) { //check that value is valid
+                if (idH == "yoe_cs_1" || idH == "yoe_cs_2" ||
+                    idH == "yoe_cs_3" || idH == "yoe_cs_4" ||
+                    idH == "yoe_cs_5") {
+                    if (h >= 0) {
+                        cs_sum += h;              
+                    }
+                }
+                if (type != "button" && type != "submit") {
+                    if (h >= 0) {
+                        sum += h;
+                    }
+                }
             }
+        } catch {
+            //ignore
         }
+
     })
 
-    document.getElementById("tot_yoe").value = sum;
-    document.getElementById("yoe_cs_tot").value = cs_sum;
+    document.getElementById("tot_yoe").value = "$" + commafy(sum);
+    document.getElementById("yoe_cs_tot").value = "$" + commafy(cs_sum);
 }
 
 function project_funding_table() {
@@ -30,36 +42,63 @@ function project_funding_table() {
     let state_sum = 0;
     let local_sum = 0;
     let local_cont_sum = 0;
-
+    //iterate all inputs on given div
     var inputValues = $('#project_funding :input').map(function () {
-        let h = "";
-        h = parseInt($(this).val());
+        let h = ""; //holder
+        let idH = "";
+        h = $(this).val();
 
-        if ($(this).attr("id") == "federal") {
-            if (h >= 0) {
-                federal_sum += h;
-            }
-        } else if ($(this).attr("id") == "state") {
-            if (h >= 0) {
-                state_sum += h;
-            }
-        } else if ($(this).attr("id") == "local") {
-            if (h >= 0) {
-                local_sum += h;
-            }
-        } else if ($(this).attr("id") == "local_cont") {
-            if (h >= 0) {
-                local_cont_sum += h;
-            }
+        //remove $ sign
+        if (h.charAt(0) == "$") {
+            h = h.substring(1);
         }
-    })
+        /**
+         * We use substring to remove the numbers from the id
+         * We do this since the ids have the same start of name
+         * For example:
+         * fedaral, federal1, federal2 by using substring we get federal on the 3 ids
+         */
+        idH = $(this).attr("id"); // hold id
+        try {
+            h = parseInt(h.replace(/,/g, '')); // removes commas and parses to int
 
-    document.getElementById("federal_total").value = federal_sum;
-    document.getElementById("state_total").value = state_sum;
-    document.getElementById("local_total").value = local_sum;
-    document.getElementById("local_beyond_total").value = local_cont_sum;
-    document.getElementById("total_total").value = federal_sum + state_sum + local_sum + local_cont_sum;;
-    document.getElementById("yoe_check").value = federal_sum + state_sum + local_sum + local_cont_sum;
+            if (isNaN(h) == false && h >= 0 && idH.length >= 1) { //check that value is valid
+                h = parseInt(h);
+                if (idH.substring(0, 7) == "federal") {
+                    if (h >= 0) {
+                        federal_sum += h;
+                    }
+                } else if (idH.substring(0, 5) == "state") {
+                    if (h >= 0) {
+                        state_sum += h;
+                    }
+                } else if (idH.substring(0, 10) == "local_cont") { // this has to go before local, otherwise 'local' runs with 'local_cont' as well
+                    if (h >= 0) {
+                        local_cont_sum += h;
+                    }
+                } else if (idH.substring(0, 5) == "local") {
+                    if (h >= 0) {
+                        local_sum += h;
+                    }
+                }
+            }
+        } catch {
+            //skip
+        }
+
+    })
+    //asssists in addition of totals
+    federal_sum = parseInt(federal_sum);
+    state_sum = parseInt(state_sum);
+    local_sum = parseInt(local_sum);
+    local_cont_sum = parseInt(local_cont_sum);
+    //send to front end
+    document.getElementById("federal_total").value = "$" + commafy(federal_sum);
+    document.getElementById("state_total").value = "$" + commafy(state_sum);
+    document.getElementById("local_total").value = "$" + commafy(local_sum);
+    document.getElementById("local_beyond_total").value = "$" + commafy(local_cont_sum);
+    document.getElementById("total_total").value = "$" + commafy(parseInt(federal_sum + state_sum + local_sum + local_cont_sum));
+    document.getElementById("yoe_check").value = "$" + commafy(parseInt(federal_sum + state_sum + local_sum + local_cont_sum));
 
     rowSumMaster();
 }
@@ -83,25 +122,32 @@ function rowSum(idName, index) {
     //get sum by iterating given row
     var inputValues = $(toSearch).map(function () {
         let h = $(this).val();
-        if (parseInt($(this).val()) > 0 && $(this).attr("name") != "funding_total[]" && $(this).attr("name") != "funding_category[]") {
-            h = parseInt($(this).val());
-            console.log(h + " at " + $(this).attr("name"));
+        //remove $ sign
+        if (h.charAt(0) == "$") {
+            h = h.substring(1);
+        }
+        h = parseInt(h.replace(/,/g, '')); // removes commas and parses to int
+
+        if (h > 0 && $(this).attr("name") != "funding_total[]" && $(this).attr("name") != "funding_category[]" && isNaN(h) == false) {
             rowTot += h;
         }
     })
     //get id
-    if (index == 0) totId = 'pftpg1_tot0';
-    else {
+  //  if (index == 0){ 
+     //   totId = 'pftpg1_tot';
+   //     console.log(totId);
+  //  }
+  //  else {
         index++;
         totId = "pftpg1_tot" + index;
-    }
-    $("#" + totId).attr("value", rowTot);
+  //  }
+
+    $("#" + totId).attr("value", '$' + commafy(rowTot));
 }
 
 function deleteRow() {
     var table = document.getElementById("projectFundingTablePg1");
     table.deleteRow(table.rows.length - 1);
-    console.log(table.rows.length);
 }
 //dynamic name change and row addition
 function addRow() {
@@ -117,13 +163,19 @@ function addRow() {
 
     let newIdTotal = "pftpg1_tot" + table.rows.length;
     row.setAttribute('id', "pfrow" + table.rows.length);
+    let cell2Id = "federal" + table.rows.length;
+    let cell3Id = "state" + table.rows.length;
+    let cell4Id = "local" + table.rows.length;
+    let cell5Id = "local_cont" + table.rows.length;
+
+
 
     cell1.innerHTML = '<input type="text" name="funding_category[]" class="form-control">';
-    cell2.innerHTML = '<input onchange="project_funding_table()" id="federal" type="number" name="funding_federal[]" class="form-control">';
-    cell3.innerHTML = '<input onchange="project_funding_table()" id="state" type="number" name="funding_state[]" class="form-control">';
-    cell4.innerHTML = '<input onchange="project_funding_table()" id="local" type="number" name="funding_local[]" class="form-control">';
-    cell5.innerHTML = '<input onchange="project_funding_table()" id="local_cont" type="number" name="funding_local_beyond[]" class="form-control">';
-    cell6.innerHTML = '<input type="number" name="funding_total[]" class="form-control" readonly>';
+    cell2.innerHTML = '<input onchange="project_funding_table();addMoneySign(this.value, this.id)" id=' + cell2Id + ' type="text" name="funding_federal[]" class="form-control">';
+    cell3.innerHTML = '<input onchange="project_funding_table();addMoneySign(this.value, this.id)" id=' + cell3Id + ' type="text" name="funding_state[]" class="form-control">';
+    cell4.innerHTML = '<input onchange="project_funding_table();addMoneySign(this.value, this.id)" id=' + cell4Id + ' type="text" name="funding_local[]" class="form-control">';
+    cell5.innerHTML = '<input onchange="project_funding_table();addMoneySign(this.value, this.id)" id=' + cell5Id + ' type="text" name="funding_local_beyond[]" class="form-control">';
+    cell6.innerHTML = '<input type="text" name="funding_total[]" class="form-control" readonly>';
 
     let inputId = $(table.rows[table.rows.length - 1].cells[5]).find("input")[0];
     inputId.setAttribute('id', newIdTotal)
@@ -152,7 +204,7 @@ function form1_setView() {
     document.getElementById("local_total").readOnly = true;
     document.getElementById("local_beyond_total").readOnly = true;
     document.getElementById("total_total").readOnly = true;
-    document.getElementById("signed_textarea").readOnly = true;
+    //document.getElementById("signed_textarea").readOnly = true;
     document.getElementById("attachments_textarea").readOnly = true;
 }
 /** 

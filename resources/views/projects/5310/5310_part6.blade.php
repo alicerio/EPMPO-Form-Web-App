@@ -52,7 +52,7 @@
         {{--Attachments--}}
         <h3>Attachments (Include a map of your service area or other documents).</h3>
         <div class="form-group">
-            <textarea class="form-control" id="attachments_textarea" rows="5" disabled></textarea>
+            <textarea class="form-control" id="attachments_textarea" rows="5" readonly></textarea>
         </div>
         <div class="form-row">
             <p>Files Attached&nbsp;</p>
@@ -80,15 +80,12 @@
         @auth
             @if(auth()->user()->type == 1)
                 <div class="form-group">
-                    <textarea disabled class="form-control" id="signed_textarea" name = "signature" rows="2">
-                        {{ $project->signature ?? ''  }}
-                    </textarea>
+                    <input type="text" name="signature" class="form-control" value="{{ $project->signature ?? ''  }}" disabled>
+
                 </div>
             @else
                 <div class="form-group">
-                    <textarea class="form-control" id="signed_textarea" name = "signature" title="Only a submitter can sign this form." rows="2"  disabled>
-                        {{ $project->signature ?? ''  }}
-                    </textarea>
+                    <input type="text" name="signature" class="form-control" title="Only a Submitter can sign" value="{{ $project->signature ?? ''  }}" readonly>
                 </div>
             @endif                            
         @endauth

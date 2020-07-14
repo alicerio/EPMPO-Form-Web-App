@@ -5,7 +5,7 @@ function pavementCond(to_php) {
     let cond = "";
 
     $.get(php_handler, to_php, function (data) { // ajax call to populate pavement lines
-        console.log(data);
+       // console.log(data);
 
         for (index in data.shape_arr) { // iterates through every index in the returned element (data['shape_arr'])
             let shp = data.shape_arr[index][shape]; // shape is LINESTRING or MULTILINESTRING
@@ -82,7 +82,7 @@ function pavementCond(to_php) {
             polylines.push(line);
         }
 
-        console.log(pavementsData);
+       // console.log(pavementsData);
         document.getElementById("good_pavement").value = (pavementsData.good).toFixed(2);
         document.getElementById("fair_pavement").value = (pavementsData.fair).toFixed(2);
         document.getElementById("poor_pavement").value = (pavementsData.poor).toFixed(2);

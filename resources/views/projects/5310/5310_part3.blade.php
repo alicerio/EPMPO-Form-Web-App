@@ -1,56 +1,58 @@
 <div class="card">
     <div class="card-body">
-        <div class="form-row mb-1 justify-content-center">
-            <div class="col">
-                <h3><a href="https://www.fhwa.dot.gov/tpm/about/goals.cfm" target="_blank">National Goals</a></h3>
-                <label>
-                    <input type="checkbox" name="goal_1" onclick="toggleTA(this.name);" autocomplete="off"
-                        {{ $project->goal_1 ?? '' == true ? 'checked' : '' }} disabled>
-                    Safety
-                </label><br>
-                <textarea disabled name="description_goal_1" class="form-control"
-                    style="width: 22rem; {{ $project->goal_1 ?? '' == true ? '' : 'display: none;' }}"
-                    placeholder="How does this project meet this goal?">{{ $project->description_goal_1 ?? '' }}</textarea>
-                <label>
-                    <input type="checkbox" name="goal_2" onclick="toggleTA(this.name);" autocomplete="off"
-                        {{ $project->goal_2 ?? '' == true ? 'checked' : '' }} disabled>
-                    Infrastructure Condition
-                </label><br>
-                <textarea disabled name="description_goal_2" class="form-control"
-                    style="width: 22rem;{{ $project->goal_2 ?? '' == true ? '' : 'display: none;' }}"
-                    placeholder="How does this project meet this goal?">{{ $project->description_goal_2 ?? '' }}</textarea>
-                <label>
-                    <input type="checkbox" name="goal_3" onclick="toggleTA(this.name);" autocomplete="off"
-                        {{ $project->goal_3 ?? '' == true ? 'checked' : '' }} disabled>
-                    Congestion Reduction
-                </label><br>
-                <textarea disabled name="description_goal_3" class="form-control"
-                    style="width: 22rem;{{ $project->goal_3 ?? '' == true ? '' : 'display: none;' }}"
-                    placeholder="How does this project meet this goal?">{{ $project->description_goal_3 ?? '' }}</textarea>
-                <label>
-                    <input type="checkbox" name="goal_4" onclick="toggleTA(this.name);" autocomplete="off"
-                        {{ $project->goal_4 ?? '' == true ? 'checked' : '' }} disabled>
-                    System Reliability
-                </label><br>
-                <textarea disabled name="description_goal_4" class="form-control"
-                    style="width: 22rem;{{ $project->goal_4 ?? '' == true ? '' : 'display: none;' }}"
-                    placeholder="How does this project meet this goal?">{{ $project->description_goal_4 ?? '' }}</textarea>
-                <label>
-                    <input type="checkbox" name="goal_5" onclick="toggleTA(this.name);" autocomplete="off"
-                        {{ $project->goal_5  ?? ''== true ? 'checked' : '' }} disabled>
-                    Freight Movement and Economic Vitality
-                </label><br>
-                <textarea disabled name="description_goal_5" class="form-control"
-                    style="width: 22rem;{{ $project->goal_5 ?? '' == true ? '' : 'display: none;' }}"
-                    placeholder="How does this project meet this goal?">{{ $project->description_goal_5 ?? '' }}</textarea>
-                <label>
-                    <input type="checkbox" name="goal_6" onclick="toggleTA(this.name);" autocomplete="off"
-                        {{ $project->goal_6 ?? '' == true ? 'checked' : '' }} disabled>
-                    Environmental Sustainability
-                </label><br>
-                <textarea disabled name="description_goal_6" class="form-control"
-                    style="width: 22rem;{{ $project->goal_6 ?? '' == true ? '' : 'display: none;' }}"
-                    placeholder="How does this project meet this goal?">{{ $project->description_goal_6 ?? '' }}</textarea>
+        <div class="national_goals">
+                <div class="form-row mb-1 justify-content-center">
+                    <div class="col">
+                        <h3><a href="https://www.fhwa.dot.gov/tpm/about/goals.cfm" target="_blank">National Goals</a></h3>
+                        <label>
+                            <input type="checkbox" name="goal_1" onclick="toggleTA(this.name);" autocomplete="off"
+                                {{ $project->goal_1 ?? '' == true ? 'checked' : '' }} disabled>
+                            Safety
+                        </label><br>
+                        <textarea disabled name="description_goal_1" id="description_goal_1" class="form-control"
+                            style="width: 22rem; {{ $project->goal_1 ?? '' == true ? '' : 'display: none;' }}"
+                            placeholder="How does this project meet this goal?">{{ $project->description_goal_1 ?? '' }}</textarea>
+                        <label>
+                            <input type="checkbox" name="goal_2" onclick="toggleTA(this.name);" autocomplete="off"
+                                {{ $project->goal_2 ?? '' == true ? 'checked' : '' }} disabled>
+                            Infrastructure Condition
+                        </label><br>
+                        <textarea disabled name="description_goal_2" id="description_goal_2" class="form-control"
+                            style="width: 22rem;{{ $project->goal_2 ?? '' == true ? '' : 'display: none;' }}"
+                            placeholder="How does this project meet this goal?">{{ $project->description_goal_2 ?? '' }}</textarea>
+                        <label>
+                            <input type="checkbox" name="goal_3" onclick="toggleTA(this.name);" autocomplete="off"
+                                {{ $project->goal_3 ?? '' == true ? 'checked' : '' }} disabled>
+                            Congestion Reduction
+                        </label><br>
+                        <textarea disabled name="description_goal_3" id="description_goal_3" class="form-control"
+                            style="width: 22rem;{{ $project->goal_3 ?? '' == true ? '' : 'display: none;' }}"
+                            placeholder="How does this project meet this goal?">{{ $project->description_goal_3 ?? '' }}</textarea>
+                        <label>
+                            <input type="checkbox" name="goal_4" onclick="toggleTA(this.name);" autocomplete="off"
+                                {{ $project->goal_4 ?? '' == true ? 'checked' : '' }} disabled>
+                            System Reliability
+                        </label><br>
+                        <textarea disabled name="description_goal_4" id="description_goal_4" class="form-control"
+                            style="width: 22rem;{{ $project->goal_4 ?? '' == true ? '' : 'display: none;' }}"
+                            placeholder="How does this project meet this goal?">{{ $project->description_goal_4 ?? '' }}</textarea>
+                        <label>
+                            <input type="checkbox" name="goal_5" onclick="toggleTA(this.name);" autocomplete="off"
+                                {{ $project->goal_5  ?? ''== true ? 'checked' : '' }} disabled>
+                            Freight Movement and Economic Vitality
+                        </label><br>
+                        <textarea disabled name="description_goal_5" id="description_goal_5" class="form-control"
+                            style="width: 22rem;{{ $project->goal_5 ?? '' == true ? '' : 'display: none;' }}"
+                            placeholder="How does this project meet this goal?">{{ $project->description_goal_5 ?? '' }}</textarea>
+                        <label>
+                            <input type="checkbox" name="goal_6" onclick="toggleTA(this.name);" autocomplete="off"
+                                {{ $project->goal_6 ?? '' == true ? 'checked' : '' }} disabled>
+                            Environmental Sustainability
+                        </label><br>
+                        <textarea disabled name="description_goal_6" id="description_goal_6" class="form-control"
+                            style="width: 22rem;{{ $project->goal_6 ?? '' == true ? '' : 'display: none;' }}"
+                            placeholder="How does this project meet this goal?">{{ $project->description_goal_6 ?? '' }}</textarea>
+                </div>
             </div>
         </div>
         <div class="col">
@@ -111,8 +113,6 @@
                         <div class="col">
                             2. Is the project addressing congestion?
                             <br>
-                            If “yes”, please provide a quantitative analysis if existing for use in CMP.
-                            <br>
                             Instructions: Please provide analysis from corridor study or similar study that will show
                             the project will address congestion.
                             <i class="fa fa-asterisk" style="font-size:10px;color:red"></i>
@@ -127,6 +127,18 @@
                                 <option value="1" {{ $temp == 1 ? 'selected' : '' }}>Yes</option>
                                 <option value="2" {{ $temp == 2 ? 'selected' : '' }}>No</option>
                             </select>
+                            <div class="tip">
+                                <div>
+                                    <p>If “yes”, please provide a quantitative analysis if existing for use in CMP.</p>
+                                </div><svg style="color:blue" width="1em" height="1em" viewBox="0 0 16 16"
+                                    class="bi bi-question-circle" fill="currentColor"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd"
+                                        d="M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
+                                    <path
+                                        d="M5.25 6.033h1.32c0-.781.458-1.384 1.36-1.384.685 0 1.313.343 1.313 1.168 0 .635-.374.927-.965 1.371-.673.489-1.206 1.06-1.168 1.987l.007.463h1.307v-.355c0-.718.273-.927 1.01-1.486.609-.463 1.244-.977 1.244-2.056 0-1.511-1.276-2.241-2.673-2.241-1.326 0-2.786.647-2.754 2.533zm1.562 5.516c0 .533.425.927 1.01.927.609 0 1.028-.394 1.028-.927 0-.552-.42-.94-1.029-.94-.584 0-1.009.388-1.009.94z" />
+                                </svg>
+                            </div>
                         </div>
                     </div>
                     <div class="form-row mb-1">
@@ -170,7 +182,7 @@
                                 placeholder="If yes, identify the project name(s), state project identification number (CSJ number), and MPO ID.">{{ $project->description_strategy_4 ?? '' }}</textarea>
                         </div>
                         <div class="col-sm-2">
-                            <select disabled name="strategy_4" class="form-control" onchange="displayBox(this.name);">
+                            <select disabled name="strategy_4" id="strategy_4" class="form-control" onchange="displayBox(this.name);">
                                 <option></option>
                                 {{$temp = $project->strategy_4 ?? ''}}
                                 <option value="1" {{ $temp == 1 ? 'selected' : '' }}>Yes</option>
@@ -190,7 +202,7 @@
                                 style="width: 22rem;{{ $project->strategy_5 ?? '' == 1 ? '' : 'display: none;' }}">{{ $project->description_strategy_5 ?? '' }}</textarea>
                         </div>
                         <div class="col-sm-2">
-                            <select disabled name="strategy_5" class="form-control" onchange="displayBox(this.name);">
+                            <select disabled name="strategy_5" id="strategy_5" class="form-control" onchange="displayBox(this.name);">
                                 <option></option>
                                 {{$temp = $project->strategy_5 ?? ''}}
                                 <option value="1" {{ $temp == 1 ? 'selected' : '' }}>Yes</option>
@@ -209,7 +221,7 @@
                                 style="width: 22rem;{{ $project->strategy_6 ?? '' == 1 ? '' : 'display: none;' }}">{{ $project->description_strategy_6 ?? '' }}</textarea>
                         </div>
                         <div class="col-sm-2">
-                            <select disabled name="strategy_6" class="form-control" onchange="displayBox(this.name);">
+                            <select disabled name="strategy_6" id="strategy_6" class="form-control" onchange="displayBox(this.name);">
                                 <option></option>
                                 {{$temp = $project->strategy_6 ?? ''}}
                                 <option value="1" {{ $project->strategy_6 ?? '' == 1 ? 'selected' : '' }}>Yes</option>
@@ -239,14 +251,14 @@
                     </p>
                     <h6><a href="http://www.elpasompo.org/other/congestion_management_process_/default.htm"
                             target="_blank">Helpful link</a></h6>
-                    <textarea name="description_strategy_8" class="form-control"
+                    <textarea id="description_strategy_8" name="description_strategy_8" class="form-control"
                         style="width: 22rem;">{{ $project->description_strategy_8 ?? '' }}</textarea>
                     <p>9. What are the specific congestion reduction impacts of the implemented strategies?
                         <br>
                         Instructions: Based on the results of the congestion mitigation analysis, document the benefits
                         in terms of specific CMP performance measures when possible.
                     </p>
-                    <textarea name="description_strategy_9" class="form-control"
+                    <textarea id="description_strategy_9" name="description_strategy_9" class="form-control"
                         style="width: 22rem;">{{ $project->description_strategy_9 ?? '' }}</textarea>
                     <p>10. If not implementing a congestion mitigation strategy as part of the project, please explain
                         reason.
@@ -254,9 +266,11 @@
                         Instructions: Include an explanation that highlights the reason why no congestion mitigation
                         strategies are feasible or warranted as part of the project.
                     </p>
-                    <textarea name="description_strategy_10" class="form-control"
+                    <textarea id="description_strategy_10" name="description_strategy_10" class="form-control"
                         style="width: 22rem;">{{ $project->description_strategy_10 ?? '' }}</textarea>
             </div>
+            <hr>
+            <br>
             Projects will be examined at the corridor level to determine multimodal needs. Which best describes this
             projects. <i class="fa fa-asterisk" style="font-size:10px;color:red"></i>
             <a href="http://www.elpasompo.org/civicax/filebank/blobdload.aspx?BlobID=23409"
@@ -273,14 +287,29 @@
             <label><input type="radio" name="block_system" value="4"
                     {{ $project->block_system ?? '' == 4 ? 'checked' : '' }}> Region to region</label autocomplete="off"
                 disabled>
-        </div>
-        <hr>
-        Have the above dates been reviewed by TXDOT or NMDOT?
-        <i class="fa fa-asterisk" style="font-size:10px;color:red"></i>
-        <label><input type="radio" name="reviewed_dates" value="1"
-                {{ $project->reviewed_dates ?? '' == 1 ? 'checked' : '' }}> Yes</label autocomplete="off" disabled>
-        <label><input type="radio" name="reviewed_dates" value="2"
-                {{ $project->reviewed_dates ?? '' == 2 ? 'checked' : '' }}> No</label autocomplete="off" disabled>
-        <label><input type="radio" name="reviewed_dates" value="3"
-                {{ $project->reviewed_dates ?? '' == 3 ? 'checked' : '' }}> N/A</label autocomplete="off" disabled>
+            </div>
+            <div class="form-row mb-1">
+                <div class="col-sm-3">
+                    <p>Have the above dates been reviewed by TXDOT or NMDOT? <i class="fa fa-asterisk" style="font-size:10px;color:red"></i></p>
+                    <label><input type="radio" name="reviewed_dates" value="1"
+                            {{ $project->reviewed_dates ?? '' == 1 ? 'checked' : '' }}> Yes</label autocomplete="off" disabled></label>
+                    <label><input type="radio" name="reviewed_dates" value="2"
+                            {{ $project->reviewed_dates ?? '' == 2 ? 'checked' : '' }}> No</label autocomplete="off" disabled></label>
+                    <label><input type="radio" name="reviewed_dates" value="3"
+                            {{ $project->reviewed_dates ?? '' == 3 ? 'checked' : '' }}> N/A</label autocomplete="off" disabled></label>
+                </div>
+                <div class="col-sm-3">
+                    <label for="date_reviewed">Date Reviewed</label>
+                    <input type="date" name="date_reviewed" class="form-control" autocomplete="off" value="{{ $project->date_reviewed ?? ''}}"
+                        disabled>
+                </div>
+                <div class="col-sm-3">
+                    <label>Reviewed By</label>
+                    <input type="text" name="reviewed_by" class="form-control" autocomplete="off" value="{{ $project->reviewed_by ?? ''}}" disabled>
+                </div>
+                <div class="col-sm-3">
+                    <label>Agency</label>
+                    <input type="text" name="reviewed_agency" class="form-control" autocomplete="off" value="{{ $project->reviewed_agency ?? ''}}" disabled>
+                </div>
+            </div>
 </div>

@@ -7,6 +7,13 @@
     window.onload = function() {
         make_project_readonly();
         show_edit_ViewMap();
+      // Helps in hiding options
+      for(let i =1; i <7; i++){
+        displayBox("strategy_"+i);
+      }
+      for(let j = 1; j < 7; j++){
+            displayBox("psp_"+j);
+        }
     };
   
 </script>
@@ -53,12 +60,6 @@
         </div>
         <div id="buttonHolder"> 
             @include('projects.buttons_show')
-            @auth
-            @if(auth()->user()->type == 2)
-            <a href="{{ route('projects.comments', $project->id) }}">Comments</a>
-            <textarea name="comments" id="commentS" style="display:none;" class="form-control" rows="5" placeholder="Add Comments">{{$project->comments ?? '' }}</textarea>
-            @endif
-            @endauth
         </div>
     </form>
 </div>

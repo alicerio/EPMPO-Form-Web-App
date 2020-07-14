@@ -1,3 +1,6 @@
+<!--
+    This is shared between TASA and 5310
+-->
 <style>
     #show_anchor1,
     #select_Action {
@@ -22,7 +25,13 @@
     <!-- Check if user is ADMIN and if is a submission -->
     @if(auth()->user()->type == 2 && $project->status == 2)
     <button class="btn btn-primary mx-1" name="data" type="button" onclick="displayChanges(obj)">Log of changes</button>
+
+    <a style="margin-top:1%; margin-left:1%" href="{{ route('projects.comments', $project->id) }}"> Add Comments</a>
+
+    <button onclick="toggleComment()" class="btn btn-info" rows="5" id="toggleCommentsButton" type="button">Show
+        Comments</button>
+    <textarea name="comments" id="commentS" style="display:none;" class="form-control" rows="5" placeholder="Comments"
+        readonly>{{$project->comments ?? '' }}</textarea>
+
     @endif
-
-
 </div>
