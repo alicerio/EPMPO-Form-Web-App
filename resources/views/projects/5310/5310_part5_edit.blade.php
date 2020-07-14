@@ -218,13 +218,13 @@
                         <td>Total Funding By Share&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                         </td>              
-                        <td><input type="number" id="federal_operations_total" name="funding_federal_operations_total" class="form-control" value="{{ $project->funding_federal_operations_total ?? '' }}" disabled>
+                        <td><input type="text" id="federal_operations_total" name="funding_federal_operations_total" class="form-control" value="{{ $project->funding_federal_operations_total ?? '' }}" disabled>
                         </td>
-                        <td><input type="number" id="local_operations_total" name="funding_local_operations_total" class="form-control" value="{{ $project->funding_local_operations_total ?? '' }}" disabled >
+                        <td><input type="text" id="local_operations_total" name="funding_local_operations_total" class="form-control" value="{{ $project->funding_local_operations_total ?? '' }}" disabled >
                         </td>
-                        <td><input type="number" id="local_beyond_operations_total" name="funding_local_beyond_operations_total" class="form-control" value="{{ $project->funding_local_beyond_operations_total ?? '' }}" disabled>
+                        <td><input type="text" id="local_beyond_operations_total" name="funding_local_beyond_operations_total" class="form-control" value="{{ $project->funding_local_beyond_operations_total ?? '' }}" disabled>
                         </td>
-                        <td><input type="number" id="total_operations_total" name="funding_total_operations_total" class="form-control" value="{{ $project->funding_total_operations_total ?? '' }}" disabled>
+                        <td><input type="text" id="total_operations_total" name="funding_total_operations_total" class="form-control" value="{{ $project->funding_total_operations_total ?? '' }}" disabled>
                         </td>
                     </table>
                 </div>
