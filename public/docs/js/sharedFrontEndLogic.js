@@ -140,3 +140,9 @@ function commafy(num) {
     return str.join('.');
 }
 
+function clearMap() {
+    var result = confirm('Are you sure you want to clear the map data?');
+    if (result) {
+        clearMetadata();
+    }
+}
