@@ -414,8 +414,13 @@ function deleteRow_2() {
 
 function deleteRow_3() {
     var table = document.getElementById("fundingOperationsTable");
-    table.deleteRow(table.rows.length - 1);
-    console.log(table.rows.length);
+    //set value to $0 
+    if (table.rows.length == 1) { // this is needed due to naming
+        setRowToZero('fotrow',3);
+    } else {
+        setRowToZero('fotrow' + table.rows.length, 3);
+    }
+   table.deleteRow(table.rows.length - 1);
 }
 
 function form2_setView() {

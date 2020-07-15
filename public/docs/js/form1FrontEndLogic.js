@@ -147,6 +147,7 @@ function rowSum(idName, index) {
 
 function deleteRow() {
     var table = document.getElementById("projectFundingTablePg1");
+    setRowToZero('pfrow' + table.rows.length, 1.1);
     table.deleteRow(table.rows.length - 1);
 }
 //dynamic name change and row addition

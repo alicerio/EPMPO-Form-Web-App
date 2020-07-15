@@ -168,10 +168,14 @@ function setRowToZero(idRow, rowMethod) {
         // we do a try to prevent crash from NaN or undefined variables
         try {
             $("#" + id).val('$0');
-            if (rowMethod == 1) {
+            if (rowMethod == 1.1) {
+                project_funding_table(); //force table to refresh
+            }else if (rowMethod == 1) {
                 funding_vehicles_table(); //force table to refresh
             } else if (rowMethod == 2) {
                 funding_bus_table(); //force table to refresh
+            }else if(rowMethod == 3){
+                funding_operations_table();
             }
 
         } catch {
