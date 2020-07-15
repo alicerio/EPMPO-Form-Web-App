@@ -437,13 +437,13 @@
                         <input type="text" name="appointment_year" class="form-control" autocomplete="off"
                             value="{{ $project->appointment_year ?? '' }}" disabled>
                         <label>TDC Award Amount</label>
-                        <input type="text" name="tdc_award_amount" class="form-control" autocomplete="off"
+                        <input onchange="addMoneySign(this.value,this.id)" id="tdc" type="text" name="tdc_award_amount" class="form-control" autocomplete="off"
                             value="{{ $project->tdc_award_amount ?? '' }}" disabled>
                         <label>TDC Award Date</label>
                         <input type="text" name="tdw_award_date" class="form-control" autocomplete="off"
                             value="{{ $project->tdw_award_date ?? '' }}" disabled>
                         <label>TDC Amount Requested</label>
-                        <input type="text" name="tdc_amount_requested" class="form-control" autocomplete="off"
+                        <input onchange="addMoneySign(this.value, this.id)" id="tdca" type="text" name="tdc_amount_requested" class="form-control" autocomplete="off"
                             value="{{ $project->tdc_amount_requested ?? '' }}" disabled><br>
 
                         <h5>Project Type:</h5>

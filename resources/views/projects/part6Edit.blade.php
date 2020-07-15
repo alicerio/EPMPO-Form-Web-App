@@ -44,7 +44,7 @@
                         @if ($project->funding_federal ?? '' != null)
                         @foreach($project->funding_federal ?? '' as $index => $categories)
                         <tr id='pfrow' class="pftpg1">
-                            <td><input onchange="addMoneySign(this.value, this.id)" type="text" name="funding_category[]" class="form-control"
+                            <td><input onchange="addMoneySign(this.value, this.id)" type="text" name="funding_category[]" size="32" class="form-control"
                                     value="{{$project->funding_category[$index]}}"></td>
                             <td><input id="federal" onchange="addMoneySign(this.value, this.id)" type="text" name="funding_federal[]" class="form-control"
                                     value="{{$project->funding_federal[$index]}}"></td>
@@ -54,7 +54,7 @@
                                     value="{{$project->funding_local[$index]}}"></td>
                             <td><input id="local_cont" onchange="addMoneySign(this.value, this.id)" type="text" name="funding_local_beyond[]" class="form-control"
                                     value="{{$project->funding_local_beyond[$index]}}"></td>
-                            <td><input onchange="addMoneySign(this.value, this.id)" type="text" name="funding_total[]" id="pftpg1_tot1" class="form-control"
+                            <td><input onchange="addMoneySign(this.value, this.id)" type="text" name="funding_total[]" size="8" id="pftpg1_tot1" class="form-control"
                                     value="{{$project->funding_total[$index]}}" readonly>
                             </td>
                         </tr>
