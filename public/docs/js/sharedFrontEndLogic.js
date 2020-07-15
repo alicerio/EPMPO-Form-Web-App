@@ -157,7 +157,9 @@ function clearMap() {
     }
 }
 
-
+/**
+ * Resets dynamic table values to zero when deleted
+ */
 function setRowToZero(idRow, rowMethod) {
     // loop the row
     var iterateRow = $("#" + idRow + " :input").map(function () {

@@ -397,7 +397,7 @@ function deleteRow_1() {
 
     // remove table 
     table.deleteRow(table.rows.length - 1);
-;
+
 }
 
 function deleteRow_2() {
