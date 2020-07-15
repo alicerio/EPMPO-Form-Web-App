@@ -378,7 +378,7 @@ function addRow_3() {
     let cell2Id = "federal_operations" + table.rows.length;
     let cell3Id = "local_operations" + table.rows.length;
     let cell4Id = "local_beyond_operations" + table.rows.length;
-    
+
     cell1.innerHTML = '<input type="text" name="funding_category_operations[]" size="44" class="form-control">'
     cell2.innerHTML = '<input onchange="funding_operations_table(); addMoneySign(this.value, this.id)" id=' + cell2Id + ' type="text" name="funding_federal_operations[]" class="form-control">'
     cell3.innerHTML = '<input onchange="funding_operations_table(); addMoneySign(this.value, this.id)" id=' + cell3Id + ' type="text" name="funding_local_operations[]" class="form-control">'
@@ -391,14 +391,25 @@ function addRow_3() {
 
 function deleteRow_1() {
     var table = document.getElementById("fundingVehiclesTable");
+
+    //set value to $0 
+    setRowToZero('fvtrow' + table.rows.length, 1);
+
+    // remove table 
     table.deleteRow(table.rows.length - 1);
-    console.log(table.rows.length);
+;
 }
 
 function deleteRow_2() {
     var table = document.getElementById("fundingBusTable");
+    //set value to $0
+    if (table.rows.length == 1) { // this is needed due to naming
+        setRowToZero('fbtrow');
+    } else {
+        setRowToZero('fbtrow' + table.rows.length,2);
+    }
+    // remove table 
     table.deleteRow(table.rows.length - 1);
-    console.log(table.rows.length);
 }
 
 function deleteRow_3() {

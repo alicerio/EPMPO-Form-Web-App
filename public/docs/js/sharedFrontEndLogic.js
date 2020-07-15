@@ -128,13 +128,13 @@ function toggleComment() {
     $("#commentS").toggle('slow', function () {});
 }
 
-function addMoneySign(element, id){
-    if(element == ""){
+function addMoneySign(element, id) {
+    if (element == "") {
         document.getElementById(id).value = "$0";
-    }else if(element.charAt(0) == "$"){
+    } else if (element.charAt(0) == "$") {
         // do nothing 
-    }else{
-        document.getElementById(id).value = "$"+commafy(element);
+    } else {
+        document.getElementById(id).value = "$" + commafy(element);
     }
 }
 
@@ -155,4 +155,25 @@ function clearMap() {
     if (result) {
         clearMetadata();
     }
+}
+
+
+function setRowToZero(idRow, rowMethod) {
+    // loop the row
+    var iterateRow = $("#" + idRow + " :input").map(function () {
+        let h = $(this).val();
+        let id = $(this).attr("id");
+        // we do a try to prevent crash from NaN or undefined variables
+        try {
+            $("#" + id).val('$0');
+            if (rowMethod == 1) {
+                funding_vehicles_table(); //force table to refresh
+            } else if (rowMethod == 2) {
+                funding_bus_table(); //force table to refresh
+            }
+
+        } catch {
+            console.log(h + " this fail");
+        }
+    })
 }
