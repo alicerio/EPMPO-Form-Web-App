@@ -32,7 +32,7 @@
 
     <label>
         <input id = "transit_funds_request" type="checkbox" name="transit_funds_request" autocomplete="off" {{ $project->transit_funds_request ?? '' == true ? 'checked' : '' }} disabled>
-        Requesting Transit funds for his project/program (FTA, State and/or Local Funds) 
+        Requesting Transit funds for this project/program (FTA, State and/or Local Funds) 
     </label>
     <br>
     <div class="form-row">
