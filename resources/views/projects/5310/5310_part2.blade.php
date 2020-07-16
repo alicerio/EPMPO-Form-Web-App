@@ -29,7 +29,7 @@
                     </select>
                 </div>
                 <div class="col">
-                    Is this project from an updated comprehensive plan, thoroughfare plan, feasibility or corridor study? 
+                    Is this project from an updated comprehensive plan, thoroughfare plan, resilience plan, feasibility or corridor study? 
                     If yes, please provide link or attachment.
                     <i class="fa fa-asterisk" style="font-size:10px;color:red"></i>
                     <textarea id="description_psp_2" name="description_psp_2" class="form-control"
@@ -59,7 +59,7 @@
                     </select>
                 </div>
                 <div class="col">
-                    Is this project part of TPB resolution for a Comprehensive Mobility Plan (CMP)?
+                    Is this project part of TPB approved Regional Mobility Strategy (RMS) 2020?
                     <i class="fa fa-asterisk" style="font-size:10px;color:red"></i>
                     <textarea id="description_psp_4" name="description_psp_4" class="form-control"
                     style="width: 30rem;{{ $project->psp_4 ?? '' == 1 ? '' : 'display: none;' }}"

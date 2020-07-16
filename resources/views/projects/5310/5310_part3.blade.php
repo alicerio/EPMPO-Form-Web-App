@@ -57,7 +57,7 @@
         </div>
         <div class="col">
             <div class="required_cmp">
-                <h3>Congestion Management Process Strategies</h3>
+                <h3>Congestion Management Process</h3>
                     <h6><a href="http://www.elpasompo.org/civicax/filebank/blobdload.aspx?BlobID=23375"
                             target="_blank">Helpful Link</a></h6>
                     <div class="form-row mb-1">
@@ -257,6 +257,10 @@
                         <br>
                         Instructions: Based on the results of the congestion mitigation analysis, document the benefits
                         in terms of specific CMP performance measures when possible.
+                        <br>
+                        To aid in responding question # 9 if there is no existing congestion mitigation analysis.
+                        Complete the following qualitative criteria for the strategy type(s) encompassed by the project/program:
+                        <a href="/MPO_Projects/EPMPO_Form/public/documents/Revised_CMP_Qualitative.pdf" target="_blank">Helpful Link</a>
                     </p>
                     <textarea id="description_strategy_9" name="description_strategy_9" class="form-control"
                         style="width: 22rem;">{{ $project->description_strategy_9 ?? '' }}</textarea>
