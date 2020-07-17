@@ -281,14 +281,12 @@ class ProjectController extends Controller
         $project->costs_4 = request('costs_4') == '----' ? null : request('costs_4');
         $project->mpo_funds = request('mpo_funds') == 'on' ? 1 : null;
         $project->yoe_cost = request('yoe_cost');
-        
         $project->funding_category = request('funding_category');
         $project->funding_federal = request('funding_federal');
         $project->funding_state = request('funding_state');
         $project->funding_local = request('funding_local');
         $project->funding_local_beyond = request('funding_local_beyond');
         $project->funding_total = request('funding_total');
-
         $project->funding_federal_result = request('funding_federal_result');
         $project->funding_state_result = request('funding_state_result');
         $project->funding_local_result = request('funding_local_result');
@@ -296,20 +294,17 @@ class ProjectController extends Controller
         $project->funding_total_result = request('funding_total_result');
         $project->mpo_funds_2 = request('mpo_funds_2') == 'on' ? 1 : null;
         $project->yoe_cost_vehicles = request('yoe_cost_vehicles');
-
         $project->funding_category_vehicles = request('funding_category_vehicles');
         $project->funding_federal_vehicles = request('funding_federal_vehicles');
         $project->funding_local_vehicles = request('funding_local_vehicles');
         $project->funding_local_beyond_vehicles = request('funding_local_beyond_vehicles');
         $project->funding_total_vehicles = request('funding_total_vehicles');
         $project->funding_tdc_vehicles = request('funding_tdc_vehicles');
-
         $project->funding_federal_vehicles_total = request('funding_federal_vehicles_total');
         $project->funding_local_vehicles_total = request('funding_local_vehicles_total');
         $project->funding_local_beyond_vehicles_total = request('funding_local_beyond_vehicles_total');
         $project->funding_total_vehicles_total = request('funding_total_vehicles_total');
         $project->funding_tdc_vehicles_total = request('funding_tdc_vehicles_total');
-
         $project->yoe_cost_bus = request('yoe_cost_bus');
         $project->funding_category_bus = request('funding_category_bus');
         $project->funding_federal_bus = request('funding_federal_bus');
@@ -317,13 +312,11 @@ class ProjectController extends Controller
         $project->funding_local_beyond_bus = request('funding_local_beyond_bus');
         $project->funding_total_bus = request('funding_total_bus');
         $project->funding_tdc_bus = request('funding_tdc_bus');
-
         $project->funding_federal_bus_total = request('funding_federal_bus_total');
         $project->funding_local_bus_total = request('funding_local_bus_total');
         $project->funding_local_beyond_bus_total = request('funding_local_beyond_bus_total');
         $project->funding_total_bus_total = request('funding_total_bus_total');
         $project->funding_tdc_bus_total = request('funding_tdc_bus_total');
-
         $project->yoe_cost_operations = request('yoe_cost_operations');
         $project->funding_category_operations = request('funding_category_operations');
         $project->funding_federal_operations = request('funding_federal_operations');
@@ -334,7 +327,6 @@ class ProjectController extends Controller
         $project->funding_local_operations_total = request('funding_local_operations_total');
         $project->funding_local_beyond_operations_total = request('funding_local_beyond_operations_total');
         $project->funding_total_operations_total = request('funding_total_operations_total');
-
         $project->local_pm_name = request('local_pm_name');
         $project->local_pm_phone = request('local_pm_phone');
         $project->local_pm_email = request('local_pm_email');
@@ -358,7 +350,6 @@ class ProjectController extends Controller
         $project->contact_title = request('contact_title');
         $project->signature = request('signature');
         $project->comments = request('comments');
-
         $project->pavement_good_condition = request('pavement_good_condition');
         $project->pavement_fair_condition = request('pavement_fair_condition');
         $project->pavement_poor_condition = request('pavement_poor_condition');
@@ -376,17 +367,12 @@ class ProjectController extends Controller
         $project->good_area = request('good_area');
         $project->fair_area = request('fair_area');
         $project->poor_area = request('poor_area');
-
         $project->points = request('points');
 
         $project->save();
 
-        /*if ($project->project_type == "TASA") {
-            return view('projects.edit', compact('project'));
-        } else {
-            return view('projects/5310.edit2', compact('project'));
-        }*/
-        return redirect(route('projects.index', compact('project')));
+        $id = $project->id;
+        return redirect(route('projects.revisions', compact('id')));
     }
     /*
         Here we are filtering all the projects on the database
@@ -471,7 +457,6 @@ class ProjectController extends Controller
         } else {
             return view('projects/5310.show2', compact('project', 'logOfChanges', 'infoCurrentProject'));
         }
-        //return redirect(route('projects.index'));
     }
 
     /*
@@ -534,7 +519,6 @@ class ProjectController extends Controller
         } else {
             return view('projects/5310.edit2', compact('project'));
         }
-        //return redirect(route('projects.index'));
     }
 
     /**
@@ -553,8 +537,9 @@ class ProjectController extends Controller
             $newProject->parent_id = ($project->parent_id != null) ? $project->parent_id : $project->id;
             $newProject->author = auth()->user()->name;
             $newProject->save();
-            return redirect(route('projects.index'));
-            //return redirect(route('projects.revisions', compact('newid')));
+
+            $id = $newProject->parent_id;
+            return redirect(route('projects.revisions', compact('id')));
         }
 
 
@@ -777,14 +762,12 @@ class ProjectController extends Controller
         $project->costs_4 = request('costs_4') == '----' ? null : request('costs_4');
         $project->mpo_funds = request('mpo_funds') == 'on' ? 1 : null;
         $project->yoe_cost = request('yoe_cost');
-        
         $project->funding_category = request('funding_category');
         $project->funding_federal = request('funding_federal');
         $project->funding_state = request('funding_state');
         $project->funding_local = request('funding_local');
         $project->funding_local_beyond = request('funding_local_beyond');
         $project->funding_total = request('funding_total');
-
         $project->funding_federal_result = request('funding_federal_result');
         $project->funding_state_result = request('funding_state_result');
         $project->funding_local_result = request('funding_local_result');
@@ -792,20 +775,17 @@ class ProjectController extends Controller
         $project->funding_total_result = request('funding_total_result');
         $project->mpo_funds_2 = request('mpo_funds_2') == 'on' ? 1 : null;
         $project->yoe_cost_vehicles = request('yoe_cost_vehicles');
-
         $project->funding_category_vehicles = request('funding_category_vehicles');
         $project->funding_federal_vehicles = request('funding_federal_vehicles');
         $project->funding_local_vehicles = request('funding_local_vehicles');
         $project->funding_local_beyond_vehicles = request('funding_local_beyond_vehicles');
         $project->funding_total_vehicles = request('funding_total_vehicles');
         $project->funding_tdc_vehicles = request('funding_tdc_vehicles');
-
         $project->funding_federal_vehicles_total = request('funding_federal_vehicles_total');
         $project->funding_local_vehicles_total = request('funding_local_vehicles_total');
         $project->funding_local_beyond_vehicles_total = request('funding_local_beyond_vehicles_total');
         $project->funding_total_vehicles_total = request('funding_total_vehicles_total');
         $project->funding_tdc_vehicles_total = request('funding_tdc_vehicles_total');
-
         $project->yoe_cost_bus = request('yoe_cost_bus');
         $project->funding_category_bus = request('funding_category_bus');
         $project->funding_federal_bus = request('funding_federal_bus');
@@ -813,13 +793,11 @@ class ProjectController extends Controller
         $project->funding_local_beyond_bus = request('funding_local_beyond_bus');
         $project->funding_total_bus = request('funding_total_bus');
         $project->funding_tdc_bus = request('funding_tdc_bus');
-
         $project->funding_federal_bus_total = request('funding_federal_bus_total');
         $project->funding_local_bus_total = request('funding_local_bus_total');
         $project->funding_local_beyond_bus_total = request('funding_local_beyond_bus_total');
         $project->funding_total_bus_total = request('funding_total_bus_total');
         $project->funding_tdc_bus_total = request('funding_tdc_bus_total');
-
         $project->yoe_cost_operations = request('yoe_cost_operations');
         $project->funding_category_operations = request('funding_category_operations');
         $project->funding_federal_operations = request('funding_federal_operations');
@@ -830,7 +808,6 @@ class ProjectController extends Controller
         $project->funding_local_operations_total = request('funding_local_operations_total');
         $project->funding_local_beyond_operations_total = request('funding_local_beyond_operations_total');
         $project->funding_total_operations_total = request('funding_total_operations_total');
-
         $project->local_pm_name = request('local_pm_name');
         $project->local_pm_phone = request('local_pm_phone');
         $project->local_pm_email = request('local_pm_email');
@@ -854,7 +831,6 @@ class ProjectController extends Controller
         $project->contact_title = request('contact_title');
         $project->signature = request('signature');
         $project->comments = request('comments');
-
         $project->pavement_good_condition = request('pavement_good_condition');
         $project->pavement_fair_condition = request('pavement_fair_condition');
         $project->pavement_poor_condition = request('pavement_poor_condition');
@@ -872,7 +848,6 @@ class ProjectController extends Controller
         $project->good_area = request('good_area');
         $project->fair_area = request('fair_area');
         $project->poor_area = request('poor_area');
-
         $project->points = request('points');
 
         if ($project->status != request('status')) {
@@ -884,12 +859,8 @@ class ProjectController extends Controller
             $project->save();
         }
 
-        /*if ($project->project_type == "TASA") {
-            return view('projects.edit', compact('project'));
-        } else {
-            return view('projects/5310.edit2', compact('project'));
-        }*/
-        return redirect(route('projects.index', compact('project')));
+        $id = $project->parent_id;
+        return redirect(route('projects.revisions', compact('id')));
     }
 
     /**
@@ -904,32 +875,21 @@ class ProjectController extends Controller
         $project::where('parent_id',$project->id)->delete();
         return redirect(route('projects.index'));
     }
-
-    /*
+    
     public function destroyNonSubmissions(Project $project)
     {
-        $project::where('name',$project->name && 'status' != 2)->delete();
-        return redirect(route('projects.index'));
-    }*/
-
-    /**
-     * Update the specified resource MPO ID in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Project  $project
-     * @return \Illuminate\Http\Response
-     */
-    /*
-    public function updateMPO(Request $request, Project $project)
-    {
-        $project->mpo_id = request('mpo_id');
-        $project->csj_cn = request('csj_cn');
-        $project->name = request('name');
-        $project->save();
-
+        $project::where('parent_id',$project->id)->where('status','=',1)->delete();
+        $project::where('parent_id',$project->id)->where('status','=',4)->delete();
         return redirect(route('projects.index'));
     }
-    */
+
+    public function leaveApproved(Project $project)
+    {
+        $project::where('parent_id',$project->id)->where('status','=',1)->delete();
+        $project::where('parent_id',$project->id)->where('status','=',4)->delete();
+        $project::where('parent_id',$project->id)->where('status','=',2)->delete();
+        return redirect(route('projects.index'));
+    }
 
     public function editInfo(Request $request, Project $project)
     {
@@ -944,22 +904,6 @@ class ProjectController extends Controller
     {
         $project->comments = request('comments');
         $project->save();
-
         return view('projects.comments',compact('project'));
     }
-
-    /*
-    public function show_Comment(Request $request, Project $project) {
-        $project->comments_1 = request('comments_1');
-        $project->comments_2 = request('comments_2');
-        $project->comments_3 = request('comments_3');
-        $project->comments_4 = request('comments_4');
-        $project->comments_5 = request('comments_5');
-        $project->comments_6 = request('comments_6');
-
-        $project->save();
-
-        return view('projects.show_Comment',compact('project'));
-    }
-    */
 }

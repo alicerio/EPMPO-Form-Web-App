@@ -75,11 +75,27 @@
                                             ID</a>
                                         @endif
                                         <form action="{{ route('projects.destroy', $project->id) }}" method="POST"
-                                            onclick="return confirm('Delete Project?')">
+                                            onclick="return confirm('Are you sure you want to continue with the deletion?')">
                                             @csrf
                                             @method('delete')
                                             <button class="dropdown-item" type="submit" )>
-                                                Delete
+                                                Delete All
+                                            </button>
+                                        </form>
+                                        <form action="{{ route('projects.destroyNonSubmissions', $project->id) }}" method="POST"
+                                            onclick="return confirm('Are you sure you want to continue with the deletion?')">
+                                            @csrf
+                                            @method('delete')
+                                            <button class="dropdown-item" type="submit" )>
+                                                Delete Non Submissions
+                                            </button>
+                                        </form>
+                                        <form action="{{ route('projects.leaveApproved', $project->id) }}" method="POST"
+                                            onclick="return confirm('Are you sure you want to continue with the deletion?')">
+                                            @csrf
+                                            @method('delete')
+                                            <button class="dropdown-item" type="submit" )>
+                                                Delete All and Leave Approved
                                             </button>
                                         </form>
                                     </div>

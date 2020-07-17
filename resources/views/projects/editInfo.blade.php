@@ -17,7 +17,7 @@
                                 CSJ:
                             </label>
                             <input type="text" name="csj_cn" class="form-control" value="{{ $project->csj_cn ?? '' }}">
-                            <button class="btn btn-primary mt-1 float-right">Update</button>
+                            <button class="btn btn-primary mt-1 float-right" type="submit" onclick="showMessage()">Update</button>
                         </div>
                     </div>
                 </div>
@@ -26,3 +26,9 @@
     </form>
 </div>
 @endsection
+
+<script type="text/javascript">
+    function showMessage(){
+        alert("You have successfully updated the fields.");
+    }
+</script>
