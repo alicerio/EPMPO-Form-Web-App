@@ -44,7 +44,7 @@
                 <div class="col">
                     How does this project address congestion, mobility, accessibility, and reliability of NHS?
                     <i class="fa fa-asterisk" style="font-size:10px;color:red"></i>
-                    <textarea name="description_psp_3" class="form-control" style="width: 30rem;"
+                    <textarea id="description_psp_3" name="description_psp_3" class="form-control" style="width: 30rem;"
                     placeholder="Explain.">{{ $project->description_psp_3 ?? '' }}</textarea>
                 </div>
             </div>
