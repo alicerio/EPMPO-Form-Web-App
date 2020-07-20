@@ -16,7 +16,7 @@ Route::get('/', 'HomeController@index')->name('home');
 
 Route::resource('/users', 'UserController');
 
-Route::get('projects/revisions/{project}', 'ProjectController@revisions')->name('projects.revisions');
+Route::get('projects/revisions/{id}', 'ProjectController@revisions')->name('projects.revisions');
 
 Route::patch('projects/updateMPO/{project}', 'ProjectController@updateMPO')->name('projects.updateMPO');
 Route::resource('/projects', 'ProjectController');
@@ -57,9 +57,10 @@ Route::get('projects/editInfo/{project}', 'ProjectController@editInfo')->name('p
 
 Route::get('users/editPassword/{user}', 'UserController@editPassword')->name('users.editPassword');
 
-//Route::get('projects/comments/{project}', 'ProjectController@show_Comment')->name('projects.project_comments');
+Route::delete('projects/destroyNonSubmissions/{project}', 'ProjectController@destroyNonSubmissions')->name('projects.destroyNonSubmissions');
 
-//Route::delete('projects/destroyNonSubmissions/{project}', 'ProjectController@destroyNonSubmissions')->name('projects.destroyNonSubmissions');
+Route::delete('projects/leaveApproved/{project}', 'ProjectController@leaveApproved')->name('projects.leaveApproved');
+
 
 // For demo purposes
 Route::get('/map', function(){

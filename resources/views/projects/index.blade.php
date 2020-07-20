@@ -32,7 +32,7 @@
                     <tr>
                         <th scope="col">Project</th>
                         <th scope="col">Agency</th>
-                        <th scope="col">Creator</th>
+                        <th scope="col">Last Updated By</th>
                         <th scope="col">Status</th>
                         <th scope="col">Project Type</th>
                         <th scole="col">editor</th>
@@ -71,15 +71,31 @@
                                             href="{{ route('projects.edit', $project->id) }}">Edit</a> -->
                                         @if(auth()->user()->type == 2)
                                         <a class="dropdown-item"
-                                            href="{{ route('projects.editInfo', $project->id) }}">Update MPO
+                                            href="{{ route('projects.editInfo', $project->id) }}" method="POST">Update MPO
                                             ID</a>
                                         @endif
                                         <form action="{{ route('projects.destroy', $project->id) }}" method="POST"
-                                            onclick="return confirm('Delete Project?')">
+                                            onclick="return confirm('Are you sure you want to continue with the deletion?')">
                                             @csrf
                                             @method('delete')
                                             <button class="dropdown-item" type="submit" )>
-                                                Delete
+                                                Delete All
+                                            </button>
+                                        </form>
+                                        <form action="{{ route('projects.destroyNonSubmissions', $project->id) }}" method="POST"
+                                            onclick="return confirm('Are you sure you want to continue with the deletion?')">
+                                            @csrf
+                                            @method('delete')
+                                            <button class="dropdown-item" type="submit" )>
+                                                Delete Non Submissions
+                                            </button>
+                                        </form>
+                                        <form action="{{ route('projects.leaveApproved', $project->id) }}" method="POST"
+                                            onclick="return confirm('Are you sure you want to continue with the deletion?')">
+                                            @csrf
+                                            @method('delete')
+                                            <button class="dropdown-item" type="submit" )>
+                                                Delete All and Leave Approved
                                             </button>
                                         </form>
                                     </div>

@@ -31,9 +31,8 @@
             </select>
         </div>
         <div class="col">
-            Is this project from an updated comprehensive plan, thoroughfare plan, feasibility or corridor
-            study? If yes, please provide link or attachment: Excerpt from corridor plan attached (too large to
-            attach whole document) <i class="fa fa-asterisk" style="font-size:10px;color:red"></i>
+            Is this project from an updated comprehensive plan, thoroughfare plan, resilience plan, feasibility or corridor study? 
+            If yes, please provide link or attachment. <i class="fa fa-asterisk" style="font-size:10px;color:red"></i>
             <textarea id="description_psp_2" name="description_psp_2" class="form-control"
                     style="width: 30rem;{{ $project->psp_2 ?? '' == 1 ? '' : 'display: none;' }}"
                     placeholder="Please provide link or attachment.">{{ $project->description_psp_2 ?? '' }}</textarea>
@@ -98,7 +97,7 @@
             </select>
         </div>
         <div class="col">
-            Is this project part of TPB resolution for a Comprehensive Mobility Plan (CMP)? <i class="fa fa-asterisk"
+            Is this project part of TPB approved Regional Mobility Strategy (RMS) 2020? <i class="fa fa-asterisk"
                 style="font-size:10px;color:red"></i>
         </div>
     </div>
@@ -163,7 +162,7 @@
             </div>
             <div class="col">
                 <div class="required_cmp">
-                    <h3>Congestion Management Process Strategies</h3>
+                    <h3>Congestion Management Process</h3>
                     <h6><a href="http://www.elpasompo.org/civicax/filebank/blobdload.aspx?BlobID=23375"
                             target="_blank">Helpful Link</a></h6>
                     <div class="form-row mb-1">
@@ -382,6 +381,10 @@
                         Instructions: Based on the results of the congestion mitigation analysis, document the
                         benefits
                         in terms of specific CMP performance measures when possible.
+                        <br>
+                        To aid in responding question # 9 if there is no existing congestion mitigation analysis.
+                        Complete the following qualitative criteria for the strategy type(s) encompassed by the project/program:
+                        <a href="/MPO_Projects/EPMPO_Form/public/documents/Revised_CMP_Qualitative.pdf" target="_blank">Helpful Link</a>
                     </p>
                     <textarea id="description_strategy_9" name="description_strategy_9" class="form-control"
                         style="width: 22rem;">{{ $project->description_strategy_9 ?? '' }}</textarea>

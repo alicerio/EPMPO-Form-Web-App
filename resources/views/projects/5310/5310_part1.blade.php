@@ -62,7 +62,7 @@
         <hr>
         <label>
             <input type="checkbox" name="transit_funds_request" autocomplete="off" {{ $project->transit_funds_request ?? '' == true ? 'checked' : '' }} disabled>
-            Requesting Transit funds for his project/program (FTA, State and/or Local Funds)
+            Requesting Transit funds for this project/program (FTA, State and/or Local Funds)
         </label>
         <br>
         <div class="form-row">
@@ -79,8 +79,8 @@
                 <select disabled name="network_year" class="form-control">
                     <option></option>
                     {{$temp = $project->network_year ?? ''}}
-                    <option value="2020" {{ $temp == 2020 ? 'selected' : ''}}>2020</option>
-                    <option value="2030" {{ $temp == 2030 ? 'selected' : ''}}>2030</option>
+                    <option value="2022" {{ $temp == 2022 ? 'selected' : ''}}>2022</option>
+                    <option value="2032" {{ $temp == 2032 ? 'selected' : ''}}>2032</option>
                     <option value="2040" {{ $temp == 2040 ? 'selected' : ''}}>2040</option>
                     <option value="2050" {{ $temp == 2050 ? 'selected' : ''}}>2050</option>
                 </select>
