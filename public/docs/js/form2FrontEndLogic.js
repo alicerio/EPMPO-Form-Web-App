@@ -403,11 +403,8 @@ function deleteRow_1() {
 function deleteRow_2() {
     var table = document.getElementById("fundingBusTable");
     //set value to $0
-    if (table.rows.length == 1) { // this is needed due to naming
-        setRowToZero('fbtrow');
-    } else {
-        setRowToZero('fbtrow' + table.rows.length,2);
-    }
+    setRowToZero('fbtrow' + table.rows.length, 2);
+
     // remove table 
     table.deleteRow(table.rows.length - 1);
 }
@@ -416,11 +413,11 @@ function deleteRow_3() {
     var table = document.getElementById("fundingOperationsTable");
     //set value to $0 
     if (table.rows.length == 1) { // this is needed due to naming
-        setRowToZero('fotrow',3);
+        setRowToZero('fotrow', 3);
     } else {
         setRowToZero('fotrow' + table.rows.length, 3);
     }
-   table.deleteRow(table.rows.length - 1);
+    table.deleteRow(table.rows.length - 1);
 }
 
 function form2_setView() {
