@@ -530,7 +530,6 @@ class ProjectController extends Controller
      */
     public function update(Request $request, Project $project)
     {
-
         if (request('status') != $project->status && $project->status > 0) {
             $newProject = $project->replicate();
             $newProject->status = request('status');
@@ -541,7 +540,6 @@ class ProjectController extends Controller
             $id = $newProject->parent_id;
             return redirect(route('projects.revisions', compact('id')));
         }
-
 
         request()->validate([
             'name' => 'required',
@@ -849,17 +847,22 @@ class ProjectController extends Controller
         $project->fair_area = request('fair_area');
         $project->poor_area = request('poor_area');
         $project->points = request('points');
-
-        if ($project->status != request('status')) {
-            $newProject = $project->replicate();
-            $newProject->status = request('status');
-            $newProject->parent_id = ($project->parent_id != null) ? $project->parent_id : $project->id;
-            $newProject->save();
-        } else {
-            $project->save();
-        }
+        $project->save();
 
         $id = $project->parent_id;
+
+        if($project->status == 0) {
+            $id = $project->id;
+        }
+
+        else if ($project->status != request('status')) {
+            $newProject = $project->replicate();
+            $newProject->status = request('status');
+            $newProject->author = auth()->user()->name;
+            $newProject->parent_id = ($project->parent_id != null) ? $project->parent_id : $project->id;
+            $newProject->save();
+            $id = $newProject->parent_id;
+        }
         return redirect(route('projects.revisions', compact('id')));
     }
 
