@@ -9,15 +9,22 @@ $currentUser = auth()->user()->type // Store current user
     window.onload = function() {
         //default
         show_edit_ViewMap();
-    //helps in hiding questions 4 to 10
+        //helps in hiding questions 4 to 10
         display4To10();
+    
       // Helps in hiding options
       for(let i =1; i <7; i++){
         displayBox("strategy_"+i);
       }
+
       for(let j = 1; j < 7; j++){
-            displayBox("psp_"+j);
-        }
+        displayBox("psp_"+j);
+      }
+
+      for(let k = 1; k < 36; k++) {
+        displayBox("sqq_"+k)
+      }
+
       //special cases depending on status
         if(project.status == 1){
           //  set_required(true);  

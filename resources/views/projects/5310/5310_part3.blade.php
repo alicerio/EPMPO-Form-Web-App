@@ -260,10 +260,11 @@
                         <br>
                         To aid in responding question # 9 if there is no existing congestion mitigation analysis.
                         Complete the following qualitative criteria for the strategy type(s) encompassed by the project/program:
-                        <a href="/MPO_Projects/EPMPO_Form/public/documents/Revised_CMP_Qualitative.pdf" target="_blank">Helpful Link</a>
+                        <button class="btn btn-info" id='toggeleSuppQ' type="button">Display Supplementary Questions</button>
                     </p>
                     <textarea id="description_strategy_9" name="description_strategy_9" class="form-control"
                         style="width: 22rem;">{{ $project->description_strategy_9 ?? '' }}</textarea>
+                        @include('projects.suplemental_questions')
                     <p>10. If not implementing a congestion mitigation strategy as part of the project, please explain
                         reason.
                         <br>
@@ -272,9 +273,9 @@
                     </p>
                     <textarea id="description_strategy_10" name="description_strategy_10" class="form-control"
                         style="width: 22rem;">{{ $project->description_strategy_10 ?? '' }}</textarea>
-            </div>
-            <hr>
-            <br>
+                </div>
+                <hr>
+                <br>
             Projects will be examined at the corridor level to determine multimodal needs. Which best describes this
             projects. <i class="fa fa-asterisk" style="font-size:10px;color:red"></i>
             <a href="http://www.elpasompo.org/civicax/filebank/blobdload.aspx?BlobID=23409"
@@ -316,4 +317,16 @@
                     <input type="text" name="reviewed_agency" class="form-control" autocomplete="off" value="{{ $project->reviewed_agency ?? ''}}" disabled>
                 </div>
             </div>
+        </div>
+    </div>
 </div>
+
+<script>
+    $(document).ready(function() {
+    $("#toggeleSuppQ").click(function(){
+       $("#suppQ").toggle( 'slow', function(){
+          $(".log").text('Toggle Transition Complete');
+       });
+    });
+ });
+</script> 
