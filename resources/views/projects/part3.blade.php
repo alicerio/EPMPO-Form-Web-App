@@ -340,9 +340,9 @@
                                 onchange="displayBox(this.name);">
                                 <option></option>
                                 {{$temp = $project->strategy_6 ?? ''}}
-                                <option value="1" {{ $project->strategy_6 ?? '' == 1 ? 'selected' : '' }}>Yes
+                                <option value="1" {{ $temp == 1 ? 'selected' : '' }}>Yes
                                 </option>
-                                <option value="2" {{ $project->strategy_6 ?? '' == 2 ? 'selected' : '' }}>No
+                                <option value="2" {{ $temp == 2 ? 'selected' : '' }}>No
                                 </option>
                             </select>
                         </div>
@@ -381,13 +381,13 @@
                         Instructions: Based on the results of the congestion mitigation analysis, document the
                         benefits
                         in terms of specific CMP performance measures when possible.
-                        <br>
                         To aid in responding question # 9 if there is no existing congestion mitigation analysis.
                         Complete the following qualitative criteria for the strategy type(s) encompassed by the project/program:
-                        <a href="/MPO_Projects/EPMPO_Form/public/documents/Revised_CMP_Qualitative.pdf" target="_blank">Helpful Link</a>
+                        <button class="btn btn-info" id='toggeleSuppQ' type="button">Display Supplementary Questions</button>
                     </p>
                     <textarea id="description_strategy_9" name="description_strategy_9" class="form-control"
                         style="width: 22rem;">{{ $project->description_strategy_9 ?? '' }}</textarea>
+                        @include('projects.suplemental_questions')
                     <p>10. If not implementing a congestion mitigation strategy as part of the project, please
                         explain
                         reason.
@@ -493,6 +493,16 @@
                         {{ $project->block_system ?? '' == 4 ? 'checked' : '' }}> Region to region</label
                     autocomplete="off" disabled>
             </div>
-    </div>
+        </div>
     </div>
 </div>
+
+<script>
+    $(document).ready(function() {
+    $("#toggeleSuppQ").click(function(){
+       $("#suppQ").toggle( 'slow', function(){
+          $(".log").text('Toggle Transition Complete');
+       });
+    });
+ });
+</script> 

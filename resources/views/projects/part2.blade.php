@@ -61,7 +61,7 @@
                 <option value="2022" {{ $temp == 2022 ? 'selected' : ''}}>2022</option>
                 <option value="2032" {{ $temp == 2032 ? 'selected' : ''}}>2032</option>
                 <option value="2040" {{ $temp == 2040 ? 'selected' : ''}}>2040</option>
-                <option value="2045" {{ $temp == 2045 ? 'selected' : ''}}>2045</option>
+                <option value="2050" {{ $temp == 2050 ? 'selected' : ''}}>2050</option>
             </select>
         </div>
         <div class="col">
