@@ -3,21 +3,21 @@
     <div>
       <b>Map Instructions:</b>
       <ol>
-        <li>Double click on the desired location to place marker. There is no limit to how many markers you draw, however the more markers you draw the longer it will take to calculate.</li>
+        <li>Double click on the desired location to place marker. There is no limit to how many markers you draw,
+          however the more markers you draw the longer it will take to calculate.</li>
         <li>Click once on any button on the right to perform a calculation.</li>
         <li>Please wait for the program to calculate, may vary on web connection and number of markers placed.</li>
         <li>After calculations are done, the map will display the filter results.</li>
-        <li>You may press clear to start over, however if you press a calculation button you will have to wait for the result before you can clear.</li>
-        </ol>    
-    </div><svg style="color:blue" width="1em" height="1em" viewBox="0 0 16 16"
-        class="bi bi-question-circle" fill="currentColor"
-        xmlns="http://www.w3.org/2000/svg">
-        <path fill-rule="evenodd"
-            d="M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
-        <path
-            d="M5.25 6.033h1.32c0-.781.458-1.384 1.36-1.384.685 0 1.313.343 1.313 1.168 0 .635-.374.927-.965 1.371-.673.489-1.206 1.06-1.168 1.987l.007.463h1.307v-.355c0-.718.273-.927 1.01-1.486.609-.463 1.244-.977 1.244-2.056 0-1.511-1.276-2.241-2.673-2.241-1.326 0-2.786.647-2.754 2.533zm1.562 5.516c0 .533.425.927 1.01.927.609 0 1.028-.394 1.028-.927 0-.552-.42-.94-1.029-.94-.584 0-1.009.388-1.009.94z" />
+        <li>You may press clear to start over, however if you press a calculation button you will have to wait for the
+          result before you can clear.</li>
+      </ol>
+    </div><svg style="color:blue" width="2em" height="2em" viewBox="0 0 16 16" class="bi bi-question-circle"
+      fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+      <path fill-rule="evenodd" d="M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
+      <path
+        d="M5.25 6.033h1.32c0-.781.458-1.384 1.36-1.384.685 0 1.313.343 1.313 1.168 0 .635-.374.927-.965 1.371-.673.489-1.206 1.06-1.168 1.987l.007.463h1.307v-.355c0-.718.273-.927 1.01-1.486.609-.463 1.244-.977 1.244-2.056 0-1.511-1.276-2.241-2.673-2.241-1.326 0-2.786.647-2.754 2.533zm1.562 5.516c0 .533.425.927 1.01.927.609 0 1.028-.394 1.028-.927 0-.552-.42-.94-1.029-.94-.584 0-1.009.388-1.009.94z" />
     </svg>
-</div>
+  </div>
   <div class="row">
     <div class="col-10" id="map"></div>
     <div style="margin-top:1%" class="col-2">
@@ -146,10 +146,11 @@
         </tr>
         @if ($project->points ?? '' != null)
         @foreach($project->points ?? '' as $index => $categories)
-        <input type="hidden" id="point" class="form-control" name = "points[]" value="{{$project->points[$index] ?? ''}}" readonly>
+        <input type="hidden" id="point" class="form-control" name="points[]" value="{{$project->points[$index] ?? ''}}"
+          readonly>
         @endforeach
         @else
-        <input type="hidden" id="point" class="form-control" name = "points[]" readonly>
+        <input type="hidden" id="point" class="form-control" name="points[]" readonly>
         @endif
       </table>
     </div>
