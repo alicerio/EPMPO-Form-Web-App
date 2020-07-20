@@ -18,8 +18,9 @@
                 <table class="table table-bordered table-hover">
                     <thead  class="thead-light">
                         <tr>
-                            <th scope="col">Title</th>
-                            <th scope="col">Submitted</th>
+                            <th scope="col">Status</th>
+                            <th scope="col">Time and Date</th>
+                            <th scope="col">Updated By</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -51,6 +52,7 @@
                                     <td>
                                         {{ $project->created_at }}
                                     </td>
+                                    <td>{{$project->author}}</td>
                                 </tr>
                             @endif
                         @endforeach

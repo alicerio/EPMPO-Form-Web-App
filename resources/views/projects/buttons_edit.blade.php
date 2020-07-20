@@ -31,7 +31,7 @@ select_Action is very special:
         @endif
         {{-- Project needs to be signed off by submitter --}}
         @if($project->status == 1 && auth()->user()->type >= 1)
-        <option value="2">Sign Off</option>
+        <option value="2">Sign & Submit to MPO</option>
         @endif
     </select>
     <button id="button_text_changer" class="btn btn-primary mx-1" type="submit">

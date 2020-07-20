@@ -899,7 +899,6 @@ class ProjectController extends Controller
         $project->mpo_id = request('mpo_id');
         $project->csj_cn = request('csj_cn');
         $project->save();
-
         return view('projects.editInfo', compact('project'));
     }
 
