@@ -442,6 +442,8 @@ class ProjectController extends Controller
         $project->description_sqq_35 = request('description_sqq_35');
         $project->description_sqq_36 = request('description_sqq_36');
 
+        $project->envdoctype = request('envdoctype');
+
         $project->save();
 
         $id = $project->id;
@@ -993,6 +995,8 @@ class ProjectController extends Controller
         $project->description_sqq_34 = request('description_sqq_34');
         $project->description_sqq_35 = request('description_sqq_35');
         $project->description_sqq_36 = request('description_sqq_36');
+
+        $project->envdoctype = request('envdoctype');
 
         $project->save();
 

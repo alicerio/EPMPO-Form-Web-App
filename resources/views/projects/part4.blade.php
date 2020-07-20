@@ -99,43 +99,14 @@
                         Env. Doc. Type
                     </div>
                     <div class="col-sm-2">
-                        <input type="date" name="envdoctype_start_date" class="form-control" autocomplete="off"
-                            value="{{ $project->envdoctype_start_date  ?? '' }}" disabled>
+                        <input type="text" name="envdoctype" class="form-control" autocomplete="off"
+                            value="{{ $project->envdoctype ?? '' }}" disabled>
                     </div>
                     <div class="col-sm-2">
-                        <input id= "locked_val1" type="date" name="envdoctype_end_date" class="form-control" autocomplete="off"
-                            value="{{ $project->envdoctype_end_date  ?? '' }}" disabled>
                     </div>
                     <div class="col-sm-1">
-                        <select id= "locked_val2" disabled name="envdoctype_progress" class="form-control" autocomplete="off">
-                            <option></option>
-                            {{$temp = $project->envdoctype_progress ?? ''}}
-                            <option value="1" {{ $temp == 1 ? 'selected' : ''  }}>0%
-                            </option>
-                            <option value="2" {{ $temp == 2 ? 'selected' : ''  }}>
-                                30%</option>
-                            <option value="3" {{ $temp == 3 ? 'selected' : ''  }}>
-                                60%</option>
-                            <option value="4" {{ $temp == 4 ? 'selected' : ''  }}>
-                                90%</option>
-                            <option value="5" {{ $temp == 5 ? 'selected' : ''  }}>
-                                100%
-                            </option>
-                            <option value="6" {{ $temp == 6 ? 'selected' : ''  }}>
-                                N/A</option>
-                        </select>
                     </div>
                     <div class="col-sm-2">
-                        <select id= "locked_val3" disabled name="envdoctype_agency" class="form-control" autocomplete="off">
-                            <option></option>
-                            {{$temp = $project->envdoctype_agency ?? ''}}
-                            <option value="1" {{ $temp == 1 ? 'selected' : '' }}>
-                                TxDOT</option>
-                            <option value="2" {{ $temp == 2 ? 'selected' : '' }}>
-                                Local</option>
-                            <option value="3" {{ $temp == 3 ? 'selected' : '' }}>
-                                Other</option>
-                        </select>
                     </div>
                     <div class="col-sm-2">
                         <input type="text" name="envdoctype_comments" class="form-control" autocomplete="off"
@@ -584,38 +555,10 @@
                             value="{{ $project->letdate_start_date ?? '' }}" disabled>
                     </div>
                     <div class="col-sm-2">
-                        <input id= "locked_val4" type="date" name="letdate_end_date" class="form-control locked" autocomplete="off"
-                            value="{{ $project->letdate_end_date ?? '' }}" disabled>
                     </div> 
                     <div class="col-sm-1">
-                        <select id= "locked_val5" disabled name="letdate_progress" class="form-control locked" autocomplete="off">
-                            <option></option>
-                            {{$temp = $project->letdate_progress ?? ''}}
-                            <option value="1" {{ $temp == 1 ? 'selected' : ''  }}>
-                                0%</option>
-                            <option value="2" {{ $temp == 2 ? 'selected' : ''  }}>
-                                30%</option>
-                            <option value="3" {{ $temp == 3 ? 'selected' : ''  }}>
-                                60%</option>
-                            <option value="4" {{ $temp == 4 ? 'selected' : ''  }}>
-                                90%</option>
-                            <option value="5" {{ $temp == 5 ? 'selected' : ''  }}>
-                                100%</option>
-                            <option value="6" {{ $temp == 6 ? 'selected' : ''  }}>
-                                N/A</option>
-                        </select>
                     </div>
                     <div class="col-sm-2">
-                        <select id= "locked_val6" disabled name="letdate_agency" class="form-control" autocomplete="off">
-                            <option></option>
-                            {{$temp = $project->letdate_agency ?? ''}}
-                            <option value="1" {{ $temp == 1 ? 'selected' : '' }}>
-                                TxDOT</option>
-                            <option value="2" {{ $temp == 2 ? 'selected' : '' }}>
-                                Local</option>
-                            <option value="3" {{ $temp == 3 ? 'selected' : '' }}>
-                                Other</option>
-                        </select>
                     </div>
                     <div class="col-sm-2">
                         <input type="text" name="letdate_comments" class="form-control" autocomplete="off"
@@ -628,55 +571,16 @@
                         Construction Performance End Date
                     </div>
                     <div class="col-sm-2">
-                        <input id= "locked_val7" type="date" name="consper_end_date_start_date" class="form-control" autocomplete="off"
-                            value="{{ $project->consper_end_date_start_date ?? ''}}" disabled>
                     </div>
                     <div class="col-sm-2">
                         <input type="date" name="consper_end_date_end_date" class="form-control" autocomplete="off"
                             value="{{ $project->consper_end_date_end_date ?? ''}}" disabled>
                     </div>
                     <div class="col-sm-1">
-                        <select id= "locked_val8" disabled name="consper_end_date_progress" class="form-control" autocomplete="off">
-                            <option></option>
-                            {{$temp = $project->consper_end_date_progress ?? ''}}
-                            <option value="1" {{ $temp == 1 ? 'selected' : ''  }}>
-                                0%
-                            </option>
-                            <option value="2" {{ $temp == 2 ? 'selected' : ''  }}>
-                                30%
-                            </option>
-                            <option value="3" {{ $temp == 3 ? 'selected' : ''  }}>
-                                60%
-                            </option>
-                            <option value="4" {{ $temp == 4 ? 'selected' : ''  }}>
-                                90%
-                            </option>
-                            <option value="5" {{ $temp == 5 ? 'selected' : ''  }}>
-                                100%
-                            </option>
-                            <option value="6" {{ $temp == 6 ? 'selected' : ''  }}>
-                                N/A
-                            </option>
-                        </select>
                     </div>
                     <div class="col-sm-2">
-                        <select id= "locked_val9" disabled name="consper_end_date_agency" class="form-control" autocomplete="off">
-                            <option></option>
-                            {{$temp = $project->consper_end_date_agency ?? ''}}
-                            <option value="1" {{ $temp == 1 ? 'selected' : '' }}>
-                                TxDOT
-                            </option>
-                            <option value="2" {{ $temp == 2 ? 'selected' : '' }}>
-                                Local
-                            </option>
-                            <option value="3" {{ $temp == 3 ? 'selected' : '' }}>
-                                Other
-                            </option>
-                        </select>
                     </div>
                     <div class="col-sm-2">
-                        <input id= "locked_val10" type="text" name="consper_end_date_comments" class="form-control" autocomplete="off"
-                            value="{{ $project->consper_end_date_comments ?? '' }}" disabled>
                     </div>
                 </div>
                 {{-- PE Performance --}}
@@ -685,46 +589,16 @@
                         PE Performance End Date
                     </div>
                     <div class="col-sm-2">
-                        <input id= "locked_val11" type="date" name="peperf_start_date" class="form-control" autocomplete="off"
-                            value="{{ $project->peperf_start_date ?? ''}}" disabled>
                     </div>
                     <div class="col-sm-2">
                         <input type="date" name="peperf_end_date" class="form-control" autocomplete="off"
                             value="{{ $project->peperf_end_date ?? '' }}" disabled>
                     </div>
                     <div class="col-sm-1">
-                        <select id= "locked_val12" disabled name="peperf_progress" class="form-control" autocomplete="off">
-                            <option></option>
-                            {{$temp = $project->peperf_progress ?? ''}}
-                            <option value="1" {{ $temp == 1 ? 'selected' : ''  }}>0%
-                            </option>
-                            <option value="2" {{ $temp == 2 ? 'selected' : ''  }}>
-                                30%</option>
-                            <option value="3" {{ $temp == 3 ? 'selected' : ''  }}>
-                                60%</option>
-                            <option value="4" {{ $temp == 4 ? 'selected' : ''  }}>
-                                90%</option>
-                            <option value="5" {{ $temp == 5 ? 'selected' : ''  }}>
-                                100%</option>
-                            <option value="6" {{ $temp == 6 ? 'selected' : ''  }}>
-                                N/A</option>
-                        </select>
                     </div>
                     <div class="col-sm-2">
-                        <select id= "locked_val13" disabled name="peperf_agency" class="form-control" autocomplete="off">
-                            <option></option>
-                            {{$temp = $project->peperf_agency ?? ''}}
-                            <option value="1" {{ $temp == 1 ? 'selected' : '' }}>TxDOT
-                            </option>
-                            <option value="2" {{ $temp == 2 ? 'selected' : '' }}>Local
-                            </option>
-                            <option value="3" {{ $temp == 3 ? 'selected' : '' }}>Other
-                            </option>
-                        </select>
                     </div>
                     <div class="col-sm-2">
-                        <input id= "locked_val14" type="text" name="peperf_comments" class="form-control" autocomplete="off"
-                            value="{{ $project->peperf_comments ?? '' }}" disabled>
                     </div>
                 </div>
                 <div class="form-row mb-1">
