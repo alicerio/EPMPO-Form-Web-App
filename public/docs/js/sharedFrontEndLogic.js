@@ -165,6 +165,7 @@ function clearMap() {
  * Resets dynamic table values to zero when deleted
  */
 function setRowToZero(idRow, rowMethod) {
+    console.log(idRow, rowMethod);
     // loop the row
     var iterateRow = $("#" + idRow + " :input").map(function () {
         let h = $(this).val();
@@ -174,11 +175,12 @@ function setRowToZero(idRow, rowMethod) {
             $("#" + id).val('$0');
             if (rowMethod == 1.1) {
                 project_funding_table(); //force table to refresh
-            }else if (rowMethod == 1) {
+            } else if (rowMethod == 1) {
+
                 funding_vehicles_table(); //force table to refresh
             } else if (rowMethod == 2) {
                 funding_bus_table(); //force table to refresh
-            }else if(rowMethod == 3){
+            } else if (rowMethod == 3) {
                 funding_operations_table();
             }
 
@@ -186,4 +188,46 @@ function setRowToZero(idRow, rowMethod) {
             console.log(h + " this fail");
         }
     })
+}
+
+/* This fixes bug on edit. 
+    The bug does not update the values on the dynamic table on edit when user clicks delete. 
+    There is a glitch were if you delete then add then delete it forces the JS to work as intended. 
+    This bug only happens on edit.
+    The if statement deletes, adds, then deletes. Works. 
+*/
+function bugFixDeleteRowStatusEdit(table_id, row_id) {
+    let numForSetRowToZero = 0;
+    var table = document.getElementById(table_id);
+
+    // detect who is calling this function
+    if (table_id == "projectFundingTablePg1") {
+        numForSetRowToZero = 1.1;
+    } else if (table_id == "fundingVehiclesTable") {
+        numForSetRowToZero = 1;
+    } else if (table_id == "fundingBusTable") {
+        numForSetRowToZero = 2;
+    } else if (table_id == "fundingOperationsTable") {
+        numForSetRowToZero = 3;
+    }
+
+    //set value to $0
+    setRowToZero(row_id + table.rows.length, numForSetRowToZero);
+    table.deleteRow(table.rows.length - 1);
+
+    // detect who is calling this function
+    if (table_id == "projectFundingTablePg1") {
+        addRow();
+    } else if (table_id == "fundingVehiclesTable") {
+        addRow_1();
+    } else if (table_id == "fundingBusTable") {
+        addRow_2();
+    } else if (table_id == "fundingOperationsTable") {
+        addRow_3();
+    }
+
+    //set value to $0
+    setRowToZero(row_id + table.rows.length, numForSetRowToZero);
+    // remove table 
+    table.deleteRow(table.rows.length - 1);
 }

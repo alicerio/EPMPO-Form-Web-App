@@ -275,6 +275,7 @@ function addRow_2() {
 
     let inputId = $(table.rows[table.rows.length - 1].cells[4]).find("input")[0];
     inputId.setAttribute('id', newIdTotal);
+    console.log("*************");
 }
 
 function funding_operations_table() {
@@ -390,34 +391,53 @@ function addRow_3() {
 }
 
 function deleteRow_1() {
-    var table = document.getElementById("fundingVehiclesTable");
+    if (project.status == 0) { //if status == edit
+        bugFixDeleteRowStatusEdit("fundingVehiclesTable", 'fvtrow');
+    } else {
+        var table = document.getElementById("fundingVehiclesTable");
 
-    //set value to $0 
-    setRowToZero('fvtrow' + table.rows.length, 1);
+        //set value to $0 
+        setRowToZero('fvtrow' + table.rows.length, 1);
 
-    // remove table 
-    table.deleteRow(table.rows.length - 1);
+        // remove table 
+        table.deleteRow(table.rows.length - 1);
+    }
 
 }
+
+
 
 function deleteRow_2() {
-    var table = document.getElementById("fundingBusTable");
-    //set value to $0
-    setRowToZero('fbtrow' + table.rows.length, 2);
+    if (project.status == 0) {
+        bugFixDeleteRowStatusEdit("fundingBusTable", 'fbtrow');
+    } else {
+        var table = document.getElementById("fundingBusTable");
+        //set value to $0
+        setRowToZero('fbtrow' + table.rows.length, 2);
 
-    // remove table 
-    table.deleteRow(table.rows.length - 1);
+        // remove table 
+        table.deleteRow(table.rows.length - 1);
+    }
+
 }
 
+
+
+
+
 function deleteRow_3() {
-    var table = document.getElementById("fundingOperationsTable");
-    //set value to $0 
-    if (table.rows.length == 1) { // this is needed due to naming
-        setRowToZero('fotrow', 3);
+    if (project.status == 0) {
+        bugFixDeleteRowStatusEdit("fundingOperationsTable", 'fotrow');
     } else {
-        setRowToZero('fotrow' + table.rows.length, 3);
+        var table = document.getElementById("fundingOperationsTable");
+        //set value to $0 
+        if (table.rows.length == 1) { // this is needed due to naming
+            setRowToZero('fotrow', 3);
+        } else {
+            setRowToZero('fotrow' + table.rows.length, 3);
+        }
+        table.deleteRow(table.rows.length - 1);
     }
-    table.deleteRow(table.rows.length - 1);
 }
 
 function form2_setView() {

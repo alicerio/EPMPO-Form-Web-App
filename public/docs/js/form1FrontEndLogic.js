@@ -18,7 +18,7 @@ function yoe_table() {
                     idH == "yoe_cs_3" || idH == "yoe_cs_4" ||
                     idH == "yoe_cs_5") {
                     if (h >= 0) {
-                        cs_sum += h;              
+                        cs_sum += h;
                     }
                 }
                 if (type != "button" && type != "submit") {
@@ -133,22 +133,26 @@ function rowSum(idName, index) {
         }
     })
     //get id
-  //  if (index == 0){ 
-     //   totId = 'pftpg1_tot';
-   //     console.log(totId);
-  //  }
-  //  else {
-        index++;
-        totId = "pftpg1_tot" + index;
-  //  }
+    //  if (index == 0){ 
+    //   totId = 'pftpg1_tot';
+    //     console.log(totId);
+    //  }
+    //  else {
+    index++;
+    totId = "pftpg1_tot" + index;
+    //  }
 
     $("#" + totId).attr("value", '$' + commafy(rowTot));
 }
 
 function deleteRow() {
-    var table = document.getElementById("projectFundingTablePg1");
-    setRowToZero('pfrow' + table.rows.length, 1.1);
-    table.deleteRow(table.rows.length - 1);
+    if (project.status == 0) {
+        bugFixDeleteRowStatusEdit("projectFundingTablePg1", "pfrow");
+    } else {
+        var table = document.getElementById("projectFundingTablePg1");
+        setRowToZero('pfrow' + table.rows.length, 1.1);
+        table.deleteRow(table.rows.length - 1);
+    }
 }
 //dynamic name change and row addition
 function addRow() {
@@ -208,4 +212,3 @@ function form1_setView() {
     //document.getElementById("signed_textarea").readOnly = true;
     document.getElementById("attachments_textarea").readOnly = true;
 }
-
