@@ -450,7 +450,9 @@ class ProjectController extends Controller
         $project->save();
 
         $id = $project->id;
-        return redirect(route('projects.revisions', compact('id')));
+        //return redirect(route('projects.revisions', compact('id')));
+        return redirect(route('projects.index', compact('project')));
+
     }
     /*
         Here we are filtering all the projects on the database
@@ -616,7 +618,8 @@ class ProjectController extends Controller
             $newProject->save();
 
             $id = $newProject->parent_id;
-            return redirect(route('projects.revisions', compact('id')));
+            //return redirect(route('projects.revisions', compact('id')));
+            return redirect(route('projects.index'));
         }
 
         request()->validate([
@@ -1008,19 +1011,21 @@ class ProjectController extends Controller
 
         $id = $project->parent_id;
 
-        if($project->status == 0) {
+        /*if($project->status == 0) {
             $id = $project->id;
-        }
-
-        else if ($project->status != request('status')) {
+        }*/
+        if ($project->status != request('status')) {
             $newProject = $project->replicate();
             $newProject->status = request('status');
-            $newProject->author = auth()->user()->name;
             $newProject->parent_id = ($project->parent_id != null) ? $project->parent_id : $project->id;
             $newProject->save();
-            $id = $newProject->parent_id;
+            //$id = $newProject->parent_id;
+        } else {
+            $project->save();
         }
-        return redirect(route('projects.revisions', compact('id')));
+        //return redirect(route('projects.revisions', compact('id')));
+        return redirect(route('projects.index', compact('project')));
+
     }
 
     /**
