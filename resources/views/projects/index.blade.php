@@ -49,15 +49,16 @@
                             </a>
                         </td>
                         @foreach ($agencies as $agency)
-                        @if($agency->id == $project->agency_id)
-                        <td>{{ $agency->name }}</td>
+                            @if($agency->id == $project->agency_id)
+                                <td>{{ $agency->name }}</td>
                         @endif
                         @endforeach
                         <td>{{ $project->author }}</td>
-                        @if($project->agency_id<=6) <td>{{ $statuses[$project->status] }}</td>
-                            @else
+                        @if($project->agency_id<=6) 
                             <td>{{ $statuses[$project->status] }}</td>
-                            @endif
+                        @else
+                            <td>{{ $statuses[$project->status] }}</td>
+                        @endif
                     <td>{{ $project->project_type}}</td>
                             <td>
                                 <div class="dropdown">

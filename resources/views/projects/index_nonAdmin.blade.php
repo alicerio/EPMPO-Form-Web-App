@@ -27,8 +27,8 @@
                 No projects have been submitted
             </div>
             @else
-            <table class="table table-bordered">
-                <thead>
+            <table class="table table-bordered table-hover">
+                <thead  class="thead-light">
                     <tr>
                         <th scope="col">Project</th>
                         <th scope="col">Creator</th>
@@ -81,17 +81,11 @@
                                         Options
                                     </button>
                                     <div class="dropdown-menu" aria-labelledby="user_edit_options">
-                                        <a class="dropdown-item"
-                                            href="{{ route('projects.edit', $project->id) }}">Edit</a>
-                                        @if(auth()->user()->type == 2)
-                                        <a class="dropdown-item" onclick="document.inline_form.submit();">Update MPO
-                                            ID</a>
-                                        @endif
                                         <form action="{{ route('projects.destroy', $project->id) }}" method="POST">
                                             @csrf
                                             @method('delete')
                                             <button class="dropdown-item" type="submit">
-                                                Delete
+                                                Delete All
                                             </button>
                                         </form>
                                     </div>
