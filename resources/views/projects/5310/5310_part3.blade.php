@@ -280,28 +280,30 @@
             projects. <i class="fa fa-asterisk" style="font-size:10px;color:red"></i>
             <a href="http://www.elpasompo.org/civicax/filebank/blobdload.aspx?BlobID=23409"
                 target="_blank">Block System:</a><br>
+                <input type="hidden"{{$temp = $project->block_system ?? ''}}>
             <label><input type="radio" name="block_system" value="1"
-                    {{ $project->block_system ?? '' == 1 ? 'checked' : '' }}> Within Community</label autocomplete="off"
+                    {{ $temp == 1 ? 'checked' : '' }}> Within Community</label autocomplete="off"
                 disabled>
             <label><input type="radio" name="block_system" value="2"
-                    {{ $project->block_system ?? '' == 2 ? 'checked' : '' }}> Community to community</label
+                    {{ $temp == 2 ? 'checked' : '' }}> Community to community</label
                 autocomplete="off" disabled>
             <label><input type="radio" name="block_system" value="3"
-                    {{ $project->block_system ?? '' == 3 ? 'checked' : '' }}> Community to region</label
+                    {{ $temp == 3 ? 'checked' : '' }}> Community to region</label
                 autocomplete="off" disabled>
             <label><input type="radio" name="block_system" value="4"
-                    {{ $project->block_system ?? '' == 4 ? 'checked' : '' }}> Region to region</label autocomplete="off"
+                    {{ $temp == 4 ? 'checked' : '' }}> Region to region</label autocomplete="off"
                 disabled>
             </div>
             <div class="form-row mb-1">
                 <div class="col-sm-3">
+                    <input type="hidden"{{$temp = $project->reviewed_dates ?? ''}}>
                     <p>Have the above dates been reviewed by TXDOT or NMDOT? <i class="fa fa-asterisk" style="font-size:10px;color:red"></i></p>
                     <label><input type="radio" name="reviewed_dates" value="1"
-                            {{ $project->reviewed_dates ?? '' == 1 ? 'checked' : '' }}> Yes</label autocomplete="off" disabled></label>
+                            {{ $temp == 1 ? 'checked' : '' }}> Yes</label autocomplete="off" disabled></label>
                     <label><input type="radio" name="reviewed_dates" value="2"
-                            {{ $project->reviewed_dates ?? '' == 2 ? 'checked' : '' }}> No</label autocomplete="off" disabled></label>
+                            {{ $temp == 2 ? 'checked' : '' }}> No</label autocomplete="off" disabled></label>
                     <label><input type="radio" name="reviewed_dates" value="3"
-                            {{ $project->reviewed_dates ?? '' == 3 ? 'checked' : '' }}> N/A</label autocomplete="off" disabled></label>
+                            {{ $temp == 3 ? 'checked' : '' }}> N/A</label autocomplete="off" disabled></label>
                 </div>
                 <div class="col-sm-3">
                     <label for="date_reviewed">Date Reviewed</label>

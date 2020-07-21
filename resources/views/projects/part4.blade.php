@@ -802,13 +802,14 @@
                 {{--Reviewed Dates--}}
                 <div class="form-row mb-1">
                     <div class="col-sm-3">
+                        <input type="hidden"{{$temp = $project->reviewed_dates ?? ''}}>
                         <p>Have the above dates been reviewed by TXDOT or NMDOT? <i class="fa fa-asterisk" style="font-size:10px;color:red"></i></p>
                         <label><input type="radio" name="reviewed_dates" value="1"
-                                {{ $project->reviewed_dates ?? '' == 1 ? 'checked' : '' }}> Yes</label autocomplete="off" disabled></label>
+                                {{ $temp == 1 ? 'checked' : '' }}> Yes</label autocomplete="off" disabled></label>
                         <label><input type="radio" name="reviewed_dates" value="2"
-                                {{ $project->reviewed_dates ?? '' == 2 ? 'checked' : '' }}> No</label autocomplete="off" disabled></label>
+                                {{ $temp == 2 ? 'checked' : '' }}> No</label autocomplete="off" disabled></label>
                         <label><input type="radio" name="reviewed_dates" value="3"
-                                {{ $project->reviewed_dates ?? '' == 3 ? 'checked' : '' }}> N/A</label autocomplete="off" disabled></label>
+                                {{ $temp == 3 ? 'checked' : '' }}> N/A</label autocomplete="off" disabled></label>
                     </div>
                     <div class="col-sm-3">
                         <label for="date_reviewed">Date Reviewed</label>

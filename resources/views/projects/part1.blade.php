@@ -16,6 +16,26 @@
         Electronic Project Request Form (ePRF)
     </div>
     <div id="required" class="card-body">
+        <div class="row">
+            <input type="hidden"{{$temp = $project->new_project ?? ''}}>
+            <label><input class= "mx-1" type="radio" name="new_project" value="1"
+                    {{ $temp == 1 ? 'checked' : '' }}> New Project</label
+                autocomplete="off" disabled>
+            <label><input class= "mx-1" type="radio" name="new_project" value="2"
+                    {{ $temp == 2 ? 'checked' : '' }}>Revision/addition to an approved project</label
+                autocomplete="off" disabled>
+        </div>
+        <label>Is the decision making/governing body of your agency committed to this project?</label>
+        <div class="row">
+            <input type="hidden"{{$temp = $project->decision ?? ''}}>
+            <label><input class= "mx-1" type="radio" name="decision" value="1"
+                    {{ $temp == 1 ? 'checked' : '' }}>Yes</label
+                autocomplete="off" disabled>
+            <label><input class= "mx-1" type="radio" name="decision" value="2"
+                    {{ $temp == 2 ? 'checked' : '' }}>No</label
+                autocomplete="off" disabled>
+        </div>
+
         <input id="project_type" type="hidden" class="form-control" name="project_type" value="{{ $project->project_type ?? 'TASA' }}" readonly>
         <label>
             MPO ID

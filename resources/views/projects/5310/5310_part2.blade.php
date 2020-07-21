@@ -61,6 +61,8 @@
                 <div class="col">
                     Is this project part of TPB approved Regional Mobility Strategy (RMS) 2020?
                     <i class="fa fa-asterisk" style="font-size:10px;color:red"></i>
+                    <a href="http://www.elpasompo.org/civicax/filebank/blobdload.aspx?t=62130.51&BlobID=25024"
+                    target="_blank">Helpful link</a>
                     <textarea id="description_psp_4" name="description_psp_4" class="form-control"
                     style="width: 30rem;{{ $project->psp_4 ?? '' == 1 ? '' : 'display: none;' }}"
                     placeholder="Please provide link or attachment.">{{ $project->description_psp_4 ?? '' }}</textarea>

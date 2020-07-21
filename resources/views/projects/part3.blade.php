@@ -98,7 +98,8 @@
         </div>
         <div class="col">
             Is this project part of TPB approved Regional Mobility Strategy (RMS) 2020? <i class="fa fa-asterisk"
-                style="font-size:10px;color:red"></i>
+                style="font-size:10px;color:red"></i><a href="http://www.elpasompo.org/civicax/filebank/blobdload.aspx?t=62130.51&BlobID=25024"
+                target="_blank">Helpful link</a>
         </div>
     </div>
     <br>
@@ -480,17 +481,18 @@
             </div>
             <br>
             <div class="row">
+                <input type="hidden"{{$temp = $project->block_system ?? ''}}>
                 <label><input class= "mx-1" type="radio" name="block_system" value="1"
-                        {{ $project->block_system ?? '' == 1 ? 'checked' : '' }}> Within Community</label
+                        {{ $temp == 1 ? 'checked' : '' }}> Within Community</label
                     autocomplete="off" disabled>
                 <label><input class= "mx-1" type="radio" name="block_system" value="2"
-                        {{ $project->block_system ?? '' == 2 ? 'checked' : '' }}> Community to community</label
+                        {{ $temp == 2 ? 'checked' : '' }}> Community to community</label
                     autocomplete="off" disabled>
                 <label><input class= "mx-1" type="radio" name="block_system" value="3"
-                        {{ $project->block_system ?? '' == 3 ? 'checked' : '' }}> Community to region</label
+                        {{ $temp == 3 ? 'checked' : '' }}> Community to region</label
                     autocomplete="off" disabled>
                 <label><input class= "mx-1" type="radio" name="block_system" value="4"
-                        {{ $project->block_system ?? '' == 4 ? 'checked' : '' }}> Region to region</label
+                        {{ $temp == 4 ? 'checked' : '' }}> Region to region</label
                     autocomplete="off" disabled>
             </div>
         </div>

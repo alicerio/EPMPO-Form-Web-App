@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class SupplementaryQuestions extends Migration
+class ExtraFields extends Migration
 {
     /**
      * Run the migrations.
@@ -87,6 +87,9 @@ class SupplementaryQuestions extends Migration
             $table->text('description_sqq_36')->nullable();
 
             $table->text('envdoctype')->nullable();
+
+            $table->tinyInteger('new_project')->nullable();
+            $table->tinyInteger('decision')->nullable();
         });
     }
 
@@ -98,7 +101,7 @@ class SupplementaryQuestions extends Migration
     public function down()
     {
         Schema::table('projects', function (Blueprint $table) {
-            Schema::dropIfExists('projects');
+            //
         });
     }
 }
