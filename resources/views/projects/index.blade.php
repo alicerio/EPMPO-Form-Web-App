@@ -1,6 +1,22 @@
 @extends('layouts.app')
 
 @section('content')
+
+<script>
+    var parents = <?php echo json_encode($projects);?>;
+     var allProjects = <?php echo json_encode($allProjects);?>;  
+
+     window.onload = function() {
+        //js to php
+        var parents = <?php echo json_encode($projects);?>;
+        var allProjects = <?php echo json_encode($allProjects);?>;  
+        var youngerChildrenJS = getYoungerChildrenMaster(parents,allProjects);
+        
+        console.log(youngerChildrenJS);
+     }
+</script>
+
+
 @if(auth()->user()->type!=2)
 @extends('projects.index_NonAdmin')
 
@@ -28,7 +44,7 @@
             </div>
             @else
             <table class="table table-bordered table-hover">
-                <thead  class="thead-light">
+                <thead class="thead-light">
                     <tr>
                         <th scope="col">Project</th>
                         <th scope="col">Agency</th>
@@ -39,7 +55,9 @@
                     </tr>
                 </thead>
                 <tbody>
+
                     @foreach ($projects as $project)
+
                     @if($project->agency_id != auth()->user()->agency->id && auth()->user()->type!=2)
                     @else
                     <tr>
@@ -49,17 +67,16 @@
                             </a>
                         </td>
                         @foreach ($agencies as $agency)
-                            @if($agency->id == $project->agency_id)
-                                <td>{{ $agency->name }}</td>
+                        @if($agency->id == $project->agency_id)
+                        <td>{{ $agency->name }}</td>
                         @endif
                         @endforeach
                         <td>{{ $project->author }}</td>
-                        @if($project->agency_id<=6) 
+                        @if($project->agency_id<=6) <td>{{ $statuses[$project->status] }}</td>
+                            @else
                             <td>{{ $statuses[$project->status] }}</td>
-                        @else
-                            <td>{{ $statuses[$project->status] }}</td>
-                        @endif
-                    <td>{{ $project->project_type}}</td>
+                            @endif
+                            <td>{{ $project->project_type}}</td>
                             <td>
                                 <div class="dropdown">
                                     <button class="btn btn-secondary dropdown-toggle" type="button"
@@ -71,8 +88,8 @@
                                         <!--    <a class="dropdown-item"
                                             href="{{ route('projects.edit', $project->id) }}">Edit</a> -->
                                         @if(auth()->user()->type == 2)
-                                        <a class="dropdown-item"
-                                            href="{{ route('projects.editInfo', $project->id) }}" method="POST">Update MPO
+                                        <a class="dropdown-item" href="{{ route('projects.editInfo', $project->id) }}"
+                                            method="POST">Update MPO
                                             ID</a>
                                         @endif
                                         <form action="{{ route('projects.destroy', $project->id) }}" method="POST"
@@ -83,7 +100,8 @@
                                                 Delete All
                                             </button>
                                         </form>
-                                        <form action="{{ route('projects.destroyNonSubmissions', $project->id) }}" method="POST"
+                                        <form action="{{ route('projects.destroyNonSubmissions', $project->id) }}"
+                                            method="POST"
                                             onclick="return confirm('Are you sure you want to continue with the deletion?')">
                                             @csrf
                                             @method('delete')

@@ -108,9 +108,9 @@ function set_required(required, project_type) {
             $("#progress_explain").prop('required', false); // make optional
             $("#dates").prop('required', false); // make optional
 
-            for(let i = 1; i<37; i++) {
-                $("#sqq_" + i).prop('required',false);
-                $("#description_sqq_" + i).prop('required',false);
+            for (let i = 1; i < 37; i++) {
+                $("#sqq_" + i).prop('required', false);
+                $("#description_sqq_" + i).prop('required', false);
             }
         } else if (required == false) {
             $("#showHolder :input").prop('required', false); // Everything is required
@@ -230,4 +230,42 @@ function bugFixDeleteRowStatusEdit(table_id, row_id) {
     setRowToZero(row_id + table.rows.length, numForSetRowToZero);
     // remove table 
     table.deleteRow(table.rows.length - 1);
+}
+
+/**
+ * The following functions work together to get the younger children from parent projects
+ */
+function getYoungerChildrenMaster(parents, allProjects) {
+    let youngerChildren = [];
+    let holder = 0;
+    for (parent in parents) {
+        holder = getYoungerchild(getAllChildren(parents[parent], allProjects));
+        if (holder != 0) {
+            youngerChildren.push(holder);
+        } else {
+            youngerChildren.push(parents[parent]);
+        }
+    }
+    return youngerChildren;
+}
+
+function getAllChildren(parent, allProjects) {
+    let allChildren = [];
+    for (p in allProjects) {
+        if (allProjects[p].parent_id == parent.id) {
+            allChildren.push(allProjects[p]);
+        }
+    }
+    return allChildren;
+}
+
+function getYoungerchild(children) {
+    console.log(children);
+    let youngest = 0;
+    for (child in children) {
+        if (Date.parse(children[child].created_at) > youngest) {
+            youngest = children[child];
+        }
+    }
+    return youngest;
 }

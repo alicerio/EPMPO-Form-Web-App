@@ -19,9 +19,10 @@ class ProjectController extends Controller
     public function index()
     {
         $projects = Project::all()->where('parent_id', null);
+        $allProjects = Project::all();
         $agencies = Agency::all();
         $statuses = ['In Progress', 'PM Pending Review', 'Submitted', 'Approved', 'In Progress [Returned for Revision]'];
-        return view('projects.index', compact('projects', 'statuses', 'agencies'));
+        return view('projects.index', compact('projects', 'statuses', 'agencies', 'allProjects'));
     }
 
     public function revisions($id)
