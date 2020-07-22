@@ -59,7 +59,7 @@
             Limit To <i class="fa fa-asterisk" style="font-size:10px;color:red"></i>
         </label>
         <input type="text" class="form-control" name="limit_to" value="{{ $project->limit_to ?? ''}}" disabled>
-        <button class="btn btn-info" id='toggleMapButton' type="button">Draw Project limit and query data</button>
+        <button class="btn btn-info" id='toggleMapButton' type="button">Draw Project limits and query data</button>
         @include('projects.map')
     </div>
 </div>

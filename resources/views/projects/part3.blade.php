@@ -79,8 +79,8 @@
             </select>
         </div>
         <div class="col">
-            Is this project part of TPB resolution for the Active Transportation System? <i class="fa fa-asterisk"
-                style="font-size:10px;color:red"></i><a href="http://www.elpasompo.org/civicax/filebank/blobdload.aspx?BlobID=23376" target="_blank">Active Transportation Plan (ATS)</a>
+            Is this project part of TPB resolution for the <a href="http://www.elpasompo.org/civicax/filebank/blobdload.aspx?BlobID=23376" target="_blank">Active Transportation System?</a>
+            <i class="fa fa-asterisk" style="font-size:10px;color:red"></i>
                 <textarea id="description_psp_5" name="description_psp_5" class="form-control"
                     style="width: 30rem;{{ $project->psp_5 ?? '' == 1 ? '' : 'display: none;' }}"
                     placeholder="Describe the project's relationship to the ATS:">{{ $project->description_psp_5 ?? '' }}</textarea>
@@ -97,9 +97,9 @@
             </select>
         </div>
         <div class="col">
-            Is this project part of TPB approved Regional Mobility Strategy (RMS) 2020? <i class="fa fa-asterisk"
-                style="font-size:10px;color:red"></i><a href="http://www.elpasompo.org/civicax/filebank/blobdload.aspx?t=62130.51&BlobID=25024"
-                target="_blank">Helpful link</a>
+            Is this project part of TPB approved <a href="http://www.elpasompo.org/civicax/filebank/blobdload.aspx?t=62130.51&BlobID=25024"
+                target="_blank">Regional Mobility Strategy (RMS) 2020?</a>
+                <i class="fa fa-asterisk" style="font-size:10px;color:red"></i>
         </div>
     </div>
     <br>

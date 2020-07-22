@@ -31,7 +31,7 @@
                 <thead  class="thead-light">
                     <tr>
                         <th scope="col">Project</th>
-                        <th scope="col">Creator</th>
+                        <th scope="col">Last Updated By</th>
                         <th scope="col">Status</th>
                         <th scope="col">Project Type</th>
                         <th scole="col">editor</th>

@@ -57,7 +57,7 @@
                 Limit To <i class="fa fa-asterisk" style="font-size:10px;color:red"></i>
             </label>
             <input type="text" class="form-control" name="limit_to" autocomplete="off" value="{{ $project->limit_to ?? '' }}" disabled>
-            <button  class="btn btn-info" style="margin:1%" type="button" id="toggleMapButton">Draw Project limit and query data</button>
+            <button  class="btn btn-info" style="margin:1%" type="button" id="toggleMapButton">Draw Project limits and query data</button>
         </div>
         <div>@include('projects.map')</div>
         
