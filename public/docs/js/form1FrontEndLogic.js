@@ -146,13 +146,13 @@ function rowSum(idName, index) {
 }
 
 function deleteRow() {
-    if (project.status == 0) {
+    //if (project.status == 0) {
         bugFixDeleteRowStatusEdit("projectFundingTablePg1", "pfrow");
-    } else {
-        var table = document.getElementById("projectFundingTablePg1");
-        setRowToZero('pfrow' + table.rows.length, 1.1);
-        table.deleteRow(table.rows.length - 1);
-    }
+    // } else {
+    //     var table = document.getElementById("projectFundingTablePg1");
+    //     setRowToZero('pfrow' + table.rows.length, 1.1);
+    //     table.deleteRow(table.rows.length - 1);
+    // }
 }
 //dynamic name change and row addition
 function addRow() {

@@ -391,9 +391,9 @@ function addRow_3() {
 }
 
 function deleteRow_1() {
-    if (project.status == 0) { //if status == edit
-        bugFixDeleteRowStatusEdit("fundingVehiclesTable", 'fvtrow');
-    } else {
+    // if (project.status == 0) { //if status == edit
+    bugFixDeleteRowStatusEdit("fundingVehiclesTable", 'fvtrow');
+    /* } else {
         var table = document.getElementById("fundingVehiclesTable");
 
         //set value to $0 
@@ -402,22 +402,22 @@ function deleteRow_1() {
         // remove table 
         table.deleteRow(table.rows.length - 1);
     }
-
+*/
 }
 
 
 
 function deleteRow_2() {
-    if (project.status == 0) {
-        bugFixDeleteRowStatusEdit("fundingBusTable", 'fbtrow');
-    } else {
-        var table = document.getElementById("fundingBusTable");
-        //set value to $0
-        setRowToZero('fbtrow' + table.rows.length, 2);
+    //  if (project.status == 0) {
+    bugFixDeleteRowStatusEdit("fundingBusTable", 'fbtrow');
+    /*  } else {
+          var table = document.getElementById("fundingBusTable");
+          //set value to $0
+          setRowToZero('fbtrow' + table.rows.length, 2);
 
-        // remove table 
-        table.deleteRow(table.rows.length - 1);
-    }
+          // remove table 
+          table.deleteRow(table.rows.length - 1);
+      }*/
 
 }
 
@@ -426,18 +426,18 @@ function deleteRow_2() {
 
 
 function deleteRow_3() {
-    if (project.status == 0) {
-        bugFixDeleteRowStatusEdit("fundingOperationsTable", 'fotrow');
-    } else {
-        var table = document.getElementById("fundingOperationsTable");
-        //set value to $0 
-        if (table.rows.length == 1) { // this is needed due to naming
-            setRowToZero('fotrow', 3);
-        } else {
-            setRowToZero('fotrow' + table.rows.length, 3);
-        }
-        table.deleteRow(table.rows.length - 1);
-    }
+    //   if (project.status == 0) {
+    bugFixDeleteRowStatusEdit("fundingOperationsTable", 'fotrow');
+    /*  } else {
+          var table = document.getElementById("fundingOperationsTable");
+          //set value to $0 
+          if (table.rows.length == 1) { // this is needed due to naming
+              setRowToZero('fotrow', 3);
+          } else {
+              setRowToZero('fotrow' + table.rows.length, 3);
+          }
+          table.deleteRow(table.rows.length - 1);
+      }*/
 }
 
 function form2_setView() {
