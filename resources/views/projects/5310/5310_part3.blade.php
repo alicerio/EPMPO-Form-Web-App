@@ -194,7 +194,7 @@
                         <div class="col">
                             5. Using the 2019 CMP Report, is the corridor identified as a congested segment?
                             <br>
-                            Instructions: See congestion problems and needs section of the 2019 CMP Report (page 21) to
+                            Instructions: See congestion problems and needs section of the 2019 CMP Report (page 24) to
                             identify congested segments.
                             <h6><a href="http://www.elpasompo.org/other/congestion_management_process_/default.htm"
                                     target="_blank">Helpful link</a></h6>
