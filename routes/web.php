@@ -61,6 +61,7 @@ Route::delete('projects/destroyNonSubmissions/{project}', 'ProjectController@des
 
 Route::delete('projects/leaveApproved/{project}', 'ProjectController@leaveApproved')->name('projects.leaveApproved');
 
+Route::get('projects/download/{file}', 'ProjectController@download')->name('projects.download');
 
 // For demo purposes
 Route::get('/map', function(){

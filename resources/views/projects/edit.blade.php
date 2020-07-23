@@ -45,7 +45,7 @@ $currentUser = auth()->user()->type // Store current user
 @section('content')
 
 <div id="showHolder" class="container">
-    <form action="{{ route('projects.update', $project->id) }}" method="POST">
+    <form action="{{ route('projects.update', $project->id) }}" method="POST" enctype="multipart/form-data">
         @csrf
         @method('PATCH')
         <div class="row">
