@@ -50,24 +50,18 @@
         </div>
         <br>
         {{--Attachments--}}
-        <h3>Attachments (Include a map of your service area or other documents).</h3>
+        <h3>Attachments (CMAQ Analysis, Cost Estimate, Schematic/Design Concept, etc. ).</h3>
         <div class="form-group">
-            <textarea class="form-control" id="attachments_textarea" rows="5" readonly></textarea>
+            <textarea class="form-control" id="attachments_textarea" rows="5" disabled>{{$project->file ?? ''}}</textarea>
+        </div>
+        <div class="form-group">
+            <label for="file"></label>
+            <input id="add_file" type="file" name="file" class="form-control" value="{{$project->file ?? ''}}" disabled>
         </div>
         <div class="form-row">
-            <p>Files Attached&nbsp;</p>
-            <button class="btn btn-primary mt-1 float-right" type="button">
-                Add File
-            </button>
-            <button class="btn btn-primary mt-1 float-right" type="button">
-                Open File
-            </button>
-            <button class="btn btn-primary mt-1 float-right" type="button">
-                Remove File
-            </button>
-            <button class="btn btn-primary mt-1 float-right" type="button">
-                Show Attachment Name and Size
-            </button>
+            <a id="showBtn" class="btn btn-primary mt-1 float-right" href="{{route('projects.download',$project->file ?? '')}}" role="button">
+                Download File
+            </a>
         </div>
         <p>*Only Adobe Acrobat users may be able to attach files to this form. If you are not able to attach files, please send them via e-mail.
             <br>
