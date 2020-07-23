@@ -61,8 +61,12 @@
                     @else
                     <tr>
                         <td>
+                            <p hidden>{{$temp_id = $project->id}}</p>
                             @if($project->parent_id != null)
-                                <p hidden >{{$project->id =  $project->parent_id}}</p>
+                                <p hidden>{{$project->id =  $project->parent_id}}</p>
+                                <p hidden>{{$temp_parent_id = $project->parent_id}}</p>
+                            @else
+                            <p hidden>{{$temp_parent_id = $project->id}}</p>
                             @endif
 
                             <a href="{{ route('projects.revisions', $project->id) }}">
@@ -88,9 +92,11 @@
                                         Options
                                     </button>
                                     <div class="dropdown-menu" aria-labelledby="user_edit_options">
+                                        <p hidden>{{$project->id = $temp_id}}</p>
                                         <!--    <a class="dropdown-item"
                                             href="{{ route('projects.edit', $project->id) }}">Edit</a> -->
                                         @if(auth()->user()->type == 2)
+                                        <p hidden>{{$project->id = $temp_parent_id}}</p>
                                         <a class="dropdown-item" href="{{ route('projects.editInfo', $project->id) }}"
                                             method="POST">Update MPO
                                             ID</a>
@@ -100,10 +106,10 @@
                                             @csrf
                                             @method('delete')
                                             <button class="dropdown-item" type="submit" )>
-                                                Delete All
+                                                Delete Project
                                             </button>
                                         </form>
-                                        <form action="{{ route('projects.destroyNonSubmissions', $project->id) }}"
+                                        {{--<form action="{{ route('projects.destroyNonSubmissions', $project->id) }}"
                                             method="POST"
                                             onclick="return confirm('Are you sure you want to continue with the deletion?')">
                                             @csrf
@@ -119,7 +125,7 @@
                                             <button class="dropdown-item" type="submit" )>
                                                 Delete All and Leave Approved
                                             </button>
-                                        </form>
+                                        </form>--}}
                                     </div>
                                 </div>
                             </td>

@@ -1135,6 +1135,7 @@ class ProjectController extends Controller
 
     public function destroyNonSubmissions(Project $project)
     {
+        $project->delete();
         $project::where('parent_id', $project->id)->where('status', '=', 1)->delete();
         $project::where('parent_id', $project->id)->where('status', '=', 4)->delete();
         return redirect(route('projects.index'));
