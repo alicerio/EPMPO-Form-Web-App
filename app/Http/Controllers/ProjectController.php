@@ -21,9 +21,85 @@ class ProjectController extends Controller
         $projects = Project::all()->where('parent_id', null);
         $allProjects = Project::all();
         $agencies = Agency::all();
+        $youngerChildren = $this->getYoungerChildrenMaster($projects, $allProjects);
+
         $statuses = ['In Progress', 'PM Pending Review', 'Submitted', 'Approved', 'In Progress [Returned for Revision]'];
-        return view('projects.index', compact('projects', 'statuses', 'agencies', 'allProjects'));
+        return view('projects.index', compact('projects', 'statuses', 'agencies', 'allProjects', 'youngerChildren'));
     }
+
+    /**
+     * The following functions work together to get the younger children from parent projects
+     * 
+     * Send 1 parent at a time then store youngest id from that parent. IF NO PARENT store parent. 
+     * Repeat for every parent. 
+     */
+
+    public function getYoungerChildrenMaster($parents, $allProjects)
+    {
+        $youngerChildrenID = array();
+        $projectList = array();
+        foreach ($parents as $parent) {
+            array_push( $youngerChildrenID, $this->getYoungerchild($this->getAllChildren($parent, $allProjects)));
+        }
+        
+        $projectList = $this->getProjectByID($youngerChildrenID);
+        return $projectList;
+    }
+    /**
+     * Gets 1 parent and all Projects. 
+     * Returns all children from given parent
+     */
+    public function getAllChildren($parent, $allProjects)
+    {
+        $hasChild = FALSE;
+        $allChildren = array();
+        foreach($allProjects as $p){
+            if($p->parent_id  == $parent->id){
+                $hasChild = TRUE;
+                array_push($allChildren,$p->id);
+            }
+        }
+        if($hasChild == FALSE){
+            return $parent->id;
+        }
+        return $allChildren;
+    }
+
+    /**
+     * Gets brothers. 
+     * Returns youngest id.
+     */
+    public function getYoungerchild($children)
+    {
+        $youngest = 0;
+        if(gettype($children) == "array"){
+            foreach ($children as $child) {
+                if($child > $youngest){
+                    $youngest = $child;
+                }
+            }      
+        }else{
+            return $children;
+        }
+    
+        return $youngest;
+    }
+    /**
+     * Takes Array of IDS
+     * Gets project by ID
+     */
+    public function getProjectByID($idProjects){
+        $projects = Project::all();
+        $listOfProjects = array();
+        foreach($projects as $p){
+            foreach($idProjects as $idP){
+                if($p->id == $idP ){
+                    array_push($listOfProjects,$p);
+                }
+            }
+        }
+        return  $listOfProjects;
+    } 
 
     public function revisions($id)
     {
@@ -44,12 +120,12 @@ class ProjectController extends Controller
     {
         $columns = $project->getTableColumns();
         $projects = $project->getAll2($project->id);
-        
+
         $data = new collection();
         foreach ($columns as $column) {
             $data[0] = (object) $column;
         }
-        $data = $data->merge($projects);  
+        $data = $data->merge($projects);
         $fileName = "Projects.xlsx";
         $excel = Exporter::make('Excel');
         $excel->load($data);
@@ -151,8 +227,8 @@ class ProjectController extends Controller
         $project->type_administration = request('type_administration') == 'on' ? 1 : null;
         $project->block_system = request('block_system');
         $project->reviewed_dates = request('reviewed_dates');
-        $project->progress = request('progress') == '----' ? null : request('progress');   
-        $project->progress_explain = request('progress_explain');     
+        $project->progress = request('progress') == '----' ? null : request('progress');
+        $project->progress_explain = request('progress_explain');
         $project->schematic_start_date = request('schematic_start_date');
         $project->schematic_end_date = request('schematic_end_date');
         $project->schematic_progress = request('schematic_progress') == '----' ? null : request('schematic_progress');
@@ -324,7 +400,7 @@ class ProjectController extends Controller
         $project->funding_local_operations = request('funding_local_operations');
         $project->funding_local_beyond_operations = request('funding_local_beyond_operations');
         $project->funding_total_operations = request('funding_total_operations');
-        $project->funding_federal_operations_total =request('funding_federal_operations_total');
+        $project->funding_federal_operations_total = request('funding_federal_operations_total');
         $project->funding_local_operations_total = request('funding_local_operations_total');
         $project->funding_local_beyond_operations_total = request('funding_local_beyond_operations_total');
         $project->funding_total_operations_total = request('funding_total_operations_total');
@@ -519,7 +595,7 @@ class ProjectController extends Controller
             if ($iterator->parent_id == $currentProject->parent_id) {
                 // if project being iterated has a newer id than the current project's id 
                 // that means there are more submissions
-                if($iterator->id > $currentProject->id ){
+                if ($iterator->id > $currentProject->id) {
                     $infoCurrentProject["currentSubmission"] = 0; //false
                 }
             }
@@ -711,8 +787,8 @@ class ProjectController extends Controller
         $project->type_administration = request('type_administration') == 'on' ? 1 : null;
         $project->block_system = request('block_system');
         $project->reviewed_dates = request('reviewed_dates');
-        $project->progress = request('progress') == '----' ? null : request('progress');   
-        $project->progress_explain = request('progress_explain');     
+        $project->progress = request('progress') == '----' ? null : request('progress');
+        $project->progress_explain = request('progress_explain');
         $project->schematic_start_date = request('schematic_start_date');
         $project->schematic_end_date = request('schematic_end_date');
         $project->schematic_progress = request('schematic_progress') == '----' ? null : request('schematic_progress');
@@ -884,7 +960,7 @@ class ProjectController extends Controller
         $project->funding_local_operations = request('funding_local_operations');
         $project->funding_local_beyond_operations = request('funding_local_beyond_operations');
         $project->funding_total_operations = request('funding_total_operations');
-        $project->funding_federal_operations_total =request('funding_federal_operations_total');
+        $project->funding_federal_operations_total = request('funding_federal_operations_total');
         $project->funding_local_operations_total = request('funding_local_operations_total');
         $project->funding_local_beyond_operations_total = request('funding_local_beyond_operations_total');
         $project->funding_total_operations_total = request('funding_total_operations_total');
@@ -1012,7 +1088,7 @@ class ProjectController extends Controller
 
         $id = $project->parent_id;
 
-        if($project->status == 0) {
+        if ($project->status == 0) {
             $id = $project->id;
         }
 
@@ -1039,22 +1115,22 @@ class ProjectController extends Controller
     public function destroy(Project $project)
     {
         $project->delete();
-        $project::where('parent_id',$project->id)->delete();
+        $project::where('parent_id', $project->id)->delete();
         return redirect(route('projects.index'));
     }
-    
+
     public function destroyNonSubmissions(Project $project)
     {
-        $project::where('parent_id',$project->id)->where('status','=',1)->delete();
-        $project::where('parent_id',$project->id)->where('status','=',4)->delete();
+        $project::where('parent_id', $project->id)->where('status', '=', 1)->delete();
+        $project::where('parent_id', $project->id)->where('status', '=', 4)->delete();
         return redirect(route('projects.index'));
     }
 
     public function leaveApproved(Project $project)
     {
-        $project::where('parent_id',$project->id)->where('status','=',1)->delete();
-        $project::where('parent_id',$project->id)->where('status','=',4)->delete();
-        $project::where('parent_id',$project->id)->where('status','=',2)->delete();
+        $project::where('parent_id', $project->id)->where('status', '=', 1)->delete();
+        $project::where('parent_id', $project->id)->where('status', '=', 4)->delete();
+        $project::where('parent_id', $project->id)->where('status', '=', 2)->delete();
         return redirect(route('projects.index'));
     }
 
@@ -1070,6 +1146,6 @@ class ProjectController extends Controller
     {
         $project->comments = request('comments');
         $project->save();
-        return view('projects.comments',compact('project'));
+        return view('projects.comments', compact('project'));
     }
 }

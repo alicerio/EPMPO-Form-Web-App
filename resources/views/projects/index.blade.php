@@ -3,17 +3,17 @@
 @section('content')
 
 <script>
-    var parents = <?php echo json_encode($projects);?>;
-     var allProjects = <?php echo json_encode($allProjects);?>;  
+    // var parents = <?php echo json_encode($projects);?>;
+    //  var allProjects = <?php echo json_encode($allProjects);?>;  
 
-     window.onload = function() {
-        //js to php
-        var parents = <?php echo json_encode($projects);?>;
-        var allProjects = <?php echo json_encode($allProjects);?>;  
-        var youngerChildrenJS = getYoungerChildrenMaster(parents,allProjects);
+    //  window.onload = function() {
+    //     //js to php
+    //     var parents = <?php echo json_encode($projects);?>;
+    //     var allProjects = <?php echo json_encode($allProjects);?>;  
+    //     var youngerChildrenJS = getYoungerChildrenMaster(parents,allProjects);
         
-        console.log(youngerChildrenJS);
-     }
+    //     console.log(youngerChildrenJS);
+    //  }
 </script>
 
 
@@ -55,13 +55,16 @@
                     </tr>
                 </thead>
                 <tbody>
-
-                    @foreach ($projects as $project)
-
+                    @foreach ($youngerChildren as $project)
+     
                     @if($project->agency_id != auth()->user()->agency->id && auth()->user()->type!=2)
                     @else
                     <tr>
                         <td>
+                            @if($project->parent_id != null)
+                                <p hidden >{{$project->id =  $project->parent_id}}</p>
+                            @endif
+
                             <a href="{{ route('projects.revisions', $project->id) }}">
                                 {{ $project->name }}
                             </a>
