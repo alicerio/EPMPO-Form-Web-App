@@ -107,6 +107,7 @@ function set_required(required, project_type) {
 
             $("#progress_explain").prop('required', false); // make optional
             $("#dates").prop('required', false); // make optional
+            $("#add_file").prop('required', false); // make optional
 
             for (let i = 1; i < 37; i++) {
                 $("#sqq_" + i).prop('required', false);

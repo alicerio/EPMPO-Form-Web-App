@@ -19,7 +19,6 @@
 
 @if(auth()->user()->type!=2)
 @extends('projects.index_NonAdmin')
-
 @else
 <div class="container">
     <h2 class="text-center"><b>Projects</b></h2>
@@ -51,18 +50,21 @@
                         <th scope="col">Last Updated By</th>
                         <th scope="col">Status</th>
                         <th scope="col">Project Type</th>
-                        <th scole="col">editor</th>
+                        <th scope="col">editor</th>
                     </tr>
                 </thead>
                 <tbody>
                     @foreach ($youngerChildren as $project)
-     
                     @if($project->agency_id != auth()->user()->agency->id && auth()->user()->type!=2)
                     @else
                     <tr>
                         <td>
+                            <p hidden>{{$temp_id = $project->id}}</p>
                             @if($project->parent_id != null)
-                                <p hidden >{{$project->id =  $project->parent_id}}</p>
+                                <p hidden>{{$project->id =  $project->parent_id}}</p>
+                                <p hidden>{{$temp_parent_id = $project->parent_id}}</p>
+                            @else
+                            <p hidden>{{$temp_parent_id = $project->id}}</p>
                             @endif
 
                             <a href="{{ route('projects.revisions', $project->id) }}">
@@ -88,9 +90,11 @@
                                         Options
                                     </button>
                                     <div class="dropdown-menu" aria-labelledby="user_edit_options">
+                                        <p hidden>{{$project->id = $temp_id}}</p>
                                         <!--    <a class="dropdown-item"
                                             href="{{ route('projects.edit', $project->id) }}">Edit</a> -->
                                         @if(auth()->user()->type == 2)
+                                        <p hidden>{{$project->id = $temp_parent_id}}</p>
                                         <a class="dropdown-item" href="{{ route('projects.editInfo', $project->id) }}"
                                             method="POST">Update MPO
                                             ID</a>
@@ -100,7 +104,7 @@
                                             @csrf
                                             @method('delete')
                                             <button class="dropdown-item" type="submit" )>
-                                                Delete All
+                                                Delete Project
                                             </button>
                                         </form>
                                         <form action="{{ route('projects.destroyNonSubmissions', $project->id) }}"
@@ -117,13 +121,13 @@
                                             @csrf
                                             @method('delete')
                                             <button class="dropdown-item" type="submit" )>
-                                                Delete All and Leave Approved
+                                                Delete Non Approved
                                             </button>
                                         </form>
                                     </div>
                                 </div>
                             </td>
-                    </tr>
+                        </tr>
                     @endif
                     @endforeach
                 </tbody>

@@ -110,23 +110,12 @@
         </div>
         <div class="form-group">
             <label for="file"></label>
-            <input type="file" name="file" class="form-control" value="{{$project->file ?? ''}}" disabled>
-            <a href="{{route('projects.download',$project->file ?? '')}}">Download</a>
+            <input id="add_file" type="file" name="file" class="form-control" value="{{$project->file ?? ''}}" disabled>
         </div>
         <div class="form-row">
-            <p>Files Attached&nbsp;</p>
-            <button id="addFileBtn" class="btn btn-primary mt-1 float-right" type="button">
-                Add File
-            </button>
-            <button id="openBtn" class="btn btn-primary mt-1 float-right" type="button">
-                Open File
-            </button>
-            <button id="removeBtn" class="btn btn-primary mt-1 float-right" type="button">
-                Remove File
-            </button>
-            <button id="showBtn" class="btn btn-primary mt-1 float-right" type="button">
-                Show Attachment Name and Size
-            </button>
+            <a id="showBtn" class="btn btn-primary mt-1 float-right" href="{{route('projects.download',$project->file ?? '')}}" role="button">
+                Download File
+            </a>
         </div>
         <p>*Please attach any supporting documents to this form, if possible (CMAQ Analysis, Cost
             Estimate, Environmental Document, or other).

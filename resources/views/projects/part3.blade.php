@@ -307,7 +307,7 @@
                         <div class="col">
                             5. Using the 2019 CMP Report, is the corridor identified as a congested segment?
                             <br>
-                            Instructions: See congestion problems and needs section of the 2019 CMP Report (page 21)
+                            Instructions: See congestion problems and needs section of the 2019 CMP Report (page 24)
                             to
                             identify congested segments.
                             <h6><a href="http://www.elpasompo.org/other/congestion_management_process_/default.htm"
@@ -482,18 +482,14 @@
             <br>
             <div class="row">
                 <input type="hidden"{{$temp = $project->block_system ?? ''}}>
-                <label><input class= "mx-1" type="radio" name="block_system" value="1"
-                        {{ $temp == 1 ? 'checked' : '' }}> Within Community</label
-                    autocomplete="off" disabled>
-                <label><input class= "mx-1" type="radio" name="block_system" value="2"
-                        {{ $temp == 2 ? 'checked' : '' }}> Community to community</label
-                    autocomplete="off" disabled>
-                <label><input class= "mx-1" type="radio" name="block_system" value="3"
-                        {{ $temp == 3 ? 'checked' : '' }}> Community to region</label
-                    autocomplete="off" disabled>
-                <label><input class= "mx-1" type="radio" name="block_system" value="4"
-                        {{ $temp == 4 ? 'checked' : '' }}> Region to region</label
-                    autocomplete="off" disabled>
+                <input class= "mx-1" type="radio" name="block_system" value="1"
+                        {{ $temp == 1 ? 'checked' : '' }} autocomplete="off" disabled> Within Community
+                <input class= "mx-1" type="radio" name="block_system" value="2"
+                        {{ $temp == 2 ? 'checked' : '' }} autocomplete="off" disabled> Community to community
+                <input class= "mx-1" type="radio" name="block_system" value="3"
+                        {{ $temp == 3 ? 'checked' : '' }} autocomplete="off" disabled> Community to region
+                <input class= "mx-1" type="radio" name="block_system" value="4"
+                        {{ $temp == 4 ? 'checked' : '' }} autocomplete="off" disabled> Region to region
             </div>
         </div>
     </div>
