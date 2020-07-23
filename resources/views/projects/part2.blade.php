@@ -113,7 +113,7 @@
         </div>
         <div class="col">
             <label>
-                Federal Functional Classificaiton (<a href="https://www.txdot.gov/apps/statewide_mapping/StatewidePlanningMap.html" target="_blank">Texas</a>, <a href="http://www.elpasompo.org/civicax/filebank/blobdload.aspx?BlobID=23410" target="_blank">New Mexico</a>): <i class="fa fa-asterisk" style="font-size:10px;color:red"></i>
+                Federal Functional Classification (<a href="https://www.txdot.gov/apps/statewide_mapping/StatewidePlanningMap.html" target="_blank">Texas</a>, <a href="http://www.elpasompo.org/civicax/filebank/blobdload.aspx?BlobID=23410" target="_blank">New Mexico</a>): <i class="fa fa-asterisk" style="font-size:10px;color:red"></i>
             </label>
             <select disabled name="classification" class="form-control">
                 <option></option>
