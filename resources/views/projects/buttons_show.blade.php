@@ -2,13 +2,13 @@
     This is shared between TASA and 5310
 -->
 <style>
-    #show_anchor1,
+    #show_buttons,
     #select_Action {
         height: 40px;
         margin-top: 1%;
     }
 </style>
-<div class="row col-12">
+<div id="show_buttons"class="row col-12">
     @include('projects.buttons_shared')
     <!-- Check if user is ADMIN and that in the automata is not on status 1-->
     @if(auth()->user()->type == 2 && $project->status != 1 && $infoCurrentProject["currentSubmission"] == 1)
@@ -24,9 +24,9 @@
     @endif
     <!-- Check if user is ADMIN and if is a submission -->
     @if(auth()->user()->type == 2 && $project->status == 2)
-    <button class="btn btn-primary mx-1" name="data" type="button" onclick="displayChanges(obj)">Log of changes</button>
+    <button id="logOfChanges" class="btn btn-primary mx-1" name="data" type="button" onclick="displayChanges(obj)">Log of changes</button>
 
-    <a style="margin-top:1%; margin-left:1%" href="{{ route('projects.comments', $project->id) }}"> Add Comments</a>
+    <a style="margin-top:1%; margin-left:1%; margin-right:1%" href="{{ route('projects.comments', $project->id) }}"> Add Comments</a>
 
     <button onclick="toggleComment()" class="btn btn-info" rows="5" id="toggleCommentsButton" type="button">Show
         Comments</button>

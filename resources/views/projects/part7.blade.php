@@ -162,4 +162,8 @@
         <p>Save your form before signing, all fields will be locked after signature is provided.</p>
         <br>
     </div>
+    <div hidden id="log_alert" class="alert alert-success alert-dismissible">
+        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+        <strong>Success!</strong> This alert box could indicate a successful or positive action.
+    </div>
 </div>

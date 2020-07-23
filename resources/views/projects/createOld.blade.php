@@ -1611,15 +1611,15 @@
 </div>
 
 <script>
-    const toggleTA = (name) => {
-        if($('input[name="'+ name +'"]').is(':checked')) {
-            console.log('checked');
-            $('textarea[name="description_'+ name +'"]').show();
-        }else{
-            console.log('not checked');
-            $('textarea[name="description_'+ name +'"]').hide();
-        }
-    };
+    // const toggleTA = (name) => {
+    //     if($('input[name="'+ name +'"]').is(':checked')) {
+    //         console.log('checked');
+    //         $('textarea[name="description_'+ name +'"]').show();
+    //     }else{
+    //         console.log('not checked');
+    //         $('textarea[name="description_'+ name +'"]').hide();
+    //     }
+    // };
 </script>
 <script src="{{ asset('docs/js/form1FrontEndLogic.js')}}"></script>
 <style>

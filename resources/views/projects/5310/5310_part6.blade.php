@@ -92,4 +92,21 @@
         <p>Save your form before signing, all fields will be locked after signature is provided.</p>
         <br>
     </div>
+    <div hidden id="log_success" class="alert alert-success alert-dismissible">
+        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+        <h4 class="alert-heading">Log of changes</h4>
+        <p> Changes from last submission are highlighted in blue.</p>
+        <p> Use mouse to hoover highlighted text to see last submission input. </p>
+    </div>
+    <div hidden id="log_warning" class="alert alert-danger">
+        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+        <h4 class="alert-heading">Warning</h4>
+        <p>No changes detected</p>
+        <p>Note: The Log of Changes can only be used on Submitions 2 and above.</p>
+    </div>
+    <div hidden id="log_error" class="alert alert-danger">
+        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+        <h4 class="alert-heading">ERROR</h4>
+        <p>Please report this error to development team.</p>
+    </div>
 </div>
