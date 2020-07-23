@@ -39,7 +39,7 @@ class Project extends Model
         $qry = "SELECT column_name
             FROM information_schema.columns
             WHERE table_name = 'projects' # Do not edit this line.
-            AND table_schema = 'test'";   # Name of database. Change if necessary.
+            AND table_schema = 'mpo_forms'";   # Name of database. Change if necessary.
         $result = DB::select($qry);
         $result = $this->transposeData($result);
         return $result;

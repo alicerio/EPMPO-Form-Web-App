@@ -1043,7 +1043,7 @@ class ProjectController extends Controller
 
         if($request->hasFile('file')) {
             $file = $request->file('file');
-            $name = time().$file->getClientOriginalName();
+            $name = $file->getClientOriginalName();
             $file->move(public_path().'/files/',$name);
             $project->file = $name;
         }

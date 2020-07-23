@@ -106,7 +106,11 @@
         <br>
         <h3>Attachments (CMAQ Analysis, Cost Estimate, Schematic/Design Concept, etc. ).</h3>
         <div class="form-group">
-            <textarea class="form-control" id="attachments_textarea" rows="5" disabled>{{$project->file ?? ''}}</textarea>
+          @php
+            date_default_timezone_set("America/Denver");
+            $time = date("Y/m/d") . " " . date("h:i:sa") .  "\n" ;   
+          @endphp
+          <textarea class="form-control" id="attachments_textarea" rows="5" disabled>{{$time . $project->file ?? '' }}</textarea>
         </div>
         <div class="form-group">
             <label for="file"></label>
