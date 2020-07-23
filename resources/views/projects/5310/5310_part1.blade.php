@@ -29,8 +29,8 @@
             <div class="row">
                 <p>&nbsp;&nbsp;&nbsp;&nbsp;Is the decision making/governing body of your agency committed to this project?</p>
                 <input type="hidden"{{$temp = $project->decision ?? ''}}>
-                <label><input class= "mx-1" type="radio" name="decision" value="1" {{ $temp == 1 ? 'checked' : '' }}>Yes</label autocomplete="off" disabled>
-                <label><input class= "mx-1" type="radio" name="decision" value="2" {{ $temp == 2 ? 'checked' : '' }}>No</label autocomplete="off" disabled>
+                <input class= "mx-1" type="radio" name="decision" value="1" {{ $temp == 1 ? 'checked' : '' }} autocomplete="off" disabled>Yes
+                <input class= "mx-1" type="radio" name="decision" value="2" {{ $temp == 2 ? 'checked' : '' }} autocomplete="off" disabled>No
             </div>
             
             <label>
