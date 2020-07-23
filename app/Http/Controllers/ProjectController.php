@@ -524,6 +524,13 @@ class ProjectController extends Controller
         $project->new_project = request('new_project');
         $project->decision = request('decision');
 
+        if($request->hasFile('file')) {
+            $file = $request->file('file');
+            $name = time().$file->getClientOriginalName();
+            $file->move(public_path().'/files/',$name);
+            $project->file = $name;
+        }
+
         $project->save();
 
         $id = $project->id;
@@ -1084,6 +1091,13 @@ class ProjectController extends Controller
         $project->new_project = request('new_project');
         $project->decision = request('decision');
 
+        if($request->hasFile('file')) {
+            $file = $request->file('file');
+            $name = time().$file->getClientOriginalName();
+            $file->move(public_path().'/files/',$name);
+            $project->file = $name;
+        }
+
         $project->save();
 
         $id = $project->parent_id;
@@ -1148,4 +1162,11 @@ class ProjectController extends Controller
         $project->save();
         return view('projects.comments', compact('project'));
     }
+
+    public function download($file)
+    {
+        $name = public_path()."/files/$file";
+        return response()->download($name,$file);
+    }
 }
+

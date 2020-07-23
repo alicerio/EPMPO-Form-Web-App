@@ -106,7 +106,12 @@
         <br>
         <h3>Attachments (CMAQ Analysis, Cost Estimate, Schematic/Design Concept, etc. ).</h3>
         <div class="form-group">
-            <textarea class="form-control" id="attachments_textarea" rows="5" disabled></textarea>
+            <textarea class="form-control" id="attachments_textarea" rows="5" disabled>{{$project->file ?? ''}}</textarea>
+        </div>
+        <div class="form-group">
+            <label for="file"></label>
+            <input type="file" name="file" class="form-control" value="{{$project->file ?? ''}}" disabled>
+            <a href="{{route('projects.download',$project->file ?? '')}}">Download</a>
         </div>
         <div class="form-row">
             <p>Files Attached&nbsp;</p>
