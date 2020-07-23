@@ -7,7 +7,6 @@
     @endif
     <div class="row">
         <div class="col-md-12">
-
             <div class="dropdown">
                 <button class="btn btn-primary dropdown-toggle float-right" type="button" id="user_edit_options"
                     data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -18,7 +17,6 @@
                     <a class="dropdown-item" href="{{ route('bprojects.create') }}">5310</a>
                 </div>
             </div>
-
         </div>
         <div style="padding-top: 5%;"></div>
         <div class="col-md-12">
@@ -34,45 +32,32 @@
                         <th scope="col">Last Updated By</th>
                         <th scope="col">Status</th>
                         <th scope="col">Project Type</th>
-                        <th scole="col">editor</th>
+                        <th scope="col">editor</th>
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach ($projects as $project)
+                    @foreach ($youngerChildren as $project)
                     @if($project->agency_id != auth()->user()->agency->id && auth()->user()->type!=2)
                     @else
                     <tr>
                         <td>
+                            <p hidden>{{$temp_id = $project->id}}</p>
+                            @if($project->parent_id != null)
+                                <p hidden>{{$project->id =  $project->parent_id}}</p>
+                                <p hidden>{{$temp_parent_id = $project->parent_id}}</p>
+                            @else
+                            <p hidden>{{$temp_parent_id = $project->id}}</p>
+                            @endif
                             <a href="{{ route('projects.revisions', $project->id) }}">
                                 {{ $project->name }}
                             </a>
                         </td>
-
                         <td>{{ $project->author }}</td>
                         @if($project->agency_id<=6) <td>{{ $statuses[$project->status] }}</td>
                             @else
                             <td>{{ $statuses[$project->status] }}</td>
                             @endif
                             <td>{{ $project->project_type}}</td>
-                            @if(auth()->user()->type!=2)
-
-                            @else
-                            <form action="{{ route('projects.updateMPO', $project->id) }}" method="POST"
-                                name="inline_form">
-                                @csrf
-                                @method('PATCH')
-                                <input type="text" name="name" hidden value="{{ $project->name }}">
-                                <input type="text" name="agency_id" hidden value="{{ $project->agency_id }}">
-                                <td>
-                                    <input type="text" class="form-control" name="mpo_id"
-                                        value="{{ $project->mpo_id }}">
-                                </td>
-                                <td>
-                                    <input type="text" class="form-control" name="csj_cn"
-                                        value="{{ $project->csj_cn }}">
-                                </td>
-                            </form>
-                            @endif
                             <td>
                                 <div class="dropdown">
                                     <button class="btn btn-secondary dropdown-toggle" type="button"
@@ -81,17 +66,18 @@
                                         Options
                                     </button>
                                     <div class="dropdown-menu" aria-labelledby="user_edit_options">
+                                        <p hidden>{{$project->id = $temp_parent_id}}</p>
                                         <form action="{{ route('projects.destroy', $project->id) }}" method="POST">
                                             @csrf
                                             @method('delete')
                                             <button class="dropdown-item" type="submit">
-                                                Delete All
+                                                Delete Project
                                             </button>
                                         </form>
                                     </div>
                                 </div>
                             </td>
-                    </tr>
+                        </tr>
                     @endif
                     @endforeach
                 </tbody>

@@ -19,7 +19,6 @@
 
 @if(auth()->user()->type!=2)
 @extends('projects.index_NonAdmin')
-
 @else
 <div class="container">
     <h2 class="text-center"><b>Projects</b></h2>
@@ -51,12 +50,11 @@
                         <th scope="col">Last Updated By</th>
                         <th scope="col">Status</th>
                         <th scope="col">Project Type</th>
-                        <th scole="col">editor</th>
+                        <th scope="col">editor</th>
                     </tr>
                 </thead>
                 <tbody>
                     @foreach ($youngerChildren as $project)
-     
                     @if($project->agency_id != auth()->user()->agency->id && auth()->user()->type!=2)
                     @else
                     <tr>
@@ -109,7 +107,7 @@
                                                 Delete Project
                                             </button>
                                         </form>
-                                        {{--<form action="{{ route('projects.destroyNonSubmissions', $project->id) }}"
+                                        <form action="{{ route('projects.destroyNonSubmissions', $project->id) }}"
                                             method="POST"
                                             onclick="return confirm('Are you sure you want to continue with the deletion?')">
                                             @csrf
@@ -123,13 +121,13 @@
                                             @csrf
                                             @method('delete')
                                             <button class="dropdown-item" type="submit" )>
-                                                Delete All and Leave Approved
+                                                Delete Non Approved
                                             </button>
-                                        </form>--}}
+                                        </form>
                                     </div>
                                 </div>
                             </td>
-                    </tr>
+                        </tr>
                     @endif
                     @endforeach
                 </tbody>
