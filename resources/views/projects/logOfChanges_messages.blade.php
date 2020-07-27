@@ -7,7 +7,6 @@
 <div hidden id="log_warning" class="alert alert-warning" role="alert">
     <h4 class="alert-heading">Warning</h4>
     <p>No changes detected</p>
-    <p>Note: The Log of Changes can only be used on Submitions 2 and above.</p>
 </div>
 <div hidden id="log_error" class="alert alert-danger">
     <h4 class="alert-heading">ERROR</h4>

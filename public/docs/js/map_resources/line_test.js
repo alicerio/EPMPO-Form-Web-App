@@ -22,27 +22,32 @@ function pavementCond(to_php) {
             let through_lanes =  parseFloat(data.shape_arr[index].through_la);
 
             let currentLaneMiles = (end_point - begin_point) * through_lanes;
-           
+            let color2 = "";
             // makes sure to only calculate the current mode
             //  if (type == currentType) {
 
             if (iri == 0) { // No data
                 color = '#9E9E9E';
+                color2 = "gray";
                 cond = "No Data";
                 currentLaneMiles = 0;
             } else if (iri > 0 && iri < 95) {
                 color = '#8BC34A'; //green
+                color2 = "green";
                 cond = "Good";
                 pavementsData.good += currentLaneMiles;
             } else if (iri > 94 && iri < 171) {
                 color = '#F57C00'; //orange
+                color2 = "orange";
                 cond = "Fair";
                 pavementsData.fair += currentLaneMiles;
             } else if (iri > 170) {
                 color = '#d50000'; //red
+                color2 = "red";
                 cond = "Poor";
                 pavementsData.poor += currentLaneMiles;
             }
+    
 
             for (let i = 0; i < ln.length; i++) {
                 coord = {
@@ -61,12 +66,13 @@ function pavementCond(to_php) {
             });
 
             //By adding paragraphs allows line break since \n did not work
-            var infoWindow = new google.maps.InfoWindow({
+            let infoWindow = new google.maps.InfoWindow({
                 content: (
                     "<p>" + "2018 Condition: " + cond + "<br /> " +
-                    "Lanem Miles: " + currentLaneMiles.toFixed(2) + "</p>"
+                    "Lanem Miles: " + currentLaneMiles.toFixed(2) +"  " + color2 + " " + iri + "</p>"
                 )
             });
+            
             // Hover Effect for Google API Polygons
             google.maps.event.addListener(line, 'mouseover', function (event) {
                 infoWindow.setPosition(event.latLng);

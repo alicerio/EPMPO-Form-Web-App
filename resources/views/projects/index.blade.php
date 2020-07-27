@@ -45,7 +45,7 @@
             <table class="table table-bordered table-hover">
                 <thead class="thead-light">
                     <tr>
-                        <th scope="col">Project</th>
+                        <th scope="col">Projects</th>
                         <th scope="col">Agency</th>
                         <th scope="col">Last Updated By</th>
                         <th scope="col">Status</th>
