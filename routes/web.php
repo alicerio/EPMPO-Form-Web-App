@@ -63,7 +63,4 @@ Route::delete('projects/leaveApproved/{project}', 'ProjectController@leaveApprov
 
 Route::get('projects/download/{file}', 'ProjectController@download')->name('projects.download');
 
-// Route::get('video/videos', function(){
-//     return view('video.videos');
-// });
-Route::get('video/videos')->name('video');
+Route::get('video/tutorials','VideosController@showVideos')->name('video.tutorials');
