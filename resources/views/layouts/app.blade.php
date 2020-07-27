@@ -62,6 +62,9 @@
                                 <li class="nav-item">
                                     <a class="nav-link" href="{{ route('projects.index') }}">Projects</a>
                                 </li>    
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{ route('video') }}">Videos</a>
+                                </li>
                         @endauth
                     </ul>
 
