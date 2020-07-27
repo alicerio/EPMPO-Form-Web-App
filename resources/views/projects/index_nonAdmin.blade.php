@@ -67,7 +67,8 @@
                                     </button>
                                     <div class="dropdown-menu" aria-labelledby="user_edit_options">
                                         <p hidden>{{$project->id = $temp_parent_id}}</p>
-                                        <form action="{{ route('projects.destroy', $project->id) }}" method="POST">
+                                        <form action="{{ route('projects.destroy', $project->id) }}" method="POST" 
+                                            onclick="return confirm('Are you sure you want to continue with the deletion?')">
                                             @csrf
                                             @method('delete')
                                             <button class="dropdown-item" type="submit">
