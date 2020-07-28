@@ -1,67 +1,59 @@
 @extends('layouts.app')
-
 @section('content')
+    
+
 <div class="container">
     <div class="row">
-        <div class="col-2">
-        </div>
-        <div class="col-8 accordion" id="accordionExample">
-            <div class="card">
-                <div class="card-header" id="headingOne">
-                    <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne"
-                        aria-controls="collapseOne">
-                        How to create a project request
-                    </button>
-                </div>
-                <div id="collapseOne" class="collapse show" aria-labelledby="headingOne"
-                    data-parent="#accordionExample">
-                    <div class="card-body">
-                        <div class="embed-responsive embed-responsive-16by9">
-                            <iframe class="embed-responsive-item" src="/docs/videos/Video3.mp4"></iframe>
-                        </div>
-                    </div>
-                </div>
+        <div class="col-2"></div>
+        <div class="col-8">
+            <h5 class="text-center">How to create a project request</h5>
+            <div class="embed-responsive embed-responsive-16by9">
+                <video controls>
+                    <source src=/MPO_Projects/EPMPO_Form/public/docs/videos/Create_Project.mov type="video/mp4"></video>
             </div>
-            <div class="card">
-                <div class="card-header" id="headingTwo">
-                    <h2 class="">
-                        <button class="btn btn-link collapsed" type="button" data-toggle="collapse"
-                            data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                            How to sign in as a project manager
-                        </button>
-                    </h2>
-                </div>
-                <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
-                    <div class="card-body">
-                        <div class="embed-responsive embed-responsive-16by9">
-                            <iframe class="embed-responsive-item" src="/docs/videos/Video3.mp4"></iframe>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="card">
-                <div class="card-header" id="headingThree">
-                    <h2 class="">
-                        <button class="btn btn-link collapsed" type="button" data-toggle="collapse"
-                            data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                            Using the map on the form
-                        </button>
-                    </h2>
-                </div>
-                <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
-                    <div class="card-body">
-                        <div class="embed-responsive embed-responsive-16by9">
-                            <iframe class="embed-responsive-item" src="/docs/videos/Video3.mp4"></iframe>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+            <br>
 
-        <div class="col-2">
+            <h5 class="text-center">Using the map on the form</h5>
+            <div class="embed-responsive embed-responsive-16by9">
+                <video controls>
+                    <source src="" type="video/mp4"></video>
+            </div>
+            <br>
+
+            <h5 class="text-center">How request a PM to review</h5>
+            <div class="embed-responsive embed-responsive-16by9">
+                <video controls>
+                    <source src=/MPO_Projects/EPMPO_Form/public/docs/videos/Request_PM_Review.mov type="video/mp4"></video>
+            </div>
+            <br>
+
+            <h5 class="text-center">How to submit to MPO</h5>
+            <div class="embed-responsive embed-responsive-16by9">
+                <video controls>
+                    <source src=/MPO_Projects/EPMPO_Form/public/docs/videos/Submit_to_MPO.mov type="video/mp4"></video>
+            </div>
+            <br>
+
+            <h5 class="text-center">How to view MPO comments</h5>
+            <div class="embed-responsive embed-responsive-16by9">
+                <video controls>
+                    <source src=/MPO_Projects/EPMPO_Form/public/docs/videos/View_Comments.mov type="video/mp4"></video>
+            </div>
+            <br>
+
+            <h5 class="text-center">How export to PDF/Excel</h5>
+            <div class="embed-responsive embed-responsive-16by9">
+                <video controls>
+                    <source src=/MPO_Projects/EPMPO_Form/public/docs/videos/Export.mov type="video/mp4"></video>
+            </div>
+            <br>
+
+            <h5 class="text-center">How to upload attachments</h5>
+            <div class="embed-responsive embed-responsive-16by9">
+                <video controls>
+                    <source src=/MPO_Projects/EPMPO_Form/public/docs/videos/Attachments.mov type="video/mp4"></video>
+            </div>
         </div>
     </div>
 </div>
-
-
 @endsection
