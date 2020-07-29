@@ -6,7 +6,7 @@
 ini_set('memory_limit', '-1');
 ini_set('max_execution_time', 120); //120 seconds = 2 minutes
 $user = "ctis";
-$db = "mpo_all";
+$db = "mpo_forms_shapes";
 $ps = "19691963";
 $host = "irpsrvgis35.utep.edu";
 $conn = mysqli_connect($host, $user, $ps, $db);
@@ -23,17 +23,18 @@ $active_pm = $_GET['Table_wanted'];
 /**
 *Initialize special MySQL variable
 */ 
-$query = "SET @poly =  ST_GeomFromGeoJSON('$AOI_SHAPE');";
+$query = "SET @poly = ST_GeomFromGeoJSON('$AOI_SHAPE');";
 $result = mysqli_query($conn, $query); 
 
 /**
  * Select query to be run in database
  */
-if($active_pm =="pavements2018"){ 
+if($active_pm =="pavements"){ 
+	//$query = "SELECT begin_poin, end_point,through_la,mode,state_code,year_recor,iri, ST_AsText(SHAPE)  as shape FROM $active_pm as p WHERE  ST_INTERSECTS( st_geomfromtext( st_astext(@poly), 3), p.SHAPE );"; 
 	$query = "SELECT begin_poin, end_point,through_la,mode,state_code,year_recor,iri, ST_AsText(SHAPE)  as shape FROM $active_pm as p WHERE  ST_INTERSECTS( st_geomfromtext( st_astext(@poly), 3), p.SHAPE );"; 
 }
 else{
-	$query = "SELECT ST_AsText(SHAPE) as shape FROM $active_pm as p WHERE  ST_INTERSECTS( st_geomfromtext( st_astext(@poly), 6), p.SHAPE );";
+	$query = "SELECT ST_AsText(SHAPE) as shape FROM $active_pm as p WHERE  ST_INTERSECTS( st_geomfromtext( st_astext(@poly), 3), p.SHAPE );";
 }
 
 /**
