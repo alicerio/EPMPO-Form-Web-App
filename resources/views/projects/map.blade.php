@@ -14,28 +14,27 @@
                     for the
                     result before you can clear.</li>
             </ol>
-        </div>
-    </div><svg style="color:blue" width="2em" height="2em" viewBox="0 0 16 16" class="bi bi-question-circle"
-        fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-        <path fill-rule="evenodd" d="M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
-        <path
-            d="M5.25 6.033h1.32c0-.781.458-1.384 1.36-1.384.685 0 1.313.343 1.313 1.168 0 .635-.374.927-.965 1.371-.673.489-1.206 1.06-1.168 1.987l.007.463h1.307v-.355c0-.718.273-.927 1.01-1.486.609-.463 1.244-.977 1.244-2.056 0-1.511-1.276-2.241-2.673-2.241-1.326 0-2.786.647-2.754 2.533zm1.562 5.516c0 .533.425.927 1.01.927.609 0 1.028-.394 1.028-.927 0-.552-.42-.94-1.029-.94-.584 0-1.009.388-1.009.94z" />
-    </svg>
-</div>
-<div class="row">
-    <div class="col-10" id="map"></div>
-    <div style="margin-top:1%" class="col-2">
-        <button id="queryCrashesBtn" type='button' class="btn btn-info" title="Get crashes within 50 meters."
-            onclick="point_drawer('crashes');disable(id)">Query Crashes</button>
-        <button id="queryBridgesBtn" type='button' class="btn btn-info" title="Get bridges within 50 meters."
-            onclick="point_drawer('bridges');disable(id)">Query Bridges</button>
-        <button id="queryPavementsBtn" type='button' class="btn btn-info"
-            title="Display pavements that intersect with lines drawn." onclick="lineDrawer();disable(id)">Query
-            Pavements</button>
-        <button id="clearQueryBtn" type='button' class="btn btn-info" title="Clear map" onclick="clearMap()">
-            Clear</button>
+        </div><svg style="color:blue" width="2em" height="2em" viewBox="0 0 16 16" class="bi bi-question-circle"
+            fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" d="M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
+            <path
+                d="M5.25 6.033h1.32c0-.781.458-1.384 1.36-1.384.685 0 1.313.343 1.313 1.168 0 .635-.374.927-.965 1.371-.673.489-1.206 1.06-1.168 1.987l.007.463h1.307v-.355c0-.718.273-.927 1.01-1.486.609-.463 1.244-.977 1.244-2.056 0-1.511-1.276-2.241-2.673-2.241-1.326 0-2.786.647-2.754 2.533zm1.562 5.516c0 .533.425.927 1.01.927.609 0 1.028-.394 1.028-.927 0-.552-.42-.94-1.029-.94-.584 0-1.009.388-1.009.94z" />
+        </svg>
     </div>
-
+    <div class="row">
+        <div class="col-10" id="map"></div>
+        <div style="margin-top:1%" class="col-2">
+            <button id="queryCrashesBtn" type='button' class="btn btn-info" title="Get crashes within 50 meters."
+                onclick="point_drawer('crashes');disable(id)">Query Crashes</button>
+            <button id="queryBridgesBtn" type='button' class="btn btn-info" title="Get bridges within 50 meters."
+                onclick="point_drawer('bridges');disable(id)">Query Bridges</button>
+            <button id="queryPavementsBtn" type='button' class="btn btn-info"
+                title="Display pavements that intersect with lines drawn." onclick="lineDrawer();disable(id)">Query
+                Pavements</button>
+            <button id="clearQueryBtn" type='button' class="btn btn-info" title="Clear map" onclick="clearMap()">
+                Clear</button>
+        </div>
+    </div>
     <div class="row" style="margin-top:1%">
         <div class="col-4">
             <h5>Pavement condition along project limits</h5>
@@ -87,8 +86,7 @@
                 <tr>
                     <td>Crashes Involving Pedestrians or cyclists</td>
                     <td><input type="number" id="EP_pedestrian_crash" class="form-control" name="pedestrian_crash_EP"
-                            value="{{ $project->pedestrian_crash_EP ?? '' }}" readonly>
-                    </td>
+                            value="{{ $project->pedestrian_crash_EP ?? '' }}" readonly></td>
                 </tr>
             </table>
             <table class="table">
@@ -115,11 +113,9 @@
                 <tr>
                     <td>Crashes Involving Pedestrians or cyclists</td>
                     <td><input type="number" id="DA_pedestrian_crash" class="form-control" name="pedestrian_crash_DA"
-                            value="{{ $project->pedestrian_crash_DA ?? '' }}" readonly>
-                    </td>
+                            value="{{ $project->pedestrian_crash_DA ?? '' }}" readonly></td>
                 </tr>
             </table>
-
         </div>
         <div class="col-4">
             <h5>Bridge & culvert condition along project limits </h5>
@@ -161,16 +157,12 @@
             </table>
         </div>
     </div>
-
     <style>
         #mapH {
             margin-top: 1%;
             margin-bottom: 1%;
         }
-
     </style>
-
-
     <script async defer
         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCY0B3_Fr1vRpgJDdbvNmrVyXmoOOtiq64&libraries=visualization&libraries=drawing&callback=initMap">
         src = "http://code.jquery.com/ui/1.12.1/jquery-ui.min.js"
