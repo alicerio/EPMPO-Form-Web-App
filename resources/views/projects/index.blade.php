@@ -30,8 +30,8 @@
                     New Project
                 </button>
                 <div class="dropdown-menu" aria-labelledby="user_edit_options">
-                    <a class="dropdown-item" href="{{ route('projects.create') }}">TASA</a>
-                    <a class="dropdown-item" href="{{ route('bprojects.create') }}">5310</a>
+                    <a class="dropdown-item" href="{{ route('projects.create') }}">PRF</a>
+                    <a class="dropdown-item" href="{{ route('bprojects.create') }}">5310 PRF</a>
                 </div>
             </div>
         </div>

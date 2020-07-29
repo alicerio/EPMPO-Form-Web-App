@@ -21,7 +21,7 @@
         Electronic Project Request Form (5310 ePRF)
     </div>
     <div class="card-body">
-        <input id="project_type" type="hidden" class="form-control" name="project_type" value="{{ $project->project_type ?? '5310' }}" readonly>
+        <input id="project_type" type="hidden" class="form-control" name="project_type" value="{{ $project->project_type ?? '5310 PRF' }}" readonly>
         <div id = "required">
             <input type="hidden"{{$temp = $project->new_project ?? ''}}>
             <input class= "mx-1" type="radio" name="new_project" value="1" {{ $temp == 1 ? 'checked' : '' }} autocomplete="off" disabled>New Project <br>
