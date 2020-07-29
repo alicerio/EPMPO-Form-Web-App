@@ -4,14 +4,7 @@
      * Sends query and gets table 
      * Works only with Points
     */
-    ini_set('memory_limit', '-1');
-    ini_set('max_execution_time', 30000); //300 seconds = 5 minutes
-    
-    $user = "ctis";
-    $db = "mpo_test_jhuerta";
-    $ps = "19691963";
-    $host = "irpsrvgis35.utep.edu";
-    $conn = mysqli_connect($host, $user, $ps, $db);
+    require_once("map_connection.php");
 
     $key = $_GET['key']; // key sent from front-end, from the object defined at the ajax call
     //global array that will return requested data
@@ -38,5 +31,3 @@
     echo json_encode($toReturn); //encodes our array to json, which lets us manipulate in front-end
 
     $conn->close();
-?>
-
