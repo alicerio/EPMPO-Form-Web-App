@@ -155,11 +155,31 @@ function commafy(num) {
     return str.join('.');
 }
 
+/**
+ * Clears the map data.
+ */
 function clearMap() {
     var result = confirm('Are you sure you want to clear the map data?');
     if (result) {
         clearMetadata();
+        activate();
     }
+}
+
+/**
+ * Disables map buttons after click.
+ */
+function disable(id) {
+  document.getElementById(id).disabled = true;
+}
+
+/**
+ * Enables map buttons.
+ */ 
+function activate() {
+  document.getElementById("queryCrashesBtn").disabled = false;
+  document.getElementById("queryBridgesBtn").disabled = false;
+  document.getElementById("queryPavementsBtn").disabled = false;
 }
 
 /**
