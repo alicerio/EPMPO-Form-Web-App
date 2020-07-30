@@ -147,6 +147,8 @@ class ProjectController extends Controller
         $project->mpo_id = request('mpo_id');
         $project->csj_cn = request('csj_cn');
         $project->author = auth()->user()->name;
+        $project->new_project = request('new_project');
+        $project->decision = request('decision');
         $project->name = request('name');
         $project->description = request('description');
         $project->limit_from = request('limit_from');
@@ -234,10 +236,7 @@ class ProjectController extends Controller
         $project->schematic_progress = request('schematic_progress') == '----' ? null : request('schematic_progress');
         $project->schematic_agency = request('schematic_agency') == '----' ? null : request('schematic_agency');
         $project->schematic_comments = request('schematic_comments');
-        $project->envdoctype_start_date = request('envdoctype_start_date');
-        $project->envdoctype_end_date = request('envdoctype_end_date');
-        $project->envdoctype_progress = request('envdoctype_progress') == '----' ? null : request('envdoctype_progress');
-        $project->envdoctype_agency = request('envdoctype_agency') == '----' ? null : request('envdoctype_agency');
+        $project->envdoctype = request('envdoctype');
         $project->envdoctype_comments = request('envdoctype_comments');
         $project->envdoc_start_date = request('envdoc_start_date');
         $project->envdoc_end_date = request('envdoc_end_date');
@@ -285,20 +284,8 @@ class ProjectController extends Controller
         $project->procpro_agency = request('procpro_agency') == '----' ? null : request('procpro_agency');
         $project->procpro_comments = request('procpro_comments');
         $project->letdate_start_date = request('letdate_start_date');
-        $project->letdate_end_date = request('letdate_end_date');
-        $project->letdate_progress = request('letdate_progress') == '----' ? null : request('letdate_progress');
-        $project->letdate_agency = request('letdate_agency') == '----' ? null : request('letdate_agency');
-        $project->letdate_comments = request('letdate_comments');
-        $project->consper_end_date_start_date = request('consper_end_date_start_date');
         $project->consper_end_date_end_date = request('consper_end_date_end_date');
-        $project->consper_end_date_progress = request('consper_end_date_progress') == '----' ? null : request('consper_end_date_progress');
-        $project->consper_end_date_agency = request('consper_end_date_agency') == '----' ? null : request('consper_end_date_agency');
-        $project->consper_end_date_comments = request('consper_end_date_comments');
-        $project->peperf_start_date = request('peperf_start_date');
         $project->peperf_end_date = request('peperf_end_date');
-        $project->peperf_progress = request('peperf_progress') == '----' ? null : request('peperf_progress');
-        $project->peperf_agency = request('peperf_agency') == '----' ? null : request('peperf_agency');
-        $project->peperf_comments = request('peperf_comments');
         $project->fta_trans_start_date = request('fta_trans_start_date');
         $project->fta_trans_end_date = request('fta_trans_end_date');
         $project->fta_trans_progress = request('fta_trans_progress') == '----' ? null : request('fta_trans_progress');
@@ -445,7 +432,6 @@ class ProjectController extends Controller
         $project->fair_area = request('fair_area');
         $project->poor_area = request('poor_area');
         $project->points = request('points');
-
         $project->sqq_1 = request('sqq_1') == '----' ? null : request('sqq_1');
         $project->sqq_2 = request('sqq_2') == '----' ? null : request('sqq_2');
         $project->sqq_3 = request('sqq_3') == '----' ? null : request('sqq_3');
@@ -481,7 +467,6 @@ class ProjectController extends Controller
         $project->sqq_33 = request('sqq_33') == '----' ? null : request('sqq_33');
         $project->sqq_34 = request('sqq_34') == '----' ? null : request('sqq_34');
         $project->sqq_35 = request('sqq_35') == '----' ? null : request('sqq_35');
-
         $project->description_sqq_1 = request('description_sqq_1');
         $project->description_sqq_2 = request('description_sqq_2');
         $project->description_sqq_3 = request('description_sqq_3');
@@ -518,11 +503,6 @@ class ProjectController extends Controller
         $project->description_sqq_34 = request('description_sqq_34');
         $project->description_sqq_35 = request('description_sqq_35');
         $project->description_sqq_36 = request('description_sqq_36');
-
-        $project->envdoctype = request('envdoctype');
-
-        $project->new_project = request('new_project');
-        $project->decision = request('decision');
 
         if($request->hasFile('file')) {
             $file = $request->file('file');
@@ -614,7 +594,7 @@ class ProjectController extends Controller
         $infoCurrentProject = array();
         $infoCurrentProject =  $this->infoCurrentProject($project); // get if current project is latest submission
 
-        if ($project->project_type == "TASA") {
+        if ($project->project_type == "PRF") {
             return view('projects.show', compact('project', 'logOfChanges', 'infoCurrentProject'));
         } else {
             return view('projects/5310.show2', compact('project', 'logOfChanges', 'infoCurrentProject'));
@@ -629,7 +609,7 @@ class ProjectController extends Controller
      */
     public function edit(Project $project)
     {
-        if ($project->project_type == "TASA") {
+        if ($project->project_type == "PRF") {
             return view('projects.edit', compact('project'));
         } else {
             return view('projects/5310.edit2', compact('project'));
@@ -664,6 +644,8 @@ class ProjectController extends Controller
         $project->mpo_id = request('mpo_id');
         $project->csj_cn = request('csj_cn');
         $project->author = auth()->user()->name;
+        $project->new_project = request('new_project');
+        $project->decision = request('decision');
         $project->name = request('name');
         $project->description = request('description');
         $project->limit_from = request('limit_from');
@@ -751,10 +733,7 @@ class ProjectController extends Controller
         $project->schematic_progress = request('schematic_progress') == '----' ? null : request('schematic_progress');
         $project->schematic_agency = request('schematic_agency') == '----' ? null : request('schematic_agency');
         $project->schematic_comments = request('schematic_comments');
-        $project->envdoctype_start_date = request('envdoctype_start_date');
-        $project->envdoctype_end_date = request('envdoctype_end_date');
-        $project->envdoctype_progress = request('envdoctype_progress') == '----' ? null : request('envdoctype_progress');
-        $project->envdoctype_agency = request('envdoctype_agency') == '----' ? null : request('envdoctype_agency');
+        $project->envdoctype = request('envdoctype');
         $project->envdoctype_comments = request('envdoctype_comments');
         $project->envdoc_start_date = request('envdoc_start_date');
         $project->envdoc_end_date = request('envdoc_end_date');
@@ -802,20 +781,8 @@ class ProjectController extends Controller
         $project->procpro_agency = request('procpro_agency') == '----' ? null : request('procpro_agency');
         $project->procpro_comments = request('procpro_comments');
         $project->letdate_start_date = request('letdate_start_date');
-        $project->letdate_end_date = request('letdate_end_date');
-        $project->letdate_progress = request('letdate_progress') == '----' ? null : request('letdate_progress');
-        $project->letdate_agency = request('letdate_agency') == '----' ? null : request('letdate_agency');
-        $project->letdate_comments = request('letdate_comments');
-        $project->consper_end_date_start_date = request('consper_end_date_start_date');
         $project->consper_end_date_end_date = request('consper_end_date_end_date');
-        $project->consper_end_date_progress = request('consper_end_date_progress') == '----' ? null : request('consper_end_date_progress');
-        $project->consper_end_date_agency = request('consper_end_date_agency') == '----' ? null : request('consper_end_date_agency');
-        $project->consper_end_date_comments = request('consper_end_date_comments');
-        $project->peperf_start_date = request('peperf_start_date');
         $project->peperf_end_date = request('peperf_end_date');
-        $project->peperf_progress = request('peperf_progress') == '----' ? null : request('peperf_progress');
-        $project->peperf_agency = request('peperf_agency') == '----' ? null : request('peperf_agency');
-        $project->peperf_comments = request('peperf_comments');
         $project->fta_trans_start_date = request('fta_trans_start_date');
         $project->fta_trans_end_date = request('fta_trans_end_date');
         $project->fta_trans_progress = request('fta_trans_progress') == '----' ? null : request('fta_trans_progress');
@@ -962,7 +929,6 @@ class ProjectController extends Controller
         $project->fair_area = request('fair_area');
         $project->poor_area = request('poor_area');
         $project->points = request('points');
-
         $project->sqq_1 = request('sqq_1') == '----' ? null : request('sqq_1');
         $project->sqq_2 = request('sqq_2') == '----' ? null : request('sqq_2');
         $project->sqq_3 = request('sqq_3') == '----' ? null : request('sqq_3');
@@ -998,7 +964,6 @@ class ProjectController extends Controller
         $project->sqq_33 = request('sqq_33') == '----' ? null : request('sqq_33');
         $project->sqq_34 = request('sqq_34') == '----' ? null : request('sqq_34');
         $project->sqq_35 = request('sqq_35') == '----' ? null : request('sqq_35');
-
         $project->description_sqq_1 = request('description_sqq_1');
         $project->description_sqq_2 = request('description_sqq_2');
         $project->description_sqq_3 = request('description_sqq_3');
@@ -1035,11 +1000,6 @@ class ProjectController extends Controller
         $project->description_sqq_34 = request('description_sqq_34');
         $project->description_sqq_35 = request('description_sqq_35');
         $project->description_sqq_36 = request('description_sqq_36');
-
-        $project->envdoctype = request('envdoctype');
-
-        $project->new_project = request('new_project');
-        $project->decision = request('decision');
 
         if($request->hasFile('file')) {
             $file = $request->file('file');

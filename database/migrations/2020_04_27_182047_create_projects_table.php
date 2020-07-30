@@ -23,6 +23,8 @@ class CreateProjectsTable extends Migration
 
             $table->string('author')->nullable();
 
+            $table->tinyInteger('new_project')->nullable();
+            $table->tinyInteger('decision')->nullable();
             $table->string('name');
             $table->text('description')->nullable();
             $table->text('limit_from')->nullable();
@@ -92,12 +94,82 @@ class CreateProjectsTable extends Migration
             $table->text('description_strategy_4')->nullable();
             $table->text('description_strategy_5')->nullable();
             $table->text('description_strategy_6')->nullable();
-            
-            // F2
             $table->text('description_strategy_7')->nullable();
             $table->text('description_strategy_8')->nullable();
             $table->text('description_strategy_9')->nullable();
             $table->text('description_strategy_10')->nullable();
+
+            $table->boolean('sqq_1')->nullable();
+            $table->text('description_sqq_1')->nullable();
+            $table->boolean('sqq_2')->nullable();
+            $table->text('description_sqq_2')->nullable();
+            $table->boolean('sqq_3')->nullable();
+            $table->text('description_sqq_3')->nullable();
+            $table->boolean('sqq_4')->nullable();
+            $table->text('description_sqq_4')->nullable();
+            $table->boolean('sqq_5')->nullable();
+            $table->text('description_sqq_5')->nullable();
+            $table->boolean('sqq_6')->nullable();
+            $table->text('description_sqq_6')->nullable();
+            $table->boolean('sqq_7')->nullable();
+            $table->text('description_sqq_7')->nullable();
+            $table->boolean('sqq_8')->nullable();
+            $table->text('description_sqq_8')->nullable();
+            $table->boolean('sqq_9')->nullable();
+            $table->text('description_sqq_9')->nullable();
+            $table->boolean('sqq_10')->nullable();
+            $table->text('description_sqq_10')->nullable();
+            $table->boolean('sqq_11')->nullable();
+            $table->text('description_sqq_11')->nullable();
+            $table->boolean('sqq_12')->nullable();
+            $table->text('description_sqq_12')->nullable();
+            $table->boolean('sqq_13')->nullable();
+            $table->text('description_sqq_13')->nullable();
+            $table->boolean('sqq_14')->nullable();
+            $table->text('description_sqq_14')->nullable();
+            $table->boolean('sqq_15')->nullable();
+            $table->text('description_sqq_15')->nullable();
+            $table->boolean('sqq_16')->nullable();
+            $table->text('description_sqq_16')->nullable();
+            $table->boolean('sqq_17')->nullable();
+            $table->text('description_sqq_17')->nullable();
+            $table->boolean('sqq_18')->nullable();
+            $table->text('description_sqq_18')->nullable();
+            $table->boolean('sqq_19')->nullable();
+            $table->text('description_sqq_19')->nullable();
+            $table->boolean('sqq_20')->nullable();
+            $table->text('description_sqq_20')->nullable();
+            $table->boolean('sqq_21')->nullable();
+            $table->text('description_sqq_21')->nullable();
+            $table->boolean('sqq_22')->nullable();
+            $table->text('description_sqq_22')->nullable();
+            $table->boolean('sqq_23')->nullable();
+            $table->text('description_sqq_23')->nullable();
+            $table->boolean('sqq_24')->nullable();
+            $table->text('description_sqq_24')->nullable();
+            $table->boolean('sqq_25')->nullable();
+            $table->text('description_sqq_25')->nullable();
+            $table->boolean('sqq_26')->nullable();
+            $table->text('description_sqq_26')->nullable();
+            $table->boolean('sqq_27')->nullable();
+            $table->text('description_sqq_27')->nullable();
+            $table->boolean('sqq_28')->nullable();
+            $table->text('description_sqq_28')->nullable();
+            $table->boolean('sqq_29')->nullable();
+            $table->text('description_sqq_29')->nullable();
+            $table->boolean('sqq_30')->nullable();
+            $table->text('description_sqq_30')->nullable();
+            $table->boolean('sqq_31')->nullable();
+            $table->text('description_sqq_31')->nullable();
+            $table->boolean('sqq_32')->nullable();
+            $table->text('description_sqq_32')->nullable();
+            $table->boolean('sqq_33')->nullable();
+            $table->text('description_sqq_33')->nullable();
+            $table->boolean('sqq_34')->nullable();
+            $table->text('description_sqq_34')->nullable();
+            $table->boolean('sqq_35')->nullable();
+            $table->text('description_sqq_35')->nullable();
+            $table->text('description_sqq_36')->nullable();
 
             $table->text('voc')->nullable();
             $table->text('c0')->nullable();
@@ -129,10 +201,7 @@ class CreateProjectsTable extends Migration
             $table->tinyInteger('schematic_agency')->nullable();
             $table->text('schematic_comments')->nullable();
 
-            $table->date('envdoctype_start_date')->nullable();
-            $table->date('envdoctype_end_date')->nullable();
-            $table->tinyInteger('envdoctype_progress')->nullable();
-            $table->tinyInteger('envdoctype_agency')->nullable();
+            $table->text('envdoctype')->nullable();
             $table->text('envdoctype_comments')->nullable();
 
             $table->date('envdoc_start_date')->nullable();
@@ -190,22 +259,10 @@ class CreateProjectsTable extends Migration
             $table->text('procpro_comments')->nullable();
 
             $table->date('letdate_start_date')->nullable();
-            $table->date('letdate_end_date')->nullable();
-            $table->tinyInteger('letdate_progress')->nullable();
-            $table->tinyInteger('letdate_agency')->nullable();
-            $table->text('letdate_comments')->nullable();
-
-            $table->date('consper_end_date_start_date')->nullable();
+ 
             $table->date('consper_end_date_end_date')->nullable();
-            $table->tinyInteger('consper_end_date_progress')->nullable();
-            $table->tinyInteger('consper_end_date_agency')->nullable();
-            $table->text('consper_end_date_comments')->nullable();
 
-            $table->date('peperf_start_date')->nullable();
             $table->date('peperf_end_date')->nullable();
-            $table->tinyInteger('peperf_progress')->nullable();
-            $table->tinyInteger('peperf_agency')->nullable();
-            $table->text('peperf_comments')->nullable();
 
             $table->date('fta_trans_start_date')->nullable();
             $table->date('fta_trans_end_date')->nullable();
@@ -353,12 +410,9 @@ class CreateProjectsTable extends Migration
             $table->text('contact_email')->nullable();
             $table->text('contact_agency')->nullable();
             $table->text('contact_title')->nullable();
-
             $table->text('signature')->nullable();
             $table->text('comments')->nullable();
 
-            //$table->json('crash_categories')->nullable();
-            // This fields should later be stored as one json.
             $table->float('pavement_good_condition',8,2)->nullable();
             $table->float('pavement_fair_condition',8,2)->nullable();
             $table->float('pavement_poor_condition',8,2)->nullable();
@@ -376,8 +430,8 @@ class CreateProjectsTable extends Migration
             $table->float('good_area',8,2)->nullable();
             $table->float('fair_area',8,2)->nullable();
             $table->float('poor_area',8,2)->nullable();
-            
             $table->json("points")->nullable();
+            $table->string('file')->nullable();
 
             $table->timestamps();
         });
