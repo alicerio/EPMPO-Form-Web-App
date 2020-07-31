@@ -6,6 +6,7 @@ class AgenciesTableSeeder extends Seeder
 {
     public function run()
     {
+        DB::table('agencies')->insert(['name' => 'MPO']);
         DB::table('agencies')->insert(['name' => 'City of El Paso']);
         DB::table('agencies')->insert(['name' => 'SunMetro']);
         DB::table('agencies')->insert(['name' => 'SCRTD']);

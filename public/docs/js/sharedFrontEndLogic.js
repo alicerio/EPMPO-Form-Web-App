@@ -157,13 +157,46 @@ function commafy(num) {
 }
 
 /**
- * Clears the map data.
+ * Clears All the map data.
  */
 function clearMap() {
     var result = confirm('Are you sure you want to clear the map data?');
     if (result) {
         clearMetadata();
-        activate();
+        activateAll();
+    }
+}
+
+/**
+ * Clears the crashes data.
+ */
+function clearCrashes(id) {
+    var result = confirm('Are you sure you want to clear the crashes data?');
+    if (result) {
+        // TODO: Clear crashes function.
+        activateIndividual(id);
+    }
+}
+
+/**
+ * Clears the bridges data.
+ */
+function clearBridges(id) {
+    var result = confirm('Are you sure you want to clear the bridges data?');
+    if (result) {
+        // TODO: Clear bridges function.
+        activateIndividual(id);
+    }
+}
+
+/**
+ * Clears the pavements data.
+ */
+function clearPavements(id) {
+    var result = confirm('Are you sure you want to clear the pavements data?');
+    if (result) {
+        // TODO: Clear pavements function.
+        activateIndividual(id);
     }
 }
 
@@ -176,14 +209,22 @@ function disable(id) {
 }
 
 /**
- * Enables map buttons.
+ * Enables all map buttons.
  */ 
-function activate() {
+function activateAll() {
   document.getElementById("queryCrashesBtn").disabled = false;
   document.getElementById("queryBridgesBtn").disabled = false;
   document.getElementById("queryPavementsBtn").disabled = false;
   //document.body.style.cursor = 'default';
 }
+
+/**
+ * Enables selected button.
+ */
+function activateIndividual(id) {
+    document.getElementById(id).disabled = false;
+}
+
 
 /**
  * Resets dynamic table values to zero when deleted
