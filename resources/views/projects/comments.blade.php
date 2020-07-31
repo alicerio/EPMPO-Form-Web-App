@@ -6,7 +6,7 @@
         if(project.status == 3){
             make_project_readonly();
         }else{
-            if(project.project_type == "TASA") {
+            if(project.project_type == "PRF") {
                 form1_setView();
             }
             else{
@@ -41,7 +41,7 @@
                 </div>
             </div>
         </div>
-        @if($project->project_type == "TASA")
+        @if($project->project_type == "PRF")
             <div class="row" style="display: none">
                 <div class="col-md-12">
                     @include('projects.part1')

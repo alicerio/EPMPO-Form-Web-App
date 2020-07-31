@@ -35,7 +35,7 @@ function display4To10() {
     }
 }
 
-const toggleTA = (name) => {
+function toggleTA(name){
     if ($('input[name="' + name + '"]').is(':checked')) {
         $('textarea[name="description_' + name + '"]').show();
     } else {
@@ -43,7 +43,7 @@ const toggleTA = (name) => {
     }
 };
 
-const displayBox = (name) => {
+function displayBox(name){
     if ($('select[name="' + name + '"]').val() == 1) {
         $('textarea[name="description_' + name + '"]').show();
     } else {
@@ -60,18 +60,18 @@ const displayBox = (name) => {
  * ALL required fields when saving. 
  */
 function set_required(required, project_type) {
-    if (project_type == 'TASA' || project_type == '5310') {
+    if (project_type == 'PRF' || project_type == '5310 PRF') {
         if (required == true) {
             $("#showHolder :input").prop('required', true); // Everything is required
             $("#showHolder :checkbox").prop('required', false); // Every checkbox is not required
-            if (project_type == 'TASA') {
+            if (project_type == 'PRF') {
                 //optionals
                 $("#part4_inputs :input").prop('required', false); // make optional
                 $("#YOE_sectionHolder :input").prop('required', false); // make optional
                 $("#CMAQ_sectionHolder :input").prop('required', false); // make optional
                 $("#Transit_sectionHolder :input").prop('required', false); // make optional
                 $("#project_funding_section :input").prop('required', false); // make optional
-            } else if (project_type == '5310') {
+            } else if (project_type == '5310 PRF') {
                 $("#transit_only :input").prop('required', false);
                 $("#funding :input").prop('required', false);
             }
@@ -171,6 +171,7 @@ function clearMap() {
  */
 function disable(id) {
   document.getElementById(id).disabled = true;
+  //document.body.style.cursor = 'wait';
 }
 
 /**
@@ -180,6 +181,7 @@ function activate() {
   document.getElementById("queryCrashesBtn").disabled = false;
   document.getElementById("queryBridgesBtn").disabled = false;
   document.getElementById("queryPavementsBtn").disabled = false;
+  //document.body.style.cursor = 'default';
 }
 
 /**
