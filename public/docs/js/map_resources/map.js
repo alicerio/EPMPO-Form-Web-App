@@ -34,8 +34,7 @@ var crashesData = {
     total_crashes_nm: 0, //
     fatal_crashes_nm: 0,
     serious_injury_crashes_nm: 0,
-    ped_bike_crashes_nm: 0, //
-
+    ped_bike_crashes_nm: 0
 }
 
 

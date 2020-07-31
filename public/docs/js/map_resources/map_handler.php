@@ -15,7 +15,7 @@ $temporal = 0;
 $shape = array();
 
 if ($key == "crashes") {
-    $query = "select crash_year,crash_seve, ped_bike, pedestrian,pedalcycle,region, astext(SHAPE) as shape from crashes_txnm";
+    $query = "select OGR_ID,crash_year,crash_seve, ped_bike, pedestrian,pedalcycle,region, astext(SHAPE) as shape from crashes_txnm";
 } else if ($key == "form_bridges") {
     $query = "select OGR_FID,cat10___br,cat29___de, astext(SHAPE) as shape from $pm_table where corridor_key = '$key'";
 } else {

@@ -90,10 +90,10 @@ function filterCrashes(circlesCordinates) {
             let crash_year = parseInt(data.shape_arr[index]['crash_year']);
             let crash_seve = data.shape_arr[index]['crash_seve'];
             let ped_bike = data.shape_arr[index]['ped_bike'];
-
-            let pedestrian = parseInt(data.shape_arr[index]['pedestrian']);
-            let pedalcycle = parseInt(data.shape_arr[index]['pedalcycle']);
-            let region = parseInt(data.shape_arr[index]['region']);
+            let ogrID = data.shape_arr[index]['OGR_ID'];
+            let pedestrian = data.shape_arr[index]['pedestrian'];
+            let pedalcycle = data.shape_arr[index]['pedalcycle'];
+            let region = data.shape_arr[index]['region'];
 
             holder.push(wktFormatterPoint(data.shape_arr[index][shape]));
             holder = holder[0][0]; // Fixes BLOBs
@@ -107,7 +107,9 @@ function filterCrashes(circlesCordinates) {
                 ped_bike: ped_bike,
                 pedestrian: pedestrian,
                 pedalcycle: pedalcycle,
-                region: region
+                region: region,
+                ogrID: ogrID
+
             };
 
             /*********************************************** This code is to print all points on DB for testing purposes 
@@ -151,71 +153,89 @@ function crashes(circlesCordinates, filterCrashes) {
     //holds all info displayed on statistics
     var nonRepeatedPoints = [];
     let image = "../../docs/images/small_blue_pin.png";
-
+    console.log(filterCrashes);
     for (j in circlesCordinates[0]) {
         for (index in filterCrashes) { // Organize information into dictionaries
             if (isInsideCircle(filterCrashes[index].lng, filterCrashes[index].lat, circlesCordinates[0][j][1], circlesCordinates[0][j][0], 0.004254)) {
-                //  if (hasItbeenSeen(filterCrashes[index].ogrID, nonRepeatedPoints) == false) { // 7/31/2020 This is causing a bug
-                nonRepeatedPoints.push(filterCrashes[index]);
-                // define variables this way so its easier to manipulate
-                let crash_year = parseInt(filterCrashes[index]['crash_year']);
-                let crash_seve = filterCrashes[index]['crash_seve'];
-                let ped_bike = parseInt(filterCrashes[index]['ped_bike']);
-                let pedestrian = filterCrashes[index]['pedestrian'];
-                let pedalcycle = filterCrashes[index]['pedalcycle'];
-                let region = filterCrashes[index]['region'];
+                if (hasItbeenSeen(filterCrashes[index].ogrID, nonRepeatedPoints) == false) { // 7/31/2020 This is causing a bug
+                    nonRepeatedPoints.push(filterCrashes[index]);
+                    // define variables this way so its easier to manipulate
+                    let crash_year = parseInt(filterCrashes[index]['crash_year']);
+                    let crash_seve = filterCrashes[index]['crash_seve'];
+                    let ped_bike = parseInt(filterCrashes[index]['ped_bike']);
+                    let pedestrian = filterCrashes[index]['pedestrian'];
+                    let pedalcycle = filterCrashes[index]['pedalcycle'];
+                    let region = filterCrashes[index]['region'];
 
-                let isFatal = "NO";
-                let isSerious = "NO";
-                let isPedBike = "NO";
+                    let isFatal = "No";
+                    let isSerious = "No";
+                    let isPedBike = "No";
 
-                if (region == "TX") {
-                    crashesData.total_crashes_tx++;
-                    if (crash_seve == "K - KILLED") {
-                        isFatal = "YES";
-                    } else if (crash_seve == "A - SUSPECTED SERIOUS INJURY") {
-                        isSerious = "YES";
-                    } else if (ped_bike == 1) {
-                        isPedBike = "YES";
+
+                    if (region == "TX") {
+                        crashesData.total_crashes_tx++;
+                        if (crash_seve == "K - KILLED") {
+                            isFatal = "Yes";
+                            crashesData.fatal_crashes_tx++;
+                        } else if (crash_seve == "A - SUSPECTED SERIOUS INJURY") {
+                            isSerious = "Yes";
+                            crashesData.serious_injury_crashes_tx++;
+                        }
+                        if (ped_bike == 1) {
+                            isPedBike = "Yes";
+                            crashesData.ped_bike_crashes_tx++;
+                        }
+
+                    } else if (region == "NM") {
+                        crashesData.total_crashes_nm++;
+                        if (crash_seve == "Fatal Crash") {
+                            isFatal = "Yes";
+                            crashesData.total_crashes_nm++;
+                        } else if (crash_seve == "Injury Crash") {
+                            isSerious = "Yes";
+                            crashesData.serious_injury_crashes_nm++;
+                        }
+                        if (pedestrian == 1) {
+                            isPedBike = "Yes";
+                            crashesData.ped_bike_crashes_nm++;
+                        }
+                        if (pedalcycle == 1) {
+                            isPedBike = "Yes";
+                            crashesData.ped_bike_crashes_nm++;
+                        }
+
                     }
 
-                } else if (region == "NM") {
-                    crashesData.total_crashes_nm++;
-
-                }
-
-                if (isPedBike == "YES") {
-                    image = "../../docs/images/ped.png";
-                    if (pedestrian == "Involved") {
+                    if (isPedBike == "Yes") {
                         image = "../../docs/images/ped.png";
-                    } else if (pedalcycle == "Involved") {
-                        image = "../../docs/images/cyclist.png";
+                        if (pedestrian == "Involved") {
+                            image = "../../docs/images/ped.png";
+                        } else if (pedalcycle == "Involved") {
+                            image = "../../docs/images/cyclist.png";
+                        }
+                    } else {
+                        image = "../../docs/images/crash.png";
                     }
-                } else {
-                    image = "../../docs/images/crash.png";
 
+                    let point = new google.maps.Marker({
+                        position: filterCrashes[index],
+                        title: "Year: " + crash_year +
+                            "\nFatal Crash: " + isFatal +
+                            "\nSerious injury crash: " + isSerious +
+                            "\nCrashes involving pedestrians or cyclists: " + isPedBike,
+                        icon: image
+                    });
+
+
+                    point.setMap(map);
+                    points.push(point);
                 }
-
-
-
-                let point = new google.maps.Marker({
-                    position: filterCrashes[index],
-                    title: "Year: " + crash_year +
-                        "\nFatal Crash: " + isFatal +
-                        "\nSerious injury crash: " + isSerious +
-                        "\nCrashes involving pedestrians or cyclists: " + isPedBike,
-                    icon: image
-                });
-
-
-                point.setMap(map);
-                points.push(point);
-                //   }
 
             }
         }
 
     }
+    console.log(crashesData);
     document.getElementById("EP_total_crash").value = crashesData.total_crashes_tx;
     document.getElementById("EP_fatal_crash").value = crashesData.fatal_crashes_tx;
     document.getElementById("EP_injury_crash").value = crashesData.serious_injury_crashes_tx;
@@ -284,36 +304,36 @@ function bridges(circlesCordinates, filterBridges) {
     for (j in circlesCordinates[0]) {
         for (index in filterBridges) { // Organize information into dictionaries
             if (isInsideCircle(filterBridges[index].lng, filterBridges[index].lat, circlesCordinates[0][j][1], circlesCordinates[0][j][0], 0.004254)) {
-                // if (hasItbeenSeen(filterBridges[index].ogrID, nonRepeatedPoints) == false) { // 7/31/2020 This is causing a bug
-                nonRepeatedPoints.push(filterBridges[index]);
+                if (hasItbeenSeen(filterBridges[index].ogrID, nonRepeatedPoints) == false) { // 7/31/2020 This is causing a bug
+                    nonRepeatedPoints.push(filterBridges[index]);
 
-                let cond = filterBridges[index]['cond'];
-                let deckA = filterBridges[index]['deckArea'];
+                    let cond = filterBridges[index]['cond'];
+                    let deckA = filterBridges[index]['deckArea'];
 
-                if (cond == "Good") {
-                    image = "../../docs/images/greenPin.png";
-                    bridgeData.deckArea_good += deckA;
-                    bridgeData.good++;
-                } else if (cond == "Fair") {
-                    image = "../../docs/images/yellowPin.png";
-                    bridgeData.deckArea_fair += deckA;
-                    bridgeData.fair++;
-                } else if (cond == "Poor") {
-                    bridgeData.deckArea_poor += deckA;
-                    image = "../../docs/images/redPin.png";
-                    bridgeData.poor++;
+                    if (cond == "Good") {
+                        image = "../../docs/images/greenPin.png";
+                        bridgeData.deckArea_good += deckA;
+                        bridgeData.good++;
+                    } else if (cond == "Fair") {
+                        image = "../../docs/images/yellowPin.png";
+                        bridgeData.deckArea_fair += deckA;
+                        bridgeData.fair++;
+                    } else if (cond == "Poor") {
+                        bridgeData.deckArea_poor += deckA;
+                        image = "../../docs/images/redPin.png";
+                        bridgeData.poor++;
+                    }
+
+                    let point = new google.maps.Marker({
+                        position: filterBridges[index],
+                        title: "Condition: " + cond + " \nDeck Area (sq. ft.): " + deckA,
+                        icon: image
+                    });
+
+                    point.setMap(map);
+                    points.push(point);
+
                 }
-
-                let point = new google.maps.Marker({
-                    position: filterBridges[index],
-                    title: "Condition: " + cond + " \nDeck Area (sq. ft.): " + deckA,
-                    icon: image
-                });
-
-                point.setMap(map);
-                points.push(point);
-
-                //   }
 
             }
         }
