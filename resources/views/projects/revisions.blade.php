@@ -4,7 +4,6 @@
 <div class="container">
     <div class="row">
         <div class="col-md-12">
-
         </div>
         <div style="padding-top: 5%;"></div>
         <div class="col-md-12">
@@ -19,8 +18,8 @@
                     <thead  class="thead-light">
                         <tr>
                             <th scope="col">Status</th>
-                            <th scope="col">Time and Date</th>
-                            <th scope="col">Updated By</th>
+                            <th scope="col">Last Updated At</th>
+                            <th scope="col">Last Updated By</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -50,7 +49,7 @@
                                         @endif 
                                     </td>
                                     <td>
-                                        {{ $project->created_at }}
+                                        {{ $project->updated_at }}
                                     </td>
                                     <td>{{$project->author}}</td>
                                 </tr>
@@ -60,9 +59,6 @@
                 </table>
             @endif
         </div>
-    </div>
-    <div id="project_comments_H">
-        {{--@include('projects.comments')--}}
     </div>
 </div>
 @endsection

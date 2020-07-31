@@ -21,6 +21,7 @@ function make_project_readonly() {
     //Enable back these buttons
     $("#buttonHolder :input").prop("disabled", false); // all buttons on this div
     $("#toggleMapButton").prop("disabled", false);
+    $("#toggeleSuppQ").prop("disabled", false);
 }
 
 function remove_readonly(element) {

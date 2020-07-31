@@ -18,6 +18,9 @@
         for(let j = 1; j < 6; j++){
             displayBox("psp_"+j);
         }
+        for(let k = 1; k < 36; k++) {
+            displayBox("sqq_"+k)
+        }
         if(project.status == 1){
             set_required();  
             form2_setView();

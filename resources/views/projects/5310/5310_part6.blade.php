@@ -88,7 +88,11 @@
             @endif                            
         @endauth
         <p>Save your form before signing, all fields will be locked after signature is provided.</p>
-        <br>
+        @auth
+            @if (auth()->user()->type != 2)
+                <h5>Do not forget to save progress first before sending the form to MPO.</h5>
+            @endif
+        @endauth
     </div>
     @include('projects/logOfChanges_messages')
 </div>
