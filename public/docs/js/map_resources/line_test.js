@@ -3,10 +3,10 @@ function pavementCond(to_php) {
     let shape = "shape";
     let php_handler = "../../docs/js/map_resources/line_handler.php";
     let cond = "";
-
+    console.log(to_php);
     $.get(php_handler, to_php, function (data) { // ajax call to populate pavement lines
-       // console.log(data);
-
+        console.log("back from DB");
+        console.log(data);
         for (index in data.shape_arr) { // iterates through every index in the returned element (data['shape_arr'])
             let shp = data.shape_arr[index][shape]; // shape is LINESTRING or MULTILINESTRING
             let reader = new jsts.io.WKTReader(); // 3rd party tool to handle multiple shapes
@@ -69,7 +69,7 @@ function pavementCond(to_php) {
             let infoWindow = new google.maps.InfoWindow({
                 content: (
                     "<p>" + "2018 Condition: " + cond + "<br /> " +
-                    "Lanem Miles: " + currentLaneMiles.toFixed(2) +"  " + color2 + " " + iri + "</p>"
+                    "Lanem Miles: " + currentLaneMiles.toFixed(2) + "</p>"
                 )
             });
             
@@ -115,7 +115,7 @@ function drawLines(circleCordinates) {
 
     to_php = {
         'AOI': obj,
-        'Table_wanted': 'pavements2018'
+        'Table_wanted': 'pavements'
     }
     pavementCond(to_php);
 }
