@@ -7,8 +7,8 @@ class UsersTableSeeder extends Seeder
     public function run()
     {
         DB::table('users')->insert([
-            'name' => 'admin',
-            'email' => 'ctis@utep.edu',
+            'name' => 'MPO',
+            'email' => 'mpo@admin.org',
             'email_verified_at' => '2020-05-06 22:37:16',
             'password' => Hash::make('astrongpassword'),
             'type' => 2,

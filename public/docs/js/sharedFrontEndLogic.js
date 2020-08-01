@@ -21,6 +21,7 @@ function make_project_readonly() {
     //Enable back these buttons
     $("#buttonHolder :input").prop("disabled", false); // all buttons on this div
     $("#toggleMapButton").prop("disabled", false);
+    $("#toggeleSuppQ").prop("disabled", false);
 }
 
 function remove_readonly(element) {
@@ -35,7 +36,7 @@ function display4To10() {
     }
 }
 
-const toggleTA = (name) => {
+function toggleTA(name){
     if ($('input[name="' + name + '"]').is(':checked')) {
         $('textarea[name="description_' + name + '"]').show();
     } else {
@@ -43,7 +44,7 @@ const toggleTA = (name) => {
     }
 };
 
-const displayBox = (name) => {
+function displayBox(name){
     if ($('select[name="' + name + '"]').val() == 1) {
         $('textarea[name="description_' + name + '"]').show();
     } else {
@@ -60,18 +61,18 @@ const displayBox = (name) => {
  * ALL required fields when saving. 
  */
 function set_required(required, project_type) {
-    if (project_type == 'TASA' || project_type == '5310') {
+    if (project_type == 'PRF' || project_type == '5310 PRF') {
         if (required == true) {
             $("#showHolder :input").prop('required', true); // Everything is required
             $("#showHolder :checkbox").prop('required', false); // Every checkbox is not required
-            if (project_type == 'TASA') {
+            if (project_type == 'PRF') {
                 //optionals
                 $("#part4_inputs :input").prop('required', false); // make optional
                 $("#YOE_sectionHolder :input").prop('required', false); // make optional
                 $("#CMAQ_sectionHolder :input").prop('required', false); // make optional
                 $("#Transit_sectionHolder :input").prop('required', false); // make optional
                 $("#project_funding_section :input").prop('required', false); // make optional
-            } else if (project_type == '5310') {
+            } else if (project_type == '5310 PRF') {
                 $("#transit_only :input").prop('required', false);
                 $("#funding :input").prop('required', false);
             }
@@ -156,13 +157,46 @@ function commafy(num) {
 }
 
 /**
- * Clears the map data.
+ * Clears All the map data.
  */
 function clearMap() {
     var result = confirm('Are you sure you want to clear the map data?');
     if (result) {
         clearMetadata();
-        activate();
+        activateAll();
+    }
+}
+
+/**
+ * Clears the crashes data.
+ */
+function clearCrashes(id) {
+    var result = confirm('Are you sure you want to clear the crashes data?');
+    if (result) {
+        // TODO: Clear crashes function.
+        activateIndividual(id);
+    }
+}
+
+/**
+ * Clears the bridges data.
+ */
+function clearBridges(id) {
+    var result = confirm('Are you sure you want to clear the bridges data?');
+    if (result) {
+        // TODO: Clear bridges function.
+        activateIndividual(id);
+    }
+}
+
+/**
+ * Clears the pavements data.
+ */
+function clearPavements(id) {
+    var result = confirm('Are you sure you want to clear the pavements data?');
+    if (result) {
+        // TODO: Clear pavements function.
+        activateIndividual(id);
     }
 }
 
@@ -171,16 +205,26 @@ function clearMap() {
  */
 function disable(id) {
   document.getElementById(id).disabled = true;
+  //document.body.style.cursor = 'wait';
 }
 
 /**
- * Enables map buttons.
+ * Enables all map buttons.
  */ 
-function activate() {
+function activateAll() {
   document.getElementById("queryCrashesBtn").disabled = false;
   document.getElementById("queryBridgesBtn").disabled = false;
   document.getElementById("queryPavementsBtn").disabled = false;
+  //document.body.style.cursor = 'default';
 }
+
+/**
+ * Enables selected button.
+ */
+function activateIndividual(id) {
+    document.getElementById(id).disabled = false;
+}
+
 
 /**
  * Resets dynamic table values to zero when deleted

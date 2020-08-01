@@ -6,13 +6,17 @@
     window.onload = function() {
         make_project_readonly();
         show_edit_ViewMap();
+        display4To10();
         for(let i =1; i <7; i++){
             displayBox("strategy_"+i);
         }
         for(let j = 1; j < 6; j++){
             displayBox("psp_"+j);
         }
-      //  form2_setView(); //og code 
+        for(let k = 1; k < 36; k++) {
+            displayBox("sqq_"+k)
+        }
+      
     };
 </script>
 @extends('layouts.app')

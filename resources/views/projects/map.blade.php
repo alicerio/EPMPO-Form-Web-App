@@ -31,8 +31,14 @@
             <button id="queryPavementsBtn" type='button' class="btn btn-info"
                 title="Display pavements that intersect with lines drawn." onclick="lineDrawer();disable(id)">Query
                 Pavements</button>
+            <button id="clearCrashesBtn" type='button' class="btn btn-info" title="Clear map" onclick="clearCrashes('queryCrashesBtn')">
+                Clear Crashes</button>
+            <button id="clearBridgesBtn" type='button' class="btn btn-info" title="Clear map" onclick="clearBridges('queryBridgesBtn')">
+                Clear Bridges</button>
+            <button id="clearPavementsBtn" type='button' class="btn btn-info" title="Clear map" onclick="clearPavements('queryPavementsBtn')">
+                Clear Pavements</button>
             <button id="clearQueryBtn" type='button' class="btn btn-info" title="Clear map" onclick="clearMap()">
-                Clear</button>
+                Clear All</button>
         </div>
     </div>
     <div class="row" style="margin-top:1%">
