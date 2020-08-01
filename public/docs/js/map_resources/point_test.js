@@ -83,7 +83,6 @@ function filterCrashes(circlesCordinates) {
 
     //get all points
     $.get(php_handler, data_for_php, function (data) {
-        console.log(data);
         for (index in data.shape_arr) {
             holder = [];
             //gets info per iteration
@@ -153,11 +152,10 @@ function crashes(circlesCordinates, filterCrashes) {
     //holds all info displayed on statistics
     var nonRepeatedPoints = [];
     let image = "../../docs/images/small_blue_pin.png";
-    console.log(filterCrashes);
     for (j in circlesCordinates[0]) {
         for (index in filterCrashes) { // Organize information into dictionaries
             if (isInsideCircle(filterCrashes[index].lng, filterCrashes[index].lat, circlesCordinates[0][j][1], circlesCordinates[0][j][0], 0.004254)) {
-                if (hasItbeenSeen(filterCrashes[index].ogrID, nonRepeatedPoints) == false) { // 7/31/2020 This is causing a bug
+                if (hasItbeenSeen(filterCrashes[index].ogrID, nonRepeatedPoints) == false) {
                     nonRepeatedPoints.push(filterCrashes[index]);
                     // define variables this way so its easier to manipulate
                     let crash_year = parseInt(filterCrashes[index]['crash_year']);
@@ -235,7 +233,6 @@ function crashes(circlesCordinates, filterCrashes) {
         }
 
     }
-    console.log(crashesData);
     document.getElementById("EP_total_crash").value = crashesData.total_crashes_tx;
     document.getElementById("EP_fatal_crash").value = crashesData.fatal_crashes_tx;
     document.getElementById("EP_injury_crash").value = crashesData.serious_injury_crashes_tx;
@@ -267,6 +264,7 @@ function filterBridges(circlesCordinates) {
         lat: circlesCordinates[0][299][0],
         lng: circlesCordinates[0][299][1]
     };
+
     //get all points
     $.get(php_handler, data_for_php, function (data) {
         for (index in data.shape_arr) {
@@ -304,23 +302,23 @@ function bridges(circlesCordinates, filterBridges) {
     for (j in circlesCordinates[0]) {
         for (index in filterBridges) { // Organize information into dictionaries
             if (isInsideCircle(filterBridges[index].lng, filterBridges[index].lat, circlesCordinates[0][j][1], circlesCordinates[0][j][0], 0.004254)) {
-                if (hasItbeenSeen(filterBridges[index].ogrID, nonRepeatedPoints) == false) { // 7/31/2020 This is causing a bug
+                if (hasItbeenSeen(filterBridges[index].ogrID, nonRepeatedPoints) == false) { 
                     nonRepeatedPoints.push(filterBridges[index]);
 
                     let cond = filterBridges[index]['cond'];
                     let deckA = filterBridges[index]['deckArea'];
 
                     if (cond == "Good") {
-                        image = "../../docs/images/greenPin.png";
+                        image = "../../docs/images/small_light_green_pin.png";
                         bridgeData.deckArea_good += deckA;
                         bridgeData.good++;
                     } else if (cond == "Fair") {
-                        image = "../../docs/images/yellowPin.png";
+                        image = "../../docs/images/small_yellow_pin.png";
                         bridgeData.deckArea_fair += deckA;
                         bridgeData.fair++;
                     } else if (cond == "Poor") {
                         bridgeData.deckArea_poor += deckA;
-                        image = "../../docs/images/redPin.png";
+                        image = "../../docs/images/small_orange_pin.png";
                         bridgeData.poor++;
                     }
 
