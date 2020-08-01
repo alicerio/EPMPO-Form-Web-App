@@ -11,6 +11,10 @@ var linesGenerated = [];
 // Globals for shapes on map
 var polylines = [];
 var points = [];
+
+var bridges_points = [];
+var crash_points = [];
+
 var pavementsData = {
     good: 0,
     fair: 0,
@@ -37,19 +41,36 @@ var crashesData = {
     ped_bike_crashes_nm: 0
 }
 
+function clearBridgesPoints() {
+    for (var i = 0; i < bridges_points.length; i++) {
+        bridges_points[i].setMap(null);
+    }
+    bridges_points = [];
+    clear_HTML_N_ObjectsData("bridges");
+}
 
-console.log(points);
+function clearCrashesPoints() {
+    for (var i = 0; i < crash_points.length; i++) {
+        crash_points[i].setMap(null);
+    }
+    crash_points = [];
+    clear_HTML_N_ObjectsData("crashes");
+}
 
-//clears points & lines and objects related to shapes on map
-function clearMetadata() {
-    //lines of query
+function clearPavementsLines() {
     for (var i = 0; i < polylines.length; i++) {
         polylines[i].setMap(null);
     }
-    //crashes
-    for (var i = 0; i < points.length; i++) {
-        points[i].setMap(null);
-    }
+    polylines = [];
+    clear_HTML_N_ObjectsData("pavements");
+}
+
+//clears points & lines and objects related to shapes on map
+function clearMetadata() {
+    clearPavementsLines();
+    clearCrashesPoints();
+    clearBridgesPoints();
+
     //line generated that connects markers by user
     for (x in linesGenerated) {
         linesGenerated[x].setMap(null);
@@ -68,15 +89,15 @@ function clearMetadata() {
         lng: []
     };
     points = [];
-    polylines = [];
     makersClicked = [];
     linesGenerated = [];
     counterCORD = 0;
-    clearCrashesData();
+    clear_HTML_N_ObjectsData("crashes");
+    clear_HTML_N_ObjectsData("bridges");
+    clear_HTML_N_ObjectsData("pavements");
 }
 
 function addLine(points) {
-    console.log(points);
     var poly;
     var to_vizualize = [{
             lat: points.lat[counterCORD - 2],
@@ -116,11 +137,11 @@ function initMap() {
         if (project.status == 2) {
             // no listener
             console.log("No listener");
-        }else{
+        } else {
             map.addListener('dblclick', addLatLng);
         }
     } catch {
-            map.addListener('dblclick', addLatLng);
+        map.addListener('dblclick', addLatLng);
     }
 
 
@@ -234,46 +255,84 @@ function lineDrawer() {
  * where he or she had clicked. Without this function the map will appear empty after having the project saved.
  * Checks if values exists on the bridges, crashes and pavements. If value exists then 
  * run query so points can be seen. 
-*/
+ */
 function show_edit_ViewMap() {
     let image = "../../docs/images/redPin.png";
-    try{
-        let markers =  JSON.parse(project.points);
+    try {
+        let markers = JSON.parse(project.points);
         for (marker in markers.lat) {
             console.log(markers.lat[marker]);
             paths.lat.push(markers.lat[marker]);
             paths.lng.push(markers.lng[marker]);
             counterCORD++; // global var that counts click, we are adding since add line requires this number. Can be seen on action on addLatLng Function
-            if(marker >= 1){
+            if (marker >= 1) {
                 addLine(paths);
             }
             let to_Plot = {
                 lat: markers.lat[marker],
                 lng: markers.lng[marker]
             };
-            
+
             let pointT = new google.maps.Marker({
                 position: to_Plot,
-                title: "#" + (parseInt(marker)+1),
+                title: "#" + (parseInt(marker) + 1),
                 icon: image
             });
             pointT.setMap(map);
             points.push(pointT);
         }
-        if(project.poor_bridges != null){
+        if (project.poor_bridges != null) {
             console.log("about to call bridges");
             point_drawer('bridges');
         }
-        if(project.pavement_fair_condition != null){
+        if (project.pavement_fair_condition != null) {
             console.log("about to call pavements");
             lineDrawer();
         }
         console.log(project.total_crash_EP);
-        if(project.total_crash_EP != null){
+        if (project.total_crash_EP != null) {
             console.log("about to crashes");
             point_drawer('crashes');
         }
-    }catch{
+    } catch {
         console.log("Nothing on map");
     }
+}
+
+function clear_HTML_N_ObjectsData(toErase) {
+    if (toErase == "crashes") {
+        setAll(0, crashesData);
+        document.getElementById("EP_total_crash").value = 0;
+        document.getElementById("EP_fatal_crash").value = 0;
+        document.getElementById("EP_injury_crash").value = 0;
+        document.getElementById("EP_pedestrian_crash").value = 0;
+        document.getElementById("DA_total_crash").value = 0;
+        document.getElementById("DA_fatal_crash").value = 0;
+        document.getElementById("DA_injury_crash").value = 0;
+        document.getElementById("DA_pedestrian_crash").value = 0;
+    } else if (toErase == "bridges") {
+        setAll(0, bridgeData);
+        document.getElementById("good_bridge").value = 0;
+        document.getElementById("good_deck_area").value = 0;
+        document.getElementById("fair_bridge").value = 0;
+        document.getElementById("fair_deck_area").value = 0;
+        document.getElementById("poor_bridge").value = 0;
+        document.getElementById("poor_deck_area").value = 0;
+    } else if (toErase == "pavements") {
+        setAll(0, pavementsData);
+        document.getElementById("good_pavement").value = 0;
+        document.getElementById("fair_pavement").value = 0;
+        document.getElementById("poor_pavement").value = 0;
+    }
+}
+
+/** 
+ * Handles point section on map
+ *  
+ */
+
+function setAll(val, obj) {
+    Object.keys(obj).forEach(function (index) {
+        obj[index] = val
+    });
 }

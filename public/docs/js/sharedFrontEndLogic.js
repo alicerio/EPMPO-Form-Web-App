@@ -174,6 +174,7 @@ function clearCrashes(id) {
     var result = confirm('Are you sure you want to clear the crashes data?');
     if (result) {
         // TODO: Clear crashes function.
+        clearCrashesPoints();
         activateIndividual(id);
     }
 }
@@ -185,6 +186,7 @@ function clearBridges(id) {
     var result = confirm('Are you sure you want to clear the bridges data?');
     if (result) {
         // TODO: Clear bridges function.
+        clearBridgesPoints();
         activateIndividual(id);
     }
 }
@@ -196,6 +198,7 @@ function clearPavements(id) {
     var result = confirm('Are you sure you want to clear the pavements data?');
     if (result) {
         // TODO: Clear pavements function.
+        clearPavementsLines();
         activateIndividual(id);
     }
 }

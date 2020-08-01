@@ -1,43 +1,6 @@
-/** 
- * Handles point section on map
- *  
- */
-
-function setAll(val, obj) {
-    Object.keys(obj).forEach(function (index) {
-        obj[index] = val
-    });
-}
-
-function clearCrashesData() {
-    setAll(0, crashesData);
-    setAll(0, bridgeData);
-    setAll(0, pavementsData);
-
-    //pavements reset
-    document.getElementById("good_pavement").value = 0;
-    document.getElementById("fair_pavement").value = 0;
-    document.getElementById("poor_pavement").value = 0;
-    //crashes reset
-    document.getElementById("EP_total_crash").value = 0;
-    document.getElementById("EP_fatal_crash").value = 0;
-    document.getElementById("EP_injury_crash").value = 0;
-    document.getElementById("EP_pedestrian_crash").value = 0;
-    document.getElementById("DA_total_crash").value = 0;
-    document.getElementById("DA_fatal_crash").value = 0;
-    document.getElementById("DA_injury_crash").value = 0;
-    document.getElementById("DA_pedestrian_crash").value = 0;
-    //bridges reset
-    document.getElementById("good_bridge").value = 0;
-    document.getElementById("good_deck_area").value = 0;
-    document.getElementById("fair_bridge").value = 0;
-    document.getElementById("fair_deck_area").value = 0;
-    document.getElementById("poor_bridge").value = 0;
-    document.getElementById("poor_deck_area").value = 0;
 
 
 
-}
 
 
 //checks if point C is inside A and B
@@ -226,7 +189,7 @@ function crashes(circlesCordinates, filterCrashes) {
 
 
                     point.setMap(map);
-                    points.push(point);
+                    crash_points.push(point);
                 }
 
             }
@@ -329,7 +292,7 @@ function bridges(circlesCordinates, filterBridges) {
                     });
 
                     point.setMap(map);
-                    points.push(point);
+                    bridges_points.push(point);
 
                 }
 
