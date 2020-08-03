@@ -3,16 +3,11 @@
         <div>
             <b>Map Instructions:</b>
             <ol>
-                <li>Double click on the desired location to place marker. There is no limit to how many markers you
-                    draw,
-                    however the more markers you draw the longer it will take to calculate.</li>
+                <li>Double click on the desired location to place marker. Place at least 2 markers to continue. </li>
                 <li>Click once on any button on the right to perform a calculation.</li>
-                <li>Please wait for the program to calculate, may vary on web connection and number of markers placed.
-                </li>
+                <li>Please wait for the program to calculate, may vary on web connection and number of markers placed.</li>
                 <li>After calculations are done, the map will display the filter results.</li>
-                <li>You may press clear to start over, however if you press a calculation button you will have to wait
-                    for the
-                    result before you can clear.</li>
+                <li>Click save at the end of the form to save map results.</li>
             </ol>
         </div><svg style="color:blue" width="2em" height="2em" viewBox="0 0 16 16" class="bi bi-question-circle"
             fill="currentColor" xmlns="http://www.w3.org/2000/svg">

@@ -17,10 +17,8 @@ $shape = array();
 if ($key == "crashes") {
     $query = "select OGR_ID,crash_year,crash_seve, ped_bike, pedestrian,pedalcycle,region, astext(SHAPE) as shape from crashes_txnm";
 } else if ($key == "form_bridges") {
-    $query = "select OGR_FID,cat10___br,cat29___de, astext(SHAPE) as shape from $pm_table where corridor_key = '$key'";
-} else {
-    $query = "select astext(SHAPE) as shape from $pm_table where corridor_key = '$key'"; // temporal note: find an elegant way to generalize this
-}
+    $query = "select OGR_FID,region,cat10___br,cat29___de, astext(SHAPE) as shape from bridgestxnm";
+} 
 
 $result = mysqli_query($conn, $query);
 while ($temporal = mysqli_fetch_assoc($result)) {
