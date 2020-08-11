@@ -19,7 +19,7 @@ var pavementsData = {
     good: 0,
     fair: 0,
     poor: 0,
-    lane_miles: 0,
+    lane_miles: 0
 }
 var bridgeData = {
     good: 0,
@@ -281,16 +281,16 @@ function show_edit_ViewMap() {
             pointT.setMap(map);
             points.push(pointT);
         }
-        if (project.poor_bridges != null) {
+        if (project.poor_bridges + project.good_bridges + project.fair_bridges >0) {
             console.log("about to call bridges");
             point_drawer('bridges');
         }
-        if (project.pavement_fair_condition != null) {
+        if (project.pavement_fair_condition  + project.pavement_good_condition + project.pavement_fair_condition  > 0) {
             console.log("about to call pavements");
             lineDrawer();
         }
-        console.log(project.total_crash_EP);
-        if (project.total_crash_EP != null) {
+       
+        if (project.total_crash_EP + project.total_crash_DA > 0) {
             console.log("about to crashes");
             point_drawer('crashes');
         }
