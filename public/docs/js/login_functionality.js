@@ -1,7 +1,5 @@
 (function ($) {
     "use strict";
-
-
     /*==================================================================
     [ Focus input ]*/
     $('.input100').each(function () {
@@ -43,8 +41,6 @@
         $(thisAlert).removeClass('alert-validate');
     }
 
-
-
     /*==================================================================
     [ Show pass ]*/
     var showPass = 0;
@@ -63,6 +59,4 @@
         }
 
     });
-
-
 })(jQuery);

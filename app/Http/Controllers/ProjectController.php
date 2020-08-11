@@ -29,7 +29,6 @@ class ProjectController extends Controller
 
     /**
      * The following functions work together to get the younger children from parent projects
-     * 
      * Send 1 parent at a time then store youngest id from that parent. IF NO PARENT store parent. 
      * Repeat for every parent. 
      */
@@ -81,7 +80,6 @@ class ProjectController extends Controller
         }else{
             return $children;
         }
-    
         return $youngest;
     }
     /**
@@ -516,10 +514,8 @@ class ProjectController extends Controller
         $id = $project->id;
         return redirect(route('projects.revisions', compact('id')));
     }
-    /*
-        Here we are filtering all the projects on the database
-        we filter so we send the past submitted project only
-     */
+
+    
     /*
         Here we are filtering all the projects on the database
         we filter so we send the past submitted project only

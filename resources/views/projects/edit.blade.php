@@ -5,7 +5,6 @@ $currentUser = auth()->user()->type // Store current user
 <script>
     var project = <?php echo json_encode($project);?>; 
     var currentUser = <?php echo json_encode($currentUser);?>;  // get current user
-    console.log(project.status);
     window.onload = function() {
         //default
         show_edit_ViewMap();
@@ -35,7 +34,6 @@ $currentUser = auth()->user()->type // Store current user
         }else{
             form1_setView();
         }
-
         // admin
         if(currentUser == 1){
             remove_readonly("signed_textarea");

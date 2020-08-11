@@ -1,4 +1,5 @@
 <script type="text/javascript">
+    var project = <?php echo json_encode($project ?? '');?>; 
     window.onload = function() {
         form1_setView();
     };

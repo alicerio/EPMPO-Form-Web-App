@@ -1,32 +1,3 @@
-/**
- * Functions for Shapes on Map
- * 
- */
-
-
- 
-//  function clearMetadata(shape) {
-//      if(shape == "points"){
-//          for (var i = 0; i < points.length; i++) {
-//              points[i].setMap(null);
-//             // console.log('points off');
-//          }
-     
-//      }else if(shape == "lines"){
-//          for (var i = 0; i < polylines.length; i++) {
-//              polylines[i].setMap(null);
-//          }
-//      }else{
-//          for (var i = 0; i < polygons.length; i++) {
-//              polygons[i].setMap(null);
-//          }
-//      }
-   
-//      polylines = [];
-//      points = [];
-//      polygons = [];
-//  }
-
  function wktFormatter(poly) {
      let name = poly.slice(0, 7);
      let shape_s = [];

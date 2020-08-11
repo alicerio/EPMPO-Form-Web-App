@@ -1,8 +1,6 @@
 <script type="text/javascript">
     var obj = <?php echo json_encode($logOfChanges);?>; 
     var project = <?php echo json_encode($project);?>; 
-            console.log(obj);
-            console.log(project);
     window.onload = function() {
         make_project_readonly();
         show_edit_ViewMap();

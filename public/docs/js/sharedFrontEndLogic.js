@@ -78,33 +78,18 @@ function set_required(required, project_type) {
             }
 
             //To fix error "An invalid form control with name = "" is not focusable"
-            $("#description_goal_1").prop('required', false); // make optional
-            $("#description_goal_2").prop('required', false); // make optional
-            $("#description_goal_3").prop('required', false); // make optional
-            $("#description_goal_4").prop('required', false); // make optional
-            $("#description_goal_5").prop('required', false); // make optional
-            $("#description_goal_6").prop('required', false); // make optional
-
-            $("#strategy_4").prop('required', false); // make optional
-            $("#strategy_5").prop('required', false); // make optional
-            $("#strategy_6").prop('required', false); // make optional
-
-            $("#description_strategy_1").prop('required', false); // make optional
-            $("#description_strategy_2").prop('required', false); // make optional
-            $("#description_strategy_3").prop('required', false); // make optional
-            $("#description_strategy_4").prop('required', false); // make optional
-            $("#description_strategy_5").prop('required', false); // make optional
-            $("#description_strategy_6").prop('required', false); // make optional
-            $("#description_strategy_7").prop('required', false); // make optional
-            $("#description_strategy_8").prop('required', false); // make optional
-            $("#description_strategy_9").prop('required', false); // make optional
-            $("#description_strategy_10").prop('required', false); // make optional
-
-            $("#description_psp_1").prop('required', false); // make optional
-            $("#description_psp_2").prop('required', false); // make optional
-            $("#description_psp_3").prop('required', false); // make optional
-            $("#description_psp_4").prop('required', false); // make optional
-            $("#description_psp_5").prop('required', false); // make optional
+            for(let i = 1; i < 7; i++) {
+                $("#description_goal_" + i).prop('required', false); // Make optional
+            }
+            for(let i = 4; i < 7; i++) {
+                $("#strategy_" + i).prop('required', false); // Make optional
+            }
+            for(let i = 1; i < 11; i++) {
+                $("#description_strategy_" + i).prop('required', false); // Make optional
+            }
+            for(let i = 1; i < 6; i++) {
+                $("#description_psp_" + i).prop('required', false); // Make optional
+            }
 
             $("#progress_explain").prop('required', false); // make optional
             $("#dates").prop('required', false); // make optional
@@ -118,7 +103,6 @@ function set_required(required, project_type) {
             $("#showHolder :input").prop('required', false); // Everything is required
         }
     }
-
 }
 
 function set_required_helper(id, project_type) {
@@ -163,7 +147,20 @@ function clearMap() {
     var result = confirm('Are you sure you want to clear the map data?');
     if (result) {
         clearMetadata();
-        activateAll();
+        activateMapButtons();
+       document.getElementById("point").value = null;
+    }
+}
+
+/**
+ * Clears All the map data on edit mode.
+ */
+function clearMapEdit() {
+    var result = confirm('Are you sure you want to clear the map data?');
+    if (result) {
+        clearMetadata();
+        activateMapButtonsEdit();
+       document.getElementById("point").value = null;
     }
 }
 
@@ -173,7 +170,6 @@ function clearMap() {
 function clearCrashes(id) {
     var result = confirm('Are you sure you want to clear the crashes data?');
     if (result) {
-        // TODO: Clear crashes function.
         clearCrashesPoints();
         activateIndividual(id);
     }
@@ -185,7 +181,6 @@ function clearCrashes(id) {
 function clearBridges(id) {
     var result = confirm('Are you sure you want to clear the bridges data?');
     if (result) {
-        // TODO: Clear bridges function.
         clearBridgesPoints();
         activateIndividual(id);
     }
@@ -197,7 +192,6 @@ function clearBridges(id) {
 function clearPavements(id) {
     var result = confirm('Are you sure you want to clear the pavements data?');
     if (result) {
-        // TODO: Clear pavements function.
         clearPavementsLines();
         activateIndividual(id);
     }
@@ -214,11 +208,20 @@ function disable(id) {
 /**
  * Enables all map buttons.
  */ 
-function activateAll() {
+function activateMapButtons() {
   document.getElementById("queryCrashesBtn").disabled = false;
   document.getElementById("queryBridgesBtn").disabled = false;
   document.getElementById("queryPavementsBtn").disabled = false;
   //document.body.style.cursor = 'default';
+}
+
+/**
+ * Enables all map buttons on edit mode.
+ */ 
+function activateMapButtonsEdit() {
+    document.getElementById("queryCrashesBtnEdit").disabled = false;
+    document.getElementById("queryBridgesBtnEdit").disabled = false;
+    document.getElementById("queryPavementsBtnEdit").disabled = false;
 }
 
 /**
@@ -233,7 +236,6 @@ function activateIndividual(id) {
  * Resets dynamic table values to zero when deleted
  */
 function setRowToZero(idRow, rowMethod) {
-    console.log(idRow, rowMethod);
     // loop the row
     var iterateRow = $("#" + idRow + " :input").map(function () {
         let h = $(this).val();
@@ -299,4 +301,3 @@ function bugFixDeleteRowStatusEdit(table_id, row_id) {
     // remove table 
     table.deleteRow(table.rows.length - 1);
 }
-

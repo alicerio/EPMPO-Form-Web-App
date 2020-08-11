@@ -49,30 +49,6 @@ function funding_vehicles_table() {
             // skip
         }
     })
-    /*
-            if ($(this).attr("id") == "federal_vehicles") {
-                if (h >= 0) {
-                    federal_sum += h;
-                    total_sum += h;
-                }
-            } else if ($(this).attr("id") == "local_vehicles") {
-                if (h >= 0) {
-                    local_sum += h;
-                    total_sum += h;
-                }
-            } else if ($(this).attr("id") == "local_beyond_vehicles") {
-                if (h >= 0) {
-                    local_beyond_sum += h;
-                    total_sum += h;
-
-                }
-            } else if ($(this).attr("id") == "tdc_vehicles") {
-                if (h >= 0) {
-                    tdc_sum += h;
-                }
-            }
-        })*/
-
     // Assists in addition of totals
     federal_sum = parseInt(federal_sum);
     local_sum = parseInt(local_sum);
@@ -275,7 +251,6 @@ function addRow_2() {
 
     let inputId = $(table.rows[table.rows.length - 1].cells[4]).find("input")[0];
     inputId.setAttribute('id', newIdTotal);
-    console.log("*************");
 }
 
 function funding_operations_table() {
@@ -391,53 +366,15 @@ function addRow_3() {
 }
 
 function deleteRow_1() {
-    // if (project.status == 0) { //if status == edit
     bugFixDeleteRowStatusEdit("fundingVehiclesTable", 'fvtrow');
-    /* } else {
-        var table = document.getElementById("fundingVehiclesTable");
-
-        //set value to $0 
-        setRowToZero('fvtrow' + table.rows.length, 1);
-
-        // remove table 
-        table.deleteRow(table.rows.length - 1);
-    }
-*/
 }
-
-
 
 function deleteRow_2() {
-    //  if (project.status == 0) {
     bugFixDeleteRowStatusEdit("fundingBusTable", 'fbtrow');
-    /*  } else {
-          var table = document.getElementById("fundingBusTable");
-          //set value to $0
-          setRowToZero('fbtrow' + table.rows.length, 2);
-
-          // remove table 
-          table.deleteRow(table.rows.length - 1);
-      }*/
-
 }
 
-
-
-
-
 function deleteRow_3() {
-    //   if (project.status == 0) {
     bugFixDeleteRowStatusEdit("fundingOperationsTable", 'fotrow');
-    /*  } else {
-          var table = document.getElementById("fundingOperationsTable");
-          //set value to $0 
-          if (table.rows.length == 1) { // this is needed due to naming
-              setRowToZero('fotrow', 3);
-          } else {
-              setRowToZero('fotrow' + table.rows.length, 3);
-          }
-          table.deleteRow(table.rows.length - 1);
-      }*/
 }
 
 function form2_setView() {
@@ -450,7 +387,6 @@ function form2_setView() {
     //Make readonly
 
     document.getElementById("mpo_id").readOnly = true;
-    //document.getElementById("signed_textarea").readOnly = true;
     document.getElementById("attachments_textarea").readOnly = true;
     document.getElementById("federal_vehicles_total").readOnly = true;
     document.getElementById("local_vehicles_total").readOnly = true;
@@ -468,4 +404,9 @@ function form2_setView() {
     document.getElementById("local_operations_total").readOnly = true;
     document.getElementById("local_beyond_operations_total").readOnly = true;
     document.getElementById("total_operations_total").readOnly = true;
+    if(project.status >= 0) {
+        document.getElementById("queryCrashesBtnEdit").disabled = true;
+        document.getElementById("queryBridgesBtnEdit").disabled = true;
+        document.getElementById("queryPavementsBtnEdit").disabled = true;
+    }
 }

@@ -11,7 +11,6 @@ function displayChanges(log) {
                 if (item != "id" && item != "parent_id" && item != "updated_at" && 
                     item != "voc" && item != "created_at" && item != "status"
                     && item != "author") {
-                    console.log(item);
                     hasbeeninside = true;
                     document.getElementsByName(item)[0].style.backgroundColor = "#66ccff";
                     document.getElementsByName(item)[0].style.outlineStyle = "solid";

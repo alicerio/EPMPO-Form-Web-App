@@ -11,7 +11,6 @@ select_Action is very special:
            a project JS variable already exists.
            This is to help JS know current project
         */
-       console.log(project);
         let project_type = project.project_type; 
     </script>
     @include('projects.buttons_shared')

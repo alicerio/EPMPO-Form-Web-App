@@ -19,21 +19,24 @@
     <div class="row">
         <div class="col-10" id="map"></div>
         <div style="margin-top:1%" class="col-2">
-            <button id="queryCrashesBtn" type='button' class="btn btn-info" title="Get crashes within 50 meters."
-                onclick="point_drawer('crashes');disable(id)">Query Crashes</button>
-            <button id="queryBridgesBtn" type='button' class="btn btn-info" title="Get bridges within 50 meters."
-                onclick="point_drawer('bridges');disable(id)">Query Bridges</button>
-            <button id="queryPavementsBtn" type='button' class="btn btn-info"
-                title="Display pavements that intersect with lines drawn." onclick="lineDrawer();disable(id)">Query
-                Pavements</button>
-            <button id="clearCrashesBtn" type='button' class="btn btn-info" title="Clear map" onclick="clearCrashes('queryCrashesBtn')">
-                Clear Crashes</button>
-            <button id="clearBridgesBtn" type='button' class="btn btn-info" title="Clear map" onclick="clearBridges('queryBridgesBtn')">
-                Clear Bridges</button>
-            <button id="clearPavementsBtn" type='button' class="btn btn-info" title="Clear map" onclick="clearPavements('queryPavementsBtn')">
-                Clear Pavements</button>
-            <button id="clearQueryBtn" type='button' class="btn btn-info" title="Clear map" onclick="clearMap()">
-                Clear All</button>
+            {{--Checks if the project is on create or edit mode. Disables buttons if it is on edit.--}}
+            @if ($project->name ?? '' != null)
+                <button id="queryCrashesBtnEdit" type='button' class="btn btn-info" title="Get crashes within 50 meters." onclick="point_drawer('crashes');disable(id)">Query Crashes</button>
+                <button id="queryBridgesBtnEdit" type='button' class="btn btn-info" title="Get bridges within 50 meters." onclick="point_drawer('bridges');disable(id)">Query Bridges</button>
+                <button id="queryPavementsBtnEdit" type='button' class="btn btn-info" title="Display pavements that intersect with lines drawn." onclick="lineDrawer();disable(id)">Query Pavements</button> 
+                <button id="clearCrashesBtn" type='button' class="btn btn-info" title="Clear map" onclick="clearCrashes('queryCrashesBtnEdit')"> Clear Crashes</button>
+                <button id="clearBridgesBtn" type='button' class="btn btn-info" title="Clear map" onclick="clearBridges('queryBridgesBtnEdit')"> Clear Bridges</button>
+                <button id="clearPavementsBtn" type='button' class="btn btn-info" title="Clear map" onclick="clearPavements('queryPavementsBtnEdit')"> Clear Pavements</button>
+                <button id="clearQueryBtn" type='button' class="btn btn-info" title="Clear map" onclick="clearMapEdit()"> Clear All</button>
+            @else
+                <button id="queryCrashesBtn" type='button' class="btn btn-info" title="Get crashes within 50 meters." onclick="point_drawer('crashes');disable(id)">Query Crashes</button>
+                <button id="queryBridgesBtn" type='button' class="btn btn-info" title="Get bridges within 50 meters." onclick="point_drawer('bridges');disable(id)">Query Bridges</button>
+                <button id="queryPavementsBtn" type='button' class="btn btn-info" title="Display pavements that intersect with lines drawn." onclick="lineDrawer();disable(id)">Query Pavements</button>
+                <button id="clearCrashesBtn" type='button' class="btn btn-info" title="Clear map" onclick="clearCrashes('queryCrashesBtn')"> Clear Crashes</button>
+                <button id="clearBridgesBtn" type='button' class="btn btn-info" title="Clear map" onclick="clearBridges('queryBridgesBtn')"> Clear Bridges</button>
+                <button id="clearPavementsBtn" type='button' class="btn btn-info" title="Clear map" onclick="clearPavements('queryPavementsBtn')"> Clear Pavements</button>
+                <button id="clearQueryBtn" type='button' class="btn btn-info" title="Clear map" onclick="clearMap()"> Clear All</button>
+            @endif
         </div>
     </div>
     <div class="row" style="margin-top:1%">

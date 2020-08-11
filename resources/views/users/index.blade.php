@@ -11,8 +11,6 @@
                     <th scope="col">Email</th>
                     <th scope="col">Agency</th>
                     <th scope="col">Type</th>
-                    <!-- <th scope="col">Edit</th> 
-                    <th scope="col">Delete</th>     previous version -->
                     <th scope="col">Edit options</th>
                   </tr>
                 </thead>

@@ -28,15 +28,8 @@
                         @foreach ($agencies as $agency)
                         <tr>
                             <td>
-                                {{-- <a href="{{ route('agencies.show', $agency->id) }}"> --}}
-                                    {{ $agency->name }}
-                                {{-- </a> --}}
+                                {{ $agency->name }}
                             </td>
-                            {{-- <td>
-                                <a href="{{ route('agencies.edit', $agency->id) }}" class="btn btn-primary btn-block">
-                                    Edit
-                                </a>
-                            </td> --}}
                             <td>
                                 <form action="{{ route('agencies.destroy', $agency->id) }}" method="POST" href="edit.php?id=1" onclick="return  confirm('Delete Agency?')"> 
                                     @csrf

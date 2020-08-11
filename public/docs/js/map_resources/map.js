@@ -19,7 +19,7 @@ var pavementsData = {
     good: 0,
     fair: 0,
     poor: 0,
-    lane_miles: 0,
+    lane_miles: 0
 }
 var bridgeData = {
     good: 0,
@@ -30,12 +30,11 @@ var bridgeData = {
     deckArea_poor: 0
 };
 var crashesData = {
-    total_crashes_tx: 0, //
+    total_crashes_tx: 0,
     fatal_crashes_tx: 0, // K - killed
     serious_injury_crashes_tx: 0, // A - suspected serious
-    ped_bike_crashes_tx: 0, //
-
-    total_crashes_nm: 0, //
+    ped_bike_crashes_tx: 0,
+    total_crashes_nm: 0,
     fatal_crashes_nm: 0,
     serious_injury_crashes_nm: 0,
     ped_bike_crashes_nm: 0
@@ -80,6 +79,11 @@ function clearMetadata() {
         makersClicked[x].setMap(null);
         makersClicked[x].setMap(null);
     }
+    // Clears points.
+    for (x in points) {
+        points[x].setMap(null);
+    }
+
     paths = {
         lat: null,
         lng: null
@@ -143,8 +147,6 @@ function initMap() {
     } catch {
         map.addListener('dblclick', addLatLng);
     }
-
-
 }
 
 // Handles click events on a map, and adds a new points and connects them with line
@@ -164,7 +166,6 @@ function addLatLng(event) {
         map: map
     });
     makersClicked.push(marker);
-    console.log(paths);
     document.getElementById("point").value = JSON.stringify(paths);
 }
 //get coordinates between the points
@@ -261,7 +262,6 @@ function show_edit_ViewMap() {
     try {
         let markers = JSON.parse(project.points);
         for (marker in markers.lat) {
-            console.log(markers.lat[marker]);
             paths.lat.push(markers.lat[marker]);
             paths.lng.push(markers.lng[marker]);
             counterCORD++; // global var that counts click, we are adding since add line requires this number. Can be seen on action on addLatLng Function
@@ -281,16 +281,16 @@ function show_edit_ViewMap() {
             pointT.setMap(map);
             points.push(pointT);
         }
-        if (project.poor_bridges != null) {
+        if (project.poor_bridges + project.good_bridges + project.fair_bridges > 0) {
             console.log("about to call bridges");
             point_drawer('bridges');
         }
-        if (project.pavement_fair_condition != null) {
+        if (project.pavement_fair_condition  + project.pavement_good_condition + project.pavement_fair_condition > 0) {
             console.log("about to call pavements");
             lineDrawer();
         }
-        console.log(project.total_crash_EP);
-        if (project.total_crash_EP != null) {
+       
+        if (project.total_crash_EP + project.total_crash_DA > 0) {
             console.log("about to crashes");
             point_drawer('crashes');
         }

@@ -2,21 +2,6 @@
 
 @section('content')
 
-<script>
-    // var parents = <?php echo json_encode($projects);?>;
-    //  var allProjects = <?php echo json_encode($allProjects);?>;  
-
-    //  window.onload = function() {
-    //     //js to php
-    //     var parents = <?php echo json_encode($projects);?>;
-    //     var allProjects = <?php echo json_encode($allProjects);?>;  
-    //     var youngerChildrenJS = getYoungerChildrenMaster(parents,allProjects);
-        
-    //     console.log(youngerChildrenJS);
-    //  }
-</script>
-
-
 @if(auth()->user()->type!=2)
 @extends('projects.index_NonAdmin')
 @else

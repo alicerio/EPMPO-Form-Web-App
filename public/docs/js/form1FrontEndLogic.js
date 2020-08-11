@@ -132,27 +132,13 @@ function rowSum(idName, index) {
             rowTot += h;
         }
     })
-    //get id
-    //  if (index == 0){ 
-    //   totId = 'pftpg1_tot';
-    //     console.log(totId);
-    //  }
-    //  else {
     index++;
     totId = "pftpg1_tot" + index;
-    //  }
-
     $("#" + totId).attr("value", '$' + commafy(rowTot));
 }
 
 function deleteRow() {
-    //if (project.status == 0) {
-        bugFixDeleteRowStatusEdit("projectFundingTablePg1", "pfrow");
-    // } else {
-    //     var table = document.getElementById("projectFundingTablePg1");
-    //     setRowToZero('pfrow' + table.rows.length, 1.1);
-    //     table.deleteRow(table.rows.length - 1);
-    // }
+    bugFixDeleteRowStatusEdit("projectFundingTablePg1", "pfrow");
 }
 //dynamic name change and row addition
 function addRow() {
@@ -173,8 +159,6 @@ function addRow() {
     let cell4Id = "local" + table.rows.length;
     let cell5Id = "local_cont" + table.rows.length;
 
-
-
     cell1.innerHTML = '<input type="text" name="funding_category[]" size="32" class="form-control">';
     cell2.innerHTML = '<input onchange="project_funding_table();addMoneySign(this.value, this.id)" id=' + cell2Id + ' type="text" name="funding_federal[]" class="form-control">';
     cell3.innerHTML = '<input onchange="project_funding_table();addMoneySign(this.value, this.id)" id=' + cell3Id + ' type="text" name="funding_state[]" class="form-control">';
@@ -193,7 +177,6 @@ function addRow() {
 */
 function form1_setView() {
     $(":input").prop("disabled", false); // enables everything
-
     //disable special inputs
     for (let i = 0; i < 20; i++) {
         $("#locked_val" + i).prop("disabled", true);
@@ -203,12 +186,15 @@ function form1_setView() {
     document.getElementById("yoe_cs_tot").readOnly = true;
     document.getElementById("tot_yoe").readOnly = true;
     document.getElementById("yoe_check").readOnly = true;
-    //document.getElementById("pftpg1_tot0").readOnly = true;
     document.getElementById("federal_total").readOnly = true;
     document.getElementById("state_total").readOnly = true;
     document.getElementById("local_total").readOnly = true;
     document.getElementById("local_beyond_total").readOnly = true;
     document.getElementById("total_total").readOnly = true;
-    //document.getElementById("signed_textarea").readOnly = true;
     document.getElementById("attachments_textarea").readOnly = true;
+    if(project.status >= 0) {
+        document.getElementById("queryCrashesBtnEdit").disabled = true;
+        document.getElementById("queryBridgesBtnEdit").disabled = true;
+        document.getElementById("queryPavementsBtnEdit").disabled = true;
+    }
 }

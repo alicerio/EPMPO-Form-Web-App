@@ -1,5 +1,4 @@
 <div hidden id="log_success" class="alert alert-success">
- <!--   <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a> -->
     <h4 class="alert-heading">Log of changes</h4>
     <p> Changes from last submission are highlighted in blue.</p>
     <p> Use mouse to hoover highlighted text to see last submission input. </p>

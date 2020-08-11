@@ -32,12 +32,12 @@ class UserController extends Controller
         }
     }
 
-    // public function create()
-    // {
-    // }
-
     public function store(Request $request)
     {
+        request()->validate([
+            'password' => 'required|confirmed',
+        ]);
+
         $user = new User();
 
         $user->name = request('name');
@@ -50,10 +50,6 @@ class UserController extends Controller
         return redirect(route('users.index'));
     }
 
-    // public function show(User $user)
-    // {
-    // }
-
     public function edit(User $user)
     {
         $agencies = Agency::all();
@@ -62,11 +58,9 @@ class UserController extends Controller
 
     public function update(Request $request, User $user)
     {
-
         $user->name = request('name');
         $user->type = request('type');
         $user->agency_id = request('agency_id');
-        $user->password = \Hash::make(request('password'));
 
         $user->save();
         return redirect(route('users.index'));
