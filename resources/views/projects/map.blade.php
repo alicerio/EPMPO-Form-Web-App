@@ -22,7 +22,7 @@
             {{--Checks if the project is on create or edit mode. Disables buttons if it is on edit.--}}
             @if ($project->name ?? '' != null)
                 <button id="queryCrashesBtnEdit" type='button' class="btn btn-info" title="Get crashes within 50 meters." onclick="point_drawer('crashes');disable(id)">Query Crashes</button>
-                <button id="queryBridgesBtnEdit" type='button' class="btn btn-info" title="Get bridges within 50 meters." onclick="point_drawer('bridges');disable(id)">Query Bridges</button>
+                <button id="queryBridgesBtnEdit" type='button' class="btn btn-info" title="Get bridges within 50 meters." onclick="clear_HTML_N_ObjectsData('bridges');point_drawer('bridges')">Query Bridges</button>
                 <button id="queryPavementsBtnEdit" type='button' class="btn btn-info" title="Display pavements that intersect with lines drawn." onclick="lineDrawer();disable(id)">Query Pavements</button> 
                 <button id="clearCrashesBtn" type='button' class="btn btn-info" title="Clear map" onclick="clearCrashes('queryCrashesBtnEdit')"> Clear Crashes</button>
                 <button id="clearBridgesBtn" type='button' class="btn btn-info" title="Clear map" onclick="clearBridges('queryBridgesBtnEdit')"> Clear Bridges</button>

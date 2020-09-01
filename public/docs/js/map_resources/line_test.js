@@ -3,10 +3,7 @@ function pavementCond(to_php) {
     let shape = "shape";
     let php_handler = "../../docs/js/map_resources/line_handler.php";
     let cond = "";
-    console.log(to_php);
     $.get(php_handler, to_php, function (data) { // ajax call to populate pavement lines
-        console.log("back from DB");
-        console.log(data);
         for (index in data.shape_arr) { // iterates through every index in the returned element (data['shape_arr'])
             let shp = data.shape_arr[index][shape]; // shape is LINESTRING or MULTILINESTRING
             let reader = new jsts.io.WKTReader(); // 3rd party tool to handle multiple shapes

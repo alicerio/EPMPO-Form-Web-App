@@ -8,6 +8,9 @@
 <div class="container">
     <h2 class="text-center"><b>Projects</b></h2>
     <div class="row">
+        <div class="col-md-4">
+            <input type="text" class="form-control" id="input" onkeyup="searchProject()" placeholder="Search for project name." title="Type in project name." size="10">
+        </div>
         <div class="col-md-12">
             <div class="dropdown">
                 <button class="btn btn-primary dropdown-toggle float-right" type="button" id="user_edit_options"
@@ -27,7 +30,7 @@
                 No projects have been submitted
             </div>
             @else
-            <table class="table table-bordered table-hover">
+            <table class="table table-bordered table-hover" id="project_table">
                 <thead class="thead-light">
                     <tr>
                         <th scope="col">Projects</th>
@@ -76,12 +79,10 @@
                                     </button>
                                     <div class="dropdown-menu" aria-labelledby="user_edit_options">
                                         <p hidden>{{$project->id = $temp_id}}</p>
-                                        <!--<a class="dropdown-item"
-                                            href="{{ route('projects.edit', $project->id) }}">Edit</a> -->
+                                        {{ route('projects.edit', $project->id) }}
                                         @if(auth()->user()->type == 2)
                                         <a class="dropdown-item" href="{{ route('projects.editInfo', $project->id) }}"
-                                            method="POST">Update MPO
-                                            ID</a>
+                                            method="POST">Update MPO ID</a>
                                         @endif
                                         <p hidden>{{$project->id = $temp_parent_id}}</p>
                                         <form action="{{ route('projects.destroy', $project->id) }}" method="POST"
@@ -123,3 +124,24 @@
 </div>
 @endsection
 @endif
+
+<script>
+    function searchProject() {
+        var input, filter, table, tr, td, i, txtValue;
+        input = document.getElementById("input");
+        filter = input.value.toUpperCase();
+        table = document.getElementById("project_table");
+        tr = table.getElementsByTagName("tr");
+        for (i = 0; i < tr.length; i++) {
+            td = tr[i].getElementsByTagName("td")[0];
+            if (td) {
+                txtValue = td.textContent || td.innerText;
+                if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                    tr[i].style.display = "";
+                } else {
+                    tr[i].style.display = "none";
+                }
+            }       
+        }
+    }
+</script>

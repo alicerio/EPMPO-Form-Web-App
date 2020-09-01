@@ -1,3 +1,6 @@
+/**
+ * Is in charge of controlling the additions of the yoe table in the form.
+ */
 function yoe_table() {
     let sum = 0;
     let cs_sum = 0; //construction subtotal sum
@@ -10,7 +13,6 @@ function yoe_table() {
         if (h.charAt(0) == "$") {
             h = h.substring(1);
         }
-
         try {
             h = parseInt(h.replace(/,/g, '')); // removes commas and parses to int
             if (h != null && isNaN(h) != true && h >= 0 && idH.length > 0) { //check that value is valid
@@ -37,6 +39,9 @@ function yoe_table() {
     document.getElementById("yoe_cs_tot").value = "$" + commafy(cs_sum);
 }
 
+/**
+ * 
+ */
 function project_funding_table() {
     let federal_sum = 0;
     let state_sum = 0;
@@ -137,9 +142,13 @@ function rowSum(idName, index) {
     $("#" + totId).attr("value", '$' + commafy(rowTot));
 }
 
+/**
+ * Deletes a row for the funding table.
+ */
 function deleteRow() {
     bugFixDeleteRowStatusEdit("projectFundingTablePg1", "pfrow");
 }
+
 //dynamic name change and row addition
 function addRow() {
     var table = document.getElementById("projectFundingTablePg1");
@@ -194,7 +203,6 @@ function form1_setView() {
     document.getElementById("attachments_textarea").readOnly = true;
     if(project.status >= 0) {
         document.getElementById("queryCrashesBtnEdit").disabled = true;
-        document.getElementById("queryBridgesBtnEdit").disabled = true;
         document.getElementById("queryPavementsBtnEdit").disabled = true;
     }
 }

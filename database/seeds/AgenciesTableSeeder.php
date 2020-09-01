@@ -4,6 +4,9 @@ use Illuminate\Database\Seeder;
 
 class AgenciesTableSeeder extends Seeder
 {
+    /**
+     * Default seeder for agencies.
+     */
     public function run()
     {
         DB::table('agencies')->insert(['name' => 'MPO']);

@@ -16,11 +16,14 @@ class ProjectController extends Controller
         $this->middleware('auth');
     }
 
+    /**
+     * Displays all of the existing projects in the web app.
+     */
     public function index()
     {
-        $projects = Project::all()->where('parent_id', null);
-        $allProjects = Project::all();
-        $agencies = Agency::all();
+        $allProjects = Project::all(); // Stores all projects
+        $projects = Project::all()->where('parent_id', null); // Stores all projects where the parent id is null.
+        $agencies = Agency::all(); // Agencies
         $youngerChildren = $this->getYoungerChildrenMaster($projects, $allProjects);
 
         $statuses = ['In Progress', 'PM Pending Review', 'Submitted', 'Approved', 'In Progress [Returned for Revision]'];
@@ -44,6 +47,7 @@ class ProjectController extends Controller
         $projectList = $this->getProjectByID($youngerChildrenID);
         return $projectList;
     }
+
     /**
      * Gets 1 parent and all Projects. 
      * Returns all children from given parent
@@ -82,6 +86,7 @@ class ProjectController extends Controller
         }
         return $youngest;
     }
+
     /**
      * Takes Array of IDS
      * Gets project by ID
@@ -99,9 +104,12 @@ class ProjectController extends Controller
         return  $listOfProjects;
     } 
 
+    /**
+     * Displays all the branches of a specific project. 
+     */
     public function revisions($id)
     {
-        $projects = Project::orderBy('created_at', 'asc')->where('parent_id', $id)->get();
+        $projects = Project::orderBy('created_at', 'asc')->where('parent_id', $id)->get(); // Sorts the projects.
         $projects->prepend(Project::find($id));
         $agencies = Agency::all();
         $counts = [0, 0, 0, 0, 0];
@@ -109,30 +117,38 @@ class ProjectController extends Controller
         return view('projects.revisions', compact('projects', 'statuses', 'agencies', 'counts'));
     }
 
+    /**
+     * Returns view to create a TASA project.
+     */
     public function create()
     {
         return view('projects.create');
     }
 
+    /**
+     * Exports a current project to excel format.
+     */
     public function exportExcel(Project $project)
     {
-        $columns = $project->getTableColumns();
-        $projects = $project->getAll2($project->id);
+        $columns = $project->getTableColumns(); // Gets all columns of the project.
+        $projects = $project->getProject($project->id);
 
         $data = new collection();
         foreach ($columns as $column) {
             $data[0] = (object) $column;
         }
         $data = $data->merge($projects);
-        $fileName = "Projects.xlsx";
+        $fileName = "PRF.xlsx";             // Name of file to be exported.
         $excel = Exporter::make('Excel');
         $excel->load($data);
         return $excel->stream($fileName);
     }
 
+    /**
+     * Stores all of the information of a project in the database.
+     */
     public function store(Request $request)
     {
-
         request()->validate([
             'name' => 'required',
         ]);
@@ -502,28 +518,28 @@ class ProjectController extends Controller
         $project->description_sqq_35 = request('description_sqq_35');
         $project->description_sqq_36 = request('description_sqq_36');
 
+        // Uploads an attachment to the project and stores it into the application.
         if($request->hasFile('file')) {
             $file = $request->file('file');
-            $name = time().$file->getClientOriginalName();
-            $file->move(public_path().'/files/',$name);
+            $name = time().$file->getClientOriginalName(); // Stores the time it was uploaded.
+            $file->move(public_path().'/files/',$name);    // Saves it into the application.
             $project->file = $name;
         }
-
         $project->save();
 
-        $id = $project->id;
+        $id = $project->id;                             // Holds the id of the project.
         return redirect(route('projects.revisions', compact('id')));
     }
 
     
-    /*
-        Here we are filtering all the projects on the database
-        we filter so we send the past submitted project only
+    /**
+     *  Here we are filtering all the projects on the database
+     *  we filter so we send the past submitted project only
      */
     public function getLogOfChangesArray($projectReceived)
     {
-        //projectReceived is the current project instance
-        $projects = Project::all(); //store all projects
+        // projectReceived is the current project instance
+        $projects = Project::all(); // Store all projects
         error_log(count($projects));
         $attributesOfProjects = [];
         $logOfChanges = [];
@@ -564,6 +580,7 @@ class ProjectController extends Controller
         }
         return  $logOfChanges;
     }
+
     //if we need more info we could find it here and store it in an array that will be send to the front end
     public function infoCurrentProject($currentProject)
     {
@@ -583,13 +600,18 @@ class ProjectController extends Controller
         }
         return $infoCurrentProject;
     }
+
+    /**
+     * Displays a saved project.
+     */
     public function show(Project $project)
     {
         $logOfChanges = array();
-        $logOfChanges =  $this->getLogOfChangesArray($project);
+        $logOfChanges =  $this->getLogOfChangesArray($project); // Passes the log of changes.
         $infoCurrentProject = array();
-        $infoCurrentProject =  $this->infoCurrentProject($project); // get if current project is latest submission
+        $infoCurrentProject =  $this->infoCurrentProject($project); // Get if current project is latest submission
 
+        // Checks the type of project in order to display the appropiate one.
         if ($project->project_type == "PRF") {
             return view('projects.show', compact('project', 'logOfChanges', 'infoCurrentProject'));
         } else {
@@ -605,6 +627,7 @@ class ProjectController extends Controller
      */
     public function edit(Project $project)
     {
+        // Checks the type of project in order to display the appropiate one.
         if ($project->project_type == "PRF") {
             return view('projects.edit', compact('project'));
         } else {
@@ -1037,6 +1060,9 @@ class ProjectController extends Controller
         return redirect(route('projects.index'));
     }
 
+    /**
+     * Removes projects that are not on the submitted status.
+     */
     public function destroyNonSubmissions(Project $project)
     {
         $project::where('parent_id', $project->id)->where('status', '=', 1)->delete();
@@ -1044,6 +1070,9 @@ class ProjectController extends Controller
         return redirect(route('projects.index'));
     }
 
+    /**
+     * Removes projects that are not on the approved status.
+     */
     public function leaveApproved(Project $project)
     {
         $project::where('parent_id', $project->id)->where('status', '=', 1)->delete();
@@ -1052,6 +1081,9 @@ class ProjectController extends Controller
         return redirect(route('projects.index'));
     }
 
+    /**
+     * Edits the MPO ID or CSJ and saves it.
+     */
     public function editInfo(Request $request, Project $project)
     {
         $project->mpo_id = request('mpo_id');
@@ -1060,6 +1092,9 @@ class ProjectController extends Controller
         return view('projects.editInfo', compact('project'));
     }
 
+    /**
+     * Saves comments that MPO wants to add to a specific project.
+     */
     public function comments(Request $request, Project $project)
     {
         $project->comments = request('comments');
@@ -1067,6 +1102,9 @@ class ProjectController extends Controller
         return view('projects.comments', compact('project'));
     }
 
+    /**
+     * Downloads the attachment that was uploaded.
+     */
     public function download($file)
     {
         $name = public_path()."/files/$file";

@@ -23,7 +23,8 @@ class UserController extends Controller
     public function index()
     {
         if(auth()->user()->type == 2){
-            $users = User::all();
+            // Sorts the users by the following parameters.
+            $users = User::orderBy('agency_id','asc')->orderBy('type','desc')->orderBy('name','asc')->get();
             $types = ['Creator', 'Submitter', 'Admin'];
             $agencies = Agency::all();
             return view('users.index', compact('users', 'types', 'agencies'));
@@ -32,8 +33,12 @@ class UserController extends Controller
         }
     }
 
+    /**
+     * Stores the users in the database.
+     */
     public function store(Request $request)
     {
+        // Checks that the password and password confirmation are equal.
         request()->validate([
             'password' => 'required|confirmed',
         ]);
@@ -50,12 +55,16 @@ class UserController extends Controller
         return redirect(route('users.index'));
     }
 
+  
     public function edit(User $user)
     {
         $agencies = Agency::all();
         return view('users.edit', compact('user', 'agencies'));
     }
 
+    /**
+     * Updates the information of a specific user.
+     */
     public function update(Request $request, User $user)
     {
         $user->name = request('name');
@@ -78,6 +87,9 @@ class UserController extends Controller
         return redirect(route('users.index'));
     }
 
+    /**
+     * Updates the password of a user if it was forgotten.
+     */
     public function editPassword(Request $request, User $user){
         $user->password = \Hash::make(request('password'));
         return view('users.editPassword',compact('user'));

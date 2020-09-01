@@ -282,16 +282,13 @@ function show_edit_ViewMap() {
             points.push(pointT);
         }
         if (project.poor_bridges + project.good_bridges + project.fair_bridges > 0) {
-            console.log("about to call bridges");
             point_drawer('bridges');
         }
         if (project.pavement_fair_condition  + project.pavement_good_condition + project.pavement_fair_condition > 0) {
-            console.log("about to call pavements");
             lineDrawer();
         }
        
         if (project.total_crash_EP + project.total_crash_DA > 0) {
-            console.log("about to crashes");
             point_drawer('crashes');
         }
     } catch {

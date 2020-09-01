@@ -1,17 +1,16 @@
-
-
-
-
-
-//checks if point C is inside A and B
+/**
+ * checks if point C is inside A and B
+ */
 function insideRange(pointA, pointB, pointC) {
     if (differencePositive(distance(pointA, pointC) + distance(pointB, pointC), distance(pointA, pointB)) <= 0.0009) {
-        // console.log(differencePositive(distance(pointA, pointC) + distance(pointB, pointC), distance(pointA, pointB)) + "\n");
         return true
     }
     return false;
 }
-// returns difference non negative
+
+/**
+ * Returns difference non negative
+ */
 function differencePositive(val1, val2) {
     if (val1 > val2) {
         return val1 - val2;
@@ -20,11 +19,16 @@ function differencePositive(val1, val2) {
     }
 }
 
-// formula to check if a point lies between 2 points
+/**
+ * Formula to check if a point lies between 2 points.
+ */
 function distance(pointA, pointB) {
     return Math.sqrt(Math.pow((pointA.lng - pointB.lng), 2) + Math.pow((pointA.lat - pointB.lat), 2));
 }
-//filters possible points, this will help eliminate excess of points
+
+/**
+ * Filters possible points, this will help eliminate excess of points
+ */
 function filterCrashes(circlesCordinates) {
     let php_handler = "../../docs/js/map_resources/map_handler.php";
 
@@ -110,7 +114,9 @@ function hasItbeenSeen(currentPoint, nonRepeatedPoints) {
     });
 }
 
-//draws and stores info
+/* 
+* draws and stores info
+*/
 function crashes(circlesCordinates, filterCrashes) {
     //holds all info displayed on statistics
     var nonRepeatedPoints = [];
@@ -131,7 +137,6 @@ function crashes(circlesCordinates, filterCrashes) {
                     let isFatal = "No";
                     let isSerious = "No";
                     let isPedBike = "No";
-
 
                     if (region == "TX") {
                         crashesData.total_crashes_tx++;
@@ -164,7 +169,6 @@ function crashes(circlesCordinates, filterCrashes) {
                             isPedBike = "Yes";
                             crashesData.ped_bike_crashes_nm++;
                         }
-
                     }
 
                     if (isPedBike == "Yes") {
@@ -187,7 +191,6 @@ function crashes(circlesCordinates, filterCrashes) {
                         icon: image
                     });
 
-
                     point.setMap(map);
                     crash_points.push(point);
                 }
@@ -208,7 +211,9 @@ function crashes(circlesCordinates, filterCrashes) {
 
 }
 
-//filters possible points, this will help eliminate excess of points
+/*
+* Filters possible points, this will help eliminate excess of points.
+*/
 function filterBridges(circlesCordinates) {
     let php_handler = "../../docs/js/map_resources/map_handler.php";
 
@@ -306,7 +311,10 @@ function bridges(circlesCordinates, filterBridges) {
     document.getElementById("poor_deck_area").value = bridgeData.deckArea_poor;
     document.getElementById("poor_bridge").value = bridgeData.poor;
 }
-//checks if given point belongs to given circle
+
+/*
+* Checks if given point belongs to given circle.
+*/
 function isInsideCircle(x, y, circlex, circley, r) {
     var dist = (x - circlex) * (x - circlex) + (y - circley) * (y - circley);
     r *= r;

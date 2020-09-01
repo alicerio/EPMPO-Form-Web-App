@@ -18,7 +18,6 @@
              shape_s[j] = polyCoordi;
          }
      } else { // Polygon parser
- 
          let new_poly = poly.slice(9, -2);
          new_poly = new_poly.split("),(");
          let len = new_poly.length;
@@ -38,15 +37,13 @@
      return shape_s;
  }
  
+ /**
+  * Formats the points.
+  */
  function wktFormatterPoint(point) {
-     // let name = point.slice(0,5);
-     // console.log(name);
      let shape_s = [];
-     // console.log(point);
      let new_point = point.slice(6, -2);
-     // console.log(new_point);
      new_point = new_point.split("),(");
-     //console.log(new_point);
      let len = new_point.length;
      for (var j = 0; j < len; j++) {
          let pointCoordi = [];
@@ -62,6 +59,7 @@
      }
      return shape_s;
  }
+
  // adds a hover effect on polygons(google api has not provided functionality for it)
  function injectTooltip(event, data) {
      if (!tipObj && event) {
@@ -90,13 +88,13 @@
          }
  
          if (coordPropName) {
-             //position it
-             tipObj.style.position = "fixed";
-             tipObj.style.top = event[coordPropName].clientY + window.scrollY + offset.y + "px";
-             tipObj.style.left = event[coordPropName].clientX + window.scrollX + offset.x + "px";
+            //position it
+            tipObj.style.position = "fixed";
+            tipObj.style.top = event[coordPropName].clientY + window.scrollY + offset.y + "px";
+            tipObj.style.left = event[coordPropName].clientX + window.scrollX + offset.x + "px";
  
-             //add it to the body
-             document.body.appendChild(tipObj);
+            //add it to the body
+            document.body.appendChild(tipObj);
          }
      }
  }
@@ -104,29 +102,30 @@
  // continues hover effect while moving within the polygon
  function moveTooltip(event) {
      if (tipObj && event && coordPropName) {
-         //position it
-         tipObj.style.top = event[coordPropName].clientY + window.scrollY + offset.y + "px";
-         tipObj.style.left = event[coordPropName].clientX + window.scrollX + offset.x + "px";
+        //position it
+        tipObj.style.top = event[coordPropName].clientY + window.scrollY + offset.y + "px";
+        tipObj.style.left = event[coordPropName].clientX + window.scrollX + offset.x + "px";
      }
  }
  
  // removes hover effect when exiting polygon
  function deleteTooltip(event) {
      if (tipObj) {
-         //delete the tooltip if it exists in the DOM
-         document.body.removeChild(tipObj);
-         tipObj = null;
+        //delete the tooltip if it exists in the DOM
+        document.body.removeChild(tipObj);
+        tipObj = null;
      }
  }
+
  //adds commas to numbers
  function commafy(num) {
-     var str = num.toString().split('.');
-     if (str[0].length >= 4) {
-         str[0] = str[0].replace(/(\d)(?=(\d{3})+$)/g, '$1,');
-     }
-     if (str[1] && str[1].length >= 4) {
-         str[1] = str[1].replace(/(\d{3})/g, '$1 ');
-     }
-     return str.join('.');
+    var str = num.toString().split('.');
+    if (str[0].length >= 4) {
+        str[0] = str[0].replace(/(\d)(?=(\d{3})+$)/g, '$1,');
+    }
+    if (str[1] && str[1].length >= 4) {
+        str[1] = str[1].replace(/(\d{3})/g, '$1 ');
+    }
+    return str.join('.');
  }
  

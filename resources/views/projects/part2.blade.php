@@ -125,7 +125,7 @@
                 <option value="5" {{ $temp == 5 ? 'selected' : '' }}>Major Collector</option>
                 <option value="6" {{ $temp == 6 ? 'selected' : '' }}>Minor Collector</option>
                 <option value="7" {{ $temp == 7 ? 'selected' : '' }}>Local</option>
-                <option value="8" {{ $temp == 8 ? 'selected' : '' }}>Other, specift</option>
+                <option value="8" {{ $temp == 8 ? 'selected' : '' }}>Other, specify</option>
                 <option value="9" {{ $temp == 9 ? 'selected' : '' }}>Not Federally Functional Classified</option>
             </select>
         </div>

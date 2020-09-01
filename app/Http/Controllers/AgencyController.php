@@ -7,6 +7,9 @@ use Illuminate\Http\Request;
 
 class AgencyController extends Controller
 {
+    /**
+     * Displays all of the agencies.
+     */
     public function index()
     {
         if(auth()->user()->type == 2){
@@ -17,11 +20,17 @@ class AgencyController extends Controller
         }
     }
 
+    /**
+     * Returns view to create a new agency.
+     */
     public function create()
     {
         return view('agencies.create');
     }
 
+    /**
+     * Stores a new agency in the database.
+     */
     public function store(Request $request)
     {
         request()->validate([
@@ -33,40 +42,6 @@ class AgencyController extends Controller
         $agency->save();
 
         return redirect(route('agencies.index'));
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Agency  $agency
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Agency $agency)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Agency  $agency
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Agency $agency)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Agency  $agency
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, Agency $agency)
-    {
-        //
     }
 
     /**

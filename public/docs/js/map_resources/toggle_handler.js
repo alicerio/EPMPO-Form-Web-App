@@ -1,4 +1,3 @@
-
 //existing
 $(document).ready(function() {
     $('#crashesSwitch').on('click', function(){

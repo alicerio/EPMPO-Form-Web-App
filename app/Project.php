@@ -35,17 +35,22 @@ class Project extends Model
         'funding_total_operations' => 'array'
     ];
 
+    /**
+     * Gathers all of the table columns from the database.
+     */
     public function getTableColumns() {
         $qry = "SELECT column_name
             FROM information_schema.columns
-            WHERE table_name = 'projects' # Do not edit this line.
+            WHERE table_name = 'projects'      # Do not edit this line.
             AND table_schema = 'mpo_forms'";   # Name of database. Change if necessary.
         $result = DB::select($qry);
         $result = $this->transposeData($result);
         return $result;
-
     }
 
+    /**
+     * Parses the data from the database into a format that can be downloadable.
+     */
     public function transposeData($data) {
         $result = array();
         foreach($data as $row => $columns){
@@ -56,11 +61,17 @@ class Project extends Model
         return $result;
     }
 
+    /**
+     * Gets the information of all of the projects.
+     */
     public function getAll(){
         return collect(DB::select('select * from'.$this->getTable()));
     }
 
-    public function getAll2($id) {
+    /**
+     * Gets the information of a specific project in order to download it to excel.
+     */
+    public function getProject($id) {
         return collect(DB::select('select * from '.$this->getTable(). ' where id = '.  $id));
     }
 }

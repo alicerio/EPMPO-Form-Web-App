@@ -4,6 +4,9 @@ use Illuminate\Database\Seeder;
 
 class UsersTableSeeder extends Seeder
 {
+    /**
+     * Seeds the admin user.
+     */
     public function run()
     {
         DB::table('users')->insert([
