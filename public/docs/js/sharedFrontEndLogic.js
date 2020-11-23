@@ -301,3 +301,37 @@ function bugFixDeleteRowStatusEdit(table_id, row_id) {
     // remove table 
     table.deleteRow(table.rows.length - 1);
 }
+
+function searchProject(column) {
+    var input, filter, table, tr, td, i, txtValue;
+    input = document.getElementById("input"+column);
+    filter = input.value.toUpperCase();
+    table = document.getElementById("project_table");
+    tr = table.getElementsByTagName("tr");
+    for (i = 0; i < tr.length; i++) {
+        td = tr[i].getElementsByTagName("td")[column];
+        if (td) {
+            txtValue = td.textContent || td.innerText;
+            if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                tr[i].style.display = "";
+            } else {
+                tr[i].style.display = "none";
+            }
+        }       
+    }
+
+    if(document.getElementById('input0').value != "") {
+        document.getElementById('input1').disabled = true;
+    }
+    else {
+        document.getElementById('input1').disabled = false;
+    }
+
+    if(document.getElementById('input1').value != "") {
+        document.getElementById('input0').disabled = true;
+    }
+    else {
+        document.getElementById('input0').disabled = false;
+    }
+    
+}

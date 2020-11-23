@@ -9,7 +9,9 @@
     <h2 class="text-center"><b>Projects</b></h2>
     <div class="row">
         <div class="col-md-4">
-            <input type="text" class="form-control" id="input" onkeyup="searchProject()" placeholder="Search for project name." title="Type in project name." size="10">
+            <input type="text" class="form-control" id="input0" onkeyup="searchProject(0)" placeholder="Search by Project name." title="Type in project name." size="10">
+            <br>
+            <input type="text" class="form-control" id="input1" onkeyup="searchProject(1)" placeholder="Search by agency." title="Type in project name." size="10">
         </div>
         <div class="col-md-12">
             <div class="dropdown">
@@ -124,24 +126,3 @@
 </div>
 @endsection
 @endif
-
-<script>
-    function searchProject() {
-        var input, filter, table, tr, td, i, txtValue;
-        input = document.getElementById("input");
-        filter = input.value.toUpperCase();
-        table = document.getElementById("project_table");
-        tr = table.getElementsByTagName("tr");
-        for (i = 0; i < tr.length; i++) {
-            td = tr[i].getElementsByTagName("td")[0];
-            if (td) {
-                txtValue = td.textContent || td.innerText;
-                if (txtValue.toUpperCase().indexOf(filter) > -1) {
-                    tr[i].style.display = "";
-                } else {
-                    tr[i].style.display = "none";
-                }
-            }       
-        }
-    }
-</script>
